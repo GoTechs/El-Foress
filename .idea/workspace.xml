@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="523ba1fc-2ac6-4b40-b090-4f98a2c617f4" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,10 +24,17 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_29_122837_create_foress_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
               <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+=======
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
             </state>
           </provider>
         </entry>
@@ -36,11 +47,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_29_122837_create_foress_table.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+=======
+        <option value="$PROJECT_DIR$/routes/web.php" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
       </list>
     </option>
   </component>
@@ -144,6 +159,7 @@
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -151,6 +167,15 @@
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
               <item name="storage" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="foress" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="foress" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foress" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
             </path>
           </expand>
           <select />
@@ -195,13 +220,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564337381031</updated>
+<<<<<<< HEAD
       <workItem from="1564337382192" duration="7613000" />
       <workItem from="1564409447284" duration="733000" />
+=======
+      <workItem from="1564337382192" duration="420000" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="8346000" />
+=======
+    <option name="totallyTimeSpent" value="420000" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -322,6 +355,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.styleci.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -332,5 +366,7 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
   </component>
 </project>
