@@ -26,58 +26,79 @@
               <h3>
                 Inscription
               </h3>
-              <form class="login-form" id="formValidation" method="post" action="">
-                <div class="form-group">
+              <form class="login-form" id="formValidation" method="post" action="/inscription">
+                @csrf
+                <div class="form-group {{ $errors->has('nom') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-user"></i>
-                    <input type="text" id="nomuser" class="form-control" name="nomuser" placeholder="Nom" required>
+                    <input type="text" id="nom" class="form-control" name="nom" placeholder="Nom" value="{{old('nom')}}">
                   </div>
-                </div> 
-                <div class="form-group">
+                  @error('nom')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="form-group {{ $errors->has('prenom') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-user"></i>
-                    <input type="text" id="prenomuser" class="form-control" name="prenomuser" placeholder="Prénom" required>
+                    <input type="text" id="prenom" class="form-control" name="prenom" placeholder="Prénom" value="{{old('prenom')}}">
                   </div>
-                </div> 
-                <div class="form-group">
+                  @error('prenom')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="form-group {{ $errors->has('adresse') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-envelope"></i>
-                    <input type="text" id="adresse" class="form-control" name="adresse" placeholder="Adresse">
+                    <input type="text" id="adresse" class="form-control" name="adresse" placeholder="Adresse" value="{{old('adresse')}}">
                   </div>
-                </div> 
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="icon fa fa-envelope"></i>
-                    <input type="email" id="email" class="form-control" name="email" placeholder="Adresse mail">
-                  </div>
-                </div> 
-                <div class="form-group">
+                  @error('adresse')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-phone"></i>
-                    <input type="text" id="phone" class="form-control" name="phone" placeholder="N° Téléphone">
+                    <input type="text" id="phone" class="form-control" name="phone" placeholder="N° Téléphone" value="{{old('phone')}}">
                   </div>
-                </div> 
-                <div class="form-group">
+                  @error('phone')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
+                  <div class="input-icon">
+                    <i class="icon fa fa-envelope"></i>
+                    <input  id="email" class="form-control" name="email" placeholder="Adresse mail" value="{{old('email')}}">
+                  </div>
+                  @error('email')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="form-group {{ $errors->has('username') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-user"></i>
-                    <input type="text" id="username" class="form-control" name="username" placeholder="Nom d'utilisateur" required>
+                    <input type="text" id="username" class="form-control" name="username" placeholder="Nom d'utilisateur" value="{{old('username')}}">
                   </div>
-                </div> 
-                <div class="form-group">
+                  @error('username')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-unlock-alt"></i>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" value="{{old('password')}}">
                   </div>
-                </div>  
-                <div class="form-group">
+                  @error('password')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="form-group {{ $errors->has('confirmPassword') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-unlock-alt"></i>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirmer Mot de passe" required>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirmer Mot de passe" value="{{old('confirmPassword')}}">
                   </div>
-                </div>                 
-                <div class="checkbox">
-                  <input type="checkbox" id="terms" name="terms" style="float: left;">
-                  <label for="remember">En créant un compte, vous acceptez nos conditions</label>
+                  @error('confirmPassword')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
                 </div>
                 <button class="btn btn-common log-btn" type="submit" name="addMember">Inscription</button>
               </form>

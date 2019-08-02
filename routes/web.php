@@ -15,16 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/connexion', function () {
-    return view('connexion');
-});
-
 Route::get('/contact', function () {
     return view('contact');
-});
-
-Route::get('/inscription', function () {
-    return view('inscription');
 });
 
 Route::get('/faq', function () {
@@ -42,5 +34,11 @@ Route::get('/categorie', function () {
 Route::get('/forgetPassword', function () {
     return view('mdp-oublier');
 });
+
+Route::get('/inscription','AuthController@create');
+Route::post('/inscription','AuthController@store');
+
+Route::get('/connexion','AuthController@connexion');
+Route::post('/connexion','AuthController@checklogin');
 
 
