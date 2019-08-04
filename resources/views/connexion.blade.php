@@ -40,7 +40,7 @@
                 <div class="form-group">
                   <div class="input-icon">
                     <i class="icon fa fa-user"></i>
-                    <input type="text" id="username" class="form-control" name="username" placeholder="Nom d'utilisateur" value="{{old('username')}}">
+                    <input type="text" id="username" class="form-control" name="username" placeholder="wafaa" value="{{old('username')}}">
                   </div>
                 </div> 
                 <div class="form-group">
