@@ -57,8 +57,14 @@ class AuthController extends Controller
         {
             return view('profil.home');
         } else {
-            return redirect('inscription');
+            return redirect()->back()->with('error', 'Nom d\'utilisateur ou mot de passe invalide.');
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/connexion');
     }
 
 }

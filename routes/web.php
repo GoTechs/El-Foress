@@ -35,10 +35,26 @@ Route::get('/forgetPassword', function () {
     return view('mdp-oublier');
 });
 
+Route::get('/home', function () {
+    return view('profil.home');
+});
+
+// Route for Authentication
+
 Route::get('/inscription','AuthController@create');
 Route::post('/inscription','AuthController@store');
 
 Route::get('/connexion','AuthController@connexion');
 Route::post('/connexion','AuthController@checklogin');
+
+Route::get('/logout','AuthController@logout');
+
+
+// Route to Profil
+
+Route::get('/home','ProfilController@home');
+Route::get('/myads','ProfilController@myads');
+Route::get('/favorites','ProfilController@favorits');
+Route::get('/archives','ProfilController@archives');
 
 
