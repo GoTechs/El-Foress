@@ -56,5 +56,15 @@ Route::get('/home','ProfilController@home');
 Route::get('/myads','ProfilController@myads');
 Route::get('/favorites','ProfilController@favorits');
 Route::get('/archives','ProfilController@archives');
+//Route::get('/addAd','ProfilController@create');
+Route::post('/addAd','ProfilController@store');
+
+// Dynamic dropDown Categorie And Sous categorie
+
+Route::get('/addAd','categorieController@categories');
+
+Route::get('/json-sousCategorie','categorieController@sousCat');
+
+
 
 

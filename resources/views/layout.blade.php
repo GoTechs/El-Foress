@@ -62,7 +62,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @auth
                         <li class="postadd">
-                            <a class="btn btn-danger btn-post" href="/ajouter-annonce"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
+                            <a class="btn btn-danger btn-post" href="/addAd"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
                         </li>
                     @else
                         <li><a href="/connexion"><i class="lnr lnr-enter"></i> Connexion</a></li>

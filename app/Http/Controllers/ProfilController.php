@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class ProfilController extends Controller
 {
@@ -20,5 +19,13 @@ class ProfilController extends Controller
 
     public function archives(){
         return view('profil.archives');
+    }
+
+    public function create(){
+        return view('profil.addAd');
+    }
+
+    public function store(){
+
     }
 }

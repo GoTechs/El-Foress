@@ -5,22 +5,35 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>Foress -  Notre mission vous simplifier la vie </title>
-  <link href="assets/img/favicon.png" rel="shortcut icon"><!-- Bootstrap CSS -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"><!-- Material CSS -->
-  <link href="assets/css/material-kit.css" rel="stylesheet" type="text/css"><!-- Font Awesome CSS -->
-  <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"><!-- Line Icons CSS -->
-  <link href="assets/fonts/line-icons/line-icons.css" rel="stylesheet" type="text/css"><!-- Line Icons CSS -->
-  <link href="assets/fonts/line-icons/line-icons.css" rel="stylesheet" type="text/css"><!-- Main Styles -->
-  <link href="assets/css/main.css" rel="stylesheet" type="text/css"><!-- Animate CSS -->
-  <link href="assets/extras/animate.css" rel="stylesheet" type="text/css"><!-- Owl Carousel -->
-  <link href="assets/extras/owl.carousel.css" rel="stylesheet" type="text/css">
-  <link href="assets/extras/owl.theme.css" rel="stylesheet" type="text/css">
-  <link href="assets/extras/settings.css" rel="stylesheet" type="text/css"><!-- Responsive CSS Styles -->
-  <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"><!-- Bootstrap Select -->
-  <link href="assets/css/bootstrap-select.min.css" rel="stylesheet"><!-- File Input -->
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
+    <!-- Material CSS -->
+    <link rel="stylesheet" href="{{asset('css/material-kit.css')}}" type="text/css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css">
+    <!-- Line Icons CSS -->
+    <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
+    <!-- Line Icons CSS -->
+    <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{{asset('css/extras/animate.css')}}" type="text/css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="{{asset('css/extras/owl.carousel.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/extras/owl.theme.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/extras/settings.css')}}" type="text/css">
+    <!-- Responsive CSS Styles -->
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css">
+    <!-- Slicknav js -->
+    <link rel="stylesheet" href="{{asset('css/slicknav.css')}}" type="text/css">
+    <!-- Bootstrap Select -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+
 </head>
 <body data-ng-controller="poste-controller">
   <!-- Header Section Start -->
@@ -30,19 +43,16 @@
         <div class="navbar-header">
           <!-- Stat Toggle Nav Link For Mobiles -->
            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <!-- End Toggle Nav Link For Mobiles -->
-           <a class="navbar-brand logo" href="index.php"><img alt="" src="assets/img/logo.png"></a>
+           <a class="navbar-brand logo" href=""><img alt="" src="{{asset('img/Capture.PNG')}}"></a>
         </div><!-- brand and toggle menu for mobile End -->
         <!-- Navbar Start -->
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="connexion.php"><i class="lnr lnr-enter"></i> Connexion</a>
-            </li>
-            <li>
-              <a href="inscription.php"><i class="lnr lnr-user"></i> Inscription</a>
+              <a href="/home"><i class="fa fa-home"></i> Accueil</a>
             </li>
             <li class="postadd">
-              <a class="btn btn-danger btn-post" href="ajouter-annonce.php"><span class="fa fa-plus-circle"></span> Poster une annonce</a>
+              <a class="btn btn-danger btn-post" href="/addAd"><span class="fa fa-plus-circle"></span> Poster une annonce</a>
             </li>
           </ul>
         </div><!-- Navbar End -->
@@ -74,23 +84,15 @@
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
             <div class="row search-bar mb30 red-bg">
               <div class="advanced-search">
-                <form class="search-form" method="post" action="insertadds.php">
+                <form class="search-form" method="post" action="">
+                    @csrf
                   <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
-                        <select class="form-control" onchange="loadSousCat(this.value)" id="categorie" name="categorie" required>
+                        <select class="form-control"  id="categorie" name="categorie" required>
                             <option value="0">Catégories</option>
-                            <?php
-                                $selectCat = "SELECT * FROM categories";
-                                $result = $conn->query($selectCat);
-
-                                if ($result->num_rows > 0) {
-                                    
-                                    while($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['idCat']."'>".$row['nomCategorie']."</option>";
-                                    }
-                                } 
-                            
-                            ?>
+                            @foreach ($categorie as $key => $value)
+                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                            @endforeach
                         </select>
                  </div>
                   </div>
@@ -212,7 +214,30 @@
             <label class="control-label" for="textarea">Marque</label>
             <input class="form-control" name="marqueStockage" type="text">
           </div>
+          <div class="form-group">
+              <label class="control-label" for="textarea">Capacité (Go)</label>
+              <input class="form-control" name="capaciteStock" type="text">
           </div>
+          </div>
+
+<!-- ********************************************* EVENEMENT ********************************************************************** -->
+
+            <div class="mb30"></div>
+            <div class="box details" id="event">
+                <h2 class="title-2">Détails de l'annonce</h2>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Date et heure de l'événement</label>
+                    <input class="form-control" name="datetimeEvent" type="datetime-local">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Du</label>
+                    <input class="form-control" name="du" type="date">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Au</label>
+                    <input class="form-control" name="au" type="date">
+                </div>
+            </div>
             
 <!-- ********************************************* ORDINATEURS ********************************************************************** -->
             
@@ -258,14 +283,149 @@
             <input class="form-control" name="tailleDisque" type="text">
           </div>
           </div>
-            
+
+<!-- ********************************************* Offres d'emploi ********************************************************************** -->
+
+            <div class="mb30"></div>
+            <div class="box details" id="offresEmploi">
+                <h2 class="title-2">Détails de l'annonce</h2>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Domaine d'emploi</label>
+                    <select class="form-control" name="marqueOrd" required>
+                        <option value="">Sélectionner</option>
+                        <option>Assistanat, secrétariat</option>
+                        <option>Comptabilité, Finance</option>
+                        <option>Banque et assurances</option>
+                        <option>Juridique, Fiscal, Audit, Conseil</option>
+                        <option>RH, personnel, formation</option>
+                        <option>Education, Enseignement</option>
+                        <option>Commercial, Technico Commercial, Service client</option>
+                        <option>Marketing, Communication</option>
+                        <option>Journalisme, Médias, Traduction</option>
+                        <option>Informatique, Systèmes d'information, Réseaux</option>
+                        <option>Chantier, Métiers BTP, Architecture</option>
+                        <option>Santé, Médical, Pharmacie</option>
+                        <option>Hôtellerie, Tourisme, Restauration, Loisirs</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Entreprise</label>
+                    <input class="form-control" name="entreprise" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Adresse</label>
+                    <input class="form-control" name="adresse" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Poste</label>
+                    <input class="form-control" name="poste" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Salaire</label>
+                    <input class="form-control" name="salaire" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Diplôme requis</label>
+                    <input class="form-control" name="diplomeRequis" type="text">
+                </div>
+            </div>
+
+ <!-- ********************************************* Demandes d'emploi ********************************************************************** -->
+
+            <div class="mb30"></div>
+            <div class="box details" id="demandesEmploi">
+                <h2 class="title-2">Détails de l'annonce</h2>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Femme </label><br>
+                        <label><input type="checkbox"> Homme </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Domaine d'emploi</label>
+                    <select class="form-control" name="marqueOrd" required>
+                        <option value="">Sélectionner</option>
+                        <option>Assistanat, secrétariat</option>
+                        <option>Comptabilité, Finance</option>
+                        <option>Banque et assurances</option>
+                        <option>Juridique, Fiscal, Audit, Conseil</option>
+                        <option>RH, personnel, formation</option>
+                        <option>Education, Enseignement</option>
+                        <option>Commercial, Technico Commercial, Service client</option>
+                        <option>Marketing, Communication</option>
+                        <option>Journalisme, Médias, Traduction</option>
+                        <option>Informatique, Systèmes d'information, Réseaux</option>
+                        <option>Chantier, Métiers BTP, Architecture</option>
+                        <option>Santé, Médical, Pharmacie</option>
+                        <option>Hôtellerie, Tourisme, Restauration, Loisirs</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Âge</label>
+                    <input class="form-control" name="age" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Poste</label>
+                    <input class="form-control" name="poste" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Niveau d'éducation</label>
+                    <input class="form-control" name="niveauEducation" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Diplôme</label>
+                    <input class="form-control" name="diplome" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Année d'expérience</label>
+                    <input class="form-control" name="anneExp" type="text">
+                </div>
+            </div>
+
+<!-- ********************************************* Immobilier ********************************************************************** -->
+
+            <div class="mb30"></div>
+            <div class="box details" id="immobilier">
+                <h2 class="title-2">Détails de l'annonce</h2>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Type du Bien</label>
+                    <select class="form-control" name="typeBien" required>
+                        <option value="">Sélectionner</option>
+                        <option>Appartement</option>
+                        <option>Studio</option>
+                        <option>Villa</option>
+                        <option>Local</option>
+                        <option>Terrain</option>
+                        <option>Carcasse</option>
+                        <option>Usine</option>
+                        <option>Immeuble</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Superficie</label>
+                    <input class="form-control" name="superficie" type="text" placeholder="En M²">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Nombre de pièces</label>
+                    <input class="form-control" name="nbrePiece" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Étage</label>
+                    <input class="form-control" name="etage" type="text">
+                </div>
+            </div>
+
 <!-- ********************************************* INFO COMMUNE ********************************************************************** -->
             
           <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Prix</h2>
           <div class="form-group">
-            <label class="control-label" for="textarea">Prix</label> <input class="form-control" placeholder="Prix en DA" name="prix" id="prix" type="text">
+            <label class="control-label" for="textarea">Prix</label>
+              <input class="form-control" placeholder="Prix en DA" name="prix" id="prix" type="number">
           </div>
           </div>
             
@@ -273,10 +433,12 @@
           <div class="box">
           <h2 class="title-2">Coordonnées</h2>
           <div class="form-group">
-            <label class="control-label" for="textarea">E-mail</label> <input class="form-control" placeholder="Votre E-mail" name="email" id="email" type="text">
+            <label class="control-label" for="textarea">E-mail</label>
+              <input class="form-control" placeholder="Votre E-mail" name="email" id="email" type="text">
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Numéro de téléphone</label> <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" id="phone" type="text">
+            <label class="control-label" for="textarea">Numéro de téléphone</label>
+              <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" type="text">
             <div class="checkbox">
               <label><input type="checkbox"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
             </div>
@@ -356,42 +518,42 @@
     					<div class="widget">
     						<h3 class="block-title">récemment ajoutés</h3>
                 <ul class="featured-list">
-                  <li>
-                    <img alt="" src="assets/img/featured/img1.jpg">
-                    <div class="hover">
-                      <a href="#"><span>$49</span></a>
-                    </div>
-                  </li>
-                  <li>
-                    <img alt="" src="assets/img/featured/img2.jpg">
-                    <div class="hover">
-                      <a href="#"><span>$49</span></a>
-                    </div>
-                  </li>
-                  <li>
-                    <img alt="" src="assets/img/featured/img3.jpg">
-                    <div class="hover">
-                      <a href="#"><span>$49</span></a>
-                    </div>
-                  </li>
-                  <li>
-                    <img alt="" src="assets/img/featured/img4.jpg">
-                    <div class="hover">
-                      <a href="#"><span>$49</span></a>
-                    </div>
-                  </li>
-                  <li>
-                    <img alt="" src="assets/img/featured/img5.jpg">
-                    <div class="hover">
-                      <a href="#"><span>$49</span></a>
-                    </div>
-                  </li>
-                  <li>
-                    <img alt="" src="assets/img/featured/img6.jpg">
-                    <div class="hover">
-                      <a href="#"><span>$49</span></a>
-                    </div>
-                  </li>
+                    <li>
+                        <img alt="" src="{{asset('img/featured/img1.jpg')}}">
+                        <div class="hover">
+                            <a href="#"><span>$49</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img alt="" src="{{asset('img/featured/img2.jpg')}}">
+                        <div class="hover">
+                            <a href="#"><span>$49</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img alt="" src="{{asset('img/featured/img3.jpg')}}">
+                        <div class="hover">
+                            <a href="#"><span>$49</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img alt="" src="{{asset('img/featured/img4.jpg')}}">
+                        <div class="hover">
+                            <a href="#"><span>$49</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img alt="" src="{{asset('img/featured/img5.jpg')}}">
+                        <div class="hover">
+                            <a href="#"><span>$49</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img alt="" src="{{asset('img/featured/img6.jpg')}}">
+                        <div class="hover">
+                            <a href="#"><span>$49</span></a>
+                        </div>
+                    </li>
                 </ul>
     					</div>
     				</div>
@@ -427,43 +589,21 @@
     <a href="#" class="back-to-top">
       <i class="fa fa-angle-up"></i>
     </a>
-<!-- Main JS  -->
+      <!-- Main JS  -->
+      <script type="text/javascript" src="{{asset('js/jquery-min.js')}}"></script>
+      <script src="{{asset('https://code.jquery.com/ui/1.12.1/jquery-ui.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/material.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/material-kit.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/jquery.parallax.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/wow.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/jquery.counterup.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/jasny-bootstrap.min.js')}}"></script>
+      <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
 
-  <script src="assets/js/jquery-min.js" type="text/javascript">
-  </script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="assets/js/bootstrap.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/material.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/material-kit.js" type="text/javascript">
-  </script>
-  <script src="assets/js/jquery.parallax.js" type="text/javascript">
-  </script>
-  <script src="assets/js/owl.carousel.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/wow.js" type="text/javascript">
-  </script>
-  <script src="assets/js/main.js" type="text/javascript">
-  </script>
-  <script src="assets/js/jquery.counterup.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/waypoints.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/jasny-bootstrap.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/form-validator.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/contact-form-script.js" type="text/javascript">
-  </script>
-  <script src="assets/js/jquery.themepunch.revolution.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/jquery.themepunch.tools.min.js" type="text/javascript">
-  </script>
-  <script src="assets/js/bootstrap-select.min.js">
-  </script>
-  <script src="assets/js/fileinput.js">
-  </script>
       <script>
           
           $(document).ready(function() {
@@ -471,12 +611,12 @@
 
             });
           
-          function field(){
+         function field(){
               
               var nameSousCat;             
               var categorie = $( "#categorie option:selected" ).text();
               
-              if (categorie == "Animaux" || categorie == "Services" || categorie == "Communauté" || categorie == "Emplois" || categorie == "Voyages"){
+              if (categorie == "Animaux" || categorie == "Services" || categorie == "Voyages"){
                   
                 nameSousCat = "hideState";
                   
@@ -499,24 +639,48 @@
                 case "Bus":
                 case "Bateaux":
                     $('#vehicule, .state').show();    
-                    $('#phone, #stockage, #ordinateurs').hide();    
+                    $('#phone, #stockage, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
                     break;
                       
                 case "Téléphones":
                     $('#phone, .state').show();
-                    $('#vehicule, #stockage, #ordinateurs').hide();
+                    $('#vehicule, #stockage, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
                     break;
                       
                 case "Stockage":
                     $('#stockage, .state').show();
-                    $('#vehicule, #phone, #ordinateurs').hide();
+                    $('#vehicule, #phone, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
                     break;
                       
                 case "Ordinateurs":
                     $('#ordinateurs, .state').show();
-                    $('#vehicule, #stockage, #phone').hide();
+                    $('#vehicule, #stockage, #phone, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
                     break;
-                      
+
+                case "Offres d'emploi":
+                    $('#offresEmploi').show();
+                    $('#vehicule, #stockage, #phone, .state, #ordinateurs, #demandesEmploi, #immobilier, #event').hide();
+                    break;
+
+                 case "Demandes d'emploi":
+                      $('#demandesEmploi').show();
+                      $('#vehicule, #stockage, #phone, .state, #ordinateurs, #offresEmploi, #immobilier, #event').hide();
+                      break;
+
+                 case "Événements":
+                      $('#event').show();
+                      $('#vehicule, #stockage, #phone, .state, #ordinateurs, #offresEmploi, #immobilier, #demandesEmploi').hide();
+                      break;
+
+                 case "Vente":
+                 case "Cherche Achat":
+                 case "Location":
+                 case "Cherche Location":
+                      $('#immobilier, .state').show();
+                      $('#vehicule, #stockage, #phone, #ordinateurs, #offresEmploi, #demandesEmploi, #event').hide();
+                      break;
+
+
                 case "hideState":
                     $('.state').hide();
                     $('.details').hide();
@@ -528,45 +692,26 @@
                       $('.state').show();
                     break;
               }
-              
+
           }
-          
-          function loadSousCat(enterCat){	
-            var idCategorie = enterCat;
-                $.ajax({ 
-                    url: 'upload.php?idCategorie='+idCategorie, 
-                    success: function(data){
-                        var dataSplit = data.split("-%-");
 
-                        var select = document.getElementById("sousCat");
+       // Load Sous catégorie from catégorir
 
-                        $('#sousCat').empty();
+          $('#categorie').on('change', function(e){
+              var cat_id = e.target.value;
+              $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
 
-                        var Option = document.createElement("OPTION");
-                        newOption = document.createTextNode("Sous Catégories");
+                  $('#sousCat').empty();
+                  $('#sousCat').append('<option value="0" disable="true" selected="true">Sous Catégories</option>');
 
-                        Option.appendChild(newOption);
-                        Option.setAttribute("value","0");
-                        select.insertBefore(Option,select.firstChild);
+                  $.each(data, function(index, sousCatObj){
+                      $('#sousCat').append('<option value="'+ sousCatObj.idSousCat +'">'+ sousCatObj.sousCat +'</option>');
+                  })
+              });
+          });
 
-                        for(var i = 0; i < dataSplit.length; i++) {
-                            
-                            var spliting = dataSplit[i].split("-");
-                            var IDsousCat = spliting[0];
-                            var sousCat = spliting[1];
-                            
-                            var Option = document.createElement("OPTION");
-                            newOption = document.createTextNode(sousCat);
 
-                            Option.appendChild(newOption);
-                            Option.setAttribute("value",IDsousCat);
-                            select.insertBefore(Option,select.lastChild);
-                        }
-                    }
-                });
-            }
-          
-          
+
           $( function() {
             var wilaya = [
                 "ADRAR","AIN DEFLA","AIN TEMOUCHENT","AL TARF","ALGER","ANNABA","B.B.ARRERIDJ","BATNA","BECHAR","BEJAIA",           "BISKRA","BLIDA","BOUIRA","BOUMERDES","CHLEF","CONSTANTINE","DJELFA","EL BAYADH","EL OUED","GHARDAIA",             "GUELMA","ILLIZI","JIJEL","KHENCHELA","LAGHOUAT","MASCARA","MEDEA","MILA","MOSTAGANEM","M’SILA","NAAMA",               "ORAN","OUARGLA","OUM ELBOUAGHI","RELIZANE","SAIDA","SETIF","SIDI BEL ABBES","SKIKDA","SOUKAHRAS",               "TAMANGHASSET","TEBESSA","TIARET","TINDOUF","TIPAZA","TISSEMSILT","TIZI.OUZOU","TLEMCEN"
