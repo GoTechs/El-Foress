@@ -65,6 +65,11 @@ Route::get('/addAd','categorieController@categories');
 
 Route::get('/json-sousCategorie','categorieController@sousCat');
 
+// Insert Ad
+
+Route::post('/insertAd','insertAdController@store');
+
+
 
 
 

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
     <!-- Material CSS -->
-    <link rel="stylesheet" href="{{asset('css/material-kit.css')}}" type="text/css">
+
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css">
     <!-- Line Icons CSS -->
@@ -81,10 +81,20 @@
       <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
           <div class="page-ads box">
+              @if (count($errors) > 0)
+                  <div class="alert alert-danger">
+                      <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
             <div class="row search-bar mb30 red-bg">
               <div class="advanced-search">
-                <form class="search-form" method="post" action="">
+                <form class="search-form" method="post" action="/insertAd" enctype="multipart/form-data">
                     @csrf
                   <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
@@ -111,11 +121,12 @@
                     </div>
                   </div>
 
-                </form>
+
               </div>
             </div><!-- End Search box -->            
               <div class="form-group mb30">
-                <label class="control-label">Titre de l'annonce</label> <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" required="" type="text">
+                <label class="control-label">Titre de l'annonce</label>
+                  <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" required="" type="text">
               </div>
               <div class="form-group state">
                 <label class="control-label" for="textarea">État</label> 
@@ -142,8 +153,8 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <div class="checkbox">
-                <label><input type="checkbox"> Je vends </label><br>
-                <label><input type="checkbox"> Je recherche </label>
+                <label><input type="checkbox" name="vente" value="selling"> Je vends </label><br>
+                <label><input type="checkbox" name="vente" value="searching"> Je recherche </label>
               </div>
           </div>
           <div class="form-group">
@@ -177,7 +188,7 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
-            <select class="form-control" name="marquePhone" required>
+            <select class="form-control" name="marquePhone">
                     <option value="">Sélectionner</option>
                     <option>Apple</option>
                     <option>BlackBerry</option>
@@ -191,7 +202,7 @@
                 </select>
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" placeholder="" type="text">
+            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modelePhone" type="text">
           </div>
           </div>
             
@@ -202,7 +213,7 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Type</label>
-            <select class="form-control" name="typeStockage" required>
+            <select class="form-control" name="typeStockage">
                     <option value="">Sélectionner</option>
                     <option>Flash disque</option>
                     <option>Disque dur externe</option>
@@ -246,7 +257,7 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
-            <select class="form-control" name="marqueOrd" required>
+            <select class="form-control" name="marqueOrd">
                     <option value="">Sélectionner</option>
                     <option>Acer</option>
                     <option>Apple</option>
@@ -262,7 +273,7 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Taille de l'écran</label>
-            <select class="form-control" name="tailleOrd" required>
+            <select class="form-control" name="tailleOrd">
                     <option value="">Sélectionner</option>
                     <option>14 po ou moins</option>
                     <option>15 po</option>
@@ -291,7 +302,7 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Domaine d'emploi</label>
-                    <select class="form-control" name="marqueOrd" required>
+                    <select class="form-control" name="domaineOffre">
                         <option value="">Sélectionner</option>
                         <option>Assistanat, secrétariat</option>
                         <option>Comptabilité, Finance</option>
@@ -319,7 +330,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Poste</label>
-                    <input class="form-control" name="poste" type="text">
+                    <input class="form-control" name="posteOffre" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Salaire</label>
@@ -338,13 +349,13 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <div class="checkbox">
-                        <label><input type="checkbox"> Femme </label><br>
-                        <label><input type="checkbox"> Homme </label>
+                        <label><input type="checkbox" value="Femme" name="sexe"> Femme </label><br>
+                        <label><input type="checkbox" value="Homme" name="sexe"> Homme </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Domaine d'emploi</label>
-                    <select class="form-control" name="marqueOrd" required>
+                    <select class="form-control" name="domaineDemande">
                         <option value="">Sélectionner</option>
                         <option>Assistanat, secrétariat</option>
                         <option>Comptabilité, Finance</option>
@@ -368,7 +379,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Poste</label>
-                    <input class="form-control" name="poste" type="text">
+                    <input class="form-control" name="posteDemande" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Niveau d'éducation</label>
@@ -376,7 +387,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Diplôme</label>
-                    <input class="form-control" name="diplome" type="text">
+                    <input class="form-control" name="diplomeDemande" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Année d'expérience</label>
@@ -391,7 +402,7 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Type du Bien</label>
-                    <select class="form-control" name="typeBien" required>
+                    <select class="form-control" name="typeBien">
                         <option value="">Sélectionner</option>
                         <option>Appartement</option>
                         <option>Studio</option>
@@ -440,7 +451,9 @@
             <label class="control-label" for="textarea">Numéro de téléphone</label>
               <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" type="text">
             <div class="checkbox">
-              <label><input type="checkbox"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
+              <label>
+                  <input type="hidden" name="phoneHide" value="0" />
+                  <input type="checkbox" value="1" name="phoneHide"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
             </div>
             </div>
           </div>
@@ -448,7 +461,8 @@
           <div class="box">
           <h2 class="title-2">Média</h2>
           <div class="form-group">
-            <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur votre annonce</label> <input class="form-control" name="fileToUpload[]" type="file" multiple> <br>
+            <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur votre annonce</label>
+              <input class="form-control" name="fileToUpload[]" type="file" multiple > <br>
           </div>
           </div>
           <div class="mb30"></div>
@@ -461,6 +475,7 @@
             </div>
           </div>
         </div>
+      </form>
       </div>
     </div>
   </section><!-- Content section End -->

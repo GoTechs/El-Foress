@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class adCar extends Model
+class imagead extends Model
 {
-    protected $table = 'ad_cars';
+    protected $table = 'imageads';
 
     protected $guarded = [];
 }
