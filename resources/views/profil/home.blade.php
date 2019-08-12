@@ -16,7 +16,7 @@
                 <div aria-expanded="true" id="myclassified" class="panel-collapse collapse in">
                   <ul class="acc-list">
                     <li class="active">
-                      <a href="/home"><i class="fa fa-home"></i> sarra </a>
+                      <a href="/home"><i class="fa fa-home"></i> {{Auth::user()->username}} </a>
                     </li>
                   </ul>
                 </div>
@@ -59,12 +59,12 @@
       <div class="col-sm-9 page-content">
         <div class="inner-box">
           <div class="usearadmin">
-            <h3><a href="#"><img class="userimg" src="{{asset('img/user.jpg')}}" alt=""> sarra</a></h3>
+            <h3><a href="#"><img class="userimg" src="{{asset('img/picto-user.png')}}" alt=""> {{Auth::user()->username}}</a></h3>
           </div>
         </div>
         <div class="inner-box">
           <div class="welcome-msg">
-            <h3 class="page-sub-header2 clearfix no-padding">Bonjour sarra </h3>
+
             <span class="page-sub-header-sub small">Dernier accès au Web le: 01-03-2017 à 02:55 PM</span>
           </div>
           <div id="accordion" class="panel-group">
@@ -77,23 +77,23 @@
                   <form role="form">
                     <div class="form-group">
                       <label class="control-label">Nom</label>
-                      <input class="form-control" placeholder="sarra" type="text">
+                      <input class="form-control" placeholder="{{Auth::user()->nom}}" type="text">
                     </div>
                     <div class="form-group">
                       <label class="control-label">Prénom</label>
-                      <input class="form-control" placeholder="" type="text">
+                      <input class="form-control" placeholder="{{Auth::user()->prenom}}" type="text">
                     </div>
                     <div class="form-group">
                       <label class="control-label">Email</label>
-                      <input class="form-control" placeholder="" type="email">
+                      <input class="form-control" placeholder="{{Auth::user()->email}}" type="email">
                     </div>
                     <div class="form-group">
                       <label class="control-label">Adresse</label>
-                      <input class="form-control" placeholder="" type="text">
+                      <input class="form-control" placeholder="{{Auth::user()->adresse}}" type="text">
                     </div>
                     <div class="form-group">
                       <label for="Phone" class="control-label">Numéro de téléphone</label>
-                      <input class="form-control" id="Phone" placeholder="" type="text">
+                      <input class="form-control" id="Phone" placeholder="{{Auth::user()->phone}}" type="text">
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-common">Modifier</button>

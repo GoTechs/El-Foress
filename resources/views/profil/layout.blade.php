@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" type="text/css">
     <!-- Material CSS -->
     <link rel="stylesheet" href="{{asset('css/material-kit.css')}}" type="text/css">
     <!-- Font Awesome CSS -->
@@ -232,6 +233,8 @@
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.revolution.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
+<script type="text/javascript"  src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"  src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 </body>
 </html>

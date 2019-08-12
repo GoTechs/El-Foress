@@ -78,7 +78,8 @@
                     </div>
                   </div>
                 </div>
-                <table class="table table-striped table-bordered add-manage-table">
+                <table id="example" class="table table-striped table-bordered add-manage-table" style="width:100%">
+
                   <thead>
                     <tr>
                       <th data-type="numeric"></th>
@@ -240,3 +241,11 @@
     <!-- End Content -->
 
           @endsection
+
+          <script>
+
+            $(document).ready(function() {
+              $('#example').DataTable();
+            } );
+
+          </script>

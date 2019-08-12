@@ -51,8 +51,8 @@
             <li>
               <a href="/home"><i class="fa fa-home"></i> Accueil</a>
             </li>
-            <li class="postadd">
-              <a class="btn btn-danger btn-post" href="/addAd"><span class="fa fa-plus-circle"></span> Poster une annonce</a>
+            <li>
+                <a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a>
             </li>
           </ul>
         </div><!-- Navbar End -->
@@ -65,11 +65,11 @@
       </div>
       <h3 class="title-menu">Menu</h3>
           <ul class="nav navmenu-nav"> <!--- Menu -->
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="Apropos.php">À Propos</a></li>
-            <li><a href="categorie.php">Catégorie</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="faq.php">Faq</a></li>
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/Apropos">À Propos</a></li>
+              <li><a href="/categorie">Catégorie</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/faq">Faq</a></li>
         </ul><!--- End Menu -->
       </div> <!--- End Off Canvas Side Menu -->
       <div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
@@ -498,14 +498,14 @@
     					<div class="widget">
     						<h3 class="block-title">Liens Utiles</h3>
   							<ul class="menu">
-                  <li><a href="index.php">Accueil</a></li>
-                  <li><a href="contact.php">Contact</a></li>
-                  <li><a href="Apropos.php">À Propos</a></li>
-                  <li><a href="connexion.php">Connexion</a></li>
-                  <li><a href="categorie.php">Catégories</a></li>
-                  <li><a href="inscription.php">Inscription</a></li>
-                  <li><a href="faq.php">FAQ</a></li>
-                </ul>
+                                <li><a href="/">Accueil</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                                <li><a href="/Apropos">À Propos</a></li>
+                                <li><a href="/connexion">Connexion</a></li>
+                                <li><a href="/categorie">Catégories</a></li>
+                                <li><a href="/inscription">Inscription</a></li>
+                                <li><a href="/faq">FAQ</a></li>
+                             </ul>
     					</div>
     				</div>
                     <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">

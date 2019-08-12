@@ -61,12 +61,17 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     @auth
+                        <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
+                        <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                         <li class="postadd">
                             <a class="btn btn-danger btn-post" href="/addAd"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
                         </li>
                     @else
-                        <li><a href="/connexion"><i class="lnr lnr-enter"></i> Connexion</a></li>
-                        <li><a href="/inscription"><i class="lnr lnr-user"></i> Inscription</a></li>
+                        <li><a href="/connexion"><i class="fa fa-sign-in"></i> Connexion</a></li>
+                        <li><a href="/inscription"><i class="fa fa-user"></i> Inscription</a></li>
+                        <li class="postadd">
+                            <a class="btn btn-danger btn-post" href="/connexion"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
+                        </li>
                     @endauth
                 </ul>
             </div>
