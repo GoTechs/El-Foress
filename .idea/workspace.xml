@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16ab37a0-0c9d-4b6f-a600-a55101cd8e90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profil/archives.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profil/archives.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profil/favorits.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profil/favorits.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profil/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profil/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,15 +35,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="55" column="37" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfilController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,15 +74,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/insertAdController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" selection-start-line="6" selection-end-line="17" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -105,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/profil/myads.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="250" column="19" selection-start-line="250" selection-start-column="19" selection-end-line="250" selection-end-column="19" />
+            <state relative-caret-position="260">
+              <caret line="55" column="28" lean-forward="true" selection-start-line="50" selection-start-column="22" selection-end-line="55" selection-end-column="28" />
               <folding>
                 <element signature="e#4349#4367#0#HTML" expanded="true" />
               </folding>
@@ -115,10 +100,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/profil/layout.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/profil/archives.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="237" selection-start-line="237" selection-end-line="237" />
+            <state relative-caret-position="175">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/profil/favorits.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/profil/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -145,6 +148,7 @@
       <find>&lt;form</find>
       <find>checkAll</find>
       <find>example</find>
+      <find>publi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,12 +195,14 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/insertAdController.php" />
         <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profil/addAd.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profil/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profil/layout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profil/myads.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfilController.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
+        <option value="$PROJECT_DIR$/resources/views/profil/myads.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/profil/archives.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/profil/favorits.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/profil/home.blade.php" />
       </list>
     </option>
   </component>
@@ -308,13 +314,20 @@
             <path>
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foress" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="profil" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -366,12 +379,12 @@
       <option name="presentableId" value="Default" />
       <updated>1564337381031</updated>
       <workItem from="1564337382192" duration="742000" />
-      <workItem from="1565270620776" duration="40856000" />
+      <workItem from="1565270620776" duration="41535000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96035000" />
+    <option name="totallyTimeSpent" value="96714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -436,8 +449,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_07_155521_create_sous_categories_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_07_154435_create_categories_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_07_162522_create_categories_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -712,27 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profil/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="95" column="95" selection-start-line="95" selection-start-column="95" selection-end-line="95" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profil/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="237" selection-start-line="237" selection-end-line="237" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profil/myads.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="250" column="19" selection-start-line="250" selection-start-column="19" selection-end-line="250" selection-end-column="19" />
-          <folding>
-            <element signature="e#4349#4367#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,6 +783,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profil/myads.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="55" column="28" lean-forward="true" selection-start-line="50" selection-start-column="22" selection-end-line="55" selection-end-column="28" />
+          <folding>
+            <element signature="e#4349#4367#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profil/archives.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profil/favorits.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profil/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

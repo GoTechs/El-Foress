@@ -49,12 +49,7 @@
                   </div>
                 </div>
               </div>
-              <div class="inner-box">
-                <div class="widget-title">
-                  <h4>On dépose les publicité</h4>
-                </div>
-                <img src="{{asset('img/img1.jpg')}}" alt="">
-              </div>
+
             </aside>
           </div>
           <div class="col-sm-9 page-content">
