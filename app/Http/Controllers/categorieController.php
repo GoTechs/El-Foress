@@ -17,6 +17,6 @@ class categorieController extends Controller
     public function sousCat(){
         $cat_id = Input::get('idCat');
         $sousCategorie = souscategories::where('id_Cat', '=', $cat_id)->get();
-       print_r(response()->json($sousCategorie));
+       print_r(response());
     }
 }
