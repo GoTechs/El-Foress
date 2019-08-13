@@ -98,7 +98,7 @@
                     @csrf
                   <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
-                        <select class="form-control"  name="categorie" required>
+                        <select class="form-control"  id="categorie" name="categorie" required>
                             <option value="0">Catégories</option>
                             @foreach ($categorie as $key => $value)
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
@@ -110,9 +110,6 @@
                     <div class="input-group-addon search-category-container">
                       <select class="form-control" id="sousCat" name="sousCat" onchange="field()" required>
                          <option value="0">Sous Catégories</option>
-                          @foreach ($souscategorie as $key => $value)
-                              <option value="">{{ $value->sousCat }}</option>
-                          @endforeach
                       </select>
                     </div>
                   </div>
