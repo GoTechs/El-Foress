@@ -110,7 +110,7 @@
                     <div class="input-group-addon search-category-container">
                       <select class="form-control" id="sousCat" name="sousCat" onchange="field()" required>
                          <option value="0">Sous Catégories</option>
-                          @foreach (souscategorie as $key => $value)
+                          @foreach ($souscategorie as $key => $value)
                               <option value="">{{ $value->sousCat }}</option>
                           @endforeach
                       </select>
