@@ -715,7 +715,7 @@
           $('#categorie').on('change', function(e){
               var cat_id = e.target.value;
               $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
-
+console.log(data);
                   $('#sousCat').empty();
                   $('#sousCat').append('<option value="0" disable="true" selected="true">Sous Catégories</option>');
 

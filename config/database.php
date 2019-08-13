@@ -8,7 +8,7 @@ $host = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
 $database = substr($url["path"], 1);
-
+mysql://b11bb394e93ae5:b6fbfbcf@us-cdbr-iron-east-02.cleardb.net/heroku_a6f896b00bbc5e1?reconnect=true
 
 return [
 
