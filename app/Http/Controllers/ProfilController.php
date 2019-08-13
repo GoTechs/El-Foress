@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Users;
@@ -25,8 +26,14 @@ class ProfilController extends Controller
 
     public function myads(){
         $idUser = Auth::user()->id;
-        $users = DB::table('annonces')->where('id_user', '=', $idUser)->get();
-        return view('profil.myads');
+
+        $results = DB::table('users')
+            ->join('annonces', 'users.id', '=', 'annonces.id_user')
+            ->join('ad_storages', 'annonces.id', '=', 'ad_storages.id_annonce')
+            ->where('users.id', '=', $idUser)
+            ->get();
+
+        return view('profil.myads', ['results' => $results]);
     }
 
     public function favorits(){

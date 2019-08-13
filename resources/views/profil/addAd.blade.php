@@ -83,7 +83,7 @@
           <div class="page-ads box">
               @if (count($errors) > 0)
                   <div class="alert alert-danger">
-                      <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                      <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>
                       <ul>
                           @foreach ($errors->all() as $error)
                               <li>{{ $error }}</li>
@@ -98,8 +98,8 @@
                     @csrf
                   <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
-                        <select class="form-control"  id="categorie" name="categorie" required>
-                            <option value="0">Catégories</option>
+                        <select class="form-control"  id="categorie" name="categorie">
+                            <option value="">Catégories</option>
                             @foreach ($categorie as $key => $value)
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
                             @endforeach
@@ -108,15 +108,15 @@
                   </div>
                  <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
-                      <select class="form-control" id="sousCat" name="sousCat" onchange="field()" required>
-                         <option value="0">Sous Catégories</option>
+                      <select class="form-control" id="sousCat" name="sousCat" onchange="field()">
+                         <option value="">Sous Catégories</option>
                       </select>
                     </div>
                   </div>
                      <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select location-select"><span class="hidden-sm hidden-xs"> </span>
-                          <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" required>
+                          <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya">
                           </label>
                     </div>
                   </div>
@@ -124,9 +124,9 @@
 
               </div>
             </div><!-- End Search box -->            
-              <div class="form-group mb30">
+              <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Titre de l'annonce</label>
-                  <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" required="" type="text">
+                  <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text">
               </div>
               <div class="form-group state">
                 <label class="control-label" for="textarea">État</label> 
@@ -460,7 +460,7 @@
          <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Média</h2>
-          <div class="form-group">
+          <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur votre annonce</label>
               <input class="form-control" name="fileToUpload[]" type="file" multiple > <br>
           </div>

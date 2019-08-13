@@ -11,8 +11,7 @@ class categorieController extends Controller
 {
     public function categories(){
         $categorie = categories::all();
-        $souscategorie = souscategories::all();
-        return view('profil.addAd', compact('categorie','souscategorie'));
+        return view('profil.addAd', compact('categorie'));
     }
 
     public function sousCat(){

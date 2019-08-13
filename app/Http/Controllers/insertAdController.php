@@ -24,6 +24,10 @@ class insertAdController extends Controller
         $request->validate([
             "fileToUpload" => "required",
             "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
+            "categorie" => "required",
+            "sousCat" => "required",
+            "wilaya" => "required",
+            "Adtitle" => "required|min:6",
         ]);
     }
 
