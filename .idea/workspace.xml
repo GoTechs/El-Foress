@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16ab37a0-0c9d-4b6f-a600-a55101cd8e90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profil/addAd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profil/addAd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/categorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/categorieController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/categorieController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="272">
+              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -94,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/profil/addAd.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
@@ -125,8 +123,8 @@
       <find>&lt;form</find>
       <find>checkAll</find>
       <find>example</find>
-      <find>publi</find>
       <find>categorie</find>
+      <find>publi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -155,7 +153,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_08_08_140841_create_ad_phones_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_08_140935_create_ad_storages_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_08_141123_create_ad_computers_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/categorieController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/annonce.php" />
         <option value="$PROJECT_DIR$/app/adCar.php" />
@@ -181,6 +178,7 @@
         <option value="$PROJECT_DIR$/resources/views/profil/favorits.blade.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/resources/views/profil/addAd.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/categorieController.php" />
       </list>
     </option>
   </component>
@@ -362,12 +360,12 @@
       <option name="presentableId" value="Default" />
       <updated>1564337381031</updated>
       <workItem from="1564337382192" duration="742000" />
-      <workItem from="1565270620776" duration="45352000" />
+      <workItem from="1565270620776" duration="45599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100531000" />
+    <option name="totallyTimeSpent" value="100778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -730,16 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profil/myads.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="65" column="39" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
-          <folding>
-            <element signature="e#4349#4367#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -784,17 +772,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/categorieController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profil/addAd.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="717" column="18" selection-start-line="717" selection-start-column="18" selection-end-line="717" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profil/myads.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="65" column="39" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
+          <folding>
+            <element signature="e#4349#4367#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/categorieController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
         </state>
       </provider>
     </entry>
