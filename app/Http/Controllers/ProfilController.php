@@ -33,9 +33,7 @@ class ProfilController extends Controller
             ->where('users.id', '=', $idUser)
             ->get();
 
-        dd($results);
-
-        //return view('profil.myads', ['results' => $results]);
+        return view('profil.myads', ['results' => $results]);
     }
 
     public function favorits(){
