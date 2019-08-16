@@ -48,12 +48,7 @@
               </div>
             </div>
           </div>
-          <div class="inner-box">
-            <div class="widget-title">
-              <h4>On dépose les publicité</h4>
-            </div>
-            <img src="{{asset('img/img1.jpg')}}" alt="">
-          </div>
+
         </aside>
       </div>
       <div class="col-sm-9 page-content">
@@ -140,9 +135,6 @@
                     <div class="col-sm-12">
                       <div class="checkbox">
                         <label><input type="checkbox">Je souhaite activer les notifications par E-mail. </label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input type="checkbox">Je souhaite reçevoir des conseils sur l'achat et la vente. </label>
                       </div>
                     </div>
                   </div>

@@ -468,8 +468,8 @@
           <div class="mb30"></div>
           <div class="form-group">
             <div class="page-ads box">
-              <div class="checkbox">
-                <label><input type="checkbox"> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a></label>
+              <div class="checkbox {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
+                <label><input type="checkbox" name="condition"> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a></label>
               </div><br>
               <button class="btn btn-common" type="submit">Poster</button>
             </div>

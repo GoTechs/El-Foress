@@ -28,7 +28,15 @@
             </div>
         </div>
         @endif
-          
+
+        @if(Session('message'))
+            <div class="row">
+                <div class="alert alert-success col-xs-4 col-xs-offset-4">
+                    <strong>{{Session::get('message')}}</strong>
+                </div>
+            </div>
+        @endif
+
         <div class="row">
           <div class="col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
             <div class="page-login-form box">

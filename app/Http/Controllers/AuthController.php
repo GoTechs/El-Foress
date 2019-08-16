@@ -25,20 +25,20 @@ class AuthController extends Controller
         $request['password']= bcrypt($request->password);
         Users::create($request->all());
 
-        return redirect('connexion');
+        return redirect('connexion')->with('message','Inscription réussie : Connectez-vous pour ajouter des annonces');
     }
 
     public function validation($request){
         $request->validate([
-            "nom" => "required",
-            "prenom" => "required",
-            "adresse" => "nullable",
+            "nom" => "string|required",
+            "prenom" => "string|required",
+            "adresse" => "string|nullable",
             "email" => "nullable|email|max:255|unique:users",
-            "phone" => "nullable|regex:/(06)[0-9]{8}/",
+            "phone" => "nullable",
             "username" => "required|min:6|max:55",
             "password" => "required|min:6|max:55",
             "confirmPassword" => "required|same:password",
-        ]);
+            ]);
     }
 
     public function connexion(){

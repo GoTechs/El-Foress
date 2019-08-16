@@ -22,12 +22,12 @@ class insertAdController extends Controller
 
     public function validation($request){
         $request->validate([
-            "fileToUpload" => "required",
             "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
             "categorie" => "required",
             "sousCat" => "required",
             "wilaya" => "required",
             "Adtitle" => "required|min:6",
+            "condition" => "required",
         ]);
     }
 
@@ -48,7 +48,8 @@ class insertAdController extends Controller
             'etat' => request('etat'),
             'id_Cat' => request('categorie'),
             'id_sous_Cat' => request('sousCat'),
-            'phoneHide' => request('phoneHide')
+            'phoneHide' => request('phoneHide'),
+            'wilaya' => request('wilaya')
         ]);
 
         $lastID = $annonce->id;
