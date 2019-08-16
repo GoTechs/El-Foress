@@ -16,6 +16,7 @@ use App\adPhone;
 use App\adStorage;
 use App\adComputer;
 use App\imagead;
+use Illuminate\Support\Facades\Auth;
 
 class insertAdController extends Controller
 {
@@ -33,6 +34,8 @@ class insertAdController extends Controller
 
     public function store(Request $request){
 
+        $idUser = Auth::user()->id;
+
         //dd(request()->all());
 
       $this -> validation($request);
@@ -48,6 +51,7 @@ class insertAdController extends Controller
             'etat' => request('etat'),
             'id_Cat' => request('categorie'),
             'id_sous_Cat' => request('sousCat'),
+            'id_user' => $idUser ,
             'phoneHide' => request('phoneHide'),
             'wilaya' => request('wilaya')
         ]);
