@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+//use App\Http\Requests;
 use App\Users;
 use App\annonce;
 use App\categories;
@@ -17,6 +18,7 @@ use App\adStorage;
 use App\adComputer;
 use App\imagead;
 use Illuminate\Support\Facades\Auth;
+//use mysql_xdevapi\Session;
 
 class insertAdController extends Controller
 {
@@ -162,6 +164,11 @@ class insertAdController extends Controller
                 'id_annonce' => $lastID
             ]);
         }
+
+        $request->session()->put('idCat', $idCat);
+        $request->session()->put('idSousCat', $idSousCat);
+
+
 
         return redirect('myads')->with('message','Success');
 

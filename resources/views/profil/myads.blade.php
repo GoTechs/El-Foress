@@ -94,15 +94,15 @@
                         </div>
                       </td>
                       <td class="add-img-td">
-                        <a href="ads-details.php">
+                        <a href="#">
                           <img class="img-responsive" src="" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4><a href="ads-details.php">{{$result->etat}}</a></h4>
+                        <h4><a href="#">{{$result->titre}}</a></h4>
                         <p> <strong> Posté le </strong>:
                           {{$result->created_at}} </p>
-                        <p> <strong>Nombre de visiteurs </strong>:  <strong>Localisation :</strong> {{$result->adresse}} </p>
+                        <p> <strong>Nombre de visiteurs </strong>:  <strong>Localisation :</strong> {{$result->wilaya}} </p>
                       </td>
                       <td class="price-td">
                         <strong> {{$result->prix}}</strong>
