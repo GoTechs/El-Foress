@@ -32,7 +32,14 @@ class ProfilController extends Controller
         $idCat = $request->session()->get('idCat');
         $idSousCat = $request->session()->get('idSousCat');
 
-        if ($idSousCat == '2'){
+        $results = DB::table('users')
+            ->join('annonces', 'users.id', '=', 'annonces.id_user')
+            ->join('ad_events', 'annonces.id', '=', 'ad_events.id_annonce')
+            ->join('ad_cars', 'annonces.id', '=', 'ad_cars.id_annonce')
+            ->where('users.id', '=', $idUser)
+            ->get();
+
+        /*if ($idSousCat == '2'){
             $results = DB::table('users')
                 ->join('annonces', 'users.id', '=', 'annonces.id_user')
                 ->join('ad_events', 'annonces.id', '=', 'ad_events.id_annonce')
@@ -99,7 +106,7 @@ class ProfilController extends Controller
                 ->join('annonces', 'users.id', '=', 'annonces.id_user')
                 ->where('users.id', '=', $idUser)
                 ->get();
-        }
+        }*/
 
         return view('profil.myads', ['results' => $results]);
     }
