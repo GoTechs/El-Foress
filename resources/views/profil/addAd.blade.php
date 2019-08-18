@@ -116,7 +116,7 @@
                      <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select location-select"><span class="hidden-sm hidden-xs"> </span>
-                          <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya">
+                          <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{old('wilaya')}}">
                           </label>
                     </div>
                   </div>
@@ -126,7 +126,7 @@
             </div><!-- End Search box -->            
               <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Titre de l'annonce</label>
-                  <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text">
+                  <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{old('Adtitle')}}">
               </div>
               <div class="form-group state">
                 <label class="control-label" for="textarea">État</label> 
@@ -138,7 +138,7 @@
                 </select>
               </div>
               <div class="form-group mb30">
-                <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp"></textarea>
+                <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp" value="{{old('descrp')}}"></textarea>
               </div>
            
             <!--<div class="content" ng-if="form.template">
@@ -158,16 +158,16 @@
               </div>
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Marque</label> <input class="form-control" name="marqueVeh" type="text">
+            <label class="control-label" for="textarea">Marque</label> <input class="form-control" name="marqueVeh" type="text" value="{{old('marqueVeh')}}">
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modeleVeh" type="text">
+            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modeleVeh" type="text" value="{{old('modeleVeh')}}">
             </div>
             <div class="form-group">
-            <label class="control-label" for="textarea">Année</label> <input class="form-control" name="anneVeh" type="text">
+            <label class="control-label" for="textarea">Année</label> <input class="form-control" name="anneVeh" type="text" value="{{old('anneVeh')}}">
             </div>
             <div class="form-group">
-            <label class="control-label" for="textarea">Kilomètrage</label> <input class="form-control" name="kilomVeh" type="text">
+            <label class="control-label" for="textarea">Kilomètrage</label> <input class="form-control" name="kilomVeh" type="text" value="{{old('kilomVeh')}}">
             </div>
             <div class="form-group">
             <label class="control-label" for="textarea">Type carburant</label>
@@ -202,7 +202,7 @@
                 </select>
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modelePhone" type="text">
+            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modelePhone" type="text" value="{{old('modelePhone')}}">
           </div>
           </div>
             
@@ -223,11 +223,11 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
-            <input class="form-control" name="marqueStockage" type="text">
+            <input class="form-control" name="marqueStockage" type="text" value="{{old('marqueStockage')}}">
           </div>
           <div class="form-group">
               <label class="control-label" for="textarea">Capacité (Go)</label>
-              <input class="form-control" name="capaciteStock" type="text">
+              <input class="form-control" name="capaciteStock" type="text" value="{{old('capaciteStock')}}">
           </div>
           </div>
 
@@ -238,15 +238,15 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Date et heure de l'événement</label>
-                    <input class="form-control" name="datetimeEvent" type="datetime-local">
+                    <input class="form-control" name="datetimeEvent" type="datetime-local" value="{{old('datetimeEvent')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Du</label>
-                    <input class="form-control" name="du" type="date">
+                    <input class="form-control" name="du" type="date" value="{{old('du')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Au</label>
-                    <input class="form-control" name="au" type="date">
+                    <input class="form-control" name="au" type="date" value="{{old('au')}}">
                 </div>
             </div>
             
@@ -283,15 +283,15 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Processeur</label>
-            <input class="form-control" name="processeur" type="text">
+            <input class="form-control" name="processeur" type="text" value="{{old('processeur')}}">
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Mémoire RAM</label>
-            <input class="form-control" name="memoireRAM" type="text">
+            <input class="form-control" name="memoireRAM" type="text" value="{{old('memoireRAM')}}">
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Taille du disque (Go)</label>
-            <input class="form-control" name="tailleDisque" type="text">
+            <input class="form-control" name="tailleDisque" type="text" value="{{old('tailleDisque')}}">
           </div>
           </div>
 
@@ -322,23 +322,23 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Entreprise</label>
-                    <input class="form-control" name="entreprise" type="text">
+                    <input class="form-control" name="entreprise" type="text" value="{{old('entreprise')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Adresse</label>
-                    <input class="form-control" name="adresse" type="text">
+                    <input class="form-control" name="adresse" type="text" value="{{old('adresse')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Poste</label>
-                    <input class="form-control" name="posteOffre" type="text">
+                    <input class="form-control" name="posteOffre" type="text" value="{{old('posteOffre')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Salaire</label>
-                    <input class="form-control" name="salaire" type="text">
+                    <input class="form-control" name="salaire" type="text" value="{{old('salaire')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Diplôme requis</label>
-                    <input class="form-control" name="diplomeRequis" type="text">
+                    <input class="form-control" name="diplomeRequis" type="text" value="{{old('diplomeRequis')}}">
                 </div>
             </div>
 
@@ -375,23 +375,23 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Âge</label>
-                    <input class="form-control" name="age" type="text">
+                    <input class="form-control" name="age" type="text" value="{{old('age')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Poste</label>
-                    <input class="form-control" name="posteDemande" type="text">
+                    <input class="form-control" name="posteDemande" type="text" value="{{old('posteDemande')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Niveau d'éducation</label>
-                    <input class="form-control" name="niveauEducation" type="text">
+                    <input class="form-control" name="niveauEducation" type="text" value="{{old('niveauEducation')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Diplôme</label>
-                    <input class="form-control" name="diplomeDemande" type="text">
+                    <input class="form-control" name="diplomeDemande" type="text" value="{{old('diplomeDemande')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Année d'expérience</label>
-                    <input class="form-control" name="anneExp" type="text">
+                    <input class="form-control" name="anneExp" type="text" value="{{old('anneExp')}}">
                 </div>
             </div>
 
@@ -417,15 +417,15 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Superficie</label>
-                    <input class="form-control" name="superficie" type="text" placeholder="En M²">
+                    <input class="form-control" name="superficie" type="text" placeholder="En M²" value="{{old('superficie')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Nombre de pièces</label>
-                    <input class="form-control" name="nbrePiece" type="text">
+                    <input class="form-control" name="nbrePiece" type="text" value="{{old('nbrePiece')}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Étage</label>
-                    <input class="form-control" name="etage" type="text">
+                    <input class="form-control" name="etage" type="text" value="{{old('etage')}}">
                 </div>
             </div>
 
@@ -436,7 +436,7 @@
           <h2 class="title-2">Prix</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Prix</label>
-              <input class="form-control" placeholder="Prix en DA" name="prix" type="number">
+              <input class="form-control" placeholder="Prix en DA" name="prix" type="number" value="{{old('prix')}}">
           </div>
           </div>
             
@@ -445,11 +445,11 @@
           <h2 class="title-2">Coordonnées</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">E-mail</label>
-              <input class="form-control" placeholder="Votre E-mail" name="email" id="email" type="text">
+              <input class="form-control" placeholder="Votre E-mail" name="email" id="email" type="text" value="{{old('email')}}">
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Numéro de téléphone</label>
-              <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" type="text">
+              <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" type="text" value="{{old('phone')}}">
             <div class="checkbox">
               <label>
                   <input type="hidden" name="phoneHide" value="0" />
@@ -462,7 +462,7 @@
           <h2 class="title-2">Média</h2>
           <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur votre annonce</label>
-              <input class="form-control" name="fileToUpload[]" type="file" multiple > <br>
+              <input class="form-control" name="fileToUpload[]" type="file" multiple value="{{old('fileToUpload[]')}}"> <br>
           </div>
           </div>
           <div class="mb30"></div>

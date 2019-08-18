@@ -18,21 +18,11 @@ use App\adStorage;
 use App\adComputer;
 use App\imagead;
 use Illuminate\Support\Facades\Auth;
-//use mysql_xdevapi\Session;
+use Illuminate\Support\Facades\Validator;
+
 
 class insertAdController extends Controller
 {
-
-    public function validation($request){
-        $request->validate([
-            "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
-            "categorie" => "required",
-            "sousCat" => "required",
-            "wilaya" => "required",
-            "Adtitle" => "required|min:6",
-            "condition" => "required",
-        ]);
-    }
 
     public function store(Request $request){
 
@@ -40,7 +30,20 @@ class insertAdController extends Controller
 
         //dd(request()->all());
 
-      $this -> validation($request);
+        $validator = Validator::make($request->all(),[
+            "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
+            "categorie" => "required",
+            "sousCat" => "required",
+            "wilaya" => "required",
+            "Adtitle" => "required|min:6",
+            "condition" => "required",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('addAd')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
       //Add fields in common
 
@@ -167,8 +170,6 @@ class insertAdController extends Controller
 
         $request->session()->put('idCat', $idCat);
         $request->session()->put('idSousCat', $idSousCat);
-
-
 
         return redirect('myads')->with('message','Success');
 
