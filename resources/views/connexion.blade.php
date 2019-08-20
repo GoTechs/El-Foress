@@ -45,17 +45,23 @@
               </h3>
               <form class="login-form" method="post" action="/connexion">
                 @csrf
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('username') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-user"></i>
                     <input type="text" id="username" class="form-control" name="username" placeholder="Nom d'utilisateur" value="{{old('username')}}">
                   </div>
+                    @error('username')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div> 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-unlock-alt"></i>
                     <input type="password" class="form-control" name="password" placeholder="Mot de passe" value="{{old('password')}}">
                   </div>
+                    @error('password')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>                  
                 <div class="checkbox">
                   <input type="checkbox" id="remember" name="rememberme" value="{{ old('remember') ? 'checked' : '' }}" style="float: left;">

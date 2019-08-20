@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Users;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -15,7 +16,23 @@ class AuthController extends Controller
 
     public function store (Request $request){
 
-        $this -> validation($request);
+        $validator = Validator::make($request->all(),[
+            "nom" => "required|string",
+            "prenom" => "required|string",
+            "adresse" => "nullable|string",
+            "email" => "nullable|email|max:255|unique:users",
+            "phone" => "nullable",
+            "username" => "required|min:6|max:55",
+            "password" => "required|min:6|max:55",
+            "confirmPassword" => "required|same:password",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('inscription')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $nom = $request->nom;
         $prenom = $request->prenom;
         $adresse = $request->adresse;
@@ -28,25 +45,22 @@ class AuthController extends Controller
         return redirect('connexion')->with('message','Inscription réussie : Connectez-vous pour ajouter des annonces');
     }
 
-    public function validation($request){
-        $request->validate([
-            "nom" => "required|string",
-            "prenom" => "required|string",
-            "adresse" => "nullable|string",
-            "email" => "nullable|email|max:255|unique:users",
-            "phone" => "nullable",
-            "username" => "required|min:6|max:55",
-            "password" => "required|min:6|max:55",
-            "confirmPassword" => "required|same:password",
-
-            ]);
-    }
-
     public function connexion(){
         return view('connexion');
     }
 
     public function checklogin(Request $request){
+
+        $validator = Validator::make($request->all(),[
+            "username" => "required",
+            "password" => "required",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('connexion')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $username = $request->username;
         $password = $request->password;

@@ -28,8 +28,6 @@ class insertAdController extends Controller
 
         $idUser = Auth::user()->id;
 
-        //dd(request()->all());
-
         $validator = Validator::make($request->all(),[
             "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
             "categorie" => "required",
