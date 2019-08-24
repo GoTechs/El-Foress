@@ -1,5 +1,5 @@
 
-          @extends('layout')
+          @extends('profil.layout')
 
           @section('content')
 
@@ -16,7 +16,7 @@
                             <div aria-expanded="true" id="myclassified" class="panel-collapse collapse in">
                               <ul class="acc-list">
                                 <li>
-                                  <a href="/home"><i class="fa fa-home"></i> sarra </a>
+                                  <a href="/home"><i class="fa fa-home"></i> {{Auth::user()->username}}  </a>
                                 </li>
                               </ul>
                             </div>
@@ -26,13 +26,13 @@
                             <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
                               <ul class="acc-list">
                                 <li class="active">
-                                  <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">44</span></a>
+                                  <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">{{$nbreResultAnnonce}}</span></a>
                                 </li>
                                 <li>
-                                  <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge">19</span></a>
+                                  <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
                                 </li>
                                 <li>
-                                  <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">49</span></a>
+                                  <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">{{$nbreResultArchived}}</span></a>
                                 </li>
                               </ul>
                             </div>
@@ -83,8 +83,8 @@
                       <th>Option</th>
                     </tr>
                   </thead>
-                  @foreach ($results as $result)
-                  <tbody>
+                  @foreach ($result as $results)
+                    <tbody>
                     <tr>
                       <td class="add-img-selector">
                         <div class="checkbox">
@@ -95,25 +95,25 @@
                       </td>
                       <td class="add-img-td">
                         <a href="#">
-                          <img class="img-responsive" src="" alt="img">
+                          <img class="img-responsive" src="{{asset('img/bientot-disponible.jpg')}}" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4><a href="#">{{$result->titre}}</a></h4>
+                        <h4><a href="#">{{$results->titre}}</a></h4>
                         <p> <strong> Posté le </strong>:
-                          {{$result->created_at}} </p>
-                        <p> <strong>Nombre de visiteurs </strong>:  <strong>Localisation :</strong> {{$result->wilaya}} </p>
+                          {{$results->created_at}} </p>
+                        <p> <strong>Nombre de visiteurs </strong>:  <strong>Wilaya :</strong> {{$results->wilaya}} </p>
                       </td>
                       <td class="price-td">
-                        <strong> {{$result->prix}}</strong>
+                        <strong> {{$results->prix}}</strong>
                       </td>
                       <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs"> <i class="fa fa-pencil-square-o"></i> Modifier</a></p>
-                        <p><a class="btn btn-info btn-xs"> <i class="fa fa-share-square-o"></i> Archiver</a></p>
-                        <p><a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Supprimer</a></p>
+                        <p><a class="btn btn-primary btn-xs" href="/updateAD/{{$results->id_annonce}}/edit"> <i class="fa fa-pencil-square-o"></i> Modifier</a></p>
+                        <p><a class="btn btn-info btn-xs" onclick="archiveAd({{$results->id_annonce}})"> <i class="fa fa-share-square-o"></i> Archiver</a></p>
+                        <p><a class="btn btn-danger btn-xs" onclick="deleteAd({{$results->id_annonce}})"> <i class=" fa fa-trash"></i> Supprimer</a></p>
                       </td>
                     </tr>
-                  </tbody>
+                    </tbody>
                   @endforeach
                 </table>
               </div>               
@@ -129,8 +129,53 @@
 
           <script>
 
-            $(document).ready(function() {
-              $('#example').DataTable();
-            } );
+            function deleteAd(id){
+              var csrf_token = $('meta[name="csrf-token"]').attr('content');
+              swal({
+                title: "Êtes-vous sûr?",
+                text: "Une fois supprimé, vous ne pourrez plus récupérer cette annonce!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+                      .then((willDelete) => {
+                        if (willDelete) {
+                          $.ajax({
+                            url : "/updateAD/"+id,
+                            type : "POST",
+                            data : {'_method' : 'DELETE','_token':csrf_token},
+                            success : function(data){
+                              swal("Votre annonce a été supprimée!", {
+                                icon: "success",
+                              });
+                            }
+                          })
+                        }
+                      });
+            }
+
+            function archiveAd(id){
+              var csrf_token = $('meta[name="csrf-token"]').attr('content');
+              swal({
+                title: "Êtes-vous sûr?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+                      .then((willDelete) => {
+                        if (willDelete) {
+                          $.ajax({
+                            url : "/archiveAd/"+id,
+                            type : "POST",
+                            data : {'_method' : 'PATCH','_token':csrf_token},
+                            success : function(data){
+                              swal("Votre annonce a été archivée!", {
+                                icon: "success",
+                              });
+                            }
+                          })
+                        }
+                      });
+            }
 
           </script>

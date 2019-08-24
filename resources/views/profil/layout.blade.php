@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Foress -  Notre mission vous simplifier la vie </title>
 
     <!-- Favicon -->
@@ -53,13 +54,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
-                <a class="navbar-brand logo" href=""><img src="a{{asset('img/Capture.PNG')}}" alt=""></a>
+                <a class="navbar-brand logo" href=""><img src="{{asset('img/Capture.PNG')}}" alt=""></a>
             </div>
             <!-- brand and toggle menu for mobile End -->
 
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
+                    <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                     <li class="postadd">
                         <a class="btn btn-danger btn-post" href="/addAd"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
                     </li>
@@ -233,8 +236,7 @@
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.revolution.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
-<script type="text/javascript"  src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript"  src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 </html>

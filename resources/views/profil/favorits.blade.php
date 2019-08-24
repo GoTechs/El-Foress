@@ -1,5 +1,5 @@
 
-          @extends('layout')
+          @extends('profil.layout')
 
           @section('content')
 
@@ -16,7 +16,7 @@
                             <div aria-expanded="true" id="myclassified" class="panel-collapse collapse in">
                               <ul class="acc-list">
                                 <li>
-                                  <a href="/home"><i class="fa fa-home"></i> sarra </a>
+                                  <a href="/home"><i class="fa fa-home"></i> {{Auth::user()->username}}  </a>
                                 </li>
                               </ul>
                             </div>
@@ -26,13 +26,13 @@
                             <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
                               <ul class="acc-list">
                                 <li>
-                                  <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">44</span></a>
+                                  <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge"></span></a>
                                 </li>
                                 <li class="active">
-                                  <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge">19</span></a>
+                                  <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
                                 </li>
                                 <li>
-                                  <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">49</span></a>
+                                  <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge"></span></a>
                                 </li>
                               </ul>
                             </div>
@@ -82,142 +82,7 @@
                       <th>Option</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-1.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.php">Brand New All about iPhones</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
-                      </td>
-                      <td class="price-td">
-                        <strong> $199</strong>
-                      </td>
-                      <td class="action-td">
-                        <p><a class="btn btn-info btn-xs"> <i class="fa fa-share-square-o"></i> Share</a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-2.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">                        
-                        <h4><a href="ads-details.php">Sony Xperia dual sim 100% brand new iPad</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>                        
-                      </td>
-                      <td class="price-td">                        
-                        <strong> $74</strong>                        
-                      </td>
-                      <td class="action-td">
-                       <p><a class="btn btn-info btn-xs"> <i class="fa fa-share-square-o"></i> Share</a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-3.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.php">Digital Cameras brand new</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
-                      </td>
-                      <td class="price-td">
-                        <strong> $49</strong>
-                      </td>
-                      <td class="action-td">
-                       <p><a class="btn btn-info btn-xs"> <i class="fa fa-share-square-o"></i> Share</a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-4.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.php">Samsung Galaxy dual sim 100% brand new</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
-                      </td>
-                      <td class="price-td">
-                        <strong> $149</strong>
-                      </td>
-                      <td class="action-td">
-                       <p><a class="btn btn-info btn-xs"> <i class="fa fa-share-square-o"></i> Share</a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-5.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.php">Brand New Macbook Pro</a></h4>
-                        <p><strong> Posted On </strong>: <span>02-Oct-2017, 04:38 PM </span></p>
-                        <p><strong>Visitors</strong>: <span>221</span> <strong>Located In:</strong> <span>New York</span></p>
-                      </td>
-                      <td class="price-td">
-                        <strong> $168</strong>
-                      </td>
-                      <td class="action-td">
-                       <p><a class="btn btn-info btn-xs"> <i class="fa fa-share-square-o"></i> Share</a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                  </tbody>
+
                 </table>
               </div>               
             </div>

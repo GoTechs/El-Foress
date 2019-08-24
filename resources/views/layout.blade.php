@@ -244,7 +244,6 @@
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
 
-
 </body>
 </html>
 

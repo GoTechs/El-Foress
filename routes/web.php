@@ -56,7 +56,6 @@ Route::get('/home','ProfilController@home');
 Route::get('/myads','ProfilController@myads');
 Route::get('/favorites','ProfilController@favorits');
 Route::get('/archives','ProfilController@archives');
-Route::post('/addAd','ProfilController@store');
 
 // Dynamic dropDown Categorie And Sous categorie
 
@@ -67,6 +66,16 @@ Route::get('/json-sousCategorie','categorieController@sousCat');
 // Insert Ad
 
 Route::post('/insertAd','insertAdController@store');
+
+// Update and Delete Ad
+
+Route::get('/updateAD/{idpost}/edit','insertAdController@edit');
+Route::patch('/updateAD/{idpost}','insertAdController@update');
+Route::delete('/updateAD/{idpost}','insertAdController@destroy');
+
+// Archived AD
+Route::patch('/archiveAd/{idpost}','ProfilController@update');
+Route::patch('/repostAd/{idpost}','ProfilController@repost');
 
 
 

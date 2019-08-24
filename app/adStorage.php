@@ -9,4 +9,5 @@ class adStorage extends Model
     protected $table = 'ad_storages';
 
     protected $guarded = [];
+
 }

@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class annonce extends Model
+class marquecomputer extends Model
 {
-    protected $table = 'annonces';
+    protected $table = 'marquecomputers';
 
     protected $guarded = [];
-
 }

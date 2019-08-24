@@ -29,101 +29,182 @@ class ProfilController extends Controller
     public function myads(Request $request){
         $idUser = Auth::user()->id;
 
-        $idCat = $request->session()->get('idCat');
-        $idSousCat = $request->session()->get('idSousCat');
+        $storage = DB::table('annonces')
+            ->join('ad_storages', 'annonces.id', '=', 'ad_storages.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        $results = DB::table('users')
-            ->join('annonces', 'users.id', '=', 'annonces.id_user')
-            ->join('ad_events', 'annonces.id', '=', 'ad_events.id_annonce')
+        $car = DB::table('annonces')
             ->join('ad_cars', 'annonces.id', '=', 'ad_cars.id_annonce')
-            ->where('users.id', '=', $idUser)
-            ->get();
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        /*if ($idSousCat == '2'){
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('ad_events', 'annonces.id', '=', 'ad_events.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }
+        $jobOffer = DB::table('annonces')
+            ->join('ad_joboffers', 'annonces.id', '=', 'ad_joboffers.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        elseif ($idSousCat == '53') {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('ad_joboffers', 'annonces.id', '=', 'ad_joboffers.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }
+        $computer = DB::table('annonces')
+            ->join('ad_computers', 'annonces.id', '=', 'ad_computers.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        elseif ($idSousCat == '54') {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('ad_jobapplications', 'annonces.id', '=', 'ad_jobapplications.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }
+        $event = DB::table('annonces')
+            ->join('ad_events', 'annonces.id', '=', 'ad_events.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        elseif ($idCat == '3') {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('adimmobiliers', 'annonces.id', '=', 'adimmobiliers.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }
+        $immobilier = DB::table('annonces')
+            ->join('adimmobiliers', 'annonces.id', '=', 'adimmobiliers.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        elseif ($idSousCat <> '14' and $idCat == '4') {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('ad_cars', 'annonces.id', '=', 'ad_cars.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }
+        $jobApp = DB::table('annonces')
+            ->join('ad_jobapplications', 'annonces.id', '=', 'ad_jobapplications.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        elseif ($idSousCat == '16') {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('ad_phones', 'annonces.id', '=', 'ad_phones.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }
+        $phone = DB::table('annonces')
+            ->join('ad_phones', 'annonces.id', '=', 'ad_phones.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
 
-        elseif ($idSousCat == '36') {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('ad_storages', 'annonces.id', '=', 'ad_storages.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }
+        $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone);
 
-        elseif ($idSousCat == '37') {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->join('ad_computers', 'annonces.id', '=', 'ad_computers.id_annonce')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        } else {
-            $results = DB::table('users')
-                ->join('annonces', 'users.id', '=', 'annonces.id_user')
-                ->where('users.id', '=', $idUser)
-                ->get();
-        }*/
+        $nbreAnnonce = count($result);
 
-        return view('profil.myads', ['results' => $results]);
+        // Count Nomber of posts not archived
+
+        $annonceArchived = DB::table('annonces')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $nbreAnnonceArchived = count($annonceArchived);
+
+        return view('profil.myads', [
+            'result' => $result,
+            'nbreResultAnnonce' => $nbreAnnonce,
+            'nbreResultArchived' => $nbreAnnonceArchived
+        ]);
     }
 
     public function favorits(){
         return view('profil.favorits');
     }
 
-    public function archives(){
-        return view('profil.archives');
+    public function archives(Request $request){
+        $idUser = Auth::user()->id;
+
+        $storage = DB::table('annonces')
+            ->join('ad_storages', 'annonces.id', '=', 'ad_storages.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $car = DB::table('annonces')
+            ->join('ad_cars', 'annonces.id', '=', 'ad_cars.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $jobOffer = DB::table('annonces')
+            ->join('ad_joboffers', 'annonces.id', '=', 'ad_joboffers.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $computer = DB::table('annonces')
+            ->join('ad_computers', 'annonces.id', '=', 'ad_computers.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $event = DB::table('annonces')
+            ->join('ad_events', 'annonces.id', '=', 'ad_events.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $immobilier = DB::table('annonces')
+            ->join('adimmobiliers', 'annonces.id', '=', 'adimmobiliers.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $jobApp = DB::table('annonces')
+            ->join('ad_jobapplications', 'annonces.id', '=', 'ad_jobapplications.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $phone = DB::table('annonces')
+            ->join('ad_phones', 'annonces.id', '=', 'ad_phones.id_annonce')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+            ])->get()->toArray();
+
+        $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone);
+
+        $nbreArchived = count($result);
+
+        // Count Nomber of posts not archived
+
+        $annonce = DB::table('annonces')
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+            ])->get()->toArray();
+
+        $nbreAnnonce = count($annonce);
+
+        return view('profil.archives', [
+            'result' => $result,
+            'nbreResultArchived' => $nbreArchived,
+            'nbreresultAnnonce' => $nbreAnnonce
+        ]);
     }
 
     public function create(){
         return view('profil.addAd');
     }
 
-    public function store(){
+    public function update($id){
+        $annonce = annonce::find($id);
+        $annonce->stateAd = '0';
+        $annonce->save();
+        return redirect('myads');
+    }
 
+    public function repost($id){
+        $annonce = annonce::find($id);
+        $annonce->stateAd = '1';
+        $annonce->save();
+        return redirect('archives');
     }
 }

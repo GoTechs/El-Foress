@@ -1,5 +1,5 @@
 
-    @extends('layout')
+    @extends('profil.layout')
 
     @section('content')
 
@@ -17,7 +17,7 @@
                     <div aria-expanded="true" id="myclassified" class="panel-collapse collapse in">
                       <ul class="acc-list">
                         <li>
-                          <a href="/home"><i class="fa fa-home"></i> sarra </a>
+                          <a href="/home"><i class="fa fa-home"></i> {{Auth::user()->username}}  </a>
                         </li>
                       </ul>
                     </div>
@@ -27,13 +27,13 @@
                     <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
                       <ul class="acc-list">
                         <li>
-                          <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">44</span></a>
+                          <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">{{$nbreresultAnnonce}}</span></a>
                         </li>
                         <li>
-                          <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge">19</span></a>
+                          <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
                         </li>
                         <li class="active">
-                          <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">49</span></a>
+                          <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">{{$nbreResultArchived}}</span></a>
                         </li>
                       </ul>
                     </div>
@@ -84,34 +84,8 @@
                       <th>Option</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td class="add-img-selector col-xs-12">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td col-xs-12">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-1.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td col-xs-12">
-                        <h4><a href="ads-details.php">Brand New All about iPhones</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
-                      </td>
-                      <td class="price-td col-xs-12">
-                        <strong> $199</strong>
-                      </td>
-                      <td class="action-td col-xs-12">
-                        <p> <a class="btn btn-info btn-xs"> <i class="fa fa-recycle"></i> Repost </a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
+                  @foreach ($result as $results)
+                    <tbody>
                     <tr>
                       <td class="add-img-selector">
                         <div class="checkbox">
@@ -121,105 +95,26 @@
                         </div>
                       </td>
                       <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-2.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">                        
-                        <h4><a href="ads-details.php">Sony Xperia dual sim 100% brand new iPad</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>                        
-                      </td>
-                      <td class="price-td">                        
-                        <strong> $74</strong>                        
-                      </td>
-                      <td class="action-td">
-                        <p> <a class="btn btn-info btn-xs"> <i class="fa fa-recycle"></i> Repost </a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-3.jpg" alt="img">
+                        <a href="#">
+                          <img class="img-responsive" src="{{asset('img/bientot-disponible.jpg')}}" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4><a href="ads-details.php">Digital Cameras brand new</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
+                        <h4><a href="#">{{$results->titre}}</a></h4>
+                        <p> <strong> Posté le </strong>:
+                          {{$results->created_at}} </p>
+                        <p> <strong>Nombre de visiteurs </strong>:  <strong>Wilaya :</strong> {{$results->wilaya}} </p>
                       </td>
                       <td class="price-td">
-                        <strong> $49</strong>
+                        <strong> {{$results->prix}}</strong>
                       </td>
                       <td class="action-td">
-                        <p> <a class="btn btn-info btn-xs"> <i class="fa fa-recycle"></i> Repost </a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
+                        <p> <a class="btn btn-info btn-xs" onclick="repostAd({{$results->id_annonce}})"> <i class="fa fa-recycle"></i> Republier </a></p>
+                        <p> <a class="btn btn-danger btn-xs" onclick="deleteAd({{$results->id_annonce}})"> <i class=" fa fa-trash"></i> Supprimer </a></p>
                       </td>
                     </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-4.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.php">Samsung Galaxy dual sim 100% brand new</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2017, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
-                      </td>
-                      <td class="price-td">
-                        <strong> $149</strong>
-                      </td>
-                      <td class="action-td">
-                        <p> <a class="btn btn-info btn-xs"> <i class="fa fa-recycle"></i> Repost </a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.php">
-                          <img class="img-responsive" src="assets/img/item/img-5.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.php">Brand New Macbook Pro</a></h4>
-                        <p><strong> Posted On </strong>: <span>02-Oct-2017, 04:38 PM </span></p>
-                        <p><strong>Visitors</strong>: <span>221</span> <strong>Located In:</strong> <span>New York</span></p>
-                      </td>
-                      <td class="price-td">
-                        <strong> $168</strong>
-                      </td>
-                      <td class="action-td">
-                        <p> <a class="btn btn-info btn-xs"> <i class="fa fa-recycle"></i> Repost </a></p>
-                        <p> <a class="btn btn-danger btn-xs"> <i class=" fa fa-trash"></i> Delete </a></p>
-                      </td>
-                    </tr>
-                  </tbody>
+                    </tbody>
+                  @endforeach
                 </table>
               </div>               
             </div>
@@ -231,3 +126,56 @@
     <!-- End Content -->
 
           @endsection
+
+    <script>
+
+      function deleteAd(id){
+        var csrf_token = $('meta[name="csrf-token"]').attr('content');
+        swal({
+          title: "Êtes-vous sûr?",
+          text: "Une fois supprimé, vous ne pourrez plus récupérer cette annonce!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+                .then((willDelete) => {
+                  if (willDelete) {
+                    $.ajax({
+                      url : "/updateAD/"+id,
+                      type : "POST",
+                      data : {'_method' : 'DELETE','_token':csrf_token},
+                      success : function(data){
+                        swal("Votre annonce a été supprimée!", {
+                          icon: "success",
+                        });
+                      }
+                    })
+                  }
+                });
+      }
+
+      function repostAd(id){
+        var csrf_token = $('meta[name="csrf-token"]').attr('content');
+        swal({
+          title: "Êtes-vous sûr?",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+                .then((willDelete) => {
+                  if (willDelete) {
+                    $.ajax({
+                      url : "/repostAd/"+id,
+                      type : "POST",
+                      data : {'_method' : 'PATCH','_token':csrf_token},
+                      success : function(data){
+                        swal("Votre annonce a été republiée!", {
+                          icon: "success",
+                        });
+                      }
+                    })
+                  }
+                });
+      }
+
+    </script>
