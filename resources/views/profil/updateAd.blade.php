@@ -99,7 +99,7 @@
                                     {{ method_field('PATCH') }}
                                     <div class="col-md-4 col-sm-12 search-col">
                                         <div class="input-group-addon search-category-container">
-                                            <select class="form-control"  id="categorie" name="categorie" disabled>
+                                            <select class="form-control"  id="categorie" name="categorie" readonly>
                                                 <option value="">Catégories</option>
                                                 @foreach ($categorie as $key => $value)
                                                     @if ($annonce->id_Cat == $value->idCat)
@@ -114,7 +114,7 @@
 
                                     <div class="col-md-4 col-sm-12 search-col">
                                         <div class="input-group-addon search-category-container">
-                                            <select class="form-control" id="sousCat" name="sousCat" disabled>
+                                            <select class="form-control" id="sousCat" name="sousCat" readonly>
                                                 <option value="">Sous Catégories</option>
                                                 @foreach ($sousCategorie as $key => $value)
                                                     @if ($annonce->id_sous_Cat == $value->idSousCat)
