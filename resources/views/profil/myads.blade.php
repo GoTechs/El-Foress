@@ -3,6 +3,8 @@
 
           @section('content')
 
+
+
             <!-- Start Content -->
             <div id="content">
               <div class="container">
@@ -54,11 +56,14 @@
             <div class="inner-box">
               <h2 class="title-2"><i class="fa fa-credit-card"></i> Mes annonces</h2>
               <div class="table-responsive">
+                <form action="/deleteall" method="post">
+                  @csrf
+                  @method('DELETE')
                 <div class="table-action">
                   <div class="checkbox">
                     <label for="checkAll">
-                      <input id="checkAll" onclick="checkAll(this)" type="checkbox">
-                      Tout sélectionner | <a href="#" class="btn btn-xs btn-danger">Supprimer <i class="fa fa-close"></i></a>
+                      <input id="checkAll" class="selectall" type="checkbox" onclick="wafaa()">
+                      Tout sélectionner | <button class="btn btn-xs btn-danger" type="submit">Supprimer <i class="fa fa-close"></i></button>
                     </label>
                   </div>
                   <div class="table-search pull-right col-xs-7">
@@ -67,7 +72,7 @@
                         <a title="clear filter" class="clear-filter" href="#clear">[clear]</a> 
                       </label>
                       <div class="col-xs-7 searchpan">
-                        <input class="form-control" id="filter" type="text">
+                        <input class="form-control" id="search" name="search" type="text">
                       </div>
                     </div>
                   </div>
@@ -89,7 +94,7 @@
                       <td class="add-img-selector">
                         <div class="checkbox">
                           <label>
-                            <input type="checkbox">
+                            <input type="checkbox" name="ids[]" class="selectbox" value="{{$results->id_annonce}}" onchange="test()">
                           </label>
                         </div>
                       </td>
@@ -116,6 +121,7 @@
                     </tbody>
                   @endforeach
                 </table>
+                </form>
               </div>               
             </div>
           </div>
@@ -169,6 +175,8 @@
                             type : "POST",
                             data : {'_method' : 'PATCH','_token':csrf_token},
                             success : function(data){
+                              
+                              $("#example").load("#example");
                               swal("Votre annonce a été archivée!", {
                                 icon: "success",
                               });
@@ -177,5 +185,41 @@
                         }
                       });
             }
+
+            function wafaa(){
+              $('.selectbox').prop('checked',$(this).prop('checked'));
+
+            }
+
+            function test() {
+
+                var total = $('.selectbox').length;
+                var number = $('.selectbox:checked').length;
+                if (total == number) {
+                  $('.selectall').prop('checked', true);
+                } else {
+                  $('.selectall').prop('checked', false);
+                }
+
+
+            }
+
+         
+
+                 
+              /*   $(document).on('keyup', '#search', function(){
+                   var csrf_token = $('meta[name="csrf-token"]').attr('content');
+                   var query = $(this).val();
+                  $.ajax({
+                   url:"/search",
+                   data : {'_method' : 'GET','_token':csrf_token, 'query':query},
+                   dataType:'json',
+                   success:function(data)
+                   {
+                    $('tbody').html(data.table_data);
+                   }
+                  })
+                 });*/
+           
 
           </script>

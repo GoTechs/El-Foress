@@ -39,6 +39,10 @@ Route::get('/home', function () {
     return view('profil.home');
 });
 
+Route::get('/search', function () {
+    return view('categorie');
+});
+
 // Route for Authentication
 
 Route::get('/inscription','AuthController@create');
@@ -74,8 +78,20 @@ Route::patch('/updateAD/{idpost}','insertAdController@update');
 Route::delete('/updateAD/{idpost}','insertAdController@destroy');
 
 // Archived AD
+
 Route::patch('/archiveAd/{idpost}','ProfilController@update');
 Route::patch('/repostAd/{idpost}','ProfilController@repost');
+
+// Update Personnel Info of USER
+
+Route::patch('/updateInfoUser/{idpost}','ProfilController@updateUser');
+
+Route::get('/details', function () {
+    return view('details');
+});
+
+Route::get('/search', 'eventController@liveSearch');
+
 
 
 

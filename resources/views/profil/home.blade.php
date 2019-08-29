@@ -26,13 +26,13 @@
                 <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
                   <ul class="acc-list">
                     <li>
-                      <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">44</span></a>
+                      <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge"></span></a>
                     </li>
                     <li>
-                      <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge">19</span></a>
+                      <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
                     </li>
                     <li>
-                      <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">49</span></a>
+                      <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge"></span></a>
                     </li>
                   </ul>
                 </div>
@@ -54,7 +54,7 @@
       <div class="col-sm-9 page-content">
         <div class="inner-box">
           <div class="usearadmin">
-            <h3><a href="#"><img class="userimg" src="{{asset('img/picto-user.png')}}" alt=""> {{Auth::user()->username}}</a></h3>
+            <h3><a href="#"><img class="userimg" src="{{asset('img/picto-user.png')}}" alt=""> {{Auth::user()->nom ." ". Auth::user()->prenom}}</a></h3>
           </div>
         </div>
         <div class="inner-box">
@@ -69,26 +69,37 @@
               </div>
               <div class="panel-collapse collapse in" id="collapseB1">
                 <div class="panel-body">
-                  <form role="form">
-                    <div class="form-group">
+                  <form role="form" method="post" action="/updateInfoUser/{{Auth::user()->id}}">
+                    @csrf
+                    {{ method_field('PATCH') }}
+                    <div class="form-group {{ $errors->has('nom') ? ' has-error' : '' }} has-feedback">
                       <label class="control-label">Nom</label>
-                      <input class="form-control" placeholder="{{Auth::user()->nom}}" type="text">
+                      <input class="form-control" value="{{Auth::user()->nom}}" type="text" name="nom">
+                      @error('nom')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('prenom') ? ' has-error' : '' }} has-feedback">
                       <label class="control-label">Prénom</label>
-                      <input class="form-control" placeholder="{{Auth::user()->prenom}}" type="text">
+                      <input class="form-control" value="{{Auth::user()->prenom}}" type="text" name="prenom">
+                      @error('prenom')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                       <label class="control-label">Email</label>
-                      <input class="form-control" placeholder="{{Auth::user()->email}}" type="email">
+                      <input class="form-control" value="{{Auth::user()->email}}" type="email" name="email">
+                      @error('email')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label class="control-label">Adresse</label>
-                      <input class="form-control" placeholder="{{Auth::user()->adresse}}" type="text">
+                      <input class="form-control" value="{{Auth::user()->adresse}}" type="text" name="adresse">
                     </div>
                     <div class="form-group">
                       <label for="Phone" class="control-label">Numéro de téléphone</label>
-                      <input class="form-control" id="Phone" placeholder="{{Auth::user()->phone}}" type="text">
+                      <input class="form-control" id="Phone" value="{{Auth::user()->phone}}" type="text" name="phone">
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-common">Modifier</button>

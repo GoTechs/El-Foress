@@ -220,7 +220,7 @@
 </a>
 
 <!-- Main JS  -->
-<script type="text/javascript" src="{{asset('js/jquery-min.js')}}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/material.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/material-kit.js')}}"></script>

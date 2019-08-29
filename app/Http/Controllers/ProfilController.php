@@ -18,6 +18,8 @@ use App\adPhone;
 use App\adStorage;
 use App\adComputer;
 use App\imagead;
+use Illuminate\Support\Facades\Validator;
+
 //use mysql_xdevapi\Session;
 
 class ProfilController extends Controller
@@ -27,6 +29,7 @@ class ProfilController extends Controller
     }
 
     public function myads(Request $request){
+        
         $idUser = Auth::user()->id;
 
         $storage = DB::table('annonces')
@@ -206,5 +209,32 @@ class ProfilController extends Controller
         $annonce->stateAd = '1';
         $annonce->save();
         return redirect('archives');
+    }
+
+    public function updateUser($id, Request $request){
+
+        $validator = Validator::make($request->all(),[
+            "nom" => "required",
+            "prenom" => "required",
+            "email" => "email|max:255|unique:users",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('home')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = Users::find($id);
+
+        $user->nom = request('nom');
+        $user->prenom = request('prenom');
+        $user->adresse = request('adresse');
+        $user->email = request('email');
+        $user->phone = request('phone');
+
+        $user->save();
+
+        return redirect('home');
     }
 }
