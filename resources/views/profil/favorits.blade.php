@@ -77,12 +77,37 @@
                     <tr>
                       <th data-type="numeric"></th>
                       <th>Photo</th>
-                      <th>Adds Details</th>
-                      <th>Price</th>
-                      <th>Option</th>
+                      <th>Détails</th>
+                      <th>Prix</th>
                     </tr>
                   </thead>
-
+                  @foreach ($result as $results)
+                    <tbody>
+                    <tr>
+                      <td class="add-img-selector">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox">
+                          </label>
+                        </div>
+                      </td>
+                      <td class="add-img-td">
+                        <a href="#">
+                          <img class="img-responsive" src="{{asset('img/bientot-disponible.jpg')}}" alt="img">
+                        </a>
+                      </td>
+                      <td class="ads-details-td">
+                        <h4><a href="#">{{$results->titre}}</a></h4>
+                        <p> <strong> Posté le </strong>:
+                          {{$results->created_at}} </p>
+                        <p> <strong>Nombre de visiteurs </strong>:  <strong>Wilaya :</strong> {{$results->wilaya}} </p>
+                      </td>
+                      <td class="price-td">
+                        <strong> {{$results->prix}}</strong>
+                      </td>
+                    </tr>
+                    </tbody>
+                  @endforeach
                 </table>
               </div>               
             </div>

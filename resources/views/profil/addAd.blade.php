@@ -137,7 +137,7 @@
                     <option>État moyen</option>
                 </select>
               </div>
-              <div class="form-group mb30">
+              <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp" value="{{old('descrp')}}"></textarea>
               </div>
            

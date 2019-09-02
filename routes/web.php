@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/','searchController@showCat');
+
+Route::post('/categorie','searchController@search');
+Route::get('/categorie','searchController@search');
 
 Route::get('/contact', function () {
     return view('contact');
@@ -27,9 +28,6 @@ Route::get('/Apropos', function () {
     return view('Apropos');
 });
 
-Route::get('/categorie', function () {
-    return view('categorie');
-});
 
 Route::get('/forgetPassword', function () {
     return view('mdp-oublier');
@@ -91,6 +89,8 @@ Route::get('/details', function () {
 });
 
 Route::get('/search', 'eventController@liveSearch');
+
+Route::patch('/addtofav/{idpost}','ProfilController@addtofav');
 
 
 

@@ -37,6 +37,7 @@ class insertAdController extends Controller
             "sousCat" => "required",
             "wilaya" => "required",
             "Adtitle" => "required|min:6",
+            "descrp" => "required",
             "condition" => "required",
         ]);
 

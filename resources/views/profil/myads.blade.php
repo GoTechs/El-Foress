@@ -56,10 +56,7 @@
             <div class="inner-box">
               <h2 class="title-2"><i class="fa fa-credit-card"></i> Mes annonces</h2>
               <div class="table-responsive">
-                <form action="/deleteall" method="post">
-                  @csrf
-                  @method('DELETE')
-                <div class="table-action">
+               <!-- <div class="table-action">
                   <div class="checkbox">
                     <label for="checkAll">
                       <input id="checkAll" class="selectall" type="checkbox" onclick="wafaa()">
@@ -71,12 +68,12 @@
                       <label class="col-xs-5 control-label text-right">Recherche <br>
                         <a title="clear filter" class="clear-filter" href="#clear">[clear]</a> 
                       </label>
-                      <div class="col-xs-7 searchpan">
-                        <input class="form-control" id="search" name="search" type="text">
+                       <div class="col-xs-7 searchpan">
+                       <input class="form-control" id="search" name="search" type="text"> 
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>-->
                 <table id="example" class="table table-striped table-bordered add-manage-table" style="width:100%">
 
                   <thead>
@@ -90,7 +87,7 @@
                   </thead>
                   @foreach ($result as $results)
                     <tbody>
-                    <tr>
+                    <tr id="{{$results->id_annonce}}">
                       <td class="add-img-selector">
                         <div class="checkbox">
                           <label>
@@ -121,7 +118,6 @@
                     </tbody>
                   @endforeach
                 </table>
-                </form>
               </div>               
             </div>
           </div>
@@ -134,6 +130,8 @@
           @endsection
 
           <script>
+
+
 
             function deleteAd(id){
               var csrf_token = $('meta[name="csrf-token"]').attr('content');
@@ -175,11 +173,11 @@
                             type : "POST",
                             data : {'_method' : 'PATCH','_token':csrf_token},
                             success : function(data){
-                              
-                              $("#example").load("#example");
-                              swal("Votre annonce a été archivée!", {
+                            
+                             swal("Votre annonce a été archivée!", {
                                 icon: "success",
                               });
+                             $('#'+id).remove();
                             }
                           })
                         }

@@ -189,213 +189,53 @@
 
             <!-- Adds wrapper Start -->
             <div class="adds-wrapper">
+               @foreach ($data as $result)
               <div class="item-list">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
-                    <a href="#"><img src="{{asset('img/item/img-1.jpg')}}" alt=""></a>
+                    <a href="#"><img src="{{asset('img/nondisponible.jpg')}}" alt=""></a>
                     <span class="photo-count"><i class="fa fa-camera"></i>2</span>
                   </div>
                 </div>
                 <div class="col-sm-7 add-desc-box">
                   <div class="add-details">
-                    <h5 class="add-title"><a href="ads-details.php">Brand New All about iPhones</a></h5>
+                    <h5 class="add-title"><a href="ads-details.php">{{$result->titre}}</a></h5>
                     <div class="info">
-                      <span class="add-type">B</span>
+                      
                       <span class="date">
                         <i class="fa fa-clock"></i>
                         16:22:13 2017-02-29
                       </span> -
-                      <span class="category">Electronics</span> -
-                      <span class="item-location"><i class="fa fa-map-marker"></i>London</span>
+                      <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                     </div>
                     <div class="item_desc">
-                      <a href="#">Donec ut quam felis. Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.</a>
+                      <a href="#">{{$result->description}}</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-3 text-right  price-box">
-                  <h2 class="item-price"> $ 320 </h2>
-                  <a class="btn btn-danger btn-sm"><i class="fa fa-certificate"></i>
-                  <span>Top Ads</span></a>
-                  <a class="btn btn-common btn-sm"> <i class="fa fa-eye"></i> <span>215</span> </a>
+                  <h2 class="item-price"> {{$result->prix <> '' ? $result->prix.'DA' : '' }} </h2>
+                  <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$result->id_annonce}})"><i class="fa fa-heart"></i>
+                  <span>Favori</span></a>
+                  <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>215</span> </a>
                 </div>
-              </div>
-              <div class="item-list">
-                <div class="col-sm-2 no-padding photobox">
-                  <div class="add-image">
-                    <a href="#"><img src="{{asset('img/item/img-2.jpg')}}" alt=""></a>
-                    <span class="photo-count"><i class="fa fa-camera"></i>2</span>
-                  </div>
-                </div>
-                <div class="col-sm-7 add-desc-box">
-                  <div class="add-details">
-                    <h5 class="add-title"><a href="ads-details.php">Sony Xperia dual sim 100% brand new iPad</a></h5>
-                    <div class="info">
-                      <span class="add-type">B</span>
-                      <span class="date">
-                        <i class="fa fa-clock"></i>
-                        16:22:13 2017-02-29
-                      </span> -
-                      <span class="category">Electronics</span> -
-                      <span class="item-location"><i class="fa fa-map-marker"></i> London </span>
-                    </div>
-                    <div class="item_desc">
-                      <a href="#">Donec ut quam felis. Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 text-right  price-box">
-                  <h2 class="item-price"> $ 199 </h2>
-                  <a class="btn btn-danger btn-sm"><i class="fa fa-certificate"></i>
-                  <span>Top Ads</span></a>
-                  <a class="btn btn-common btn-sm"> <i class="fa fa-eye"></i> <span>215</span> </a>
-                </div>
-              </div>
-              <div class="item-list">
-                <div class="col-sm-2 no-padding photobox">
-                  <div class="add-image">
-                    <a href="#"><img src="{{asset('img/item/img-3.jpg')}}" alt=""></a>
-                    <span class="photo-count"><i class="fa fa-camera"></i>2</span>
-                  </div>
-                </div>
-                <div class="col-sm-7 add-desc-box">
-                  <div class="add-details">
-                    <h5 class="add-title"><a href="ads-details.php">Digital Cameras brand new</a></h5>
-                    <div class="info">
-                      <span class="add-type">B</span>
-                      <span class="date">
-                        <i class="fa fa-clock"></i>
-                        16:22:13 2017-02-29
-                      </span> -
-                      <span class="category">Electronics</span> -
-                      <span class="item-location"><i class="fa fa-map-marker"></i> London </span>
-                    </div>
-                    <div class="item_desc">
-                      <a href="#">Donec ut quam felis. Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 text-right  price-box">
-                  <h2 class="item-price"> $ 250 </h2>
-                  <a class="btn btn-danger btn-sm"><i class="fa fa-certificate"></i>
-                  <span>Top Ads</span></a>
-                  <a class="btn btn-common btn-sm"> <i class="fa fa-eye"></i> <span>215</span> </a>
-                </div>
-              </div>
-              <div class="item-list">
-                <div class="col-sm-2 no-padding photobox">
-                  <div class="add-image">
-                    <a href="#"><img src="{{asset('img/item/img-4.jpg')}}" alt=""></a>
-                    <span class="photo-count"><i class="fa fa-camera"></i>2</span>
-                  </div>
-                </div>
-                <div class="col-sm-7 add-desc-box">
-                  <div class="add-details">
-                    <h5 class="add-title"><a href="ads-details.php">Samsung Galaxy dual sim 100% brand new</a></h5>
-                    <div class="info">
-                      <span class="add-type">B</span>
-                      <span class="date">
-                        <i class="fa fa-clock"></i>
-                        16:22:13 2017-02-29
-                      </span> -
-                      <span class="category">Electronics</span> -
-                      <span class="item-location"><i class="fa fa-map-marker"></i> London </span>
-                    </div>
-                    <div class="item_desc">
-                      <a href="#">Donec ut quam felis. Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 text-right  price-box">
-                  <h2 class="item-price"> $ 150 </h2>
-                  <a class="btn btn-danger btn-sm"><i class="fa fa-certificate"></i>
-                  <span>Top Ads</span></a>
-                  <a class="btn btn-common btn-sm"> <i class="fa fa-eye"></i> <span>199</span> </a>
-                </div>
-              </div>
-              <div class="item-list">
-                <div class="col-sm-2 no-padding photobox">
-                  <div class="add-image">
-                    <a href="#"><img src="{{asset('img/item/img-5.jpg')}}" alt=""></a>
-                    <span class="photo-count"><i class="fa fa-camera"></i>2</span>
-                  </div>
-                </div>
-                <div class="col-sm-7 add-desc-box">
-                  <div class="add-details">
-                    <h5 class="add-title"><a href="ads-details.php">Brand New Macbook Pro</a></h5>
-                    <div class="info">
-                      <span class="add-type">B</span>
-                      <span class="date">
-                        <i class="fa fa-clock"></i>
-                        16:22:13 2017-02-29
-                      </span> -
-                      <span class="category">Electronics</span> -
-                      <span class="item-location"><i class="fa fa-map-marker"></i> London </span>
-                    </div>
-                    <div class="item_desc">
-                      <a href="#">Donec ut quam felis. Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 text-right  price-box">
-                  <h2 class="item-price"> $ 120</h2>
-                  <a class="btn btn-danger btn-sm"><i class="fa fa-certificate"></i>
-                  <span>Top Ads</span></a>
-                  <a class="btn btn-common btn-sm"> <i class="fa fa-eye"></i> <span>355</span> </a>
-                </div>
-              </div>
-              <div class="item-list">
-                <div class="col-sm-2 no-padding photobox">
-                  <div class="add-image">
-                    <a href="#"><img src="{{asset('img/item/img-6.jpg')}}" alt=""></a>
-                    <span class="photo-count"><i class="fa fa-camera"></i>2</span>
-                  </div>
-                </div>
-                <div class="col-sm-7 add-desc-box">
-                  <div class="add-details">
-                    <h5 class="add-title"><a href="ads-details.php">
-                    Nexus 7 brand new</a></h5>
-                    <div class="info">
-                      <span class="add-type">B</span>
-                      <span class="date">
-                        <i class="fa fa-clock"></i>
-                        16:22:13 2017-02-29
-                      </span> -
-                      <span class="category">Electronics</span> -
-                      <span class="item-location"><i class="fa fa-map-marker"></i> London </span>
-                    </div>
-                    <div class="item_desc">
-                      <a href="#">Donec ut quam felis. Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 text-right  price-box">
-                  <h2 class="item-price"> $ 150 </h2>
-                  <a class="btn btn-danger btn-sm"><i class="fa fa-certificate"></i>
-                  <span>Top Ads</span></a>
-                  <a class="btn btn-common btn-sm"> <i class="fa fa-eye"></i> <span>215</span> </a>
-                </div>
-              </div>
+              </div>    
+              @endforeach
             </div>
             <!-- Adds wrapper End -->
 
             <!-- Start Pagination -->
-            <div class="pagination-bar">
-              <ul class="pagination">
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#"> ...</a></li>
-              <li><a class="pagination-btn" href="#">Suivant »</a></li>
-              </ul>
-            </div>
+            {{ $data->appends(request()->input())->links() }}
             <!-- End Pagination -->
 
             <div class="post-promo text-center">
               <h2> Avez-vous quelque chose à vendre ?</h2>
               <h5>Vendez vos produits en ligne GRATUITEMENT. C'est plus facile que vous ne le pensez!</h5>
-              <a href="ajouter-annonce.php" class="btn btn-post btn-danger">Poster une annonce </a>
+              @auth
+                <a href="/addAd" class="btn btn-post btn-danger">Poster une annonce </a>
+              @else
+                <a href="/connexion" class="btn btn-post btn-danger">Poster une annonce </a>
+              @endauth
             </div>
           </div>
         </div>
@@ -404,3 +244,22 @@
     <!-- Main container End -->
 
     @endsection
+
+    <script type="text/javascript">
+      
+      function addToFav(idAnnonce){
+        var csrf_token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url : "/addtofav/"+idAnnonce,
+            type : "POST",
+            data : {'_method' : 'PATCH','_token':csrf_token},
+            success : function(data){
+              if (data == 'connexion'){
+                document.location.href = "/connexion";
+              }
+              
+            }
+          })       
+      }
+
+    </script>

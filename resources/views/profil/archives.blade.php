@@ -79,8 +79,8 @@
                     <tr>
                       <th data-type="numeric"></th>
                       <th>Photo</th>
-                      <th>Adds Details</th>
-                      <th>Price</th>
+                      <th>Détails</th>
+                      <th>Prix</th>
                       <th>Option</th>
                     </tr>
                   </thead>

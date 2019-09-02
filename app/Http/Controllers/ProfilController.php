@@ -18,6 +18,7 @@ use App\adPhone;
 use App\adStorage;
 use App\adComputer;
 use App\imagead;
+use App\favoris;
 use Illuminate\Support\Facades\Validator;
 
 //use mysql_xdevapi\Session;
@@ -110,7 +111,19 @@ class ProfilController extends Controller
     }
 
     public function favorits(){
-        return view('profil.favorits');
+        $idUser = Auth::user()->id;
+
+        $storage = DB::table('annonces')
+            ->join('favoris', 'annonces.id', '=', 'favoris.idAnnonce')
+            ->where([
+                ['favoris.idUser', '=', $idUser],
+            ])->get()->toArray();
+
+        //$result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone);
+
+        return view('profil.favorits', [
+            'result' => $storage
+        ]);
     }
 
     public function archives(Request $request){
@@ -198,10 +211,12 @@ class ProfilController extends Controller
     }
 
     public function update($id){
-        $annonce = annonce::find($id);
+        $annonce = annonce::findOrFail($id);
         $annonce->stateAd = '0';
         $annonce->save();
-        return redirect('myads');
+        return response()->json([
+            'success' => 'Record deleted successfully!'
+        ]);
     }
 
     public function repost($id){
@@ -237,4 +252,20 @@ class ProfilController extends Controller
 
         return redirect('home');
     }
+
+    public function addtofav($id){
+
+           if (Auth::check()) {
+
+                $idUser = Auth::user()->id;
+
+                $favoris = favoris::create([
+                    'idUser' => $idUser,
+                    'idAnnonce' => $id
+                ]);                
+
+           } else {  return 'connexion';     }
+        
+    }
+
 }

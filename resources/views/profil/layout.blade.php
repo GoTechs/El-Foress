@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
     <!-- Material CSS -->
     <link rel="stylesheet" href="{{asset('css/material-kit.css')}}" type="text/css">
     <!-- Font Awesome CSS -->
@@ -237,6 +237,29 @@
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> 
+<script type="text/javascript">
+    
 
+$(document).ready( function () {
+              $('#example').DataTable({
+                responsive: true,
+                  "language": {
+                  "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            }
+              });
+          } );
+
+     $( function() {
+                var wilaya = [
+                    "ADRAR","AIN DEFLA","AIN TEMOUCHENT","AL TARF","ALGER","ANNABA","B.B.ARRERIDJ","BATNA","BECHAR","BEJAIA",           "BISKRA","BLIDA","BOUIRA","BOUMERDES","CHLEF","CONSTANTINE","DJELFA","EL BAYADH","EL OUED","GHARDAIA",             "GUELMA","ILLIZI","JIJEL","KHENCHELA","LAGHOUAT","MASCARA","MEDEA","MILA","MOSTAGANEM","M’SILA","NAAMA",               "ORAN","OUARGLA","OUM ELBOUAGHI","RELIZANE","SAIDA","SETIF","SIDI BEL ABBES","SKIKDA","SOUKAHRAS",               "TAMANGHASSET","TEBESSA","TIARET","TINDOUF","TIPAZA","TISSEMSILT","TIZI.OUZOU","TLEMCEN"
+                ];
+                $( "#wilaya" ).autocomplete({
+                  source: wilaya
+                });
+              } );
+
+</script>
 </body>
 </html>

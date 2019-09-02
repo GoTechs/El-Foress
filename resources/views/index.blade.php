@@ -13,22 +13,16 @@
             <!-- Start Search box -->
             <div class="row search-bar">
               <div class="advanced-search">
-                <form class="search-form" method="get">
+                <form class="search-form" method="post" action="/categorie">
+                  @csrf
                   <div class="col-md-3 col-sm-6 search-col">
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select">
-                        <select class="dropdown-product selectpicker" name="product-cat" >
-                          <option value="0">Toutes les catégories</option>
-                          <option value="">Communauté</option> 
-                          <option value="">Emplois</option>
-                          <option value=""> Immobiliers</option>
-                          <option value=""> Véhicules</option>
-                          <option value=""> Boutiques</option>
-                          <option value="">Électroménagers</option>
-                          <option value="">Services</option>
-                          <option value="">Matériels Informatiques</option>
-                          <option value="">Voyages</option>
-                          <option value="">Animaux</option>
+                        <select class="dropdown-product selectpicker" name="categorie" >
+                          <option value="">Toutes les catégories</option>
+                          @foreach ($categorie as $key => $value)
+                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                            @endforeach
                        </select>                                    
                       </label>
                     </div>
@@ -36,9 +30,9 @@
                   <div class="col-md-3 col-sm-6 search-col">
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select location-select">
-                        <select class="dropdown-product selectpicker" name="product-cat" >
-                          <option value="0">Wilaya</option>
-                          <option value="Alger">Alger</option>
+                        <select class="dropdown-product selectpicker" name="wilaya" >
+                          <option value="">Wilaya</option>
+                          <option value="ALGER">Alger</option>
                           <option value="Oran">Oran</option>
                           <option value="Blida">Blida</option>
                           <option value="Adrar">Adrar</option>
@@ -51,8 +45,6 @@
                         </select>
                       </label>
                     </div>
-
-
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
                     <input class="form-control keyword" name="keyword" value="" placeholder="Mots clés" type="text">
