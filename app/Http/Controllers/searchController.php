@@ -128,9 +128,7 @@ class searchController extends Controller
         } else {
             $result = "NULL";
         }
-
-       
-dd($result);
+        
    		return view('details',[
             'annonce' => $annonce,
             'result' => $result,

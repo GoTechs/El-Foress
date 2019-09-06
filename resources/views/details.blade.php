@@ -12,7 +12,10 @@
             <div class="col-sm-8">
               <div class="inner-box ads-details-wrapper">
                 <h2>{{$annonce->titre}}</h2>
-                <p class="item-intro"><span class="poster">Publié par <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{$annonce->created_at}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>             
+                <p class="item-intro"><span class="poster">Publié par <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{$annonce->created_at}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+                @if ($annonce->etat <> "")
+                  <p class="item-intro"><strong> État : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
+                @endif             
                 <div class="fotorama">
                   @foreach ($images as $image)
                   <img src="{{asset('images/'.$image->imagename)}}">
@@ -24,7 +27,7 @@
               <div class="box">
                 <h2 class="title-2"><strong>Détails</strong></h2>
                   <div class="row">
-                  <div class="ads-details-info col-md-8">
+                  <div class="ads-details-info col-md-7">
                     <p class="mb15">{{$annonce->description}}</p>
                     <ul class="list-circle">
                       @if ($categorie == '3')
@@ -90,48 +93,36 @@
                       @endif
                     </ul>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-5">
                     <aside class="panel panel-body panel-details">
                       <ul>
-                        <li>
-                        <p class=" no-margin "><strong>Price:</strong> $1,245</p>
+                        @if ($annonce->prix <> "")
+                          <li>
+                            <p class="no-margin"><strong> Prix : </strong> {{$annonce->prix}} DA</a></li>
+                          <li>
+                        @endif
+                        @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "")
+                         <li>
+                          <p class="no-margin"><i class=" fa fa-phone"></i> <strong> N° Téléphone : </strong> {{$annonce->phoneNumber}} </a>
                         </li>
+                        @endif
                         <li>
-                        <p class="no-margin"><strong>Type:</strong> <a href="#">Electronics</a>, <a href="#">For sale</a></p>
+                        @if ($annonce->email <> "")
+                          <li>
+                            <p class="no-margin"><i class="fa fa-envelope"></i> <strong> Email : </strong> {{$annonce->email}} </a></li>
+                          <li>
+                        @endif
+                        <li>
+                          <p class=" no-margin "><i class=" fa fa-user"></i> Publié par {{$user->username}}</a>
                         </li>
+
                         <li>
-                        <p class="no-margin"><strong>Location:</strong> <a href="#">New York</a></p>
-                        </li>
-                        <li>
-                        <p class=" no-margin "><strong>Condition:</strong> New</p>
-                        </li>
-                        <li>
-                        <p class="no-margin"><strong>Brand:</strong> <a href="#">Apple</a></p>
+                          <a href="#" title="Cliquez pour ajouter à mes favoris"> <i class=" fa fa-heart"></i> Favoris</a>
                         </li>
                       </ul>
                     </aside>
 
-                    <div class="ads-action">
-                      <ul class="list-border">
-                        <li>
-                          <a href="#"> <i class=" fa fa-phone"></i> 022445167532 </a></li>
-                        <li>
-                        <li>
-                          <a href="#">Posted by <i class=" fa fa-user"></i> John</a></li>
-                        <li>
-                          <a href="#"> <i class=" fa fa-heart"></i> Save ad</a></li>
-                        <li>
-                          <a href="#"> <i class="fa fa-share-alt"></i> Share </a>
-                      <div class="social-link">  
-                      <a class="twitter" target="_blank" data-original-title="twitter" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-twitter"></i></a>
-                      <a class="facebook" target="_blank" data-original-title="facebook" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-facebook"></i></a>
-                      <a class="google" target="_blank" data-original-title="google-plus" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-google"></i></a>
-                      <a class="linkedin" target="_blank" data-original-title="linkedin" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-linkedin"></i></a>
-                      </div>
-
-                        </li>
-                      </ul>
-                    </div>
+                    
                   </div>
                 </div>
               </div>

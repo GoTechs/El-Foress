@@ -113,42 +113,7 @@
                     </ul>
                   </div>
                 </div>
-              </div>
-
-              <div class="inner-box">
-                <div class="widget-title">
-                  <h4>Les dernières annonces</h4>
-                </div>
-                <div class="advimg">
-                  <ul class="featured-list">
-                    <li>
-                      <img alt="" src="{{asset('img/featured/img1.jpg')}}">
-                      <div class="hover">
-                        <a href="#"><span>$49</span></a>
-                      </div>
-                    </li>
-                    <li>
-                      <img alt="" src="{{asset('img/featured/img2.jpg')}}">
-                      <div class="hover">
-                        <a href="#"><span>$49</span></a>
-                      </div>
-                    </li>
-                    <li>
-                      <img alt="" src="{{asset('img/featured/img3.jpg')}}">
-                      <div class="hover">
-                        <a href="#"><span>$49</span></a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="inner-box">
-                <div class="widget-title">
-                  <h4>Publicité</h4>
-                </div>
-                <img src="{{asset('img/img1.jpg')}}" alt="">
-              </div>
+              </div>              
             </aside>
           </div>
           <div class="col-sm-9 page-content">
