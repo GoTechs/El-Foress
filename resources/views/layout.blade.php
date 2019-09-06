@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="{{asset('css/slicknav.css')}}" type="text/css">
     <!-- Bootstrap Select -->
     <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 
 </head>
 
@@ -229,6 +230,7 @@
 
 <!-- Main JS  -->
 <script type="text/javascript" src="{{asset('js/jquery-min.js')}}"></script>
+<script src="{{asset('https://code.jquery.com/ui/1.12.1/jquery-ui.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/material.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/material-kit.js')}}"></script>
@@ -239,11 +241,21 @@
 <script type="text/javascript" src="{{asset('js/jquery.counterup.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jasny-bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/form-validator.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/contact-form-script.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.themepunch.revolution.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+<script type="text/javascript">
+    
+    $( function() {
+            var wilaya = [
+                "ADRAR","AIN DEFLA","AIN TEMOUCHENT","AL TARF","ALGER","ANNABA","B.B.ARRERIDJ","BATNA","BECHAR","BEJAIA",           "BISKRA","BLIDA","BOUIRA","BOUMERDES","CHLEF","CONSTANTINE","DJELFA","EL BAYADH","EL OUED","GHARDAIA",             "GUELMA","ILLIZI","JIJEL","KHENCHELA","LAGHOUAT","MASCARA","MEDEA","MILA","MOSTAGANEM","M’SILA","NAAMA",               "ORAN","OUARGLA","OUM ELBOUAGHI","RELIZANE","SAIDA","SETIF","SIDI BEL ABBES","SKIKDA","SOUKAHRAS",               "TAMANGHASSET","TEBESSA","TIARET","TINDOUF","TIPAZA","TISSEMSILT","TIZI.OUZOU","TLEMCEN"
+            ];
+            $( "#wilaya" ).autocomplete({
+              source: wilaya
+            });
+          } );
+
+  </script>
 
 </body>
 </html>

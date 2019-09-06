@@ -11,46 +11,84 @@
           <div class="product-info">
             <div class="col-sm-8">
               <div class="inner-box ads-details-wrapper">
-                <h2>MacBook 2017 with 256 SSD and 8GB RAM</h2>
-                <p class="item-intro"><span class="poster">For sale by <span class="ui-bubble is-member">John</span> <span class="date"> 20 Mar  2:27 am</span> from <span class="location">New York</span></p>
-                <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block;">
-                    <div class="owl-wrapper-outer">
-                        <div class="owl-wrapper" style="width:4128px; left: 0px; display: block;">
-                    <div class="owl-item" style="width:688px;">
-                    <div class="item">
-                      <img src="assets/img/productinfo/img1.jpg" alt="">
-                    </div>
-                  </div>
-                 <div class="owl-item" style="width:688px;">
-                    <div class="item">
-                      <img src="assets/img/productinfo/img2.jpg" alt="">
-                    </div>
-                            </div>
-                            <div class="owl-item" style="width:688px;">
-                    <div class="item">
-                      <img src="assets/img/productinfo/img3.jpg" alt="">
-                    </div>
-                            </div>
+                <h2>{{$annonce->titre}}</h2>
+                <p class="item-intro"><span class="poster">Publié par <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{$annonce->created_at}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>             
+                <div class="fotorama">
+                  @foreach ($images as $image)
+                  <img src="{{asset('images/'.$image->imagename)}}">
+                  @endforeach
                 </div>
-            </div>
-                    </div>
+
               </div>
 
               <div class="box">
-                <h2 class="title-2"><strong>Ad Details</strong></h2>
+                <h2 class="title-2"><strong>Détails</strong></h2>
                   <div class="row">
                   <div class="ads-details-info col-md-8">
-                    <p class="mb15">Powerful dual-core and quad-core Intel processors, more advanced graphics, faster PCIe-based flash storage, superfast memory, and Thunderbolt 2, MacBook Pro with Retina display delivers all the performance you want from a notebook.</p>
+                    <p class="mb15">{{$annonce->description}}</p>
                     <ul class="list-circle">
-                      <li><i class="fa fa-check-circle"></i> 256GB PCIe flash storage</li>
-                      <li><i class="fa fa-check-circle"></i> 2.7 GHz dual-core Intel Core i5 processor</li>
-                      <li><i class="fa fa-check-circle"></i> Turbo Boost up to 3.1GHz</li>
-                      <li><i class="fa fa-check-circle"></i> Intel Iris Graphics 6100</li>
-                      <li><i class="fa fa-check-circle"></i> 8GB memory (up from 4GB in 2013 model)</li>
-                      <li><i class="fa fa-check-circle"></i> 10 hour battery life</li>
-                      <li><i class="fa fa-check-circle"></i> 13.3" Retina Display</li>
-                      <li><i class="fa fa-check-circle"></i> Intect Box</li>
-                      <li><i class="fa fa-check-circle"></i> 1 Year international warranty</li>
+                      @if ($categorie == '3')
+
+                       <li>{{$result->typeBien ? ' Type du bien : '.$result->typeBien : '' }}</li>
+                       <li>{{$result->superficie ? ' Superficie : '.$result->superficie  : '' }}</li>
+                       <li>{{$result->nbrePiece ? ' Nombre de pièces : '.$result->nbrePiece  : '' }}</li>
+                       <li>{{$result->etage ? ' Étage : '.$result->etage : '' }}</li>
+
+                       @elseif ($sousCategorie == '2')
+
+                       <li>{{$result->dateHeureEvent ? ' Date et heure de l\'événement : '.$result->dateHeureEvent : '' }}</li>
+                       <li>{{$result->du ? ' Du : '.$result->du  : '' }}</li>
+                       <li>{{$result->au ? ' Au : '.$result->au  : '' }}</li>
+
+                       @elseif ($sousCategorie == '53')
+
+                       <li>{{$result->domaine ? ' Domaine d\'emploi : '.$result->domaine : '' }}</li>
+                       <li>{{$result->entreprise ? ' Entreprise : '.$result->entreprise : '' }}</li>
+                       <li>{{$result->adresse ? ' Adresse : '.$result->adresse : '' }}</li>
+                       <li>{{$result->poste ? ' Poste : '.$result->poste : '' }}</li>
+                       <li>{{$result->salaire ? ' Salaire : '.$result->salaire : '' }}</li>
+                       <li>{{$result->diplomeRequis ? ' Diplôme requis : '.$result->diplomeRequis : '' }}</li>
+
+                       @elseif ($sousCategorie == '54')
+
+                       <li>{{$result->sexe ? ' Sexe : '.$result->sexe  : '' }}</li>
+                       <li>{{$result->domaine ? ' Domaine d\'emploi : '.$result->domaine  : '' }}</li>
+                       <li>{{$result->age ? ' Âge : '.$result->age  : '' }}</li>
+                       <li>{{$result->poste ? ' Poste : '.$result->poste  : '' }}</li>
+                       <li>{{$result->niveau ? ' Niveau d\'éducation : '.$result->niveau  : '' }}</li>
+                       <li>{{$result->diplome ? ' Diplôme : '.$result->diplome  : '' }}</li>
+                       <li>{{$result->anneExp ? ' Année d\'expérience : '.$result->anneExp : '' }}</li>
+
+                       @elseif ($sousCategorie <> '14' and $categorie == '4')
+
+                       <li>{{$result->vente ? $result->vente  : '' }}</li>
+                       <li>{{$result->marque ? ' Marque : '.$result->marque  : '' }}</li>
+                       <li>{{$result->modele ? ' Modèle : '.$result->modele  : '' }}</li>
+                       <li>{{$result->annee ? ' Année : '.$result->annee  : '' }}</li>
+                       <li>{{$result->kilometrage ? ' Kilomètrage : '.$result->kilometrage  : '' }}</li>
+                       <li>{{$result->typeCarb ? ' Type carburant : '.$result->typeCarb  : '' }}</li>
+
+                       @elseif ($sousCategorie == '16')
+
+                       <li>{{$result->marque ? ' Marque : '.$result->marque : '' }}</li>
+                       <li>{{$result->modele ? ' Modèle : '.$result->modele : '' }}</li>
+
+                       @elseif ($sousCategorie == '36')
+
+                       <li>{{$result->type ? ' Type : '.$result->type : '' }}</li>
+                       <li>{{$result->marque ? ' Marque : '.$result->marque : '' }}</li>
+                       <li>{{$result->capacite ? ' Capacité : '.$result->capacite : '' }}</li>
+
+                       @elseif ($sousCategorie == '37')
+
+                       <li>{{$result->marque ? ' Marque : '.$result->marque : '' }}</li>
+                       <li>{{$result->tailleEcran ? ' Taille de l\'écran : '.$result->tailleEcran : '' }}</li>                       
+                       <li>{{$result->processeur ? ' Processeur : '.$result->processeur : '' }}</li>
+                       <li>{{$result->ram ? ' Mémoire RAM : '.$result->ram : '' }}</li>
+                       <li>{{$result->tailleDisque ? ' Taille du disque : '.$result->tailleDisque : '' }}</li>
+                       
+                      @endif
+                    </ul>
                   </div>
                   <div class="col-md-4">
                     <aside class="panel panel-body panel-details">
@@ -97,76 +135,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="inner-box">
-                <div class="widget-title">
-                  <h4>Advertisement</h4>
-                </div>
-                <img src="assets/img/img1.jpg" alt="">
-              </div>
-            <div class="col-xs-12">
-              <div class="features-box wow fadeInDownQuick" data-wow-delay="0.3s">
-                <div class="features-icon">
-                  <i class="lnr lnr-star">
-                  </i>
-                </div>
-                <div class="features-content">
-                  <h4>
-                    Fraud Protection
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis repellat rerum assumenda facere. 
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="features-box wow fadeInDownQuick" data-wow-delay="0.6s">
-                <div class="features-icon">
-                  <i class="lnr lnr-chart-bars"></i>
-                </div>
-                <div class="features-content">
-                  <h4>
-                    No Extra Fees 
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis repellat rerum assumenda facere. 
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="features-box wow fadeInDownQuick" data-wow-delay="0.9s">
-                <div class="features-icon">
-                  <i class="lnr lnr-spell-check"></i>
-                </div>
-                <div class="features-content">
-                  <h4>
-                    Verified Data
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis repellat rerum assumenda facere. 
-                  </p>
-                </div>
-              </div>
-               </div>
-            <div class="col-xs-12">
-              <div class="features-box wow fadeInDownQuick" data-wow-delay="0.9s">
-                <div class="features-icon">
-                  <i class="lnr lnr-smile"></i>
-                </div>
-                <div class="features-content">
-                  <h4>
-                    Friendly Return Policy
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis repellat rerum assumenda facere. 
-                  </p>
-                </div>
-              </div>
-               </div>
-
             </div>
           </div>
       </div>         

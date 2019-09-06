@@ -20,7 +20,7 @@
                       <label class="styled-select">
                         <select class="dropdown-product selectpicker" name="categorie" >
                           <option value="">Toutes les catégories</option>
-                          @foreach ($categorie as $key => $value)
+                          @foreach ($search as $key => $value)
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
                             @endforeach
                        </select>                                    
@@ -28,26 +28,11 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <label class="styled-select location-select">
-                        <select class="dropdown-product selectpicker" name="wilaya" >
-                          <option value="">Wilaya</option>
-                          <option value="ALGER">Alger</option>
-                          <option value="Oran">Oran</option>
-                          <option value="Blida">Blida</option>
-                          <option value="Adrar">Adrar</option>
-                          <option value="Batna">Batna</option>
-                          <option value="Biskra">Biskra</option>
-                          <option value="Chlef">Chlef</option>
-                          <option value="Jijel">Jijel</option>
-                          <option value="Skikda">Skikda</option>
-                          <option value="Tiaret">Tiaret</option>
-                        </select>
-                      </label>
-                    </div>
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text">
+                    <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" value="" placeholder="Mots clés" type="text">
+                    <input class="form-control keyword" name="keyword" placeholder="Mots clés" type="text">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
@@ -77,31 +62,24 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-1 wow fadeInUpQuick" data-wow-delay="0.3s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-users color-1"></i></a>
+                  <a href="/search/Catégorie/1"><i class="lnr lnr-users color-1"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search"><h4>Communauté</h4></a>
+                  <a href="/search/Catégorie/1"><h4>Communauté</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Communauté' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Bénévoles</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Événements</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Amis perdus</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Amitié</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
+                      <a href="/search/Catégorie/1">Autres →</a>
+                      <sapn class="category-counter"></sapn>
                     </li>
                   </ul>
                 </div>
@@ -110,39 +88,21 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-2 wow fadeInUpQuick" data-wow-delay="0.6s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-briefcase color-2"></i></a>
+                  <a href="/search/Catégorie/2"><i class="lnr lnr-briefcase color-2"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Emplois</h4></a>
+                  <a href="/search/Catégorie/2"><h4>Emplois</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
-                    <li>
-                      <a href="categorie.php" style="color:#ff5353;text-decoration:underline;">Demandes / Offres :</a>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Informatique</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Comptabilité - Audit</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Commerce - Vente</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Santé - Pharmacie</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Hôtellerie - Restauration</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
-                    </li>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Emplois')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                   </ul>
                 </div>
               </div>
@@ -150,37 +110,21 @@
              <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-3 wow fadeInUpQuick" data-wow-delay="0.9s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-apartment color-3"></i></a>
+                  <a href="/search/Catégorie/3"><i class="lnr lnr-apartment color-3"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Immobiliers</h4></a>
+                  <a href="/search/Catégorie/3"><h4>Immobiliers</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
-                    <li>
-                      <a href="categorie.php" style="color:#1dd2af;text-decoration:underline;">Achat :</a>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Appartement</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Terrain</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
-                    </li>
-                    <li>
-                      <a href="categorie.php"  style="color:#1dd2af;text-decoration:underline;">Location :</a>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Espace commerciaux, bureaux</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
-                    </li>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Immobiliers')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                   </ul>
                 </div>
               </div>
@@ -188,39 +132,25 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-4 wow fadeInUpQuick" data-wow-delay="1.2s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-car color-4"></i></a>
+                  <a href="/search/Catégorie/4"><i class="lnr lnr-car color-4"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Véhicules</h4></a>
+                  <a href="/search/Catégorie/4"><h4>Véhicules</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
+                    @foreach ($categorie as $cat)
+
+                      @break($cat->sousCat == 'Motos - Scooters')
+                      @if ($cat->categories == 'Véhicules' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Automobiles</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Motos - Scooters</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Bateaux</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Remorques</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Camions</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Pièces détachées</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
+                      <a href="/search/Catégorie/4">Autres →</a>
                     </li>
                   </ul>
                 </div>
@@ -229,35 +159,23 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-5 wow fadeInUpQuick" data-wow-delay="1.4s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-cart color-5"></i></a>
+                  <a href="/search/Catégorie/5"><i class="lnr lnr-cart color-5"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Boutiques</h4></a>
+                  <a href="/search/Catégorie/5"><h4>Boutiques</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Boutiques' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Téléphones</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Appareils Photo</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Bijoux - Montres</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Meubles de maison</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Articles de sport</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
+                      <a href="/search/Catégorie/5">Autres →</a>
                     </li>
                   </ul>
                 </div>
@@ -266,36 +184,24 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-6 wow fadeInUpQuick" data-wow-delay="1.8s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-coffee-cup color-6"></i></a>
+                  <a href="/search/Catégorie/6"><i class="lnr lnr-coffee-cup color-6"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Électroménagers</h4></a>
+                  <a href="/search/Catégorie/6"><h4>Électroménagers</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Électroménager' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Réfrigérateur - Congélateur</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Cuisinière</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Machine à laver</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Fours - Micro onde</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Mixeurs - Batteurs</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
-                      <sapn class="category-counter">3</sapn>
+                      <a href="/search/Catégorie/6">Autres →</a>
+                      <sapn class="category-counter"></sapn>
                     </li>
                   </ul>
                 </div>
@@ -304,39 +210,23 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-7 wow fadeInUpQuick" data-wow-delay="2.1s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-cog color-7"></i></a>
+                  <a href="/search/Catégorie/7"><i class="lnr lnr-cog color-7"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Services</h4></a>
+                  <a href="/search/Catégorie/7"><h4>Services</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
-                    <li>
-                      <a href="categorie.php">Ecole et formation</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Services' and $cat->sousCat <> 'Autres')
                       <li>
-                      <a href="categorie.php">Construction et travaux</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Réparation Éléctroniques </a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Traiteurs et gateaux</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Transport</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Esthétique et beauté</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
+                      <a href="/search/Catégorie/7">Autres →</a>
                     </li>
                   </ul>
                 </div>
@@ -345,35 +235,23 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-8 wow fadeInUpQuick" data-wow-delay="2.4s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-laptop-phone color-8"></i></a>
+                  <a href="/search/Catégorie/8"><i class="lnr lnr-laptop-phone color-8"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Matériels informatiques</h4></a>
+                  <a href="/search/Catégorie/8"><h4>Matériel informatique</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Matériel informatique' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Périphériques et accessoires</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Stockage</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Ordinateurs</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Imprimantes</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Son</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
+                      <a href="/search/Catégorie/8">Autres →</a>
                     </li>
                   </ul>
                 </div>
@@ -385,31 +263,23 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-9 wow fadeInUpQuick" data-wow-delay="2.4s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-rocket color-9"></i></a>
+                  <a href="/search/Catégorie/9"><i class="lnr lnr-rocket color-9"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Voyages</h4></a>
+                  <a href="/search/Catégorie/9"><h4>Voyages</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Voyages' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Hadj et Omra</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Voyage organisé</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Réservation et visa</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Location de vacances</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
+                      <a href="/search/Catégorie/9">Autres →</a>
                     </li>
                   </ul>
                 </div>
@@ -418,39 +288,23 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-10 wow fadeInUpQuick" data-wow-delay="2.5s">
                 <div class="icon">
-                  <a href="categorie.php"><i class="lnr lnr-paw color-10"></i></a>
+                  <a href="/search/Catégorie/10"><i class="lnr lnr-paw color-10"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="categorie.php"><h4>Animaux</h4></a>
+                  <a href="/search/Catégorie/10"><h4>Animaux</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Animaux' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/sousCatégorie/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
                     <li>
-                      <a href="categorie.php">Oiseaux à adopter</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Chats, chatons à adopter</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Chiens à adopter</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Animaux de ferme</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Accessoires</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                     <li>
-                      <a href="categorie.php">Services pour animaux</a>
-                      <sapn class="category-counter">3</sapn>
-                    </li>
-                    <li>
-                      <a href="categorie.php">Autres →</a>
+                      <a href="/search/Catégorie/10">Autres →</a>
                     </li>
                   </ul>
                 </div>
@@ -635,3 +489,4 @@
     <!-- Counter Section End -->
 
   @endsection
+

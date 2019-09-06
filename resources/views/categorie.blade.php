@@ -193,13 +193,18 @@
               <div class="item-list">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
-                    <a href="#"><img src="{{asset('img/nondisponible.jpg')}}" alt=""></a>
+                    <a href="/details/{{$result->id}}">
+                     @foreach ($imageAd as $img) 
+                      @if ($result->id == $img->id_annonce)
+                        <img src="{{asset('images/'.$img->imagename)}}" alt=""></a>
+                      @endif
+                      @endforeach
                     <span class="photo-count"><i class="fa fa-camera"></i>2</span>
                   </div>
                 </div>
                 <div class="col-sm-7 add-desc-box">
                   <div class="add-details">
-                    <h5 class="add-title"><a href="ads-details.php">{{$result->titre}}</a></h5>
+                    <h5 class="add-title"><a href="/details/{{$result->id}}">{{$result->titre}}</a></h5>
                     <div class="info">
                       
                       <span class="date">
@@ -215,7 +220,7 @@
                 </div>
                 <div class="col-sm-3 text-right  price-box">
                   <h2 class="item-price"> {{$result->prix <> '' ? $result->prix.'DA' : '' }} </h2>
-                  <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$result->id_annonce}})"><i class="fa fa-heart"></i>
+                  <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$result->id}})"><i class="fa fa-heart"></i>
                   <span>Favori</span></a>
                   <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>215</span> </a>
                 </div>
@@ -225,7 +230,7 @@
             <!-- Adds wrapper End -->
 
             <!-- Start Pagination -->
-            {{ $data->appends(request()->input())->links() }}
+            {{ $data->links() }}
             <!-- End Pagination -->
 
             <div class="post-promo text-center">

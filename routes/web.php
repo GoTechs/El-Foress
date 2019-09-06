@@ -16,6 +16,8 @@ Route::get('/','searchController@showCat');
 Route::post('/categorie','searchController@search');
 Route::get('/categorie','searchController@search');
 
+Route::get('/search/{idpost}/{idcat}','searchController@searchPerCat');
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -35,10 +37,6 @@ Route::get('/forgetPassword', function () {
 
 Route::get('/home', function () {
     return view('profil.home');
-});
-
-Route::get('/search', function () {
-    return view('categorie');
 });
 
 // Route for Authentication
@@ -88,9 +86,17 @@ Route::get('/details', function () {
     return view('details');
 });
 
+// LIVE SEARCH
+
 Route::get('/search', 'eventController@liveSearch');
 
+// Adding Ad to my favorits
+
 Route::patch('/addtofav/{idpost}','ProfilController@addtofav');
+
+// Details of ads
+
+Route::get('/details/{idpost}','searchController@details');
 
 
 

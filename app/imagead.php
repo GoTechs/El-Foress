@@ -9,4 +9,5 @@ class imagead extends Model
     protected $table = 'imageads';
 
     protected $guarded = [];
+
 }

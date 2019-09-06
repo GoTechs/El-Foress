@@ -2561,3 +2561,9 @@ textarea:focus {
     background: #d9534f;
 }
 
+ul.ui-autocomplete {
+        background-color: white;
+        width: 200px;
+        cursor: pointer;
+    }
+
