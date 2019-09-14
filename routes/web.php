@@ -55,7 +55,7 @@ Route::get('/archives','ProfilController@archives')->middleware('auth');
 
 // Dynamic dropDown Categorie And Sous categorie
 
-Route::get('/addAd','categorieController@categories');
+Route::get('/addAd','categorieController@categories')->middleware('auth');
 
 Route::get('/json-sousCategorie','categorieController@sousCat')->middleware('auth');
 
