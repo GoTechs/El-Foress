@@ -106,7 +106,8 @@ return [
         'categorie' => 'Catégorie',
         'sousCat' => 'Sous catégorie',
         'wilaya' => 'Wilaya',
-        'Adtitle' => 'Titre de l\'annonce'
+        'Adtitle' => 'Titre de l\'annonce',
+        'descrp' => 'Description'
     ],
 
 ];

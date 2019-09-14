@@ -67,7 +67,7 @@ class insertAdController extends Controller
         $lastID = $annonce->id;
         $idCat =  request('categorie');
         $idSousCat =  request('sousCat');
-        //$nameCat = categories::where('idCat', '=', $idCat)->get();
+        $nameTable =  '';
 
         // Save and upload picture if exist
 
@@ -94,6 +94,7 @@ class insertAdController extends Controller
                 'au' => request('au'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'ad_events';
         }
 
         elseif ($idSousCat == '53') {
@@ -106,6 +107,7 @@ class insertAdController extends Controller
                 'diplomeRequis' => request('diplomeRequis'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'ad_joboffers';
         }
 
         elseif ($idSousCat == '54') {
@@ -119,6 +121,7 @@ class insertAdController extends Controller
                 'anneExp' => request('anneExp'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'ad_jobapplications';
         }
 
         elseif ($idCat == '3') {
@@ -129,6 +132,7 @@ class insertAdController extends Controller
                 'etage' => request('etage'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'adimmobiliers';
         }
 
         elseif ($idSousCat <> '14' and $idCat == '4') {
@@ -141,6 +145,7 @@ class insertAdController extends Controller
                 'typeCarb' => request('typeCarb'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'ad_cars';
         }
 
         elseif ($idSousCat == '16') {
@@ -149,6 +154,7 @@ class insertAdController extends Controller
                 'modele' => request('modelePhone'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'ad_phones';
         }
 
         elseif ($idSousCat == '36') {
@@ -158,6 +164,7 @@ class insertAdController extends Controller
                 'capacite' => request('capaciteStock'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'ad_storages';
         }
 
         elseif ($idSousCat == '37') {
@@ -169,7 +176,14 @@ class insertAdController extends Controller
                 'tailleDisque' => request('tailleDisque'),
                 'id_annonce' => $lastID
             ]);
+            $nameTable = 'ad_computers';
         }
+
+        $annonce = annonce::find($lastID);
+
+        $annonce->nameTable = $nameTable;
+
+        $annonce->save();
 
         return redirect('myads')->with('message','Success');
 
@@ -347,43 +361,9 @@ class insertAdController extends Controller
     }
 
     public function destroy($id){
+        
             $annonce = annonce::find($id);
+            $annonce->delete();     
 
-            $idCat = $annonce->id_Cat;
-            $idSousCat = $annonce->id_sous_Cat;
-
-        if ($idSousCat == '2'){
-            DB::table('ad_events')->where('id_annonce', '=', $id)->delete();
-        }
-
-        elseif ($idSousCat == '53') {
-            DB::table('ad_joboffers')->where('id_annonce', '=', $id)->delete();
-        }
-
-        elseif ($idSousCat == '54') {
-            DB::table('ad_jobapplications')->where('id_annonce', '=', $id)->delete();
-        }
-
-        elseif ($idCat == '3') {
-            DB::table('adimmobiliers')->where('id_annonce', '=', $id)->delete();
-        }
-
-        elseif ($idSousCat <> '14' and $idCat == '4') {
-            DB::table('ad_cars')->where('id_annonce', '=', $id)->delete();
-        }
-
-        elseif ($idSousCat == '16') {
-            DB::table('ad_phones')->where('id_annonce', '=', $id)->delete();
-        }
-
-        elseif ($idSousCat == '36') {
-            DB::table('ad_storages')->where('id_annonce', '=', $id)->delete();
-        }
-
-        elseif ($idSousCat == '37') {
-            DB::table('ad_computers')->where('id_annonce', '=', $id)->delete();
-        }
-
-        $annonce->delete();
     }
 }

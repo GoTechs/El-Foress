@@ -72,14 +72,17 @@ class searchController extends Controller
           case 'Catégorie':
               $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
                                            ->paginate(3);  
+              $filter = '';
+
               break;
           case 'sousCatégorie':
               $data = DB::table('annonces')->where([['id_sous_Cat','=',$idCat],['stateAd','=','1'],])
-                                           ->paginate(3);   
+                                           ->paginate(3); 
+              $filter = $idCat;  
               break;         
       }
 
-      return view('categorie',['data'=>$data,'imageAd'=>$imageAd]);
+      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filter]);
    }
 
    public function details($id){

@@ -1288,6 +1288,21 @@ footer .menu li a:hover {
   color: #444;
   border-bottom: 1px solid #eee;
 }
+.categories-list ul li {
+  margin-bottom: 18px;
+  border-bottom: 1px solid #eee;
+}
+.categories-list .filter {  
+  line-height: 4px;
+  border-bottom: none;
+}
+.categories-list .btn {  
+  padding: 12px 40px;
+  margin-bottom: 5px;
+}
+.categories-list strong {  
+  color: #75aec4;
+}
 .categories-list ul li a:hover {
   color: #3498db;
 }

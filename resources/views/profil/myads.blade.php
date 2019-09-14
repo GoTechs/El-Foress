@@ -148,7 +148,7 @@
                             url : "/updateAD/"+id,
                             type : "POST",
                             data : {'_method' : 'DELETE','_token':csrf_token},
-                            success : function(data){
+                            success : function(){
                               swal("Votre annonce a été supprimée!", {
                                 icon: "success",
                               });

@@ -255,6 +255,33 @@
             });
           } );
 
+   /* $(document).ready(function(){
+           $('#anne').keyup(function(){
+           
+            // Search text
+            var text = $(this).val();
+            var kilom = 'h'
+           
+            // Hide all content class element
+            $('.adds-wrapper').hide();
+
+            // Search 
+            $('.adds-wrapper .add-title:contains("'+text+'"), .adds-wrapper .item_desc:contains("'+kilom+'")').closest('.adds-wrapper').show();
+           
+           });
+          });*/
+
+         /* $('#Add').on('click',function(event){
+          var info = {};//create an empty object
+          var allInfo = [];
+          info.anne = document.getElementById('anne').value;
+          info.kilom = document.getElementById('kilom').value;
+          allInfo.push(info);
+
+          console.log(allInfo);
+
+      });*/
+
   </script>
 
 </body>

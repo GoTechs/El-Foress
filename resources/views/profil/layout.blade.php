@@ -231,10 +231,6 @@
 <script type="text/javascript" src="{{asset('js/jquery.counterup.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jasny-bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/form-validator.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/contact-form-script.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.themepunch.revolution.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>

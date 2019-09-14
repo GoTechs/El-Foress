@@ -35,52 +35,48 @@ Route::get('/forgetPassword', function () {
     return view('mdp-oublier');
 });
 
-Route::get('/home', function () {
-    return view('profil.home');
-});
-
 // Route for Authentication
 
 Route::get('/inscription','AuthController@create');
 Route::post('/inscription','AuthController@store');
 
-Route::get('/connexion','AuthController@connexion');
+Route::get('/connexion','AuthController@connexion')->name('connexion');
 Route::post('/connexion','AuthController@checklogin');
 
-Route::get('/logout','AuthController@logout');
+Route::get('/logout','AuthController@logout')->middleware('auth');
 
 
 // Route to Profil
 
-Route::get('/home','ProfilController@home');
-Route::get('/myads','ProfilController@myads');
-Route::get('/favorites','ProfilController@favorits');
-Route::get('/archives','ProfilController@archives');
+Route::get('/home','ProfilController@home')->middleware('auth');
+Route::get('/myads','ProfilController@myads')->middleware('auth');
+Route::get('/favorites','ProfilController@favorits')->middleware('auth');
+Route::get('/archives','ProfilController@archives')->middleware('auth');
 
 // Dynamic dropDown Categorie And Sous categorie
 
 Route::get('/addAd','categorieController@categories');
 
-Route::get('/json-sousCategorie','categorieController@sousCat');
+Route::get('/json-sousCategorie','categorieController@sousCat')->middleware('auth');
 
 // Insert Ad
 
-Route::post('/insertAd','insertAdController@store');
+Route::post('/insertAd','insertAdController@store')->middleware('auth');
 
 // Update and Delete Ad
 
-Route::get('/updateAD/{idpost}/edit','insertAdController@edit');
-Route::patch('/updateAD/{idpost}','insertAdController@update');
-Route::delete('/updateAD/{idpost}','insertAdController@destroy');
+Route::get('/updateAD/{idpost}/edit','insertAdController@edit')->middleware('auth');
+Route::patch('/updateAD/{idpost}','insertAdController@update')->middleware('auth');
+Route::delete('/updateAD/{idpost}','insertAdController@destroy')->middleware('auth');
 
 // Archived AD
 
-Route::patch('/archiveAd/{idpost}','ProfilController@update');
-Route::patch('/repostAd/{idpost}','ProfilController@repost');
+Route::patch('/archiveAd/{idpost}','ProfilController@update')->middleware('auth');
+Route::patch('/repostAd/{idpost}','ProfilController@repost')->middleware('auth');
 
 // Update Personnel Info of USER
 
-Route::patch('/updateInfoUser/{idpost}','ProfilController@updateUser');
+Route::patch('/updateInfoUser/{idpost}','ProfilController@updateUser')->middleware('auth');
 
 Route::get('/details', function () {
     return view('details');
@@ -97,6 +93,10 @@ Route::patch('/addtofav/{idpost}','ProfilController@addtofav');
 // Details of ads
 
 Route::get('/details/{idpost}','searchController@details');
+
+// Advanced Search route
+
+Route::get('/advancedSearch','advancedSearchController@search');
 
 
 
