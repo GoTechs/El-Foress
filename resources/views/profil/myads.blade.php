@@ -28,13 +28,13 @@
                             <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
                               <ul class="acc-list">
                                 <li class="active">
-                                  <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">{{$nbreResultAnnonce}}</span></a>
+                                  <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge"></span></a>
                                 </li>
                                 <li>
                                   <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
                                 </li>
                                 <li>
-                                  <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">{{$nbreResultArchived}}</span></a>
+                                  <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge"></span></a>
                                 </li>
                               </ul>
                             </div>
@@ -56,26 +56,24 @@
             <div class="inner-box">
               <h2 class="title-2"><i class="fa fa-credit-card"></i> Mes annonces</h2>
               <div class="table-responsive">
-               <!-- <div class="table-action">
+               <div class="table-action">
                   <div class="checkbox">
                     <label for="checkAll">
-                      <input id="checkAll" class="selectall" type="checkbox" onclick="wafaa()">
-                      Tout sélectionner | <button class="btn btn-xs btn-danger" type="submit">Supprimer <i class="fa fa-close"></i></button>
+                      <input id="checkAll" onclick="checkAll(this)" type="checkbox">
+                      Tout sélectionner | <a href="#" class="btn btn-xs btn-danger">Supprimer <i class="fa fa-close"></i></a>
                     </label>
                   </div>
                   <div class="table-search pull-right col-xs-7">
                     <div class="form-group">
                       <label class="col-xs-5 control-label text-right">Recherche <br>
-                        <a title="clear filter" class="clear-filter" href="#clear">[clear]</a> 
                       </label>
-                       <div class="col-xs-7 searchpan">
-                       <input class="form-control" id="search" name="search" type="text"> 
+                      <div class="col-xs-7 searchpan">
+                        <input class="form-control" id="filter" type="text">
                       </div>
                     </div>
                   </div>
-                </div>-->
-                <table id="example" class="table table-striped table-bordered add-manage-table" style="width:100%">
-
+                </div>
+                <table class="table table-striped table-bordered add-manage-table" style="width:100%">
                   <thead>
                     <tr>
                       <th data-type="numeric"></th>
@@ -131,8 +129,6 @@
 
           <script>
 
-
-
             function deleteAd(id){
               var csrf_token = $('meta[name="csrf-token"]').attr('content');
               swal({
@@ -142,20 +138,21 @@
                 buttons: true,
                 dangerMode: true,
               })
-                      .then((willDelete) => {
-                        if (willDelete) {
-                          $.ajax({
-                            url : "/updateAD/"+id,
-                            type : "POST",
-                            data : {'_method' : 'DELETE','_token':csrf_token},
-                            success : function(){
-                              swal("Votre annonce a été supprimée!", {
-                                icon: "success",
-                              });
-                            }
-                          })
-                        }
-                      });
+                .then((willDelete) => {
+                  if (willDelete) {
+                    $.ajax({
+                      url : "/updateAD/"+id,
+                      type : "POST",
+                      data : {'_method' : 'DELETE','_token':csrf_token},
+                      success : function(){
+                        swal("Votre annonce a été supprimée!", {
+                          icon: "success",
+                        });
+                        $('#'+id).remove();
+                      }
+                    })
+                  }
+                });
             }
 
             function archiveAd(id){
@@ -166,25 +163,25 @@
                 buttons: true,
                 dangerMode: true,
               })
-                      .then((willDelete) => {
-                        if (willDelete) {
-                          $.ajax({
-                            url : "/archiveAd/"+id,
-                            type : "POST",
-                            data : {'_method' : 'PATCH','_token':csrf_token},
-                            success : function(data){
-                            
-                             swal("Votre annonce a été archivée!", {
-                                icon: "success",
-                              });
-                             $('#'+id).remove();
-                            }
-                          })
-                        }
-                      });
+                .then((willDelete) => {
+                  if (willDelete) {
+                    $.ajax({
+                      url : "/archiveAd/"+id,
+                      type : "POST",
+                      data : {'_method' : 'PATCH','_token':csrf_token},
+                      success : function(data){
+                      
+                       swal("Votre annonce a été archivée!", {
+                          icon: "success",
+                        });
+                       $('#'+id).remove();
+                      }
+                    })
+                  }
+                });
             }
 
-            function wafaa(){
+           /* function chekeAll(){
               $('.selectbox').prop('checked',$(this).prop('checked'));
 
             }
@@ -200,24 +197,6 @@
                 }
 
 
-            }
-
-         
-
-                 
-              /*   $(document).on('keyup', '#search', function(){
-                   var csrf_token = $('meta[name="csrf-token"]').attr('content');
-                   var query = $(this).val();
-                  $.ajax({
-                   url:"/search",
-                   data : {'_method' : 'GET','_token':csrf_token, 'query':query},
-                   dataType:'json',
-                   success:function(data)
-                   {
-                    $('tbody').html(data.table_data);
-                   }
-                  })
-                 });*/
-           
+            } */          
 
           </script>

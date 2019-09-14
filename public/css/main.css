@@ -1282,11 +1282,10 @@ footer .menu li a:hover {
 }
 .categories-list ul li a {
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
   display: block;
   font-size: 13px;
   color: #444;
-  border-bottom: 1px solid #eee;
 }
 .categories-list ul li {
   margin-bottom: 18px;

@@ -10,45 +10,30 @@
             <!-- Start Search box -->
             <div class="row search-bar">
               <div class="advanced-search">
-                <form class="search-form" method="get">
+                <form class="search-form" method="post" action="/categorie">
+                  @csrf
                   <div class="col-md-3 col-sm-6 search-col">
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select">
-                        <select class="dropdown-product selectpicker" name="product-cat" >
-                          <option value="0">Toutes les catégories</option>
-                          <option class="subitem" value="Emplois"> Emplois</option>
-                          <option value="Immobiliers"> Immobiliers</option>
-                          <option value="Véhicules"> Véhicules</option>
-                          <option value="Elec"> Boutiques</option>
-                          <option value="Services"> Services</option>
-                          <option value="Autres"> Matériels Informatiques</option>
-                        </select>
+                        <select class="dropdown-product selectpicker" name="categorie" >
+                          <option value="">Toutes les catégories</option>
+                          @foreach ($search as $key => $value)
+                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                            @endforeach
+                       </select>                                    
                       </label>
                     </div>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <label class="styled-select location-select">
-                        <select class="dropdown-product selectpicker" name="product-cat" >
-                          <option value="0">Wilaya</option>
-                          <option value="Alger">Alger</option>
-                          <option value="Oran">Oran</option>
-                          <option value="Blida">Blida</option>
-                          <option value="Adrar">Adrar</option>
-                          <option value="Batna">Batna</option>
-                          <option value="Biskra">Biskra</option>
-                        </select>
-                      </label>
-                    </div>
-
-
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text">
+                    <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" value="" placeholder="Mots Clés" type="text">
+                    <input class="form-control keyword" name="keyword" placeholder="Mots clés" type="text">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <button class="btn btn-common btn-search btn-block"><strong>Recherches</strong></button>
+                    <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
                   </div>
                 </form>
               </div>
@@ -77,62 +62,62 @@
                       <li>
                         <a href="/search/Catégorie/1">
                           <i class="lnr lnr-users"></i>
-                          Communauté <span class="category-counter">(9)</span>
+                          Communauté <span class="category-counter"></span>
                         </a>
                       </li>
 
                       <li>
                         <a href="/search/Catégorie/2">
                           <i class="lnr lnr-briefcase"></i>
-                          Emplois <span class="category-counter">(8)</span>
+                          Emplois <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/3">
                           <i class="lnr lnr-apartment"></i>
-                          Immobiliers <span class="category-counter">(2)</span>
+                          Immobiliers <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/4">
                           <i class="lnr lnr-car"></i>
-                          Véhicules <span class="category-counter">(3)</span>
+                          Véhicules <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/5">
                           <i class="lnr lnr-cart"></i>
-                          Boutiques <span class="category-counter">(4)</span>
+                          Boutiques <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/6">
                           <i class="lnr lnr-coffee-cup"></i>
-                          Électroménagers <span class="category-counter">(5)</span>
+                          Électroménagers <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/7">
                           <i class="lnr lnr-cog"></i>
-                          Services <span class="category-counter">(5)</span>
+                          Services <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/8">
                           <i class="lnr lnr-laptop-phone"></i>
-                          Matériel informatique <span class="category-counter">(5)</span>
+                          Matériel informatique <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/9">
                           <i class="lnr lnr-rocket"></i>
-                          Voyages <span class="category-counter">(5)</span>
+                          Voyages <span class="category-counter"></span>
                         </a>
                       </li>
                       <li>
                         <a href="/search/Catégorie/10">
                           <i class="lnr lnr-paw"></i>
-                          Animaux <span class="category-counter">(5)</span>
+                          Animaux <span class="category-counter"></span>
                         </a>
                       </li>
                     </ul>
@@ -383,6 +368,78 @@
                          </ul>
                         </div>
                       </div>
+                      @else
+                      <div class="categories">                  
+                        <div class="widget-title">
+                          <i class="fa fa-align-justify"></i>
+                          <h4> Toutes les catégories</h4>
+                        </div>
+                        <div class="categories-list">
+                          <ul>
+                            <li>
+                              <a href="/search/Catégorie/1">
+                                <i class="lnr lnr-users"></i>
+                                Communauté <span class="category-counter"></span>
+                              </a>
+                            </li>
+
+                            <li>
+                              <a href="/search/Catégorie/2">
+                                <i class="lnr lnr-briefcase"></i>
+                                Emplois <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/3">
+                                <i class="lnr lnr-apartment"></i>
+                                Immobiliers <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/4">
+                                <i class="lnr lnr-car"></i>
+                                Véhicules <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/5">
+                                <i class="lnr lnr-cart"></i>
+                                Boutiques <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/6">
+                                <i class="lnr lnr-coffee-cup"></i>
+                                Électroménagers <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/7">
+                                <i class="lnr lnr-cog"></i>
+                                Services <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/8">
+                                <i class="lnr lnr-laptop-phone"></i>
+                                Matériel informatique <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/9">
+                                <i class="lnr lnr-rocket"></i>
+                                Voyages <span class="category-counter"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/search/Catégorie/10">
+                                <i class="lnr lnr-paw"></i>
+                                Animaux <span class="category-counter"></span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        </div>
                     @endif
                     @endif
                 </div>       

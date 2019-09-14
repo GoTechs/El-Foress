@@ -153,8 +153,8 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <div class="checkbox">
-                <label><input type="checkbox" name="vente" value="selling"> Je vends </label><br>
-                <label><input type="checkbox" name="vente" value="searching"> Je recherche </label>
+                <label><input type="radio" name="vente" value="selling"> Je vends </label><br>
+                <label><input type="radio" name="vente" value="searching"> Je recherche </label>
               </div>
           </div>
           <div class="form-group">
@@ -436,7 +436,7 @@
           <h2 class="title-2">Prix</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Prix</label>
-              <input class="form-control" placeholder="Prix en DA" name="prix" type="number" value="{{old('prix')}}">
+              <input class="form-control" placeholder="Prix en DA" name="prix" type="text" value="{{old('prix')}}">
           </div>
           </div>
             

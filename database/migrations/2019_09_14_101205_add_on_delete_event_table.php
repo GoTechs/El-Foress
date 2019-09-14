@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOnDeletePropertiesToImageads extends Migration
+class AddOnDeleteEventTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddOnDeletePropertiesToImageads extends Migration
      */
     public function up()
     {
-        Schema::table('imageads', function (Blueprint $table) {
-           $table->dropForeign(['id_annonce']);
-           $table->foreign('id_annonce')->references('id')->on('annonces')->onDelete('cascade');
+        Schema::table('ad_events', function (Blueprint $table) {
+            $table->dropForeign(['id_annonce']);
+            $table->foreign('id_annonce')->references('id')->on('annonces')->onDelete('cascade');
         });
     }
 
@@ -26,7 +26,7 @@ class AddOnDeletePropertiesToImageads extends Migration
      */
     public function down()
     {
-        Schema::table('imageads', function (Blueprint $table) {
+        Schema::table('ad_events', function (Blueprint $table) {
             //
         });
     }

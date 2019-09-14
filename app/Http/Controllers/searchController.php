@@ -34,6 +34,8 @@ class searchController extends Controller
 
    public function search(Request $request){
 
+      $search = categories::all();
+
    		$categorie =  request('categorie');
    		$wilaya =  request('wilaya');
    		$keyword =  request('keyword');
@@ -61,12 +63,16 @@ class searchController extends Controller
 	    $data = $data->where('stateAd', '=',  '1') 
 	    		     ->paginate(3);
 
-		  return view('categorie',['data'=>$data,'imageAd'=>$imageAd]);
+      $cat = 'Catégorie';       
+
+		  return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'search'=>$search]);
    }
 
    public function searchPerCat($cat,$idCat){
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
+
+        $search = categories::all();
 
         switch ($cat) {
           case 'Catégorie':
@@ -82,7 +88,7 @@ class searchController extends Controller
               break;         
       }
 
-      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filter]);
+      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filter,'search'=>$search]);
    }
 
    public function details($id){

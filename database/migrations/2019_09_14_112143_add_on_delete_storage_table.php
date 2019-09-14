@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOnDeleteProperties extends Migration
+class AddOnDeleteStorageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddOnDeleteProperties extends Migration
      */
     public function up()
     {
-        Schema::table('ad_joboffers', function (Blueprint $table) {
+        Schema::table('ad_storages', function (Blueprint $table) {
             $table->dropForeign(['id_annonce']);
             $table->foreign('id_annonce')->references('id')->on('annonces')->onDelete('cascade');
         });
@@ -26,7 +26,7 @@ class AddOnDeleteProperties extends Migration
      */
     public function down()
     {
-        Schema::table('ad_joboffers', function (Blueprint $table) {
+        Schema::table('ad_storages', function (Blueprint $table) {
             //
         });
     }

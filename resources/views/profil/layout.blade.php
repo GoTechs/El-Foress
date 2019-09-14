@@ -235,27 +235,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> 
-<script type="text/javascript">
-    
 
-$(document).ready( function () {
-              $('#example').DataTable({
-                responsive: true,
-                  "language": {
-                  "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
-            }
-              });
-          } );
-
-     $( function() {
-                var wilaya = [
-                    "ADRAR","AIN DEFLA","AIN TEMOUCHENT","AL TARF","ALGER","ANNABA","B.B.ARRERIDJ","BATNA","BECHAR","BEJAIA",           "BISKRA","BLIDA","BOUIRA","BOUMERDES","CHLEF","CONSTANTINE","DJELFA","EL BAYADH","EL OUED","GHARDAIA",             "GUELMA","ILLIZI","JIJEL","KHENCHELA","LAGHOUAT","MASCARA","MEDEA","MILA","MOSTAGANEM","M’SILA","NAAMA",               "ORAN","OUARGLA","OUM ELBOUAGHI","RELIZANE","SAIDA","SETIF","SIDI BEL ABBES","SKIKDA","SOUKAHRAS",               "TAMANGHASSET","TEBESSA","TIARET","TINDOUF","TIPAZA","TISSEMSILT","TIZI.OUZOU","TLEMCEN"
-                ];
-                $( "#wilaya" ).autocomplete({
-                  source: wilaya
-                });
-              } );
-
-</script>
 </body>
 </html>

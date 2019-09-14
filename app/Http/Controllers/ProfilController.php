@@ -33,6 +33,14 @@ class ProfilController extends Controller
         
         $idUser = Auth::user()->id;
 
+        $annonce = DB::table('annonces')
+            ->select(['id as id_annonce','titre','created_at','wilaya','prix'])
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','1'],
+                ['annonces.nameTable','=',''],
+            ])->get()->toArray();
+
         $storage = DB::table('annonces')
             ->join('ad_storages', 'annonces.id', '=', 'ad_storages.id_annonce')
             ->where([
@@ -89,24 +97,10 @@ class ProfilController extends Controller
                 ['annonces.stateAd','=','1'],
             ])->get()->toArray();
 
-        $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone);
-
-        $nbreAnnonce = count($result);
-
-        // Count Nomber of posts not archived
-
-        $annonceArchived = DB::table('annonces')
-            ->where([
-                ['annonces.id_user', '=', $idUser],
-                ['annonces.stateAd','=','0'],
-            ])->get()->toArray();
-
-        $nbreAnnonceArchived = count($annonceArchived);
-
+        $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);
+        
         return view('profil.myads', [
-            'result' => $result,
-            'nbreResultAnnonce' => $nbreAnnonce,
-            'nbreResultArchived' => $nbreAnnonceArchived
+            'result' => $result
         ]);
     }
 
@@ -114,7 +108,7 @@ class ProfilController extends Controller
         $idUser = Auth::user()->id;
 
         $storage = DB::table('annonces')
-            ->join('favoris', 'annonces.id', '=', 'favoris.idAnnonce')
+            ->join('favoris', 'annonces.id', '=', 'favoris.id_annonce')
             ->where([
                 ['favoris.idUser', '=', $idUser],
             ])->get()->toArray();
@@ -129,6 +123,14 @@ class ProfilController extends Controller
     public function archives(Request $request){
         $idUser = Auth::user()->id;
 
+        $annonce = DB::table('annonces')
+            ->select(['id as id_annonce','titre','created_at','wilaya','prix'])
+            ->where([
+                ['annonces.id_user', '=', $idUser],
+                ['annonces.stateAd','=','0'],
+                ['annonces.nameTable','=',''],
+            ])->get()->toArray();
+
         $storage = DB::table('annonces')
             ->join('ad_storages', 'annonces.id', '=', 'ad_storages.id_annonce')
             ->where([
@@ -185,24 +187,10 @@ class ProfilController extends Controller
                 ['annonces.stateAd','=','0'],
             ])->get()->toArray();
 
-        $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone);
-
-        $nbreArchived = count($result);
-
-        // Count Nomber of posts not archived
-
-        $annonce = DB::table('annonces')
-            ->where([
-                ['annonces.id_user', '=', $idUser],
-                ['annonces.stateAd','=','1'],
-            ])->get()->toArray();
-
-        $nbreAnnonce = count($annonce);
+        $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);
 
         return view('profil.archives', [
-            'result' => $result,
-            'nbreResultArchived' => $nbreArchived,
-            'nbreresultAnnonce' => $nbreAnnonce
+            'result' => $result
         ]);
     }
 
@@ -264,7 +252,7 @@ class ProfilController extends Controller
                     'idAnnonce' => $id
                 ]);                
 
-           } else {  return 'connexion';     }
+           } else {  return view('connexion');     }
         
     }
 

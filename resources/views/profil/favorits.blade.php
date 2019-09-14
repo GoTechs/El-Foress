@@ -64,7 +64,6 @@
                   <div class="table-search pull-right col-xs-7">
                     <div class="form-group">
                       <label class="col-xs-5 control-label text-right">Recherche <br>
-                        <a title="clear filter" class="clear-filter" href="#clear">[clear]</a> 
                       </label>
                       <div class="col-xs-7 searchpan">
                         <input class="form-control" id="filter" type="text">

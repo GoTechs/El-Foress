@@ -27,13 +27,13 @@
                     <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
                       <ul class="acc-list">
                         <li>
-                          <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge">{{$nbreresultAnnonce}}</span></a>
+                          <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge"></span></a>
                         </li>
                         <li>
                           <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
                         </li>
                         <li class="active">
-                          <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge">{{$nbreResultArchived}}</span></a>
+                          <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge"></span></a>
                         </li>
                       </ul>
                     </div>
@@ -65,7 +65,6 @@
                   <div class="table-search pull-right col-xs-7">
                     <div class="form-group">
                       <label class="col-xs-5 control-label text-right">Recherche <br>
-                        <a title="clear filter" class="clear-filter" href="#clear">[clear]</a> 
                       </label>
                       <div class="col-xs-7 searchpan">
                         <input class="form-control" id="filter" type="text">
@@ -86,7 +85,7 @@
                   </thead>
                   @foreach ($result as $results)
                     <tbody>
-                    <tr>
+                    <tr id="{{$results->id_annonce}}">
                       <td class="add-img-selector">
                         <div class="checkbox">
                           <label>
@@ -138,20 +137,21 @@
           buttons: true,
           dangerMode: true,
         })
-                .then((willDelete) => {
-                  if (willDelete) {
-                    $.ajax({
-                      url : "/updateAD/"+id,
-                      type : "POST",
-                      data : {'_method' : 'DELETE','_token':csrf_token},
-                      success : function(data){
-                        swal("Votre annonce a été supprimée!", {
-                          icon: "success",
-                        });
-                      }
-                    })
-                  }
-                });
+          .then((willDelete) => {
+            if (willDelete) {
+              $.ajax({
+                url : "/updateAD/"+id,
+                type : "POST",
+                data : {'_method' : 'DELETE','_token':csrf_token},
+                success : function(data){
+                  swal("Votre annonce a été supprimée!", {
+                    icon: "success",
+                  });
+                  $('#'+id).remove();
+                }
+              })
+            }
+          });
       }
 
       function repostAd(id){
@@ -162,20 +162,21 @@
           buttons: true,
           dangerMode: true,
         })
-                .then((willDelete) => {
-                  if (willDelete) {
-                    $.ajax({
-                      url : "/repostAd/"+id,
-                      type : "POST",
-                      data : {'_method' : 'PATCH','_token':csrf_token},
-                      success : function(data){
-                        swal("Votre annonce a été republiée!", {
-                          icon: "success",
-                        });
-                      }
-                    })
+            .then((willDelete) => {
+              if (willDelete) {
+                $.ajax({
+                  url : "/repostAd/"+id,
+                  type : "POST",
+                  data : {'_method' : 'PATCH','_token':csrf_token},
+                  success : function(data){
+                    swal("Votre annonce a été republiée!", {
+                      icon: "success",
+                    });
+                    $('#'+id).remove();
                   }
-                });
+                })
+              }
+            });
       }
 
     </script>
