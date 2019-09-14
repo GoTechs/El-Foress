@@ -242,6 +242,7 @@
 <script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jasny-bootstrap.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 
 <script type="text/javascript">

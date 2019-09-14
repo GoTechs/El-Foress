@@ -249,10 +249,10 @@ class ProfilController extends Controller
 
                 $favoris = favoris::create([
                     'idUser' => $idUser,
-                    'idAnnonce' => $id
+                    'id_annonce' => $id
                 ]);                
 
-           } else {  return view('connexion');     }
+           } else {  return 'Unauthenticated';     }
         
     }
 

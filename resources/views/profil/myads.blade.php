@@ -135,7 +135,7 @@
                 title: "Êtes-vous sûr?",
                 text: "Une fois supprimé, vous ne pourrez plus récupérer cette annonce!",
                 icon: "warning",
-                buttons: true,
+                buttons: ["Annuler", "Oui"],
                 dangerMode: true,
               })
                 .then((willDelete) => {
@@ -160,8 +160,10 @@
               swal({
                 title: "Êtes-vous sûr?",
                 icon: "warning",
-                buttons: true,
+                buttons: ["Annuler", "Oui"],
                 dangerMode: true,
+                confirmButtonText: 'Oui',
+                cancelButtonText: 'Non',
               })
                 .then((willDelete) => {
                   if (willDelete) {

@@ -553,8 +553,12 @@
             type : "POST",
             data : {'_method' : 'PATCH','_token':csrf_token},
             success : function(data){
-              if (data == 'connexion'){
+              if (data == 'Unauthenticated'){
                 document.location.href = "/connexion";
+              } else {
+
+                     swal("L'annonce a été ajoutée aux favoris", "", "success");
+
               }
               
             }
