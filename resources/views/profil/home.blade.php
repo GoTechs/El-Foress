@@ -4,53 +4,7 @@
 @section('content')
 
 <!-- Start Content -->
-<div id="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3 page-sideabr">
-        <aside>
-          <div class="inner-box">
-            <div class="user-panel-sidebar">
-              <div class="collapse-box">
-                <h5 class="collapset-title no-border">Mon profil <a aria-expanded="true" class="pull-right" data-toggle="collapse" href="#myclassified"><i class="fa fa-angle-down"></i></a></h5>
-                <div aria-expanded="true" id="myclassified" class="panel-collapse collapse in">
-                  <ul class="acc-list">
-                    <li class="active">
-                      <a href="/home"><i class="fa fa-home"></i> {{Auth::user()->username}} </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="collapse-box">
-                <h5 class="collapset-title">Mon compte<a aria-expanded="true" class="pull-right" data-toggle="collapse" href="#myads"><i class="fa fa-angle-down"></i></a></h5>
-                <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
-                  <ul class="acc-list">
-                    <li>
-                      <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge"></span></a>
-                    </li>
-                    <li>
-                      <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
-                    </li>
-                    <li>
-                      <a href="/archives"><i class="fa fa-folder-o"></i> Archives <span class="badge"></span></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="collapse-box">
-                <div aria-expanded="true" id="close" class="panel-collapse collapse in">
-                  <ul class="acc-list">
-                    <li>
-                      <a href="/logout"><i class="fa fa-close"></i> Déconnexion</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
 
-        </aside>
-      </div>
       <div class="col-sm-9 page-content">
         <div class="inner-box">
           <div class="usearadmin">
@@ -155,9 +109,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
 <!-- End Content -->
 

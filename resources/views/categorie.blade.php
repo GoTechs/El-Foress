@@ -363,7 +363,7 @@
                               <input class="form-control" name="du" type="date">
                               <label class="control-label" for="textarea">Au</label>
                               <input class="form-control" name="au" type="date">
-                              <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
+                              <button type="button" class="btn btn-primary" id="Add">Mettre à jour</button>
                             </li>   
                          </ul>
                         </div>
@@ -487,18 +487,18 @@
               <div class="item-list">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
-                    <a href="/details/{{$result->id}}">
+                    <a href="/details/{{$result->id_annonce}}">
                      @foreach ($imageAd as $img) 
-                      @if ($result->id == $img->id_annonce)
+                      @if ($result->id_annonce == $img->id_annonce)
                         <img src="{{asset('images/'.$img->imagename)}}" alt=""></a>
                       @endif
                       @endforeach
-                    <span class="photo-count"><i class="fa fa-camera"></i>2</span>
+                    <span class="photo-count"><i class="fa fa-camera"></i></span>
                   </div>
                 </div>
                 <div class="col-sm-7 add-desc-box">
                   <div class="add-details">
-                    <h5 class="add-title"><a href="/details/{{$result->id}}">{{$result->titre}}</a></h5>
+                    <h5 class="add-title"><a href="/details/{{$result->id_annonce}}">{{$result->titre}}</a></h5>
                     <div class="info">
                       
                       <span class="date">
@@ -514,7 +514,7 @@
                 </div>
                 <div class="col-sm-3 text-right  price-box">
                   <h2 class="item-price"> {{$result->prix <> '' ? $result->prix.'DA' : '' }} </h2>
-                  <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$result->id}})"><i class="fa fa-heart"></i>
+                  <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$result->id_annonce}})"><i class="fa fa-heart"></i>
                   <span>Favori</span></a>
                   <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>215</span> </a>
                 </div>
@@ -545,56 +545,15 @@
     @endsection
 
     <script type="text/javascript">
-      
-      function addToFav(idAnnonce){
-        var csrf_token = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            url : "/addtofav/"+idAnnonce,
-            type : "POST",
-            data : {'_method' : 'PATCH','_token':csrf_token},
-            success : function(data){
-              if (data == 'Unauthenticated'){
-                document.location.href = "/connexion";
-              } else {
 
-                     swal("L'annonce a été ajoutée aux favoris", "", "success");
-
-              }
-              
-            }
-          })       
-      }
+/* ******************************   Advanced Filter *************************************** */ 
 
       function filter(){
-          /*var csrf_token = $('meta[name="csrf-token"]').attr('content');
-          var testObject = [];*/
-
-          var anne = document.getElementById("anne").value;
-          var kilom = document.getElementById("kilom").value;
-         /*var  namesWrapper = $('.adds-wrapper');
-
-            testObject.push({
-                  anne: anne.value,
-              kilom: kilom.value
-              })
-            console.log(testObject);
-                $.ajax({
-                  url : "/advancedSearch",
-                  type : "POST",
-                  data : {'_method' : 'GET','_token':csrf_token,'anne':anne,'kilom':kilom},
-                  success : function(data){
-                  
-                  namesWrapper.html('');
-                  namesWrapper.append('<div class="item-list"><div class="col-sm-2 no-padding photobox"><div class="add-image"><a href="/details/'+data[0].id+'">Image</a><span class="photo-count"><i class="fa fa-camera"></i>2</span></div></div><div class="col-sm-7 add-desc-box"><div class="add-details"><h5 class="add-title"><a href="/details/'+data[0].id+'">'+data[0].titre+'</a></h5><div class="info"><span class="date"><i class="fa fa-clock"></i>'+data[0].created_at+'</span> - <span class="item-location"><i class="fa fa-map-marker"></i> '+data[0].wilaya+'</span></div><div class="item_desc"><a href="#">'+data[0].description+'</a></div></div></div><div class="col-sm-3 text-right  price-box"> <h2 class="item-price"> 20000 </h2> <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav('+data[0].id+')"><i class="fa fa-heart"></i> <span>Favori</span></a> <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>215</span> </a></div></div> ');
-                  console.log(data[0].annee);
-                   
-                  }
-                })*/
-
-                $('.adds-wrapper').hide();
-
-            // Search 
-            $('.adds-wrapper .add-title:contains("'+anne+'"), .adds-wrapper .item_desc:contains("'+kilom+'")').closest('.adds-wrapper').show();
+          
+           var sites = {!! json_encode($data->toArray()) !!};
+           var test = sites.data;
+           
+           console.log(sites);
         }
 
         

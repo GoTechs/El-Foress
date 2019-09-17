@@ -247,13 +247,39 @@ class ProfilController extends Controller
 
                 $idUser = Auth::user()->id;
 
-                $favoris = favoris::create([
-                    'idUser' => $idUser,
-                    'id_annonce' => $id
-                ]);                
+                $result = favoris::where('idUser', $idUser)->where('id_annonce', $id)->count();
+
+                if ($result == 0){
+
+                    $favoris = favoris::create([
+                        'idUser' => $idUser,
+                        'id_annonce' => $id
+                    ]);  
+                    
+                } else {
+
+                    return $result;
+
+                }
+                          
 
            } else {  return 'Unauthenticated';     }
         
+    }
+
+    public function deleteFav($id){
+
+        $idUser = Auth::user()->id;
+        $result = favoris::where('idUser', $idUser)->where('id_annonce', $id)->delete();
+
+    }
+
+    public function deleteallFav(Request $request){
+
+        $idUser = Auth::user()->id;
+        $ids = $request->input('ids');            
+        favoris::where('idUser', $idUser)->whereIn('id_annonce', $ids)->delete();
+        return redirect('favorites');        
     }
 
 }

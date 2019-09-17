@@ -68,6 +68,7 @@ Route::post('/insertAd','insertAdController@store')->middleware('auth');
 Route::get('/updateAD/{idpost}/edit','insertAdController@edit')->middleware('auth');
 Route::patch('/updateAD/{idpost}','insertAdController@update')->middleware('auth');
 Route::delete('/updateAD/{idpost}','insertAdController@destroy')->middleware('auth');
+Route::delete('/deleteAll','insertAdController@deleteAll')->middleware('auth');
 
 // Archived AD
 
@@ -78,17 +79,15 @@ Route::patch('/repostAd/{idpost}','ProfilController@repost')->middleware('auth')
 
 Route::patch('/updateInfoUser/{idpost}','ProfilController@updateUser')->middleware('auth');
 
-Route::get('/details', function () {
-    return view('details');
-});
-
-// LIVE SEARCH
-
-Route::get('/search', 'eventController@liveSearch');
-
 // Adding Ad to my favorits
 
 Route::patch('/addtofav/{idpost}','ProfilController@addtofav');
+
+// Remove from my favorits
+
+Route::delete('/deleteFav/{idpost}','ProfilController@deleteFav')->middleware('auth');
+Route::delete('/deleteAllFav','ProfilController@deleteallFav')->middleware('auth');
+
 
 // Details of ads
 

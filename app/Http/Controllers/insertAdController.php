@@ -366,4 +366,11 @@ class insertAdController extends Controller
             $annonce->delete();     
 
     }
+
+    public function deleteAll(Request $request){
+        
+            $ids = $request->input('ids');
+            annonce::whereIn('id',$ids)->delete();
+            return redirect('myads');  
+    }
 }

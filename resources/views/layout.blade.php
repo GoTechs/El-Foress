@@ -246,43 +246,39 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 
 <script type="text/javascript">
+
+/* ******************************   AutoComplete Field Wilaya *************************************** */    
     
     $( function() {
-            var wilaya = [
-                "ADRAR","AIN DEFLA","AIN TEMOUCHENT","AL TARF","ALGER","ANNABA","B.B.ARRERIDJ","BATNA","BECHAR","BEJAIA",           "BISKRA","BLIDA","BOUIRA","BOUMERDES","CHLEF","CONSTANTINE","DJELFA","EL BAYADH","EL OUED","GHARDAIA",             "GUELMA","ILLIZI","JIJEL","KHENCHELA","LAGHOUAT","MASCARA","MEDEA","MILA","MOSTAGANEM","M’SILA","NAAMA",               "ORAN","OUARGLA","OUM ELBOUAGHI","RELIZANE","SAIDA","SETIF","SIDI BEL ABBES","SKIKDA","SOUKAHRAS",               "TAMANGHASSET","TEBESSA","TIARET","TINDOUF","TIPAZA","TISSEMSILT","TIZI.OUZOU","TLEMCEN"
-            ];
-            $( "#wilaya" ).autocomplete({
-              source: wilaya
-            });
-          } );
+        var wilaya = [
+            "ADRAR","AIN DEFLA","AIN TEMOUCHENT","AL TARF","ALGER","ANNABA","B.B.ARRERIDJ","BATNA","BECHAR","BEJAIA",           "BISKRA","BLIDA","BOUIRA","BOUMERDES","CHLEF","CONSTANTINE","DJELFA","EL BAYADH","EL OUED","GHARDAIA",             "GUELMA","ILLIZI","JIJEL","KHENCHELA","LAGHOUAT","MASCARA","MEDEA","MILA","MOSTAGANEM","M’SILA","NAAMA",               "ORAN","OUARGLA","OUM ELBOUAGHI","RELIZANE","SAIDA","SETIF","SIDI BEL ABBES","SKIKDA","SOUKAHRAS",               "TAMANGHASSET","TEBESSA","TIARET","TINDOUF","TIPAZA","TISSEMSILT","TIZI.OUZOU","TLEMCEN"
+        ];
+        $( "#wilaya" ).autocomplete({
+          source: wilaya
+        });
+      } );
 
-   /* $(document).ready(function(){
-           $('#anne').keyup(function(){
-           
-            // Search text
-            var text = $(this).val();
-            var kilom = 'h'
-           
-            // Hide all content class element
-            $('.adds-wrapper').hide();
+    /* ******************************   Add post to favorits *************************************** */            
 
-            // Search 
-            $('.adds-wrapper .add-title:contains("'+text+'"), .adds-wrapper .item_desc:contains("'+kilom+'")').closest('.adds-wrapper').show();
-           
-           });
-          });*/
+    function addToFav(idAnnonce){
+        var csrf_token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url : "/addtofav/"+idAnnonce,
+            type : "POST",
+            data : {'_method' : 'PATCH','_token':csrf_token},
+            success : function(data){
+              if (data == 'Unauthenticated'){
+                document.location.href = "/connexion";
 
-         /* $('#Add').on('click',function(event){
-          var info = {};//create an empty object
-          var allInfo = [];
-          info.anne = document.getElementById('anne').value;
-          info.kilom = document.getElementById('kilom').value;
-          allInfo.push(info);
+                  } else if (data == '1') {
+                    swal("L'annonce a déjà été ajoutée aux favoris", "", "warning");
 
-          console.log(allInfo);
-
-      });*/
-
+                    } else {
+                        swal("L'annonce a été ajoutée aux favoris", "", "success");
+                    }             
+            }
+        })       
+    }   
   </script>
 
 </body>

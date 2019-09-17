@@ -349,8 +349,8 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <div class="checkbox">
-                        <label><input type="checkbox" value="Femme" name="sexe"> Femme </label><br>
-                        <label><input type="checkbox" value="Homme" name="sexe"> Homme </label>
+                        <label><input type="radio" value="Femme" name="sexe"> Femme </label><br>
+                        <label><input type="radio" value="Homme" name="sexe"> Homme </label>
                     </div>
                 </div>
                 <div class="form-group">
