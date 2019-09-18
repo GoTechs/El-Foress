@@ -42,7 +42,7 @@ class searchController extends Controller
 
    		$imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
 
-      $data = DB::table('annonces')->select(['id as id_annonce','titre','created_at','wilaya','prix','description']);
+      $data = DB::table('annonces');
 
 	    // Search for a user based on their name.
 	    if (request('categorie')) {
@@ -78,7 +78,10 @@ class searchController extends Controller
 
         switch ($cat) {
           case 'Catégorie':
-              $annonce = DB::table('annonces')->select(['id as id_annonce','titre','created_at','wilaya','prix','description'])
+
+              $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
+                                           ->paginate(3); 
+             /* $annonce = DB::table('annonces')->select(['id as id_annonce','titre','created_at','wilaya','prix','description'])
               ->where([['id_Cat','=',$idCat],['stateAd','=','1'],['nameTable','=',''],])
                                            ->paginate(3)->toArray();
 
@@ -138,9 +141,8 @@ class searchController extends Controller
                         ['annonces.stateAd','=','1'],
                     ])->paginate(3)->toArray();
 
-                $data = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);                                                             
+                $data = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);*/                                                             
 
-dd($data);
               $filter = $idCat;
 
               break;
