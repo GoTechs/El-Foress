@@ -163,13 +163,9 @@
                         <div class="form-group mb30">
                             <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{$annonce->description}}</textarea>
                         </div>
-
-                        <!--<div class="content" ng-if="form.template">
-                         <div data-ng-include="'templates/' + form.template + '.php'"></div>
-                        </div>-->
                     </div>
 
-                    <!-- ********************************************* VEHICULES ********************************************************************** -->
+<!-- ********************************************* VEHICULES ************************************************************** -->
                 @if ($annonce->id_sous_Cat <> '14' and $annonce->id_Cat == '4')
                     <div class="mb30"></div>
                     <div class="box details" id="vehicule">
@@ -177,11 +173,11 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 @if ($result->vente == 'selling')
-                                    <label><input type="checkbox" name="vente" value="selling" checked> Je vends </label><br>
-                                    <label><input type="checkbox" name="vente" value="searching"> Je recherche </label>
+                                    <label><input type="radio" name="vente" value="selling" checked> Je vends </label><br>
+                                    <label><input type="radio" name="vente" value="searching"> Je recherche </label>
                                 @else
-                                    <label><input type="checkbox" name="vente" value="selling"> Je vends </label><br>
-                                    <label><input type="checkbox" name="vente" value="searching" checked> Je recherche </label>
+                                    <label><input type="radio" name="vente" value="selling"> Je vends </label><br>
+                                    <label><input type="radio" name="vente" value="searching" checked> Je recherche </label>
                                 @endif
                             </div>
                         </div>
@@ -226,7 +222,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* PHONE ********************************************************************** -->
+<!-- ********************************************* PHONE ***************************************************************** -->
                 @elseif ($annonce->id_sous_Cat == 16)
                     <div class="mb30"></div>
                     <div class="box details" id="phone">
@@ -249,7 +245,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* STOCKAGE ********************************************************************** -->
+<!-- ********************************************* STOCKAGE ************************************************************* -->
                     @elseif ($annonce->id_sous_Cat == 36)
                     <div class="mb30"></div>
                     <div class="box details" id="stockage">
@@ -291,7 +287,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* EVENEMENT ********************************************************************** -->
+<!-- ********************************************* EVENEMENT ************************************************************** -->
                     @elseif ($annonce->id_sous_Cat == 2)
                     <div class="mb30"></div>
                     <div class="box details" id="event">
@@ -310,7 +306,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* ORDINATEURS ********************************************************************** -->
+<!-- ********************************************* ORDINATEURS ***************************************************** -->
                     @elseif ($annonce->id_sous_Cat == 37)
                     <div class="mb30"></div>
                     <div class="box details" id="ordinateurs">
@@ -369,7 +365,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* Offres d'emploi ********************************************************************** -->
+<!-- ********************************************* Offres d'emploi ********************************************** -->
                     @elseif ($annonce->id_sous_Cat == 53)
                     <div class="mb30"></div>
                     <div class="box details" id="offresEmploi">
@@ -378,20 +374,13 @@
                             <label class="control-label" for="textarea">Domaine d'emploi</label>
                             <select class="form-control" name="domaineOffre">
                                 <option value="">Sélectionner</option>
-                                <option>Assistanat, secrétariat</option>
-                                <option>Comptabilité, Finance</option>
-                                <option>Banque et assurances</option>
-                                <option>Juridique, Fiscal, Audit, Conseil</option>
-                                <option>RH, personnel, formation</option>
-                                <option>Education, Enseignement</option>
-                                <option>Commercial, Technico Commercial, Service client</option>
-                                <option>Marketing, Communication</option>
-                                <option>Journalisme, Médias, Traduction</option>
-                                <option>Informatique, Systèmes d'information, Réseaux</option>
-                                <option>Chantier, Métiers BTP, Architecture</option>
-                                <option>Santé, Médical, Pharmacie</option>
-                                <option>Hôtellerie, Tourisme, Restauration, Loisirs</option>
-                                <option>Autre</option>
+                                @foreach ($domaineEmploi as $domaine)
+                                    @if ($result->domaine == $domaine->nomDomaine)
+                                        <option selected>{{ $domaine->nomDomaine}}</option>
+                                    @else
+                                        <option>{{ $domaine->nomDomaine }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -416,7 +405,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* Demandes d'emploi ********************************************************************** -->
+<!-- ************************************** Demandes d'emploi ************************************************** -->
                     @elseif ($annonce->id_sous_Cat == 54)
                     <div class="mb30"></div>
                     <div class="box details" id="demandesEmploi">
@@ -424,11 +413,11 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 @if ($result->sexe == 'Femme')
-                                    <label><input type="checkbox" value="Femme" name="sexe" checked> Femme </label><br>
-                                    <label><input type="checkbox" value="Homme" name="sexe"> Homme </label>
+                                    <label><input type="radio" value="Femme" name="sexe" checked> Femme </label><br>
+                                    <label><input type="radio" value="Homme" name="sexe"> Homme </label>
                                 @else
-                                    <label><input type="checkbox" value="Femme" name="sexe"> Femme </label><br>
-                                    <label><input type="checkbox" value="Homme" name="sexe" checked> Homme </label>
+                                    <label><input type="radio" value="Femme" name="sexe"> Femme </label><br>
+                                    <label><input type="radio" value="Homme" name="sexe" checked> Homme </label>
                                 @endif
                             </div>
                         </div>
@@ -436,20 +425,13 @@
                             <label class="control-label" for="textarea">Domaine d'emploi</label>
                             <select class="form-control" name="domaineDemande">
                                 <option value="">Sélectionner</option>
-                                <option>Assistanat, secrétariat</option>
-                                <option>Comptabilité, Finance</option>
-                                <option>Banque et assurances</option>
-                                <option>Juridique, Fiscal, Audit, Conseil</option>
-                                <option>RH, personnel, formation</option>
-                                <option>Education, Enseignement</option>
-                                <option>Commercial, Technico Commercial, Service client</option>
-                                <option>Marketing, Communication</option>
-                                <option>Journalisme, Médias, Traduction</option>
-                                <option>Informatique, Systèmes d'information, Réseaux</option>
-                                <option>Chantier, Métiers BTP, Architecture</option>
-                                <option>Santé, Médical, Pharmacie</option>
-                                <option>Hôtellerie, Tourisme, Restauration, Loisirs</option>
-                                <option>Autre</option>
+                                @foreach ($domaineEmploi as $domaine)
+                                    @if ($result->domaine == $domaine->nomDomaine)
+                                        <option selected>{{ $domaine->nomDomaine}}</option>
+                                    @else
+                                        <option>{{ $domaine->nomDomaine }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -474,7 +456,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* Immobilier ********************************************************************** -->
+<!-- ********************************************* Immobilier ********************************************************* -->
                     @elseif ($annonce->id_Cat == 3)
                     <div class="mb30"></div>
                     <div class="box details" id="immobilier">
@@ -483,15 +465,13 @@
                             <label class="control-label" for="textarea">Type du Bien</label>
                             <select class="form-control" name="typeBien">
                                 <option value="">Sélectionner</option>
-                                <option>Appartement</option>
-                                <option>Studio</option>
-                                <option>Villa</option>
-                                <option>Local</option>
-                                <option>Terrain</option>
-                                <option>Carcasse</option>
-                                <option>Usine</option>
-                                <option>Immeuble</option>
-                                <option>Autre</option>
+                                @foreach ($typeBien as $type)
+                                    @if ($result->typeBien == $type->typeBien)
+                                        <option selected>{{ $type->typeBien}}</option>
+                                    @else
+                                        <option>{{ $type->typeBien }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -508,7 +488,7 @@
                         </div>
                     </div>
 
-                    <!-- ********************************************* INFO COMMUNE ********************************************************************** -->
+<!-- ********************************************* INFO COMMUNE ********************************************************* -->
                     @endif
                     <div class="mb30"></div>
                     <div class="box">

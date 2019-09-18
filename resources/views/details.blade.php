@@ -63,8 +63,7 @@
                        <li>{{$result->anneExp ? ' Année d\'expérience : '.$result->anneExp : '' }}</li>
 
                        @elseif ($sousCategorie <> '14' and $categorie == '4')
-
-                       <li>{{$result->vente ? $result->vente  : '' }}</li>
+                       
                        <li>{{$result->marque ? ' Marque : '.$result->marque  : '' }}</li>
                        <li>{{$result->modele ? ' Modèle : '.$result->modele  : '' }}</li>
                        <li>{{$result->annee ? ' Année : '.$result->annee  : '' }}</li>
@@ -117,7 +116,7 @@
                         </li>
 
                         <li>
-                          <a href="#" title="Cliquez pour ajouter à mes favoris"> <i class=" fa fa-heart"></i> Favoris</a>
+                        <a href="#" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"> <i class=" fa fa-heart"></i> Favoris</a>
                         </li>
                       </ul>
                     </aside>

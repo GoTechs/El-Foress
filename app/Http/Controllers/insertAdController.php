@@ -19,6 +19,8 @@ use App\adPhone;
 use App\adStorage;
 use App\adComputer;
 use App\imagead;
+use App\domainemploi;
+use App\typebien;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -234,6 +236,8 @@ class insertAdController extends Controller
         $sousCategorie = souscategories::all();
         $marquePhone = marquephone::all();
         $marqueComputer = marquecomputer::all();
+        $domaineEmploi = domainemploi::all();
+        $typeBien = typebien::all();
 
         return view('profil.updateAd',[
             'annonce' => $annonce,
@@ -241,7 +245,9 @@ class insertAdController extends Controller
             'categorie' => $categorie,
             'sousCategorie' => $sousCategorie,
             'marquePhone' => $marquePhone,
-            'marqueComputer' => $marqueComputer
+            'marqueComputer' => $marqueComputer,
+            'domaineEmploi' => $domaineEmploi,
+            'typeBien' => $typeBien
         ]);
 
     }
@@ -265,7 +271,7 @@ class insertAdController extends Controller
         $idSousCat = request('sousCat');
 
         if ($idSousCat == '2'){
-            $event = adEvent::find($id);
+            $event = adEvent::where('id_annonce', '=', $id)->first();
 
             $event->dateHeureEvent = request('datetimeEvent');
             $event->du = request('du');
@@ -275,7 +281,7 @@ class insertAdController extends Controller
         }
 
         elseif ($idSousCat == '53') {
-            $jobOffer = adJoboffer::find($id);
+            $jobOffer = adJoboffer::where('id_annonce', '=', $id)->first();
 
             $jobOffer->domaine = request('domaineOffre');
             $jobOffer->entreprise = request('entreprise');
@@ -288,7 +294,7 @@ class insertAdController extends Controller
         }
 
         elseif ($idSousCat == '54') {
-            $jobApp = adJobapplication::find($id);
+            $jobApp = adJobapplication::where('id_annonce', '=', $id)->first();
 
             $jobApp->sexe = request('sexe');
             $jobApp->domaine = request('domaineDemande');
@@ -302,7 +308,7 @@ class insertAdController extends Controller
         }
 
         elseif ($idCat == '3') {
-            $immobilier = adimmobilier::find($id);
+            $immobilier = adimmobilier::where('id_annonce', '=', $id)->first();
 
             $immobilier->typeBien = request('typeBien');
             $immobilier->superficie = request('superficie');
@@ -313,7 +319,7 @@ class insertAdController extends Controller
         }
 
         elseif ($idSousCat <> '14' and $idCat == '4') {
-            $adcar = adCar::find($id);
+            $adcar = adCar::where('id_annonce', '=', $id)->first();
 
             $adcar->vente = request('vente');
             $adcar->marque = request('marqueVeh');
@@ -326,7 +332,7 @@ class insertAdController extends Controller
         }
 
         elseif ($idSousCat == '16') {
-            $adPhone = adPhone::find($id);
+            $adPhone = adPhone::where('id_annonce', '=', $id)->first();
 
             $adPhone->marque = request('marquePhone');
             $adPhone->modele = request('modelePhone');
@@ -335,7 +341,7 @@ class insertAdController extends Controller
         }
 
         elseif ($idSousCat == '36') {
-            $adStorage = adStorage::find($id);
+            $adStorage = adStorage::where('id_annonce', '=', $id)->first();
 
             $adStorage->type = request('typeStockage');
             $adStorage->marque = request('marqueStockage');
@@ -345,7 +351,7 @@ class insertAdController extends Controller
         }
 
         elseif ($idSousCat == '37') {
-            $adComputer = adComputer::find($id);
+            $adComputer = adComputer::where('id_annonce', '=', $id)->first();
 
             $adComputer->marque = request('marqueOrd');
             $adComputer->tailleEcran = request('tailleOrd');
