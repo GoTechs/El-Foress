@@ -71,7 +71,7 @@
               </form>
               <ul class="form-links">
                 <li class="pull-left"><a href="/inscription">Vous n'avez pas de compte?</a></li>
-                <li class="pull-right"><a href="/forgetPassword">Mot de passe oublier?</a></li>
+                <li class="pull-right"><a href="{{route('password.reset')}}">Mot de passe oublier?</a></li>
               </ul>
             </div>
           </div>

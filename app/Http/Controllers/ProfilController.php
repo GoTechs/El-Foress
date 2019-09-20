@@ -241,6 +241,28 @@ class ProfilController extends Controller
         return redirect('home');
     }
 
+    public function updatePassword($id, Request $request){
+
+        $validator = Validator::make($request->all(),[
+            "password" => "required|min:6|max:55",
+            "confirmPassword" => "required|same:password",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('home#error')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = Users::find($id);
+
+        $user->password = bcrypt(request('password'));
+
+        $user->save();
+
+        return redirect('home')->with('message', 'Votre mot de passe a bien été modifié.');
+    }
+
     public function addtofav($id){
 
            if (Auth::check()) {
