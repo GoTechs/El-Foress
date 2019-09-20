@@ -112,6 +112,9 @@
                           <li>
                         @endif
                         <li>
+                            <p class="no-margin"><i class="fa fa-eye"></i> <strong> Nombre de visiteurs : </strong> {{$annonce->numberViews}} </a></li>
+                          <li>
+                        <li>
                           <p class=" no-margin "><i class=" fa fa-user"></i> Publié par {{$user->username}}</a>
                         </li>
 

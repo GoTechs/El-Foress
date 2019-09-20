@@ -7,7 +7,7 @@
     <div id="search-row-wrapper">
       <div class="container">
         <div class="search-inner">
-            <!-- Start Search box -->
+    <!-- Start Search box -->
             <div class="row search-bar">
               <div class="advanced-search">
                 <form class="search-form" method="post" action="/categorie">
@@ -25,11 +25,11 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text">
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{old('wilaya')}}">
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Mots clés" type="text">
+                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{old('keyword')}}">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
@@ -38,7 +38,7 @@
                 </form>
               </div>
             </div>
-            <!-- End Search box -->
+            <!-- End Search box -->   
         </div>
       </div>
     </div>
@@ -516,7 +516,7 @@
                   <h2 class="item-price"> {{$result->prix <> '' ? $result->prix.'DA' : '' }} </h2>
                   <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$result->id}})"><i class="fa fa-heart"></i>
                   <span>Favori</span></a>
-                  <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>215</span> </a>
+                  <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$result->numberViews}}</span> </a>
                 </div>
               </div>    
               @endforeach

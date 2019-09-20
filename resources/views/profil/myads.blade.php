@@ -59,7 +59,7 @@
                         <h4 class="title"><a href="#">{{$results->titre}}</a></h4>
                         <p> <strong> Posté le </strong>:
                           {{$results->created_at}} </p>
-                        <p> <strong>Nombre de visiteurs </strong>:  <strong>Wilaya :</strong> {{$results->wilaya}} </p>
+                        <p> <strong>Nombre de visiteurs </strong>: {{$results->numberViews}} <strong>Wilaya :</strong> {{$results->wilaya}} </p>
                       </td>
                       <td class="price-td">
                         <strong> {{$results->prix}}</strong>
