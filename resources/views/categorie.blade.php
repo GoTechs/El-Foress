@@ -491,6 +491,8 @@
                      @foreach ($imageAd as $img) 
                       @if ($result->id == $img->id_annonce)
                         <img src="{{asset('images/'.$img->imagename)}}" alt=""></a>
+                      @else 
+                         <img src="{{asset('img/bientot-disponible.jpg')}}" alt=""></a>
                       @endif
                       @endforeach
                     <span class="photo-count"><i class="fa fa-camera"></i></span>

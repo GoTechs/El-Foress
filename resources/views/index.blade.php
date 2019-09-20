@@ -9,8 +9,7 @@
           <div class="main-text">
             <h1 class="intro-title">Bienvenue à <span style="color: #3498DB">Foress</span></h1>
             <p class="sub-title">Notre mission vous simplifier la vie </p>
-
-            <!-- Start Search box -->
+    <!-- Start Search box -->
             <div class="row search-bar">
               <div class="advanced-search">
                 <form class="search-form" method="post" action="/categorie">
@@ -28,11 +27,11 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text">
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{old('wilaya')}}">
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Mots clés" type="text">
+                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{old('keyword')}}">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
@@ -41,7 +40,7 @@
                 </form>
               </div>
             </div>
-            <!-- End Search box -->
+            <!-- End Search box -->   
           </div>
         </div>
       </div>
@@ -323,102 +322,20 @@
             <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
               <h3 class="section-title">Annonces les plus visités</h3>
               <div id="new-products" class="owl-carousel">
+               @foreach ($annonces as $result) 
                 <div class="item">
                   <div class="product-item">
                     <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img1.jpg')}}" alt="">
+                      <img src="{{asset('img/nopicture.png')}}" alt="">
                       <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
+                        <a href="/details/{{$result->id}}"><i class="fa fa-link"></i></a>
                       </div> 
                     </div>    
-                    <a href="details.blade.php" class="item-name">Lorem ipsum dolor sit</a>
-                    <span class="price">$150</span>  
+                    <a href="/details/{{$result->id}}" class="item-name">{{$result->titre}}</a>
+                    <span class="price">{{$result->prix <> '' ? $result->prix.'DA' : ''}}</span>  
                   </div>
                 </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img2.jpg')}}" alt="">
-                      <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div> 
-                    <a href="details.blade.php" class="item-name">Sed diam nonummy</a>
-                    <span class="price">$67</span> 
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img3.jpg')}}" alt="">
-                      <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div>
-                    <a href="details.blade.php" class="item-name">Feugiat nulla facilisis</a>
-                    <span class="price">$300</span>  
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img4.jpg')}}" alt="">
-                      <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div> 
-                    <a href="details.blade.php" class="item-name">Lorem ipsum dolor sit</a>
-                    <span class="price">$149</span> 
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img5.jpg')}}" alt="">
-                      <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div>
-                    <a href="details.blade.php" class="item-name">Sed diam nonummy</a>
-                    <span class="price">$90</span> 
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img6.jpg')}}" alt="">
-                      <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div>                     
-                    <a href="details.blade.php" class="item-name">Praesent luptatum zzril</a>
-                    <span class="price">$169</span> 
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img7.jpg')}}" alt="">
-                      <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div>  
-                    <a href="details.blade.php" class="item-name">Lorem ipsum dolor sit</a>
-                    <span class="price">$79</span> 
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="carousel-thumb">
-                      <img src="{{asset('img/product/img8.jpg')}}" alt="">
-                      <div class="overlay">
-                        <a href="details.blade.php"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div>
-                    <a href="details.blade.php" class="item-name">Sed diam nonummy</a>
-                    <span class="price">$149</span>   
-                  </div>
-                </div>
+              @endforeach  
               </div>
             </div> 
           </div>
@@ -488,5 +405,5 @@
     </section>
     <!-- Counter Section End -->
 
-  @endsection
+@endsection
 

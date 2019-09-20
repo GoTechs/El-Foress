@@ -28,7 +28,14 @@ class searchController extends Controller
             ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
             ->get();
 
-	    return view('index', ['categorie'=>$categorie,'search'=>$search]);
+      // The most visited ads
+
+      $annonce = DB::table('annonces')
+                ->orderBy('numberViews', 'desc')
+                ->limit(10)
+                ->get();  
+
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce]);
 
    }
 
