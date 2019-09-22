@@ -483,7 +483,13 @@
 
             <!-- Adds wrapper Start -->
             <div class="adds-wrapper">
+              @dd($imageAd)
                @foreach ($data as $result)
+               @if ($imageAd->contains($result->id))
+                <h1> OHH YEAAH </h1>  
+              @else
+                <h1>OOHH NOON </h1>
+              @endif
               <div class="item-list">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
