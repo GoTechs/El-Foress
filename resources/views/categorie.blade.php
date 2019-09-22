@@ -483,25 +483,16 @@
 
             <!-- Adds wrapper Start -->
             <div class="adds-wrapper">
-              <!--@dd($imageAd)
                @foreach ($data as $result)
-               @if ($imageAd->contains($result->id))
-                <h1> OHH YEAAH </h1>  
-              @else
-                <h1>OOHH NOON </h1>
-              @endif-->
               <div class="item-list">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
                     <a href="/details/{{$result->id}}">
-                     <!--@foreach ($imageAd as $img) 
+                     @foreach ($imageAd as $img) 
                       @if ($result->id == $img->id_annonce)
                         <img src="{{asset('images/'.$img->imagename)}}" alt=""></a>
-                      @else 
-                         
                       @endif
-                      @endforeach-->
-                      <img src="{{asset('img/bientot-disponible.jpg')}}" alt=""></a>
+                      @endforeach
                     <span class="photo-count"><i class="fa fa-camera"></i></span>
                   </div>
                 </div>
