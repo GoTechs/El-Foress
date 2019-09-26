@@ -102,12 +102,15 @@ return [
         'email' => 'Email',
         'password' => 'Mot de passe',
         'confirmPassword' => 'Confirmer mot de passe',
+        'password_confirmation' => 'Confirmer mot de passe',
         'fileToUpload.*' => 'Image',
         'categorie' => 'Catégorie',
         'sousCat' => 'Sous catégorie',
         'wilaya' => 'Wilaya',
         'Adtitle' => 'Titre de l\'annonce',
-        'descrp' => 'Description'
+        'descrp' => 'Description',
+        'subject' => 'Sujet',
+        'name' => 'Nom'
     ],
 
 ];

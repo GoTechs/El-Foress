@@ -18,9 +18,9 @@ Route::get('/categorie','searchController@search');
 
 Route::get('/search/{idpost}/{idcat}','searchController@searchPerCat');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'ContactFormController@create');
+Route::post('/contact', 'ContactFormController@store');
+
 
 Route::get('/faq', function () {
     return view('faq');

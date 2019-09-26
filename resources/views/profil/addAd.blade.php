@@ -138,7 +138,7 @@
                 </select>
               </div>
               <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
-                <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp" value="{{old('descrp')}}"></textarea>
+                <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{old('descrp')}}</textarea>
               </div>
            
             <!--<div class="content" ng-if="form.template">

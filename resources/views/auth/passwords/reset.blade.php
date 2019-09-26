@@ -28,29 +28,38 @@
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    @if ($errors->has('email'))
-                    <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
-                    @endif
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email"/>
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
+                    <div class="input-icon">
+                      <i class="icon fa fa-envelope"></i>
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Email"/>
+                    </div>
+                  @if ($errors->has('email'))
+                    <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+                  @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    @if ($errors->has('password'))
-                    <span class="help-block"><strong>{{ $errors->first('password') }}</strong></span>
-                    @endif
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
+                  <div class="input-icon">
+                    <i class="icon fa fa-unlock-alt"></i>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
+                  </div>
+                  @if ($errors->has('password'))
+                    <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                  @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                    @if ($errors->has('password_confirmation'))
-                    <span class="help-block"><strong>{{ $errors->first('password_confirmation') }}</strong></span>
-                    @endif
-                    <input type="password_confirmation" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password"/>
+                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }} has-feedback">
+                  <div class="input-icon">
+                    <i class="icon fa fa-unlock-alt"></i>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmer Mot de passe"/>
+                  </div>
+                  @if ($errors->has('password_confirmation'))
+                    <div class="invalid-feedback">{{ $errors->first('password_confirmation') }}</div>
+                  @endif
                 </div>
 
 
-                <button type="submit" class="btn btn-common log-btn">Reset password</button>
+                <button type="submit" class="btn btn-common log-btn">Réinitialiser</button>
               </form>
             </div>
           </div>

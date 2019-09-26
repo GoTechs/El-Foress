@@ -35,39 +35,63 @@
               <h2 class="title-2">
                 Si vous avez des questions, n'hésitez pas à nous contacter.
               </h2>
+
+              @if(Session('message'))
+                <div class="row">
+                  <div class="alert alert-success" role="alert">
+                    <strong>{{Session::get('message')}}</strong>
+                  </div>
+                </div>
+              @endif
+
               <!-- Form -->
-              <form id="contactForm" class="contact-form" data-toggle="validator">
+              <form id="contactForm" class="contact-form" data-toggle="validator" method="post" action="/contact">
+                @csrf
                 <div class="row">
                   <div class="col-md-12">
                     <div class="row">
                       <div class="col-md-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Nom complet" required data-error="Please enter your name">
+                        @error('name')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror       
+                        <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }} has-feedback">
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Nom complet" value="{{old('name')}}">
                           <div class="help-block with-errors"></div>
-                        </div>                    
+                        </div>             
                       </div>
+
                       <div class="col-md-12">
-                        <div class="form-group">                      
-                          <input type="email" class="form-control" id="email" placeholder="Adresse" required data-error="Adresse">
+                        @error('email')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror 
+                        <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">  
+                          <input type="text" class="form-control" id="email" name="email" placeholder="Adresse mail" value="{{old('email')}}">
                           <div class="help-block with-errors"></div>
                         </div>
                       </div>
+
                       <div class="col-md-12">
-                        <div class="form-group"> 
-                          <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" required data-error="Please enter your subject">
+                        @error('subject')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror 
+                        <div class="form-group {{ $errors->has('subject') ? ' has-error' : '' }} has-feedback"> 
+                          <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" value="{{old('subject')}}">
                           <div class="help-block with-errors"></div>
                         </div>
                       </div> 
-
                     </div>
-                  </div>    
+                  </div>  
+
                   <div class="col-md-12">
                     <div class="row">
                       <div class="col-md-12">
-                        <div class="form-group"> 
-                          <textarea class="form-control" placeholder="Message" rows="10" data-error="Write your message" required></textarea>
+                        @error('message')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror 
+                        <div class="form-group {{ $errors->has('message') ? ' has-error' : '' }} has-feedback"> 
+                          <textarea class="form-control" placeholder="Message" rows="10" name="message" id="message">{{old('message')}}</textarea>
                           <div class="help-block with-errors"></div>
-                        </div>
+                        </div>                        
                       </div>
                     </div>
                   </div>
