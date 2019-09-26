@@ -1194,6 +1194,12 @@ footer .menu li a:hover {
   top: 32%;
   margin: 0px -15px;
 }
+.featured-list li .hover a .views {
+  color: #FFF;
+  position: absolute;
+  top: 32%;
+  margin: 0px -15px;
+}
 .featured-list li .hover a:hover {
   opacity: 1;
 }

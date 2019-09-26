@@ -27,5 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //URL::forceScheme('https');
         //Schema::defaultStringLength(191);
+        view()->composer(['layout','profil.layout'], function($view){
+            $view->with('recentlyAdd', \App\annonce::recentlyAdd());
+        });
     }
 }

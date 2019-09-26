@@ -35,6 +35,8 @@ class searchController extends Controller
                 ->limit(10)
                 ->get();  
 
+      //$test = annonce::recentlyAdd();
+
 	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce]);
 
    }
