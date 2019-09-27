@@ -43,11 +43,11 @@ class MailResetPasswordNotification extends Notification
     {
         $link = url( "admin/password/reset/" . $this->token );
 
-   return ( new MailMessage )
-      ->subject( 'Reset your password' )
-      ->line( "Hey, We've successfully changed the text " )
-      ->action( 'Reset Password', $link )
-      ->line( 'Thank you!' );
+        return ( new MailMessage )
+          ->subject( 'Réinitialisez votre mot de passe' )
+          ->line( "Hey, We've successfully changed the text " )
+          ->action( 'Réinitialiser le mot de passe', $link )
+          ->line( 'Thank you!' );
     }
 
     /**
