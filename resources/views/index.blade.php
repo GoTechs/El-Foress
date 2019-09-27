@@ -348,7 +348,7 @@
     <section id="counter">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="counting wow fadeInDownQuick" data-wow-delay=".5s">
               <div class="icon">
                 <span>
@@ -356,12 +356,12 @@
                 </span>
               </div>
               <div class="desc">
-                <h3 class="counter">12090</h3>
-                <p>Regular Ads</p>
+                <h3 class="counter">100</h3>
+                <p>Nombre de visiteurs</p>
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="counting wow fadeInDownQuick" data-wow-delay="1s">
               <div class="icon">
                 <span>
@@ -369,12 +369,12 @@
                 </span>
               </div>
               <div class="desc">
-                <h3 class="counter">350</h3>
-                <p>Locations</p>
+                <h3 class="counter">15</h3>
+                <p>Nombre d'annonces</p>
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <!--<div class="col-md-3 col-sm-6 col-xs-12">
             <div class="counting wow fadeInDownQuick" data-wow-delay="1.5s">
               <div class="icon">
                 <span>
@@ -399,7 +399,7 @@
                 <p>Premium Ads</p>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </section>
