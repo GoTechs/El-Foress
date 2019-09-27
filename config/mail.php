@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'app141181305@heroku.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'gotechs@outlook.com'),
+        'name' => env('MAIL_FROM_NAME', 'Sender Whiz'),
     ],
 
     /*
