@@ -86,7 +86,7 @@ return [
 
     'username' => 'boud.wafaa@gmail.com',
 
-    'password' => "boudaoud31",
+    'password' => 'boudaoud31',
 
     /*
     |--------------------------------------------------------------------------
