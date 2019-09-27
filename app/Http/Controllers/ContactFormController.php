@@ -30,7 +30,7 @@ class ContactFormController extends Controller
 
         $data = request();
 
-        Mail::to('boud.wafaa@gmail.com')->send(New ContactFormMail($data));
+        Mail::to('kaddour.slimane@gmail.com')->send(New ContactFormMail($data));
 
         return redirect('contact')->with('message', 'Votre message à bien été envoyé');
 
