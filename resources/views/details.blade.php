@@ -7,8 +7,7 @@
     <div id="content">
       <div class="container">
         <div class="row">
-          <!-- Product Info Start -->
-          <div class="product-info">
+          <!-- Product Info Start -->          
             <div class="col-sm-8">
               <div class="inner-box ads-details-wrapper">
                 <h2>{{$annonce->titre}}</h2>

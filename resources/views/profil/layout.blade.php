@@ -20,9 +20,7 @@
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css">
     <!-- Line Icons CSS -->
-    <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
-    <!-- Line Icons CSS -->
-    <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('fonts/line-icons/line-icons.css')}}" type="text/css">
     <!-- Main Styles -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     <!-- Animate CSS -->

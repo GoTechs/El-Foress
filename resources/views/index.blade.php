@@ -352,7 +352,7 @@
             <div class="counting wow fadeInDownQuick" data-wow-delay=".5s">
               <div class="icon">
                 <span>
-                  <i class="lnr lnr-tag"></i>
+                  <i class="lnr lnr-users"></i>
                 </span>
               </div>
               <div class="desc">
@@ -365,11 +365,11 @@
             <div class="counting wow fadeInDownQuick" data-wow-delay="1s">
               <div class="icon">
                 <span>
-                  <i class="lnr lnr-map"></i>
+                  <i class="lnr lnr-tag"></i>
                 </span>
               </div>
               <div class="desc">
-                <h3 class="counter">15</h3>
+                <h3 class="counter">{{$nbrAds}}</h3>
                 <p>Nombre d'annonces</p>
               </div>
             </div>

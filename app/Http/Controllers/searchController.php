@@ -23,6 +23,7 @@ class searchController extends Controller
    public function showCat(){
 
 	   	$search = categories::all();
+      $nbrAds = annonce::where('stateAd' ,'=', '1')->count();
 
       $categorie = DB::table('categories')
             ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
@@ -37,7 +38,7 @@ class searchController extends Controller
 
       //$test = annonce::recentlyAdd();
 
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce]);
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds]);
 
    }
 
