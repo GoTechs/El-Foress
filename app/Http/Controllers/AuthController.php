@@ -20,7 +20,7 @@ class AuthController extends Controller
             "nom" => "required|string",
             "prenom" => "required|string",
             "adresse" => "nullable|string",
-            "email" => "nullable|email|max:255|unique:users",
+            "email" => "required|email|max:255|unique:users",
             "phone" => "nullable",
             "username" => "required|min:6|max:55",
             "password" => "required|min:6|max:55",
@@ -46,7 +46,7 @@ class AuthController extends Controller
     }
 
     public function connexion(){
-        return view('connexion');
+        return view('profil.myads');
     }
 
     public function checklogin(Request $request){

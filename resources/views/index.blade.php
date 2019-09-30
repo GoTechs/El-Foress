@@ -348,7 +348,7 @@
     <section id="counter">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="counting wow fadeInDownQuick" data-wow-delay=".5s">
               <div class="icon">
                 <span>
@@ -361,7 +361,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="counting wow fadeInDownQuick" data-wow-delay="1s">
               <div class="icon">
                 <span>
@@ -371,6 +371,19 @@
               <div class="desc">
                 <h3 class="counter">{{$nbrAds}}</h3>
                 <p>Nombre d'annonces</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="counting wow fadeInDownQuick" data-wow-delay="2s">
+              <div class="icon">
+                <span>
+                  <i class="lnr lnr-license"></i>
+                </span>
+              </div>
+              <div class="desc">
+                <h3 class="counter">150</h3>
+                <p>Annonces Premium</p>
               </div>
             </div>
           </div>
@@ -384,19 +397,6 @@
               <div class="desc">
                 <h3 class="counter">23453</h3>
                 <p>Nombre de visiteurs</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="counting wow fadeInDownQuick" data-wow-delay="2s">
-              <div class="icon">
-                <span>
-                  <i class="lnr lnr-license"></i>
-                </span>
-              </div>
-              <div class="desc">
-                <h3 class="counter">150</h3>
-                <p>Premium Ads</p>
               </div>
             </div>
           </div>-->

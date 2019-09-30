@@ -2323,16 +2323,17 @@ table.add-manage-table > tbody > tr > th {
 }
 .panel-group .panel {
   margin-bottom: 24px;
+  width: 106%;
 }
 .panel-default {
   border-radius: 0px;
   border: none;
 }
 .panel-default .panel-heading {
-  padding: 0px 30px;
+  padding: 0px 16px;
   outline: medium none;
   border-radius: 0px;
-  background: #E6E6E6;
+  background-color: #ffffff !important;
   border: 1px solid #ccc;
   width: 100%;
   box-shadow: none;
@@ -2344,9 +2345,9 @@ table.add-manage-table > tbody > tr > th {
   color: inherit;
 }
 .panel-default .panel-heading a {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
-  padding: 15px 35px 15px 0px;
+  padding: 8px 42px 8px 0px;
   display: inline-block;
   width: 100%;
   color: #444;

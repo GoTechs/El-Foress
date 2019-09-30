@@ -45,6 +45,9 @@ class searchController extends Controller
    public function search(Request $request){
 
       $search = categories::all();
+      $sousCat = DB::table('categories')
+                    ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
+                    ->get();    
 
    		$categorie =  request('categorie');
    		$wilaya =  request('wilaya');
@@ -73,97 +76,40 @@ class searchController extends Controller
 	    $data = $data->where('stateAd', '=',  '1') 
 	    		     ->paginate(3);
 
-      $cat = 'Catégorie';       
+      $cat = 'Catégorie'; 
+      if (request('categorie')) { $filterKey  = request('categorie'); }
+      else { $filterKey = '';  } 
 
-		  return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'search'=>$search]);
+		  return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'search'=>$search,'sousCat'=>$sousCat,'filter'=>$filterKey]);
    }
 
    public function searchPerCat($cat,$idCat){
 
-        $filter = '';
+        $filterKey = $idCat;
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
 
         $search = categories::all();
+        $sousCat = DB::table('categories')
+                    ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
+                    ->get();                                                                                          
+
 
         switch ($cat) {
           case 'Catégorie':
 
               $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
                                            ->paginate(3); 
-             /* $annonce = DB::table('annonces')->select(['id as id_annonce','titre','created_at','wilaya','prix','description'])
-              ->where([['id_Cat','=',$idCat],['stateAd','=','1'],['nameTable','=',''],])
-                                           ->paginate(3)->toArray();
-
-              $storage = DB::table('annonces')
-                ->join('ad_storages', 'annonces.id', '=', 'ad_storages.id_annonce')
-                ->where([
-                    ['annonces.id_Cat', '=', $idCat],
-                    ['annonces.stateAd','=','1'],
-                ])->paginate(3)->toArray();  
-
-                $car = DB::table('annonces')
-                    ->join('ad_cars', 'annonces.id', '=', 'ad_cars.id_annonce')
-                    ->where([
-                        ['annonces.id_Cat', '=', $idCat],
-                        ['annonces.stateAd','=','1'],
-                    ])->paginate(3)->toArray();
-
-                $jobOffer = DB::table('annonces')
-                    ->join('ad_joboffers', 'annonces.id', '=', 'ad_joboffers.id_annonce')
-                    ->where([
-                        ['annonces.id_Cat', '=', $idCat],
-                        ['annonces.stateAd','=','1'],
-                    ])->paginate(3)->toArray();
-
-                $computer = DB::table('annonces')
-                    ->join('ad_computers', 'annonces.id', '=', 'ad_computers.id_annonce')
-                    ->where([
-                        ['annonces.id_Cat', '=', $idCat],
-                        ['annonces.stateAd','=','1'],
-                    ])->paginate(3)->toArray();
-
-                $event = DB::table('annonces')
-                    ->join('ad_events', 'annonces.id', '=', 'ad_events.id_annonce')
-                    ->where([
-                        ['annonces.id_Cat', '=', $idCat],
-                        ['annonces.stateAd','=','1'],
-                    ])->paginate(3)->toArray();
-
-                $immobilier = DB::table('annonces')
-                    ->join('adimmobiliers', 'annonces.id', '=', 'adimmobiliers.id_annonce')
-                    ->where([
-                        ['annonces.id_Cat', '=', $idCat],
-                        ['annonces.stateAd','=','1'],
-                    ])->paginate(3)->toArray();
-
-                $jobApp = DB::table('annonces')
-                    ->join('ad_jobapplications', 'annonces.id', '=', 'ad_jobapplications.id_annonce')
-                    ->where([
-                        ['annonces.id_Cat', '=', $idCat],
-                        ['annonces.stateAd','=','1'],
-                    ])->paginate(3)->toArray();
-
-                $phone = DB::table('annonces')
-                    ->join('ad_phones', 'annonces.id', '=', 'ad_phones.id_annonce')
-                    ->where([
-                        ['annonces.id_Cat', '=', $idCat],
-                        ['annonces.stateAd','=','1'],
-                    ])->paginate(3)->toArray();
-
-                $data = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);*/                                                             
-
-              $filter = $idCat;
 
               break;
           case 'sousCatégorie':
               $data = DB::table('annonces')->where([['id_sous_Cat','=',$idCat],['stateAd','=','1'],])
                                            ->paginate(3); 
-              $filter = $idCat;  
+
               break;         
       }
 
-      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filter,'search'=>$search]);
+      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat]);
    }
 
    public function details($id){

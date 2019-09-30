@@ -248,7 +248,89 @@
                     }             
             }
         })       
-    }   
+    } 
+
+    /*$(document).ready(function(){
+       $('#anne').keyup(function(){
+       
+        // Search text
+        var text = $(this).val();
+        var kilom = 'h'
+       
+        // Hide all content class element
+        $('.adds-wrapper').hide();
+
+        // Search 
+        $('.adds-wrapper .add-title:contains("'+text+'"), .adds-wrapper .item_desc:contains("'+kilom+'")').closest('.adds-wrapper').show();
+       
+       });
+      });  */
+
+      /* function filter(){
+          var csrf_token = $('meta[name="csrf-token"]').attr('content');
+          //var testObject = [];
+
+          var anne = document.getElementById("anne").value;
+          var kilom = document.getElementById("kilom").value;
+          var  namesWrapper = $('.adds-wrapper');
+
+            /*testObject.push({
+                  anne: anne.value,
+              kilom: kilom.value
+              })
+            console.log(testObject);*/
+               /* $.ajax({
+                  url : "/advancedSearch",
+                  type : "POST",
+                  data : {'_method' : 'GET','_token':csrf_token,'anne':anne,'kilom':kilom},
+                  success : function(data){
+                  
+                  namesWrapper.html('');
+                  namesWrapper.append('<div class="item-list"><div class="col-sm-2 no-padding photobox"><div class="add-image"><a href="/details/'+data[0].id+'">Image</a><span class="photo-count"><i class="fa fa-camera"></i>2</span></div></div><div class="col-sm-7 add-desc-box"><div class="add-details"><h5 class="add-title"><a href="/details/'+data[0].id+'">'+data[0].titre+'</a></h5><div class="info"><span class="date"><i class="fa fa-clock"></i>'+data[0].created_at+'</span> - <span class="item-location"><i class="fa fa-map-marker"></i> '+data[0].wilaya+'</span></div><div class="item_desc"><a href="#">'+data[0].description+'</a></div></div></div><div class="col-sm-3 text-right  price-box"> <h2 class="item-price"> 20000 </h2> <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav('+data[0].id+')"><i class="fa fa-heart"></i> <span>Favori</span></a> <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>215</span> </a></div></div> ');
+                  console.log(data[0].annee);
+                   
+                  }
+                })
+                /* var sites = {!! $data->toJson() !!};
+                 var test = sites.data;
+                 
+                 console.log(sites);*/
+
+               /* $('.adds-wrapper').hide();
+
+            // Search 
+            $('.adds-wrapper .add-title:contains("'+anne+'"), .adds-wrapper .item_desc:contains("'+kilom+'")').closest('.adds-wrapper').show();*/
+       //}
+
+       $(document).on("change", ".orderby", function() {
+
+            var sortingMethod = $(this).val();
+
+            if(sortingMethod == 'asc')
+            {
+                sortProductsPriceAscending();
+            }
+            else if(sortingMethod == 'desc')
+            {
+                sortProductsPriceDescending();
+            }
+
+        });
+        function sortProductsPriceAscending()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return $(a).data("price")-$(b).data("price")});
+            $(".adds-wrapper").html(products);
+
+        }
+
+        function sortProductsPriceDescending()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return $(b).data("price") - $(a).data("price")});
+            $(".adds-wrapper").html(products);
+
+        }
   </script>
 
 </body>
