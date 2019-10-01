@@ -327,8 +327,11 @@
                         </div>
                       </div>
                       <div class="categories-list">
+                        <form method="get" action="/advancedSearch">
+                          @csrf
                           <ul>
                             <li>
+                              <input type="text" class="form-control" name="idSousCat" value="{{$filter}}"> 
                               <label class="control-label" for="textarea">Prix</label>
                               <input type="text" class="form-control" name="priceDe" placeholder="de">  
                               <input type="text" class="form-control" name="priceA" placeholder="à">
@@ -376,9 +379,10 @@
                                   <option>GPL</option>
                                   <option>Eléctrique</option>
                               </select>
-                              <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
+                              <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
                             </li>
                          </ul>
+                        </form>
                       </div>
                       @elseif ($filter == '37')
                         <div class="panel-group" id="accordion">
@@ -387,7 +391,6 @@
                             <div class="panel-heading">
                               <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
-                                  Matériel informatique
                                 </a>
                               </h4>
                             </div>
@@ -485,7 +488,7 @@
                                 <input class="form-control" name="du" type="date">
                                 <label class="control-label" for="textarea">Au</label>
                                 <input class="form-control" name="au" type="date">
-                                <button type="button" class="btn btn-primary" id="Add">Mettre à jour</button>
+                                <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
                               </li>   
                            </ul>
                           </div>
@@ -538,8 +541,8 @@
                   <label>
                     <select name="order" class="orderby">
                       <option selected="selected" value="menu-order">Trier par</option>
-                      <option value="mostrecent">Les plus récentes</option>
-                      <option value="lessrecent">Les moins récentes</option>
+                      <!--<option value="mostrecent">Les plus récentes</option>
+                      <option value="lessrecent">Les moins récentes</option>-->
                       <option value="asc">Prix: Faible à élevé</option>
                       <option value="desc">Prix: Elevé à faible</option>
                     </select>
@@ -581,7 +584,7 @@
                   </div>
                 </div>
                 <div class="col-sm-3 text-right  price-box">
-                  <h2 class="item-price"> {{$result->prix <> '' ? $result->prix.'DA' : '' }}</h2>
+                  <h2 class="item-price" data-test="{{$result->prix}}"> {{$result->prix <> '' ? $result->prix.'DA' : '' }}</h2>
                   <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$result->id}})"><i class="fa fa-heart"></i>
                   <span>Favori</span></a>
                   <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$result->numberViews}}</span> </a>
