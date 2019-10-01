@@ -46,7 +46,7 @@ class AuthController extends Controller
     }
 
     public function connexion(){
-        return view('profil.myads');
+        return view('connexion');
     }
 
     public function checklogin(Request $request){
@@ -70,7 +70,7 @@ class AuthController extends Controller
             'password'=> $password
         ]))
         {
-            return view('profil.home');
+            return view('profil.myads');
         } else {
             return redirect()->back()->with('error', 'Nom d\'utilisateur ou mot de passe invalide.');
         }
