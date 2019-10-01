@@ -366,7 +366,7 @@
                               </select>                  
                             </li>
                             <li>
-                              <input class="form-control" name="anne" id="anne" type="text" placeholder="Année">
+                              <input class="form-control" name="anne" id="anne" type="text" placeholder="Année"  value="{{old('anne')}}">
                             </li> 
                             <li>
                               <input class="form-control" name="kilom" id="kilom" type="text" placeholder="Kilomètrage">
