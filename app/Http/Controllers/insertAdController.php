@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
-use App\marquecomputer;
-use App\marquephone;
-use App\souscategories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use App\Users;
 use App\annonce;
 use App\categories;
@@ -21,9 +20,10 @@ use App\adComputer;
 use App\imagead;
 use App\domainemploi;
 use App\typebien;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
+use App\marqueveh;
+use App\marquecomputer;
+use App\marquephone;
+use App\souscategories;
 
 
 class insertAdController extends Controller
@@ -238,6 +238,7 @@ class insertAdController extends Controller
         $marqueComputer = marquecomputer::all();
         $domaineEmploi = domainemploi::all();
         $typeBien = typebien::all();
+        $marqueVeh = marqueveh::all();
 
         return view('profil.updateAd',[
             'annonce' => $annonce,
@@ -247,7 +248,8 @@ class insertAdController extends Controller
             'marquePhone' => $marquePhone,
             'marqueComputer' => $marqueComputer,
             'domaineEmploi' => $domaineEmploi,
-            'typeBien' => $typeBien
+            'typeBien' => $typeBien,
+            'marqueVeh' => $marqueVeh
         ]);
 
     }

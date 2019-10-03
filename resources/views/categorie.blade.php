@@ -17,19 +17,29 @@
                       <label class="styled-select">
                         <select class="dropdown-product selectpicker" name="categorie" >
                           <option value="">Toutes les catégories</option>
-                          @foreach ($search as $key => $value)
+                          @if (isset($_POST['categorie']))
+                          @foreach ($search as $key => $value)                                
+                              @if($_POST['categorie'] == $value->idCat)
+                                <option value="{{$value->idCat}}" selected="">{{ $value->categories }}</option>
+                              @else 
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                            @endforeach
+                              @endif
+                          @endforeach
+                          @else
+                          @foreach ($search as $key => $value)  
+                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                          @endforeach
+                          @endif                            
                        </select>                                    
                       </label>
                     </div>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{old('wilaya')}}">
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{old('keyword')}}">
+                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
@@ -107,28 +117,131 @@
                   </div>
                   @elseif ($catégorie == 'sousCatégorie')
                     @if ($filter == '53')
-                      <div class="categories-list">
-                        <ul>
-                          <li>
-                            <select class="form-control" name="domaineOffre" size="14">
-                              <option>Assistanat, secrétariat</option>
-                              <option>Comptabilité, Finance</option>
-                              <option>Banque et assurances</option>
-                              <option>Juridique, Fiscal, Audit, Conseil</option>
-                              <option>RH, personnel, formation</option>
-                              <option>Education, Enseignement</option>
-                              <option>Commercial, Technico Commercial, Service client</option>
-                              <option>Marketing, Communication</option>
-                              <option>Journalisme, Médias, Traduction</option>
-                              <option>Informatique, Systèmes d'information, Réseaux</option>
-                              <option>Chantier, Métiers BTP, Architecture</option>
-                              <option>Santé, Médical, Pharmacie</option>
-                              <option>Hôtellerie, Tourisme, Restauration, Loisirs</option>
-                              <option>Autres</option>
-                            </select>
-                          </li>  
-                        </ul>
+                  <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">                
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                            Emplois
+                          </a>
+                        </h4>
                       </div>
+                      <div id="collapseFive" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          <ul> 
+                            @foreach ($sousCat as $sousCategories)
+                             @if ($sousCategories->categories == 'Emplois' and $sousCategories->sousCat <> 'Autres')
+                              @if ($sousCategories->idSousCat == $filter)
+                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                              @else 
+                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                             @endif
+                             @endif
+                            @endforeach
+                            <li><a href="/search/Catégorie/53">Autres</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="categories-list">
+                      <form method="get" action="/advancedSearch">
+                      <ul>
+                        <li>
+                          <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
+                        </li>
+                        <li>
+                          <label>Domaine d'emploi</label>
+                          <select class="form-control" name="domaineEmolploi" size="10">
+                              <option value="">Sélectionner</option>
+                                @foreach ($dataSelected as $domaine)
+                                    @if (isset($_GET['domaineEmolploi']))
+                                      @if ($_GET['domaineEmolploi'] == $domaine->nomDomaine)
+                                          <option selected>{{ $domaine->nomDomaine}}</option>
+                                      @else
+                                        <option>{{ $domaine->nomDomaine }}</option>
+                                      @endif
+                                    @else
+                                      <option>{{ $domaine->nomDomaine }}</option>
+                                    @endif
+                                @endforeach
+                          </select>
+                          <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
+                        </li>  
+                      </ul>
+                      </form>
+                    </div>
+                @elseif ($filter == '54')
+                  <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">                
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                            Emplois
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFive" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          <ul> 
+                            @foreach ($sousCat as $sousCategories)
+                             @if ($sousCategories->categories == 'Emplois' and $sousCategories->sousCat <> 'Autres')
+                              @if ($sousCategories->idSousCat == $filter)
+                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                              @else 
+                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                             @endif
+                             @endif
+                            @endforeach
+                            <li><a href="/search/Catégorie/53">Autres</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="categories-list">
+                      <form method="get" action="/advancedSearch">
+                      <ul>
+                        <li>
+                          <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}"><hr>
+                          @if (isset($_GET['sexe'])) 
+                            @if ($_GET['sexe'] == 'Homme')
+                              <label><input type="radio" name="sexe" value="Homme" checked> Homme </label><br>
+                              <label><input type="radio" name="sexe" value="Femme"> Femme </label>
+                            @else
+                              <label><input type="radio" name="sexe" value="Homme"> Homme </label><br>
+                              <label><input type="radio" name="sexe" value="Femme" checked> Femme </label>
+                            @endif
+                          @else
+                              <label><input type="radio" name="sexe" value="Homme"> Homme </label><br>
+                              <label><input type="radio" name="sexe" value="Femme"> Femme </label>
+                          @endif
+                        </li>
+                        <li>
+                          <label>Domaine d'emploi</label>
+                          <select class="form-control" name="domaineEmolploi" size="10">
+                              <option value="">Sélectionner</option>
+                                @foreach ($dataSelected as $domaine)
+                                    @if (isset($_GET['domaineEmolploi']))
+                                      @if ($_GET['domaineEmolploi'] == $domaine->nomDomaine)
+                                          <option selected>{{ $domaine->nomDomaine}}</option>
+                                      @else
+                                        <option>{{ $domaine->nomDomaine }}</option>
+                                      @endif
+                                    @else
+                                      <option>{{ $domaine->nomDomaine }}</option>
+                                    @endif
+                                @endforeach
+                          </select>
+                          <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
+                        </li>  
+                      </ul>
+                      </form>
+                    </div>
                 @elseif ($filter == '16')
                     <div class="panel-group" id="accordion">
                     <div class="panel panel-default">                
@@ -160,29 +273,34 @@
                     </div>
                   </div>
                     <div class="categories-list">
+                      <form method="get" action="/advancedSearch">
                       <ul>
                         <li>
+                          <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
                           <label class="control-label" for="textarea">Prix</label>
-                          <input type="text" class="form-control" name="priceDe" placeholder="de">  
-                          <input type="text" class="form-control" name="priceA" placeholder="à">
+                          <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
+                          <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
                         </li>
                         <li>
                           <label>Marque</label>
                           <select class="form-control" name="marquePhone" size="10">
-                              <option>Apple</option>
-                              <option>BlackBerry</option>
-                              <option>Ericsson</option>
-                              <option>Huawei</option>
-                              <option>LG</option>
-                              <option>Motorola</option>
-                              <option>Nokia</option>
-                              <option>Samsung</option>
-                              <option>Sony</option>
-                              <option>Autres</option>
+                              <option value="">Sélectionner</option>
+                                @foreach ($dataSelected as $marque)
+                                    @if (isset($_GET['marquePhone']))
+                                      @if ($_GET['marquePhone'] == $marque->marque)
+                                          <option selected>{{ $marque->marque}}</option>
+                                      @else
+                                        <option>{{ $marque->marque }}</option>
+                                      @endif
+                                    @else
+                                      <option>{{ $marque->marque }}</option>
+                                    @endif
+                                @endforeach
                           </select>
-                          <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
+                          <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
                         </li>  
                       </ul>
+                      </form>
                     </div>
                   @elseif ($filter == '36')
                       <div class="panel-group" id="accordion">
@@ -215,23 +333,34 @@
                         </div>
                       </div>
                       <div class="categories-list">
+                        <form method="get" action="/advancedSearch">
                         <ul>
                           <li>
+                            <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
                             <label class="control-label" for="textarea">Prix</label>
-                            <input type="text" class="form-control" name="priceDe" placeholder="de">  
-                            <input type="text" class="form-control" name="priceA" placeholder="à">
+                            <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{isset($_GET['priceDe']) ? $_GET['priceDe'] : ''}}">  
+                            <input type="text" class="form-control" name="priceA" placeholder="à" value="{{isset($_GET['priceA']) ? $_GET['priceA'] : ''}}">
                           </li>
                           <li>
                             <label class="control-label" for="textarea">Type</label>
                               <select class="form-control" name="typeStockage" size="4">
+                                  <option value="">Sélectionner</option>
+                                  @if (isset($_GET['typeStockage']))
+                                  <option {{ $_GET['typeStockage'] == 'Flash disque' ? 'selected' : ''}}>Flash disque</option>
+                                  <option {{ $_GET['typeStockage'] == 'Disque dur externe' ? 'selected' : ''}}>Disque dur externe</option>
+                                  <option {{ $_GET['typeStockage'] == 'Disque dur interne' ? 'selected' : ''}}>Disque dur interne</option>
+                                  <option {{ $_GET['typeStockage'] == 'Carte mémoire' ? 'selected' : ''}}>Carte mémoire</option>
+                                  @else
                                   <option>Flash disque</option>
                                   <option>Disque dur externe</option>
                                   <option>Disque dur interne</option>
                                   <option>Carte mémoire</option>
+                                  @endif
                               </select>
-                              <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
+                              <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
                              </li>               
                         </ul>
+                        </form>
                       </div>
                   @elseif ($filter == '55' or $filter == '56' or $filter == '57' or $filter == '58')
                         <div class="panel-group" id="accordion">
@@ -264,37 +393,43 @@
                         </div>
                       </div>
                       <div class="categories-list">
+                        <form method="get" action="/advancedSearch">
                         <ul>
                           <li>
+                            <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
                             <label class="control-label" for="textarea">Prix</label>
-                            <input type="text" class="form-control" name="priceDe" placeholder="de">  
-                            <input type="text" class="form-control" name="priceA" placeholder="à">
+                            <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{isset($_GET['priceDe']) ? $_GET['priceDe'] : ''}}">  
+                            <input type="text" class="form-control" name="priceA" placeholder="à" value="{{isset($_GET['priceA']) ? $_GET['priceA'] : ''}}">
                           </li>
                           <li>
                             <label class="control-label" for="textarea">Type du Bien</label>
                             <select class="form-control" name="typeBien" size="9">
-                                <option>Appartement</option>
-                                <option>Studio</option>
-                                <option>Villa</option>
-                                <option>Local</option>
-                                <option>Terrain</option>
-                                <option>Carcasse</option>
-                                <option>Usine</option>
-                                <option>Immeuble</option>
-                                <option>Autres</option>
+                              <option value="">Sélectionner</option>
+                              @foreach ($dataSelected as $typeBien)
+                                  @if (isset($_GET['typeBien']))
+                                    @if ($_GET['typeBien'] == $typeBien->typeBien)
+                                        <option selected>{{ $typeBien->typeBien}}</option>
+                                    @else
+                                      <option>{{ $typeBien->typeBien }}</option>
+                                    @endif
+                                  @else
+                                    <option>{{ $typeBien->typeBien }}</option>
+                                  @endif
+                              @endforeach
                             </select>
                           </li> 
                           <li>
-                            <input class="form-control" name="superficie" type="text" placeholder="Superficie en M²">
+                            <input class="form-control" name="superficie" type="text" placeholder="Superficie en M²" value="{{isset($_GET['superficie']) ? $_GET['superficie'] : ''}}">
                           </li>
                           <li>
-                            <input class="form-control" name="nbrePiece" type="text" placeholder="Nombre de pièces">
+                            <input class="form-control" name="nbrePiece" type="text" placeholder="Nombre de pièces" value="{{isset($_GET['nbrePiece']) ? $_GET['nbrePiece'] : ''}}">
                           </li> 
                           <li>
-                            <input class="form-control" name="etage" type="text" placeholder="Étage">
-                            <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
+                            <input class="form-control" name="etage" type="text" placeholder="Étage" value="{{isset($_GET['etage']) ? $_GET['etage'] : ''}}">
+                            <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
                           </li> 
                         </ul>
+                        </form>
                       </div>
                   @elseif ($filter == '6' or $filter == '7' or $filter == '8' or $filter == '9' or $filter == '10' or $filter == '11' or $filter == '12' or $filter == '13')
                       <div class="panel-group" id="accordion">
@@ -328,56 +463,66 @@
                       </div>
                       <div class="categories-list">
                         <form method="get" action="/advancedSearch">
-                          @csrf
                           <ul>
                             <li>
-                              <input type="text" class="form-control" name="idSousCat" value="{{$filter}}"> 
+                              <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}"> 
                               <label class="control-label" for="textarea">Prix</label>
-                              <input type="text" class="form-control" name="priceDe" placeholder="de">  
-                              <input type="text" class="form-control" name="priceA" placeholder="à">
+                              <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
+                              <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
                             </li>
                             <li>
                               <label class="control-label" for="textarea">Type d'offre</label><br>
-                              <label><input type="radio" name="vente" value="selling"> Offres </label><br>
-                              <label><input type="radio" name="vente" value="searching"> Recherché </label>
+                              @if (isset($_GET['vente'])) 
+                                @if ($_GET['vente'] == 'selling')
+                                  <label><input type="radio" name="vente" value="selling" checked> Offres </label><br>
+                                  <label><input type="radio" name="vente" value="searching"> Recherché </label>
+                                @else
+                                  <label><input type="radio" name="vente" value="selling"> Offres </label><br>
+                                  <label><input type="radio" name="vente" value="searching" checked> Recherché </label>
+                                @endif
+                              @else
+                                  <label><input type="radio" name="vente" value="selling"> Offres </label><br>
+                                  <label><input type="radio" name="vente" value="searching"> Recherché </label>
+                              @endif
                             </li>
                             <li>
                               <label class="control-label" for="textarea">Marque</label>
                               <select class="form-control" name="marque" size="8">
-                                  <option>Audi</option>
-                                  <option>BMW</option>
-                                  <option>Cadillac</option>
-                                  <option>Chevrolet</option>
-                                  <option>Citroen</option>
-                                  <option>Dacia</option>
-                                  <option>Honda</option>
-                                  <option>Hyundai</option>
-                                  <option>Isuzu</option>
-                                  <option>Kia</option>
-                                  <option>Seat</option>
-                                  <option>Skoda</option>
-                                  <option>Volkswagen</option>
-                                  <option>Baic</option>
-                                  <option>Nissan</option>
-                                  <option>Peugeot</option>
-                                  <option>Renault</option>
-                                  <option>Toyota</option>
-                                  <option>Autres</option>
-                              </select>                  
+                                <option value="">Sélectionner</option>
+                                @foreach ($dataSelected as $marque)
+                                    @if (isset($_GET['marque']))
+                                      @if ($_GET['marque'] == $marque->marqueVeh)
+                                          <option selected>{{ $marque->marqueVeh}}</option>
+                                      @else
+                                        <option>{{ $marque->marqueVeh }}</option>
+                                      @endif
+                                    @else
+                                      <option>{{ $marque->marqueVeh }}</option>
+                                    @endif
+                                @endforeach
+                              </select>               
                             </li>
                             <li>
-                              <input class="form-control" name="anne" id="anne" type="text" placeholder="Année"  value="{{old('anne')}}">
+                              <input class="form-control" name="anne" id="anne" type="text" placeholder="Année" value="{{ isset($_GET['anne']) ? $_GET['anne'] : '' }}">
                             </li> 
                             <li>
-                              <input class="form-control" name="kilom" id="kilom" type="text" placeholder="Kilomètrage">
+                              <input class="form-control" name="kilom" id="kilom" type="text" placeholder="Kilomètrage" value="{{ isset($_GET['kilom']) ? $_GET['kilom'] : '' }}">
                             </li>
                             <li>
                               <label class="control-label" for="textarea">Type carburant</label>
                               <select class="form-control" name="typeCarb" size="4"> 
+                                  <option value="">Sélectionner</option>
+                                  @if (isset($_GET['typeCarb']))
+                                  <option {{ $_GET['typeCarb'] == 'Essence' ? 'selected' : '' }}>Essence</option>
+                                  <option {{ $_GET['typeCarb'] == 'Gas oil' ? 'selected' : '' }}>Gas oil</option>
+                                  <option {{ $_GET['typeCarb'] == 'GPL' ? 'selected' : '' }}>GPL</option>
+                                  <option {{ $_GET['typeCarb'] == 'Eléctrique' ? 'selected' : '' }}>Eléctrique</option>
+                                  @else
                                   <option>Essence</option>
                                   <option>Gas oil</option>
                                   <option>GPL</option>
                                   <option>Eléctrique</option>
+                                  @endif
                               </select>
                               <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
                             </li>
@@ -391,6 +536,7 @@
                             <div class="panel-heading">
                               <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                                  Matériel informatique
                                 </a>
                               </h4>
                             </div>
@@ -414,38 +560,51 @@
                           </div>
                         </div>
                         <div class="categories-list">
+                          <form method="get" action="/advancedSearch">
                           <ul>
                             <li>
+                              <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
                               <label class="control-label" for="textarea">Prix</label>
-                              <input type="text" class="form-control" name="priceDe" placeholder="de">  
-                              <input type="text" class="form-control" name="priceA" placeholder="à">
+                              <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
+                              <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
                             </li>
                             <li>
                               <label class="control-label" for="textarea">Marque</label>
                               <select class="form-control" name="marqueOrd" size="10">
-                                    <option>Acer</option>
-                                    <option>Apple</option>
-                                    <option>Asus</option>
-                                    <option>Dell</option>
-                                    <option>HP</option>
-                                    <option>Lenovo</option>
-                                    <option>Samsung</option>
-                                    <option>Sony</option>
-                                    <option>Toshiba</option>
-                                    <option>Autres</option>
-                                </select> 
+                                <option value="">Sélectionner</option>
+                                  @foreach ($dataSelected as $marque)
+                                      @if (isset($_GET['marqueOrd']))
+                                        @if ($_GET['marqueOrd'] == $marque->marque)
+                                            <option selected>{{ $marque->marque}}</option>
+                                        @else
+                                          <option>{{ $marque->marque }}</option>
+                                        @endif
+                                      @else
+                                        <option>{{ $marque->marque }}</option>
+                                      @endif
+                                  @endforeach
+                              </select> 
                             </li>                            
                             <li>
                               <label class="control-label" for="textarea">Taille de l'écran</label>
                               <select class="form-control" name="tailleOrd" size="4">
+                                  <option value="">Sélectionner</option>
+                                  @if (isset($_GET['tailleOrd']))
+                                  <option {{ $_GET['tailleOrd'] == '14 po ou moins' ? 'selected' : '' }}>14 po ou moins</option>
+                                  <option {{ $_GET['tailleOrd'] == '15 po' ? 'selected' : '' }}>15 po</option>
+                                  <option {{ $_GET['tailleOrd'] == '16 po' ? 'selected' : '' }}>16 po</option>
+                                  <option {{ $_GET['tailleOrd'] == '17 po ou plus' ? 'selected' : '' }}>17 po ou plus</option>
+                                  @else
                                   <option>14 po ou moins</option>
                                   <option>15 po</option>
                                   <option>16 po</option>
                                   <option>17 po ou plus</option>
+                                  @endif
                               </select>  
-                              <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
+                              <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
                             </li>
-                         </ul>
+                          </ul>
+                          </form>
                         </div>
                       @elseif ($filter == '2')
                         <div class="panel-group" id="accordion">
@@ -478,19 +637,22 @@
                             </div>
                           </div>
                           <div class="categories-list">
+                            <form method="get" action="/advancedSearch">
                             <ul>
                               <li>
+                                <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
                                 <label class="control-label" for="textarea">Date et heure de l'événement</label>
-                                <input class="form-control" name="datetimeEvent" type="datetime-local">
+                                <input class="form-control" name="datetimeEvent" type="datetime-local" value="{{ isset($_GET['datetimeEvent']) ? $_GET['datetimeEvent'] : '' }}">
                               </li>
                               <li>
                                 <label class="control-label" for="textarea">Du</label>
-                                <input class="form-control" name="du" type="date">
+                                <input class="form-control" name="du" type="date" value="{{ isset($_GET['du']) ? $_GET['du'] : '' }}">
                                 <label class="control-label" for="textarea">Au</label>
-                                <input class="form-control" name="au" type="date">
-                                <button type="button" class="btn btn-primary" id="Add" onclick="filter()">Mettre à jour</button>
+                                <input class="form-control" name="au" type="date" value="{{ isset($_GET['au']) ? $_GET['au'] : '' }}">
+                                <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
                               </li>   
-                           </ul>
+                            </ul>
+                            </form>
                           </div>
                       @else
                         <div class="panel-group" id="accordion">
@@ -507,7 +669,7 @@
                                   <div class="panel-body">
                                     <ul>
                                       @foreach ($sousCat as $sousCategorie)
-                                        @if ($sousCategorie->categories == $searchCat ->categories and $sousCategorie->sousCat <> 'Autres')
+                                        @if ($sousCategorie->categories == $searchCat->categories and $sousCategorie->sousCat <> 'Autres')
                                           @if ($filter == $sousCategorie->idSousCat)
                                             <li><a href="/search/sousCatégorie/{{$sousCategorie->idSousCat}}"><strong>{{$sousCategorie->sousCat}}</strong></a></li>
                                           @else
@@ -529,6 +691,8 @@
             </aside>
           </div>
           <div class="col-sm-9 page-content">
+
+         @if ($data->count() <> '0')
             <!-- Product filter Start -->
             <div class="product-filter">
               <div class="grid-list-count">
@@ -553,7 +717,7 @@
             <!-- Product filter End -->
 
             <!-- Adds wrapper Start -->
-            <div class="adds-wrapper">
+            <div class="adds-wrapper">              
                @foreach ($data as $result)
               <div class="item-list" data-store="{{$result->prix.$result->id}}" data-price="{{$result->prix}}">
                 <div class="col-sm-2 no-padding photobox">
@@ -595,8 +759,15 @@
             <!-- Adds wrapper End -->
 
             <!-- Start Pagination -->
-            {{ $data->links() }}
+            {{ $data->appends(request()->input())->links() }}
             <!-- End Pagination -->
+          @else 
+
+          <div class="alert alert-warning" role="alert">
+           <i class="fa fa-exclamation-triangle"> Désolé, aucun résultat n'a été trouvé </i>
+          </div>
+
+          @endif
 
             <div class="post-promo text-center">
               <h2> Avez-vous quelque chose à vendre ?</h2>

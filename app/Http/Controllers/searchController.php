@@ -17,6 +17,11 @@ use App\adStorage;
 use App\adComputer;
 use App\imagead;
 use App\favoris;
+use App\domainemploi;
+use App\typebien;
+use App\marqueveh;
+use App\marquecomputer;
+use App\marquephone;
 
 class searchController extends Controller
 {
@@ -85,6 +90,7 @@ class searchController extends Controller
 
    public function searchPerCat($cat,$idCat){
 
+        $dataSelected = '';
         $filterKey = $idCat;
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
@@ -104,12 +110,29 @@ class searchController extends Controller
               break;
           case 'sousCatégorie':
               $data = DB::table('annonces')->where([['id_sous_Cat','=',$idCat],['stateAd','=','1'],])
-                                           ->paginate(3); 
+                                           ->paginate(3);
+
+              if ($idCat == '16'){
+                $dataSelected = marquephone::all();
+
+              } 
+                else if ($idCat == '6' or $idCat == '7' or $idCat == '8' or $idCat == '9' or $idCat == '10' or $idCat == '11' or $idCat == '12' or $idCat == '13'){
+                    $dataSelected = marqueveh::all();
+                }
+                  else if ($idCat == '55' or $idCat == '56' or $idCat == '57' or $idCat == '58'){
+                    $dataSelected = typebien::all();
+                  }
+                    else if ($idCat == '37'){
+                      $dataSelected = marquecomputer::all();
+                    }
+                      else if ($idCat == '53' or $idCat = '54'){
+                      $dataSelected = domainemploi::all();
+                    }
 
               break;         
       }
 
-      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat]);
+      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
    }
 
    public function details($id){

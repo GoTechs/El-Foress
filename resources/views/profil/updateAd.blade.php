@@ -182,7 +182,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="textarea">Marque</label> <input class="form-control" name="marqueVeh" type="text" value="{{$result->marque}}">
+                            <label class="control-label" for="textarea">Marque</label>
+                            <select class="form-control" name="marqueVeh">
+                                <option value="">Sélectionner</option>
+                                @foreach ($marqueVeh as $marque)
+                                    @if ($result->marque == $marque->marqueVeh)
+                                        <option selected>{{ $marque->marqueVeh}}</option>
+                                    @else
+                                        <option>{{ $marque->marqueVeh }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modeleVeh" type="text" value="{{$result->modele}}">

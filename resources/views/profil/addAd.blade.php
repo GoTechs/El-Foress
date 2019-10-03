@@ -158,7 +158,29 @@
               </div>
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Marque</label> <input class="form-control" name="marqueVeh" type="text" value="{{old('marqueVeh')}}">
+            <label class="control-label" for="textarea">Marque</label>
+            <select class="form-control" name="marqueVeh">
+                <option value="">Sélectionner</option>
+                <option>Audi</option>
+                <option>BMW</option>
+                <option>Cadillac</option>
+                <option>Chevrolet</option>
+                <option>Citroen</option>
+                <option>Dacia</option>
+                <option>Honda</option>
+                <option>Hyundai</option>
+                <option>Isuzu</option>
+                <option>Kia</option>
+                <option>Seat</option>
+                <option>Skoda</option>
+                <option>Volkswagen</option>
+                <option>Baic</option>
+                <option>Nissan</option>
+                <option>Peugeot</option>
+                <option>Renault</option>
+                <option>Toyota</option>
+                <option>Autres</option>
+              </select>
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modeleVeh" type="text" value="{{old('modeleVeh')}}">
