@@ -16,7 +16,8 @@ Route::get('/','searchController@showCat');
 Route::post('/categorie','searchController@search');
 Route::get('/categorie','searchController@search');
 
-Route::get('/search/{idpost}/{idcat}','searchController@searchPerCat');
+Route::get('/search/{idcat}/{idsouscat}','searchController@searchPerSousCat');
+Route::get('/search/{idcat}','searchController@searchPerCat');
 
 Route::get('/contact', 'ContactFormController@create');
 Route::post('/contact', 'ContactFormController@store');

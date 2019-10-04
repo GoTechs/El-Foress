@@ -30,7 +30,6 @@ class advancedSearchController extends Controller
     	$dataSelected = '';
 
     	$imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
-    	$cat = 'sousCatégorie';
     	$search = categories::all();
         $sousCat = DB::table('categories')
                     ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
@@ -39,6 +38,7 @@ class advancedSearchController extends Controller
 
     	$idSousCat = request('idSousCat');
     	$filterKey = $idSousCat;
+    	$idCat = request('idCat');
 
 /********************************************* FILTER CAR *********************************************************/
 
@@ -291,6 +291,6 @@ class advancedSearchController extends Controller
         	})->paginate(3);        	
 		  } 	
 
-        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
+        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
     }
 }

@@ -1,5 +1,4 @@
 
-
     @extends('layout')
 
     @section('content')
@@ -63,8 +62,9 @@
               <div class="inner-box">
                 <div class="categories">                  
                   <div class="widget-title">
-                    <h4><a href="/categorie"> Toutes les catégories </a></h4>
+                    <h4><a href="#"> Annonces correspondantes </a></h4>
                   </div>
+
                 @if ($catégorie == 'Catégorie')
                   <div class="panel-group" id="accordion">
                   @foreach ($search as $searchCat)
@@ -82,10 +82,10 @@
                             <ul>
                               @foreach ($sousCat as $sousCategorie)
                                 @if ($sousCategorie->categories == $searchCat ->categories and $sousCategorie->sousCat <> 'Autres')
-                                  <li><a href="/search/sousCatégorie/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
+                                  <li><a href="/search/{{$sousCategorie->idCat}}/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
                                 @endif 
                               @endforeach
-                              <li><a href="/search/Catégorie/{{$searchCat->idCat}}">Autres</a></li>
+                              <li><a href="/search/{{$searchCat->idCat}}">Autres</a></li>
                             </ul>
                           </div>
                         </div>
@@ -104,10 +104,10 @@
                             <ul>
                               @foreach ($sousCat as $sousCategorie)
                                 @if ($sousCategorie->categories == $searchCat ->categories and $sousCategorie->sousCat <> 'Autres')
-                                  <li><a href="/search/sousCatégorie/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
+                                  <li><a href="/search/{{$sousCategorie->idCat}}/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
                                 @endif 
                               @endforeach
-                              <li><a href="/search/Catégorie/{{$searchCat->idCat}}">Autres</a></li>
+                              <li><a href="/search/{{$searchCat->idCat}}">Autres</a></li>
                             </ul>
                           </div>
                         </div>
@@ -116,43 +116,14 @@
                   @endforeach
                   </div>
                   @elseif ($catégorie == 'sousCatégorie')
-                    @if ($filter == '53')
-                  <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">                
-                      <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
-                            Emplois
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="collapseFive" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                          <ul> 
-                            @foreach ($sousCat as $sousCategories)
-                             @if ($sousCategories->categories == 'Emplois' and $sousCategories->sousCat <> 'Autres')
-                              @if ($sousCategories->idSousCat == $filter)
-                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
-                              @else 
-                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
-                             @endif
-                             @endif
-                            @endforeach
-                            <li><a href="/search/Catégorie/53">Autres</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
+
+                    @if ($idSousCat == '53')
                     <div class="categories-list">
                       <form method="get" action="/advancedSearch">
                       <ul>
                         <li>
-                          <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
-                        </li>
-                        <li>
+                          <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                          <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                           <label>Domaine d'emploi</label>
                           <select class="form-control" name="domaineEmolploi" size="10">
                               <option value="">Sélectionner</option>
@@ -173,8 +144,10 @@
                       </ul>
                       </form>
                     </div>
-                @elseif ($filter == '54')
-                  <div class="panel-group" id="accordion">
+                    <div class="widget-title">
+                      <h4><a href="/categorie"> Catégories </a></h4>
+                    </div>
+                    <div class="panel-group" id="accordion">
                     <div class="panel panel-default">                
                       <div class="panel panel-default">
                       <div class="panel-heading">
@@ -189,10 +162,10 @@
                           <ul> 
                             @foreach ($sousCat as $sousCategories)
                              @if ($sousCategories->categories == 'Emplois' and $sousCategories->sousCat <> 'Autres')
-                              @if ($sousCategories->idSousCat == $filter)
-                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                              @if ($sousCategories->idSousCat == $idSousCat)
+                                <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
                               @else 
-                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                                <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
                              @endif
                              @endif
                             @endforeach
@@ -202,12 +175,13 @@
                       </div>
                       </div>
                     </div>
-                  </div>
+                @elseif ($idSousCat == '54')
                     <div class="categories-list">
                       <form method="get" action="/advancedSearch">
                       <ul>
                         <li>
-                          <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}"><hr>
+                          <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                          <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}"><hr>
                           @if (isset($_GET['sexe'])) 
                             @if ($_GET['sexe'] == 'Homme')
                               <label><input type="radio" name="sexe" value="Homme" checked> Homme </label><br>
@@ -242,14 +216,16 @@
                       </ul>
                       </form>
                     </div>
-                @elseif ($filter == '16')
+                    <div class="widget-title">
+                      <h4><a href="/categorie"> Catégories </a></h4>
+                    </div>
                     <div class="panel-group" id="accordion">
                     <div class="panel panel-default">                
                       <div class="panel panel-default">
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
-                            Boutiques
+                            Emplois
                           </a>
                         </h4>
                       </div>
@@ -257,26 +233,27 @@
                         <div class="panel-body">
                           <ul> 
                             @foreach ($sousCat as $sousCategories)
-                             @if ($sousCategories->categories == 'Boutiques' and $sousCategories->sousCat <> 'Autres')
-                              @if ($sousCategories->idSousCat == $filter)
-                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                             @if ($sousCategories->categories == 'Emplois' and $sousCategories->sousCat <> 'Autres')
+                              @if ($sousCategories->idSousCat == $idSousCat)
+                                <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
                               @else 
-                                <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                                <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
                              @endif
                              @endif
                             @endforeach
-                            <li><a href="/search/Catégorie/5">Autres</a></li>
+                            <li><a href="/search/Catégorie/53">Autres</a></li>
                           </ul>
                         </div>
                       </div>
                       </div>
                     </div>
-                  </div>
+                @elseif ($idSousCat == '16')
                     <div class="categories-list">
                       <form method="get" action="/advancedSearch">
                       <ul>
                         <li>
-                          <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
+                          <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                          <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                           <label class="control-label" for="textarea">Prix</label>
                           <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
                           <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
@@ -302,41 +279,44 @@
                       </ul>
                       </form>
                     </div>
-                  @elseif ($filter == '36')
-                      <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">                
-                          <div class="panel panel-default">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
-                                Matériel informatique
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseFive" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                              <ul> 
-                                @foreach ($sousCat as $sousCategories)
-                                 @if ($sousCategories->categories == 'Matériel informatique' and $sousCategories->sousCat <> 'Autres')
-                                  @if ($sousCategories->idSousCat == $filter)
-                                    <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
-                                  @else 
-                                    <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
-                                 @endif
-                                 @endif
-                                @endforeach
-                                <li><a href="/search/Catégorie/8">Autres</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          </div>
+                    <div class="widget-title">
+                      <h4><a href="/categorie"> Catégories </a></h4>
+                    </div>
+                    <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">                
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                            Boutiques
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFive" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          <ul> 
+                            @foreach ($sousCat as $sousCategories)
+                             @if ($sousCategories->categories == 'Boutiques' and $sousCategories->sousCat <> 'Autres')
+                              @if ($sousCategories->idSousCat == $idSousCat)
+                                <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                              @else 
+                                <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                             @endif
+                             @endif
+                            @endforeach
+                            <li><a href="/search/Catégorie/5">Autres</a></li>
+                          </ul>
                         </div>
                       </div>
+                      </div>
+                    </div>
+                   @elseif ($idSousCat == '36')
                       <div class="categories-list">
                         <form method="get" action="/advancedSearch">
                         <ul>
                           <li>
-                            <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
+                            <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                            <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                             <label class="control-label" for="textarea">Prix</label>
                             <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{isset($_GET['priceDe']) ? $_GET['priceDe'] : ''}}">  
                             <input type="text" class="form-control" name="priceA" placeholder="à" value="{{isset($_GET['priceA']) ? $_GET['priceA'] : ''}}">
@@ -362,14 +342,16 @@
                         </ul>
                         </form>
                       </div>
-                  @elseif ($filter == '55' or $filter == '56' or $filter == '57' or $filter == '58')
-                        <div class="panel-group" id="accordion">
+                      <div class="widget-title">
+                        <h4><a href="/categorie"> Catégories </a></h4>
+                      </div>
+                      <div class="panel-group" id="accordion">
                         <div class="panel panel-default">                
                           <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
-                                Immobiliers
+                                Matériel informatique
                               </a>
                             </h4>
                           </div>
@@ -377,26 +359,28 @@
                             <div class="panel-body">
                               <ul> 
                                 @foreach ($sousCat as $sousCategories)
-                                 @if ($sousCategories->categories == 'Immobiliers' and $sousCategories->sousCat <> 'Autres')
-                                  @if ($sousCategories->idSousCat == $filter)
-                                    <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                                 @if ($sousCategories->categories == 'Matériel informatique' and $sousCategories->sousCat <> 'Autres')
+                                  @if ($sousCategories->idSousCat == $idSousCat)
+                                    <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
                                   @else 
-                                    <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                                    <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
                                  @endif
                                  @endif
                                 @endforeach
-                                <li><a href="/search/Catégorie/3">Autres</a></li>
+                                <li><a href="/search/Catégorie/8">Autres</a></li>
                               </ul>
                             </div>
                           </div>
                           </div>
                         </div>
-                      </div>
+
+                  @elseif ($idSousCat == '55' or $idSousCat == '56' or $idSousCat == '57' or $idSousCat == '58')
                       <div class="categories-list">
                         <form method="get" action="/advancedSearch">
                         <ul>
                           <li>
-                            <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
+                            <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                            <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                             <label class="control-label" for="textarea">Prix</label>
                             <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{isset($_GET['priceDe']) ? $_GET['priceDe'] : ''}}">  
                             <input type="text" class="form-control" name="priceA" placeholder="à" value="{{isset($_GET['priceA']) ? $_GET['priceA'] : ''}}">
@@ -431,14 +415,16 @@
                         </ul>
                         </form>
                       </div>
-                  @elseif ($filter == '6' or $filter == '7' or $filter == '8' or $filter == '9' or $filter == '10' or $filter == '11' or $filter == '12' or $filter == '13')
+                      <div class="widget-title">
+                        <h4><a href="/categorie"> Catégories </a></h4>
+                      </div>
                       <div class="panel-group" id="accordion">
                         <div class="panel panel-default">                
                           <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
-                                Véhicules
+                                Immobiliers
                               </a>
                             </h4>
                           </div>
@@ -446,26 +432,28 @@
                             <div class="panel-body">
                               <ul> 
                                 @foreach ($sousCat as $sousCategories)
-                                 @if ($sousCategories->categories == 'Véhicules' and $sousCategories->sousCat <> 'Autres')
-                                  @if ($sousCategories->idSousCat == $filter)
-                                    <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                                 @if ($sousCategories->categories == 'Immobiliers' and $sousCategories->sousCat <> 'Autres')
+                                  @if ($sousCategories->idSousCat == $idSousCat)
+                                    <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
                                   @else 
-                                    <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                                    <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
                                  @endif
                                  @endif
                                 @endforeach
-                                <li><a href="/search/Catégorie/4">Autres</a></li>
+                                <li><a href="/search/Catégorie/3">Autres</a></li>
                               </ul>
                             </div>
                           </div>
                           </div>
                         </div>
-                      </div>
+
+                  @elseif ($idSousCat == '6' or $idSousCat == '7' or $idSousCat == '8' or $idSousCat == '9' or $idSousCat == '10' or $idSousCat == '11' or $idSousCat == '12' or $idSousCat == '13')
                       <div class="categories-list">
                         <form method="get" action="/advancedSearch">
                           <ul>
                             <li>
-                              <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}"> 
+                              <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}"> 
+                              <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                               <label class="control-label" for="textarea">Prix</label>
                               <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
                               <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
@@ -529,41 +517,45 @@
                          </ul>
                         </form>
                       </div>
-                      @elseif ($filter == '37')
-                        <div class="panel-group" id="accordion">
-                          <div class="panel panel-default">                
-                            <div class="panel panel-default">
-                            <div class="panel-heading">
-                              <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
-                                  Matériel informatique
-                                </a>
-                              </h4>
-                            </div>
-                            <div id="collapseFive" class="panel-collapse collapse in">
-                              <div class="panel-body">
-                                <ul> 
-                                  @foreach ($sousCat as $sousCategories)
-                                 @if ($sousCategories->categories == 'Matériel informatique' and $sousCategories->sousCat <> 'Autres')
-                                    @if ($sousCategories->idSousCat == $filter)
-                                      <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
-                                    @else 
-                                      <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
-                                   @endif
-                                   @endif
-                                  @endforeach
-                                  <li><a href="/search/Catégorie/8">Autres</a></li>
-                                </ul>
-                              </div>
-                            </div>
+                      <div class="widget-title">
+                        <h4><a href="/categorie"> Catégories </a></h4>
+                      </div>
+                      <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">                
+                          <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                                Véhicules
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapseFive" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                              <ul> 
+                                @foreach ($sousCat as $sousCategories)
+                                 @if ($sousCategories->categories == 'Véhicules' and $sousCategories->sousCat <> 'Autres')
+                                  @if ($sousCategories->idSousCat == $idSousCat)
+                                    <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                                  @else 
+                                    <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                                 @endif
+                                 @endif
+                                @endforeach
+                                <li><a href="/search/Catégorie/4">Autres</a></li>
+                              </ul>
                             </div>
                           </div>
+                          </div>
                         </div>
+
+                      @elseif ($idSousCat == '37')
                         <div class="categories-list">
                           <form method="get" action="/advancedSearch">
                           <ul>
                             <li>
-                              <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
+                              <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                              <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                               <label class="control-label" for="textarea">Prix</label>
                               <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
                               <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
@@ -606,8 +598,61 @@
                           </ul>
                           </form>
                         </div>
-                      @elseif ($filter == '2')
+                        <div class="widget-title">
+                            <h4><a href="/categorie"> Catégories </a></h4>
+                          </div>
                         <div class="panel-group" id="accordion">
+                          <div class="panel panel-default">                
+                            <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                                  Matériel informatique
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse in">
+                              <div class="panel-body">
+                                <ul> 
+                                  @foreach ($sousCat as $sousCategories)
+                                 @if ($sousCategories->categories == 'Matériel informatique' and $sousCategories->sousCat <> 'Autres')
+                                    @if ($sousCategories->idSousCat == $idSousCat)
+                                      <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                                    @else 
+                                      <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                                   @endif
+                                   @endif
+                                  @endforeach
+                                  <li><a href="/search/Catégorie/8">Autres</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                      @elseif ($idSousCat == '2')
+                          <div class="categories-list">
+                            <form method="get" action="/advancedSearch">
+                            <ul>
+                              <li>
+                                <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                                <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
+                                <label class="control-label" for="textarea">Date et heure de l'événement</label>
+                                <input class="form-control" name="datetimeEvent" type="datetime-local" value="{{ isset($_GET['datetimeEvent']) ? $_GET['datetimeEvent'] : '' }}">
+                              </li>
+                              <li>
+                                <label class="control-label" for="textarea">Du</label>
+                                <input class="form-control" name="du" type="date" value="{{ isset($_GET['du']) ? $_GET['du'] : '' }}">
+                                <label class="control-label" for="textarea">Au</label>
+                                <input class="form-control" name="au" type="date" value="{{ isset($_GET['au']) ? $_GET['au'] : '' }}">
+                                <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
+                              </li>   
+                            </ul>
+                            </form>
+                          </div>
+                          <div class="widget-title">
+                            <h4><a href="/categorie"> Catégories </a></h4>
+                          </div>
+                          <div class="panel-group" id="accordion">
                             <div class="panel panel-default">                
                               <div class="panel panel-default">
                               <div class="panel-heading">
@@ -622,10 +667,10 @@
                                   <ul> 
                                     @foreach ($sousCat as $sousCategories)
                                    @if ($sousCategories->categories =='Communauté' and $sousCategories->sousCat<> 'Autres')
-                                      @if ($sousCategories->idSousCat == $filter)
-                                        <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                                      @if ($sousCategories->idSousCat == $idSousCat)
+                                        <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
                                       @else 
-                                        <li><a href="/search/sousCatégorie/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
+                                        <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
                                      @endif
                                      @endif
                                     @endforeach
@@ -635,56 +680,69 @@
                               </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="categories-list">
-                            <form method="get" action="/advancedSearch">
-                            <ul>
-                              <li>
-                                <input type="hidden" class="form-control" name="idSousCat" value="{{$filter}}">
-                                <label class="control-label" for="textarea">Date et heure de l'événement</label>
-                                <input class="form-control" name="datetimeEvent" type="datetime-local" value="{{ isset($_GET['datetimeEvent']) ? $_GET['datetimeEvent'] : '' }}">
-                              </li>
-                              <li>
-                                <label class="control-label" for="textarea">Du</label>
-                                <input class="form-control" name="du" type="date" value="{{ isset($_GET['du']) ? $_GET['du'] : '' }}">
-                                <label class="control-label" for="textarea">Au</label>
-                                <input class="form-control" name="au" type="date" value="{{ isset($_GET['au']) ? $_GET['au'] : '' }}">
-                                <button type="submit" class="btn btn-primary" id="Add">Mettre à jour</button>
-                              </li>   
-                            </ul>
-                            </form>
-                          </div>
+                          
                       @else
                         <div class="panel-group" id="accordion">
-                          @foreach ($search as $searchCat)                    
+                          @foreach ($search as $searchCat)
+                            @if ($searchCat->idCat == $idCat)                    
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="true">
                                       {{$searchCat ->categories}} 
                                     </a>
                                   </h4>
                                 </div>
-                                <div id="{{$searchCat ->idCat}}" class="panel-collapse collapse">
+                                <div id="{{$searchCat ->idCat}}" class="panel-collapse collapse in">
                                   <div class="panel-body">
                                     <ul>
-                                      @foreach ($sousCat as $sousCategorie)
-                                        @if ($sousCategorie->categories == $searchCat->categories and $sousCategorie->sousCat <> 'Autres')
-                                          @if ($filter == $sousCategorie->idSousCat)
-                                            <li><a href="/search/sousCatégorie/{{$sousCategorie->idSousCat}}"><strong>{{$sousCategorie->sousCat}}</strong></a></li>
-                                          @else
-                                            <li><a href="/search/sousCatégorie/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
+                                      @foreach ($sousCat as $sousCategories)
+                                      @if ($sousCategories->categories == $searchCat ->categories and $sousCategories->sousCat <> 'Autres')
+                                          @if ($sousCategories->idSousCat == $idSousCat)
+                                              <li class="active"><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}"><strong>{{$sousCategories->sousCat}}</strong></a></li>
+                                            @else 
+                                              <li><a href="/search/{{$sousCategories->idCat}}/{{$sousCategories->idSousCat}}">{{$sousCategories->sousCat}}</a></li>
                                           @endif
                                         @endif 
                                       @endforeach
-                                      <li><a href="/search/Catégorie/{{$searchCat->idCat}}">Autres</a></li>
+                                      <li><a href="/search/{{$searchCat->idCat}}">Autres</a></li>
                                     </ul>
                                   </div>
                                 </div>
                               </div>
+                            @endif
                           @endforeach
-                        </div>
+                        
                       @endif
+
+                  
+                  @foreach ($search as $searchCat)
+                    @if ($searchCat->idCat <> $idCat)                    
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}">
+                              {{$searchCat ->categories}} 
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="{{$searchCat ->idCat}}" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            <ul>
+                              @foreach ($sousCat as $sousCategorie)
+                                @if ($sousCategorie->categories == $searchCat ->categories and $sousCategorie->sousCat <> 'Autres')
+                                  <li><a href="/search/{{$sousCategorie->idCat}}/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
+                                @endif 
+                              @endforeach
+                              <li><a href="/search/{{$searchCat->idCat}}">Autres</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    @endif
+                  @endforeach
+                  </div>
+
                     @endif
                   </div>
                 </div>       
@@ -693,7 +751,7 @@
           <div class="col-sm-9 page-content">
 
          @if ($data->count() <> '0')
-            <!-- Product filter Start -->
+            <!-- Product idSousCat Start -->
             <div class="product-filter">
               <div class="grid-list-count">
                 <a class="list switchToGrid" href="#"><i class="fa fa-list"></i></a>

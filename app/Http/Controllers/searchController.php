@@ -88,9 +88,8 @@ class searchController extends Controller
 		  return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'search'=>$search,'sousCat'=>$sousCat,'filter'=>$filterKey]);
    }
 
-   public function searchPerCat($cat,$idCat){
+   public function searchPerCat($idCat){
 
-        $dataSelected = '';
         $filterKey = $idCat;
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
@@ -98,42 +97,49 @@ class searchController extends Controller
         $search = categories::all();
         $sousCat = DB::table('categories')
                     ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
-                    ->get();                                                                                          
+                    ->get();                                                                                       
 
+        $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
+                                           ->paginate(3);      
+                 
+     
+        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'Catégorie','filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat]);
+   }
 
-        switch ($cat) {
-          case 'Catégorie':
+      public function searchPerSousCat($idCat,$idSousCat){
 
-              $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
-                                           ->paginate(3); 
+        $dataSelected = '';
 
-              break;
-          case 'sousCatégorie':
-              $data = DB::table('annonces')->where([['id_sous_Cat','=',$idCat],['stateAd','=','1'],])
+        $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
+
+        $search = categories::all();
+        $sousCat = DB::table('categories')
+                    ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
+                    ->get(); 
+
+        $data = DB::table('annonces')->where([['id_sous_Cat','=',$idSousCat],['stateAd','=','1'],])
                                            ->paginate(3);
 
-              if ($idCat == '16'){
-                $dataSelected = marquephone::all();
+        if ($idSousCat == '16'){
+          $dataSelected = marquephone::all();
 
-              } 
-                else if ($idCat == '6' or $idCat == '7' or $idCat == '8' or $idCat == '9' or $idCat == '10' or $idCat == '11' or $idCat == '12' or $idCat == '13'){
-                    $dataSelected = marqueveh::all();
-                }
-                  else if ($idCat == '55' or $idCat == '56' or $idCat == '57' or $idCat == '58'){
-                    $dataSelected = typebien::all();
-                  }
-                    else if ($idCat == '37'){
-                      $dataSelected = marquecomputer::all();
-                    }
-                      else if ($idCat == '53' or $idCat = '54'){
-                      $dataSelected = domainemploi::all();
-                    }
+        } 
+          else if ($idSousCat == '6' or $idSousCat == '7' or $idSousCat == '8' or $idSousCat == '9' or $idSousCat == '10' or $idSousCat == '11' or $idSousCat == '12' or $idSousCat == '13'){
+              $dataSelected = marqueveh::all();
+          }
+            else if ($idSousCat == '55' or $idSousCat == '56' or $idSousCat == '57' or $idSousCat == '58'){
+              $dataSelected = typebien::all();
+            }
+              else if ($idSousCat == '37'){
+                $dataSelected = marquecomputer::all();
+              }
+                else if ($idSousCat == '53' or $idSousCat == '54'){
+                $dataSelected = domainemploi::all();
+              }
 
-              break;         
-      }
-
-      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
+      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idCat'=>$idCat,'idSousCat'=>$idSousCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
    }
+
 
    public function details($id){
 
