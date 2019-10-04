@@ -95,7 +95,7 @@
           .then((willDelete) => {
             if (willDelete) {
               $.ajax({
-                url : "/updateAD/"+id,
+                url : "/update-AD/"+id,
                 type : "POST",
                 data : {'_method' : 'DELETE','_token':csrf_token},
                 success : function(data){

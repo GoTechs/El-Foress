@@ -66,7 +66,7 @@
       <h3 class="title-menu">Menu</h3>
           <ul class="nav navmenu-nav"> <!--- Menu -->
               <li><a href="/">Accueil</a></li>
-              <li><a href="/Apropos">À Propos</a></li>
+              <li><a href="/a-propos">À Propos</a></li>
               <li><a href="/categorie">Catégorie</a></li>
               <li><a href="/contact">Contact</a></li>
               <li><a href="/faq">Faq</a></li>
@@ -522,7 +522,7 @@
   							<ul class="menu">
                     <li><a href="/">Accueil</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="/Apropos">À Propos</a></li>
+                    <li><a href="/a-propos">À Propos</a></li>
                     <li><a href="/connexion">Connexion</a></li>
                     <li><a href="/categorie">Catégories</a></li>
                     <li><a href="/inscription">Inscription</a></li>

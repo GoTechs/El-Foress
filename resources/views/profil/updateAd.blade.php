@@ -66,7 +66,7 @@
         <h3 class="title-menu">Menu</h3>
         <ul class="nav navmenu-nav"> <!--- Menu -->
             <li><a href="/">Accueil</a></li>
-            <li><a href="/Apropos">À Propos</a></li>
+            <li><a href="/a-propos">À Propos</a></li>
             <li><a href="/categorie">Catégorie</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">Faq</a></li>
@@ -94,7 +94,7 @@
                         <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
                         <div class="row search-bar mb30 red-bg">
                             <div class="advanced-search">
-                                <form class="search-form" method="post" action="/updateAD/{{$annonce->id}}" enctype="multipart/form-data">
+                                <form class="search-form" method="post" action="/update-AD/{{$annonce->id}}" enctype="multipart/form-data">
                                     @csrf
                                     {{ method_field('PATCH') }}
                                     <div class="col-md-4 col-sm-12 search-col">
@@ -570,7 +570,7 @@
                             <ul class="menu">
                                 <li><a href="/">Accueil</a></li>
                                 <li><a href="/contact">Contact</a></li>
-                                <li><a href="/Apropos">À Propos</a></li>
+                                <li><a href="/a-propos">À Propos</a></li>
                                 <li><a href="/connexion">Connexion</a></li>
                                 <li><a href="/categorie">Catégories</a></li>
                                 <li><a href="/inscription">Inscription</a></li>

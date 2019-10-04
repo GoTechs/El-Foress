@@ -44,7 +44,7 @@ class insertAdController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('addAd')
+            return redirect('add-Ad')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -187,7 +187,7 @@ class insertAdController extends Controller
 
         $annonce->save();
 
-        return redirect('myads')->with('message','Success');
+        return redirect('my-ads')->with('message','Success');
 
     }
 
@@ -365,7 +365,7 @@ class insertAdController extends Controller
         }
 
 
-        return redirect('myads');
+        return redirect('my-ads');
     }
 
     public function destroy($id){
@@ -379,6 +379,6 @@ class insertAdController extends Controller
         
             $ids = $request->input('ids');
             annonce::whereIn('id',$ids)->delete();
-            return redirect('myads');  
+            return redirect('my-ads');  
     }
 }

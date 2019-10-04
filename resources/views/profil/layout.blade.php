@@ -62,7 +62,7 @@
                     <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                     <li class="postadd">
-                        <a class="btn btn-danger btn-post" href="/addAd"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
+                        <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
                     </li>
                 </ul>
             </div>
@@ -78,7 +78,7 @@
         <h3 class="title-menu">Menu</h3>
         <ul class="nav navmenu-nav"> <!--- Menu -->
             <li><a href="/">Accueil</a></li>
-            <li><a href="/Apropos">À Propos</a></li>
+            <li><a href="/a-propos">À Propos</a></li>
             <li><a href="/categorie">Catégorie</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">Faq</a></li>
@@ -113,8 +113,8 @@
             <h5 class="collapset-title">Mon compte<a aria-expanded="true" class="pull-right" data-toggle="collapse" href="#myads"><i class="fa fa-angle-down"></i></a></h5>
             <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
               <ul class="acc-list">
-                <li class="{{ (request()->is('myads')) ? 'active' : '' }}">
-                  <a href="/myads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge"></span></a>
+                <li class="{{ (request()->is('my-ads')) ? 'active' : '' }}">
+                  <a href="/my-ads"><i class="fa fa-credit-card"></i> Mes Annonces <span class="badge"></span></a>
                 </li>
                 <li class="{{ (request()->is('favorites')) ? 'active' : '' }}">
                   <a href="/favorites"><i class="fa fa-heart-o"></i> Mes Favoris <span class="badge"></span></a>
@@ -165,7 +165,7 @@
                         <ul class="menu">
                             <li><a href="/">Accueil</a></li>
                             <li><a href="/contact">Contact</a></li>
-                            <li><a href="/Apropos">À Propos</a></li>
+                            <li><a href="/a-propos">À Propos</a></li>
                             <li><a href="/connexion">Connexion</a></li>
                             <li><a href="/categorie">Catégories</a></li>
                             <li><a href="/inscription">Inscription</a></li>

@@ -65,7 +65,7 @@
                         <strong> {{$results->prix}}</strong>
                       </td>
                       <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs" href="/updateAD/{{$results->id_annonce}}/edit"> <i class="fa fa-pencil-square-o"></i> Modifier</a></p>
+                        <p><a class="btn btn-primary btn-xs" href="/update-AD/{{$results->id_annonce}}/edit"> <i class="fa fa-pencil-square-o"></i> Modifier</a></p>
                         <p><a class="btn btn-info btn-xs" onclick="archiveAd({{$results->id_annonce}})"> <i class="fa fa-share-square-o"></i> Archiver</a></p>
                         <p><a class="btn btn-danger btn-xs" onclick="deleteAd({{$results->id_annonce}})"> <i class=" fa fa-trash"></i> Supprimer</a></p>
                       </td>
@@ -96,7 +96,7 @@
                 .then((willDelete) => {
                   if (willDelete) {
                     $.ajax({
-                      url : "/updateAD/"+id,
+                      url : "/update-AD/"+id,
                       type : "POST",
                       data : {'_method' : 'DELETE','_token':csrf_token},
                       success : function(){

@@ -27,13 +27,8 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/Apropos', function () {
+Route::get('/a-propos', function () {
     return view('Apropos');
-});
-
-
-Route::get('/forgetPassword', function () {
-    return view('mdp-oublier');
 });
 
 // Route for Authentication
@@ -50,13 +45,13 @@ Route::get('/logout','AuthController@logout')->middleware('auth');
 // Route to Profil
 
 Route::get('/home','ProfilController@home')->middleware('auth');
-Route::get('/myads','ProfilController@myads')->middleware('auth');
+Route::get('/my-ads','ProfilController@myads')->middleware('auth');
 Route::get('/favorites','ProfilController@favorits')->middleware('auth');
 Route::get('/archives','ProfilController@archives')->middleware('auth');
 
 // Dynamic dropDown Categorie And Sous categorie
 
-Route::get('/addAd','categorieController@categories')->middleware('auth');
+Route::get('/add-Ad','categorieController@categories')->middleware('auth');
 
 Route::get('/json-sousCategorie','categorieController@sousCat')->middleware('auth');
 
@@ -66,9 +61,9 @@ Route::post('/insertAd','insertAdController@store')->middleware('auth');
 
 // Update and Delete Ad
 
-Route::get('/updateAD/{idpost}/edit','insertAdController@edit')->middleware('auth');
-Route::patch('/updateAD/{idpost}','insertAdController@update')->middleware('auth');
-Route::delete('/updateAD/{idpost}','insertAdController@destroy')->middleware('auth');
+Route::get('/update-AD/{idpost}/edit','insertAdController@edit')->middleware('auth');
+Route::patch('/update-AD/{idpost}','insertAdController@update')->middleware('auth');
+Route::delete('/update-AD/{idpost}','insertAdController@destroy')->middleware('auth');
 Route::delete('/deleteAll','insertAdController@deleteAll')->middleware('auth');
 
 // Archived AD
@@ -96,7 +91,7 @@ Route::get('/details/{idpost}','searchController@details');
 
 // Advanced Search route
 
-Route::get('/advancedSearch','advancedSearchController@search');
+Route::get('/advanced-Search','advancedSearchController@search');
 
 
 // Password Operation

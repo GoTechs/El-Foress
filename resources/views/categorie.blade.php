@@ -119,17 +119,17 @@
 
                     @if ($idSousCat == '53')
                     <div class="categories-list">
-                      <form method="get" action="/advancedSearch">
+                      <form method="get" action="/advanced-Search">
                       <ul>
                         <li>
                           <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
                           <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                           <label>Domaine d'emploi</label>
-                          <select class="form-control" name="domaineEmolploi" size="10">
+                          <select class="form-control" name="domaine-emploi" size="10">
                               <option value="">Sélectionner</option>
                                 @foreach ($dataSelected as $domaine)
-                                    @if (isset($_GET['domaineEmolploi']))
-                                      @if ($_GET['domaineEmolploi'] == $domaine->nomDomaine)
+                                    @if (isset($_GET['domaine-emploi']))
+                                      @if ($_GET['domaine-emploi'] == $domaine->nomDomaine)
                                           <option selected>{{ $domaine->nomDomaine}}</option>
                                       @else
                                         <option>{{ $domaine->nomDomaine }}</option>
@@ -177,7 +177,7 @@
                     </div>
                 @elseif ($idSousCat == '54')
                     <div class="categories-list">
-                      <form method="get" action="/advancedSearch">
+                      <form method="get" action="/advanced-Search">
                       <ul>
                         <li>
                           <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
@@ -197,11 +197,11 @@
                         </li>
                         <li>
                           <label>Domaine d'emploi</label>
-                          <select class="form-control" name="domaineEmolploi" size="10">
+                          <select class="form-control" name="domaine-emploi" size="10">
                               <option value="">Sélectionner</option>
                                 @foreach ($dataSelected as $domaine)
-                                    @if (isset($_GET['domaineEmolploi']))
-                                      @if ($_GET['domaineEmolploi'] == $domaine->nomDomaine)
+                                    @if (isset($_GET['domaine-emploi']))
+                                      @if ($_GET['domaine-emploi'] == $domaine->nomDomaine)
                                           <option selected>{{ $domaine->nomDomaine}}</option>
                                       @else
                                         <option>{{ $domaine->nomDomaine }}</option>
@@ -249,22 +249,22 @@
                     </div>
                 @elseif ($idSousCat == '16')
                     <div class="categories-list">
-                      <form method="get" action="/advancedSearch">
+                      <form method="get" action="/advanced-Search">
                       <ul>
                         <li>
                           <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
                           <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                           <label class="control-label" for="textarea">Prix</label>
-                          <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
-                          <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
+                          <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{ isset($_GET['prix-de']) ? $_GET['prix-de'] : '' }}">  
+                          <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{ isset($_GET['prix-a']) ? $_GET['prix-a'] : '' }}">
                         </li>
                         <li>
                           <label>Marque</label>
-                          <select class="form-control" name="marquePhone" size="10">
+                          <select class="form-control" name="marque-telephone" size="10">
                               <option value="">Sélectionner</option>
                                 @foreach ($dataSelected as $marque)
-                                    @if (isset($_GET['marquePhone']))
-                                      @if ($_GET['marquePhone'] == $marque->marque)
+                                    @if (isset($_GET['marque-telephone']))
+                                      @if ($_GET['marque-telephone'] == $marque->marque)
                                           <option selected>{{ $marque->marque}}</option>
                                       @else
                                         <option>{{ $marque->marque }}</option>
@@ -312,24 +312,24 @@
                     </div>
                    @elseif ($idSousCat == '36')
                       <div class="categories-list">
-                        <form method="get" action="/advancedSearch">
+                        <form method="get" action="/advanced-Search">
                         <ul>
                           <li>
                             <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
                             <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                             <label class="control-label" for="textarea">Prix</label>
-                            <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{isset($_GET['priceDe']) ? $_GET['priceDe'] : ''}}">  
-                            <input type="text" class="form-control" name="priceA" placeholder="à" value="{{isset($_GET['priceA']) ? $_GET['priceA'] : ''}}">
+                            <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{isset($_GET['prix-de']) ? $_GET['prix-de'] : ''}}">  
+                            <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{isset($_GET['prix-a']) ? $_GET['prix-a'] : ''}}">
                           </li>
                           <li>
                             <label class="control-label" for="textarea">Type</label>
-                              <select class="form-control" name="typeStockage" size="4">
+                              <select class="form-control" name="type-Stockage" size="5">
                                   <option value="">Sélectionner</option>
-                                  @if (isset($_GET['typeStockage']))
-                                  <option {{ $_GET['typeStockage'] == 'Flash disque' ? 'selected' : ''}}>Flash disque</option>
-                                  <option {{ $_GET['typeStockage'] == 'Disque dur externe' ? 'selected' : ''}}>Disque dur externe</option>
-                                  <option {{ $_GET['typeStockage'] == 'Disque dur interne' ? 'selected' : ''}}>Disque dur interne</option>
-                                  <option {{ $_GET['typeStockage'] == 'Carte mémoire' ? 'selected' : ''}}>Carte mémoire</option>
+                                  @if (isset($_GET['type-Stockage']))
+                                  <option {{ $_GET['type-Stockage'] == 'Flash disque' ? 'selected' : ''}}>Flash disque</option>
+                                  <option {{ $_GET['type-Stockage'] == 'Disque dur externe' ? 'selected' : ''}}>Disque dur externe</option>
+                                  <option {{ $_GET['type-Stockage'] == 'Disque dur interne' ? 'selected' : ''}}>Disque dur interne</option>
+                                  <option {{ $_GET['type-Stockage'] == 'Carte mémoire' ? 'selected' : ''}}>Carte mémoire</option>
                                   @else
                                   <option>Flash disque</option>
                                   <option>Disque dur externe</option>
@@ -376,22 +376,22 @@
 
                   @elseif ($idSousCat == '55' or $idSousCat == '56' or $idSousCat == '57' or $idSousCat == '58')
                       <div class="categories-list">
-                        <form method="get" action="/advancedSearch">
+                        <form method="get" action="/advanced-Search">
                         <ul>
                           <li>
                             <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
                             <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                             <label class="control-label" for="textarea">Prix</label>
-                            <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{isset($_GET['priceDe']) ? $_GET['priceDe'] : ''}}">  
-                            <input type="text" class="form-control" name="priceA" placeholder="à" value="{{isset($_GET['priceA']) ? $_GET['priceA'] : ''}}">
+                            <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{isset($_GET['prix-de']) ? $_GET['prix-de'] : ''}}">  
+                            <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{isset($_GET['prix-a']) ? $_GET['prix-a'] : ''}}">
                           </li>
                           <li>
                             <label class="control-label" for="textarea">Type du Bien</label>
-                            <select class="form-control" name="typeBien" size="9">
+                            <select class="form-control" name="type-bien" size="9">
                               <option value="">Sélectionner</option>
                               @foreach ($dataSelected as $typeBien)
-                                  @if (isset($_GET['typeBien']))
-                                    @if ($_GET['typeBien'] == $typeBien->typeBien)
+                                  @if (isset($_GET['type-bien']))
+                                    @if ($_GET['type-bien'] == $typeBien->typeBien)
                                         <option selected>{{ $typeBien->typeBien}}</option>
                                     @else
                                       <option>{{ $typeBien->typeBien }}</option>
@@ -406,7 +406,7 @@
                             <input class="form-control" name="superficie" type="text" placeholder="Superficie en M²" value="{{isset($_GET['superficie']) ? $_GET['superficie'] : ''}}">
                           </li>
                           <li>
-                            <input class="form-control" name="nbrePiece" type="text" placeholder="Nombre de pièces" value="{{isset($_GET['nbrePiece']) ? $_GET['nbrePiece'] : ''}}">
+                            <input class="form-control" name="nbre-piece" type="text" placeholder="Nombre de pièces" value="{{isset($_GET['nbre-piece']) ? $_GET['nbre-piece'] : ''}}">
                           </li> 
                           <li>
                             <input class="form-control" name="etage" type="text" placeholder="Étage" value="{{isset($_GET['etage']) ? $_GET['etage'] : ''}}">
@@ -449,14 +449,14 @@
 
                   @elseif ($idSousCat == '6' or $idSousCat == '7' or $idSousCat == '8' or $idSousCat == '9' or $idSousCat == '10' or $idSousCat == '11' or $idSousCat == '12' or $idSousCat == '13')
                       <div class="categories-list">
-                        <form method="get" action="/advancedSearch">
+                        <form method="get" action="/advanced-Search">
                           <ul>
                             <li>
                               <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}"> 
                               <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                               <label class="control-label" for="textarea">Prix</label>
-                              <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
-                              <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
+                              <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{ isset($_GET['prix-de']) ? $_GET['prix-de'] : '' }}">  
+                              <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{ isset($_GET['prix-a']) ? $_GET['prix-a'] : '' }}">
                             </li>
                             <li>
                               <label class="control-label" for="textarea">Type d'offre</label><br>
@@ -498,13 +498,13 @@
                             </li>
                             <li>
                               <label class="control-label" for="textarea">Type carburant</label>
-                              <select class="form-control" name="typeCarb" size="4"> 
+                              <select class="form-control" name="type-Carburant" size="5"> 
                                   <option value="">Sélectionner</option>
-                                  @if (isset($_GET['typeCarb']))
-                                  <option {{ $_GET['typeCarb'] == 'Essence' ? 'selected' : '' }}>Essence</option>
-                                  <option {{ $_GET['typeCarb'] == 'Gas oil' ? 'selected' : '' }}>Gas oil</option>
-                                  <option {{ $_GET['typeCarb'] == 'GPL' ? 'selected' : '' }}>GPL</option>
-                                  <option {{ $_GET['typeCarb'] == 'Eléctrique' ? 'selected' : '' }}>Eléctrique</option>
+                                  @if (isset($_GET['type-Carburant']))
+                                  <option {{ $_GET['type-Carburant'] == 'Essence' ? 'selected' : '' }}>Essence</option>
+                                  <option {{ $_GET['type-Carburant'] == 'Gas oil' ? 'selected' : '' }}>Gas oil</option>
+                                  <option {{ $_GET['type-Carburant'] == 'GPL' ? 'selected' : '' }}>GPL</option>
+                                  <option {{ $_GET['type-Carburant'] == 'Eléctrique' ? 'selected' : '' }}>Eléctrique</option>
                                   @else
                                   <option>Essence</option>
                                   <option>Gas oil</option>
@@ -551,22 +551,22 @@
 
                       @elseif ($idSousCat == '37')
                         <div class="categories-list">
-                          <form method="get" action="/advancedSearch">
+                          <form method="get" action="/advanced-Search">
                           <ul>
                             <li>
                               <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
                               <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
                               <label class="control-label" for="textarea">Prix</label>
-                              <input type="text" class="form-control" name="priceDe" placeholder="de" value="{{ isset($_GET['priceDe']) ? $_GET['priceDe'] : '' }}">  
-                              <input type="text" class="form-control" name="priceA" placeholder="à" value="{{ isset($_GET['priceA']) ? $_GET['priceA'] : '' }}">
+                              <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{ isset($_GET['prix-de']) ? $_GET['prix-de'] : '' }}">  
+                              <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{ isset($_GET['prix-a']) ? $_GET['prix-a'] : '' }}">
                             </li>
                             <li>
                               <label class="control-label" for="textarea">Marque</label>
-                              <select class="form-control" name="marqueOrd" size="10">
+                              <select class="form-control" name="marque-ordinateur" size="10">
                                 <option value="">Sélectionner</option>
                                   @foreach ($dataSelected as $marque)
-                                      @if (isset($_GET['marqueOrd']))
-                                        @if ($_GET['marqueOrd'] == $marque->marque)
+                                      @if (isset($_GET['marque-ordinateur']))
+                                        @if ($_GET['marque-ordinateur'] == $marque->marque)
                                             <option selected>{{ $marque->marque}}</option>
                                         @else
                                           <option>{{ $marque->marque }}</option>
@@ -579,13 +579,13 @@
                             </li>                            
                             <li>
                               <label class="control-label" for="textarea">Taille de l'écran</label>
-                              <select class="form-control" name="tailleOrd" size="4">
+                              <select class="form-control" name="taille-ordinateur" size="5">
                                   <option value="">Sélectionner</option>
-                                  @if (isset($_GET['tailleOrd']))
-                                  <option {{ $_GET['tailleOrd'] == '14 po ou moins' ? 'selected' : '' }}>14 po ou moins</option>
-                                  <option {{ $_GET['tailleOrd'] == '15 po' ? 'selected' : '' }}>15 po</option>
-                                  <option {{ $_GET['tailleOrd'] == '16 po' ? 'selected' : '' }}>16 po</option>
-                                  <option {{ $_GET['tailleOrd'] == '17 po ou plus' ? 'selected' : '' }}>17 po ou plus</option>
+                                  @if (isset($_GET['taille-ordinateur']))
+                                  <option {{ $_GET['taille-ordinateur'] == '14 po ou moins' ? 'selected' : '' }}>14 po ou moins</option>
+                                  <option {{ $_GET['taille-ordinateur'] == '15 po' ? 'selected' : '' }}>15 po</option>
+                                  <option {{ $_GET['taille-ordinateur'] == '16 po' ? 'selected' : '' }}>16 po</option>
+                                  <option {{ $_GET['taille-ordinateur'] == '17 po ou plus' ? 'selected' : '' }}>17 po ou plus</option>
                                   @else
                                   <option>14 po ou moins</option>
                                   <option>15 po</option>
@@ -631,7 +631,7 @@
                           </div>
                       @elseif ($idSousCat == '2')
                           <div class="categories-list">
-                            <form method="get" action="/advancedSearch">
+                            <form method="get" action="/advanced-Search">
                             <ul>
                               <li>
                                 <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
@@ -765,6 +765,7 @@
                       <option selected="selected" value="menu-order">Trier par</option>
                       <!--<option value="mostrecent">Les plus récentes</option>
                       <option value="lessrecent">Les moins récentes</option>-->
+                      <option value="popularity">les plus populaires</option>
                       <option value="asc">Prix: Faible à élevé</option>
                       <option value="desc">Prix: Elevé à faible</option>
                     </select>
@@ -777,7 +778,7 @@
             <!-- Adds wrapper Start -->
             <div class="adds-wrapper">              
                @foreach ($data as $result)
-              <div class="item-list" data-store="{{$result->prix.$result->id}}" data-price="{{$result->prix}}">
+              <div class="item-list" data-store="{{$result->prix.$result->id}}" data-price="{{$result->prix}}" data-views="{{$result->numberViews}}">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
                     <a href="/details/{{$result->id}}">
@@ -831,7 +832,7 @@
               <h2> Avez-vous quelque chose à vendre ?</h2>
               <h5>Vendez vos produits en ligne GRATUITEMENT. C'est plus facile que vous ne le pensez!</h5>
               @auth
-                <a href="/addAd" class="btn btn-post btn-danger">Poster une annonce </a>
+                <a href="/add-Ad" class="btn btn-post btn-danger">Poster une annonce </a>
               @else
                 <a href="/connexion" class="btn btn-post btn-danger">Poster une annonce </a>
               @endauth

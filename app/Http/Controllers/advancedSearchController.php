@@ -60,8 +60,8 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('marque', '=', request('marque') );
 		    }
 
-		    if (request('typeCarb')){
-		    	$data = $data->where('typeCarb', '=', request('typeCarb') );
+		    if (request('type-Carburant')){
+		    	$data = $data->where('typeCarb', '=', request('type-Carburant') );
 		    }
 
 		    if (request('vente')){
@@ -75,12 +75,12 @@ class advancedSearchController extends Controller
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
         	});
 
-        	if (request('priceDe')){
-		    	$data = $data->where('annonces.prix','>=',request('priceDe'));
+        	if (request('prix-de')){
+		    	$data = $data->where('annonces.prix','>=',request('prix-de'));
 			}
 
-			if (request('priceA')){
-		    	$data = $data->where('annonces.prix','<=',request('priceA'));
+			if (request('prix-a')){
+		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
 			$data = $data->paginate(3);
@@ -95,8 +95,8 @@ class advancedSearchController extends Controller
     		
 	    	$data = DB::table('ad_phones');
 
-		    if (request('marquePhone')) {
-		        $data = $data->where('marque', '=',  request('marquePhone'));
+		    if (request('marque-telephone')) {
+		        $data = $data->where('marque', '=',  request('marque-telephone'));
 		    }
 
 
@@ -106,12 +106,12 @@ class advancedSearchController extends Controller
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
         	});
 
-        	if (request('priceDe')){
-		    	$data = $data->where('annonces.prix','>=',request('priceDe'));
+        	if (request('prix-de')){
+		    	$data = $data->where('annonces.prix','>=',request('prix-de'));
 			}
 
-			if (request('priceA')){
-		    	$data = $data->where('annonces.prix','<=',request('priceA'));
+			if (request('prix-a')){
+		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
 			$data = $data->paginate(3);
@@ -124,8 +124,8 @@ class advancedSearchController extends Controller
     		
 	    	$data = DB::table('ad_storages');
 
-		    if (request('typeStockage')) {
-		        $data = $data->where('type', '=',  request('typeStockage'));
+		    if (request('type-Stockage')) {
+		        $data = $data->where('type', '=',  request('type-Stockage'));
 		    }
 
 
@@ -135,12 +135,12 @@ class advancedSearchController extends Controller
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
         	});
 
-        	if (request('priceDe')){
-		    	$data = $data->where('annonces.prix','>=',request('priceDe'));
+        	if (request('prix-de')){
+		    	$data = $data->where('annonces.prix','>=',request('prix-de'));
 			}
 
-			if (request('priceA')){
-		    	$data = $data->where('annonces.prix','<=',request('priceA'));
+			if (request('prix-a')){
+		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
 			$data = $data->paginate(3);
@@ -155,16 +155,16 @@ class advancedSearchController extends Controller
     		
 	    	$data = DB::table('adimmobiliers');
 
-		    if (request('typeBien')) {
-		        $data = $data->where('typeBien', '=',  request('typeBien'));
+		    if (request('type-bien')) {
+		        $data = $data->where('typeBien', '=',  request('type-bien'));
 		    }
 
 		    if (request('superficie')) {
 		        $data = $data->where('superficie', '=',  request('superficie'));
 		    }
 
-		    if (request('nbrePiece')) {
-		        $data = $data->where('nbrePiece', '=',  request('nbrePiece'));
+		    if (request('nbre-piece')) {
+		        $data = $data->where('nbrePiece', '=',  request('nbre-piece'));
 		    }
 
 		    if (request('etage')) {
@@ -178,12 +178,12 @@ class advancedSearchController extends Controller
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
         	});
 
-        	if (request('priceDe')){
-		    	$data = $data->where('annonces.prix','>=',request('priceDe'));
+        	if (request('prix-de')){
+		    	$data = $data->where('annonces.prix','>=',request('prix-de'));
 			}
 
-			if (request('priceA')){
-		    	$data = $data->where('annonces.prix','<=',request('priceA'));
+			if (request('prix-a')){
+		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
 			$data = $data->paginate(3);
@@ -198,12 +198,12 @@ class advancedSearchController extends Controller
     		
 	    	$data = DB::table('ad_computers');
 
-		    if (request('marqueOrd')) {
-		        $data = $data->where('marque', '=',  request('marqueOrd'));
+		    if (request('marque-ordinateur')) {
+		        $data = $data->where('marque', '=',  request('marque-ordinateur'));
 		    }
 
-		    if (request('tailleOrd')) {
-		        $data = $data->where('tailleEcran', '=',  request('tailleOrd'));
+		    if (request('taille-ordinateur')) {
+		        $data = $data->where('tailleEcran', '=',  request('taille-ordinateur'));
 		    }
 
 		    $data = $data->join('annonces', function ($join) {
@@ -212,12 +212,12 @@ class advancedSearchController extends Controller
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
         	});
 
-        	if (request('priceDe')){
-		    	$data = $data->where('annonces.prix','>=',request('priceDe'));
+        	if (request('prix-de')){
+		    	$data = $data->where('annonces.prix','>=',request('prix-de'));
 			}
 
-			if (request('priceA')){
-		    	$data = $data->where('annonces.prix','<=',request('priceA'));
+			if (request('prix-a')){
+		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
 			$data = $data->paginate(3);
@@ -257,8 +257,8 @@ class advancedSearchController extends Controller
     		
 	    	$data = DB::table('ad_joboffers');
 
-		    if (request('domaineEmolploi')) {
-		        $data = $data->where('domaine', '=',  request('domaineEmolploi'));
+		    if (request('domaine-emploi')) {
+		        $data = $data->where('domaine', '=',  request('domaine-emploi'));
 		    }
 
 		    $data = $data->join('annonces', function ($join) {
@@ -276,8 +276,8 @@ class advancedSearchController extends Controller
     		
 	    	$data = DB::table('ad_jobapplications');
 
-		    if (request('domaineEmolploi')) {
-		        $data = $data->where('domaine', '=',  request('domaineEmolploi'));
+		    if (request('domaine-emploi')) {
+		        $data = $data->where('domaine', '=',  request('domaine-emploi'));
 		    }
 
 		    if (request('sexe')) {
