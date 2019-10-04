@@ -763,8 +763,8 @@
                   <label>
                     <select name="order" class="orderby">
                       <option selected="selected" value="menu-order">Trier par</option>
-                      <!--<option value="mostrecent">Les plus récentes</option>
-                      <option value="lessrecent">Les moins récentes</option>-->
+                      <option value="mostrecent">Les plus récentes</option>
+                      <option value="lessrecent">Les moins récentes</option>
                       <option value="popularity">les plus populaires</option>
                       <option value="asc">Prix: Faible à élevé</option>
                       <option value="desc">Prix: Elevé à faible</option>
@@ -778,7 +778,7 @@
             <!-- Adds wrapper Start -->
             <div class="adds-wrapper">              
                @foreach ($data as $result)
-              <div class="item-list" data-store="{{$result->prix.$result->id}}" data-price="{{$result->prix}}" data-views="{{$result->numberViews}}">
+              <div class="item-list" data-store="{{$result->prix.$result->id}}" data-price="{{$result->prix}}" data-views="{{$result->numberViews}}" data-date="{{$result->created_at}}">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
                     <a href="/details/{{$result->id}}">
@@ -802,7 +802,7 @@
                       <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                     </div>
                     <div class="item_desc">
-                      <a href="#">{{$result->description}}</a>
+                      <a href="/details/{{$result->id}}">{{$result->description}}</a>
                     </div>
                   </div>
                 </div>

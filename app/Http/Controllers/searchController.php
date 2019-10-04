@@ -79,7 +79,7 @@ class searchController extends Controller
 	    }
 
 	    $data = $data->where('stateAd', '=',  '1') 
-	    		     ->paginate(3);
+	    		     ->paginate(6);
 
       $cat = 'Catégorie'; 
       if (request('categorie')) { $filterKey  = request('categorie'); }
@@ -100,7 +100,7 @@ class searchController extends Controller
                     ->get();                                                                                       
 
         $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
-                                           ->paginate(3);      
+                                           ->paginate(6);      
                  
      
         return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'Catégorie','filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat]);
@@ -118,7 +118,7 @@ class searchController extends Controller
                     ->get(); 
 
         $data = DB::table('annonces')->where([['id_sous_Cat','=',$idSousCat],['stateAd','=','1'],])
-                                           ->paginate(3);
+                                           ->paginate(6);
 
         if ($idSousCat == '16'){
           $dataSelected = marquephone::all();

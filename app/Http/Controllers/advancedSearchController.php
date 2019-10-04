@@ -83,7 +83,7 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
-			$data = $data->paginate(3);
+			$data = $data->paginate(6);
         	
 		  } 
 
@@ -114,7 +114,7 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
-			$data = $data->paginate(3);
+			$data = $data->paginate(6);
         	
 		  } 
 
@@ -143,7 +143,7 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
-			$data = $data->paginate(3);
+			$data = $data->paginate(6);
         	
 		  } 
 
@@ -186,7 +186,7 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
-			$data = $data->paginate(3);
+			$data = $data->paginate(6);
         	
 		  } 
 
@@ -220,7 +220,7 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
-			$data = $data->paginate(3);
+			$data = $data->paginate(6);
         	
 		  } 
 
@@ -246,7 +246,7 @@ class advancedSearchController extends Controller
             $join->on('annonces.id', '=', 'ad_events.id_annonce')
                  ->where('annonces.stateAd','=','1')
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
-        	})->paginate(3);        	
+        	})->paginate(6);        	
 		  } 
 
 /****************************************** FILTER Offre D'emploi ************************************************/	  
@@ -265,7 +265,7 @@ class advancedSearchController extends Controller
             $join->on('annonces.id', '=', 'ad_joboffers.id_annonce')
                  ->where('annonces.stateAd','=','1')
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
-        	})->paginate(3);        	
+        	})->paginate(6);        	
 		  } 
 
 /****************************************** FILTER Demande d'Emploi ************************************************/	  
@@ -288,7 +288,7 @@ class advancedSearchController extends Controller
             $join->on('annonces.id', '=', 'ad_jobapplications.id_annonce')
                  ->where('annonces.stateAd','=','1')
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
-        	})->paginate(3);        	
+        	})->paginate(6);        	
 		  } 	
 
         return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);

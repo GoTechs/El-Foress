@@ -267,6 +267,14 @@
             {
                 sortByPopularity();
             }
+            else if (sortingMethod == 'mostrecent')
+            {
+                sortByDateDesc();
+            }
+            else if (sortingMethod == 'lessrecent')
+            {
+                sortByDateAsc();
+            }
 
         });
 
@@ -292,6 +300,19 @@
             products.sort(function(a, b){ return $(b).data("views") - $(a).data("views")});
             $(".adds-wrapper").html(products);
 
+        }
+        function sortByDateDesc()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return new Date($(b).data("date")) - new Date($(a).data("date"))});
+            $(".adds-wrapper").html(products);
+
+        }
+         function sortByDateAsc()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return new Date($(a).data("date")) - new Date($(b).data("date"))});
+            $(".adds-wrapper").html(products);
         }
  
 
