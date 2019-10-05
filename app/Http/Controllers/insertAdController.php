@@ -254,7 +254,28 @@ class insertAdController extends Controller
 
     }
 
-    public function update($id){
+    public function update($id, Request $request){        
+
+        // Save and upload picture if exist
+        if($request->hasfile('fileToUpload'))
+        {
+            //Update IMAGES
+            //Delete Those there exist
+            $checkAd = imagead::where('id_annonce', $id)->delete();
+            //File::delete($image_path);
+
+            foreach($request->fileToUpload as $image)
+            {
+                $name = $image->getClientOriginalName();
+                $currentDate = date('YmdHis');
+                $name = $currentDate.$name;
+                $image->move(public_path().'/images/', $name);
+                $fileModel = new imagead();
+                $fileModel->imagename = $name;
+                $fileModel->id_annonce = $id;
+                $fileModel->save();
+            }
+        }
 
         $annonce = annonce::find($id);
 

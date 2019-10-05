@@ -64,6 +64,7 @@ return [
     'string'           => 'Le champ :attribute doit être une chaîne de caractère.',
     "unique"           => "La valeur du champ :attribute est déjà utilisée.",
     "url"              => "Le format de l'URL de :attribute n'est pas valide.",
+    'uploaded' => 'Echec du téléchargement des l\'images.',
 
     /*
     |--------------------------------------------------------------------------
