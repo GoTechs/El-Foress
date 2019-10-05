@@ -269,21 +269,27 @@ class ProfilController extends Controller
 
                 $idUser = Auth::user()->id;
 
-                $result = favoris::where('idUser', $idUser)->where('id_annonce', $id)->count();
+                $checkAd = annonce::where('id_user', $idUser)->where('id', $id)->count();
 
-                if ($result == 0){
+                if ($checkAd == 0){
 
-                    $favoris = favoris::create([
-                        'idUser' => $idUser,
-                        'id_annonce' => $id
-                    ]);  
-                    
+                    $result = favoris::where('idUser', $idUser)->where('id_annonce', $id)->count();
+
+                    if ($result == 0){
+
+                        $favoris = favoris::create([
+                            'idUser' => $idUser,
+                            'id_annonce' => $id
+                        ]);  
+                        
+                    } else {
+
+                        return $result;
+
+                    }
                 } else {
-
-                    return $result;
-
-                }
-                          
+                    return 'owner';
+                }                          
 
            } else {  return 'Unauthenticated';     }
         

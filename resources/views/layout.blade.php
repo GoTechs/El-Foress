@@ -243,7 +243,9 @@
                   } else if (data == '1') {
                     swal("L'annonce a déjà été ajoutée aux favoris", "", "warning");
 
-                    } else {
+                    } else if (data == 'owner') {
+                        swal("Vous êtes le propriétaire de cette annonce!", "", "warning");
+                    }  else {
                         swal("L'annonce a été ajoutée aux favoris", "", "success");
                     }             
             }
