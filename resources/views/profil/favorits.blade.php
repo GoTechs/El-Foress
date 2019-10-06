@@ -50,12 +50,12 @@
                         </div>
                       </td>
                       <td class="add-img-td">
-                        <a href="#">
+                        <a href="/my-ads/details/{{$results->id_annonce}}">
                           <img class="img-responsive" src="{{asset('img/bientot-disponible.jpg')}}" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4 class="title"><a href="#">{{$results->titre}}</a></h4>
+                        <h4 class="title"><a href="/my-ads/details/{{$results->id_annonce}}">{{$results->titre}}</a></h4>
                         <p> <strong> Posté le </strong>:
                           {{$results->created_at}} </p>
                         <p> <strong>Nombre de visiteurs </strong>: {{$results->numberViews}} <strong>Wilaya :</strong> {{$results->wilaya}} </p>

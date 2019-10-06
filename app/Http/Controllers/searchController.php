@@ -202,4 +202,59 @@ class searchController extends Controller
           'images' => $images
       ]);
    }
+
+   public function myAdsDetails($id){
+
+        $annonce = annonce::find($id);
+
+        $idCat = $annonce->id_Cat;
+        $idSousCat = $annonce->id_sous_Cat;
+        $idUser = $annonce->id_user;
+        
+        $user = DB::table('users')->where('id','=', $idUser)->first();
+        $images = DB::table('imageads')->where('id_annonce', '=', $id)->get();
+
+        if ($idSousCat == '2'){
+            $result = DB::table('ad_events')->where('id_annonce', '=', $id)->first();
+        }
+
+        elseif ($idSousCat == '53') {
+            $result = DB::table('ad_joboffers')->where('id_annonce', '=', $id)->first();
+        }
+
+        elseif ($idSousCat == '54') {
+            $result = DB::table('ad_jobapplications')->where('id_annonce', '=', $id)->first();
+        }
+
+        elseif ($idCat == '3') {
+            $result = DB::table('adimmobiliers')->where('id_annonce', '=', $id)->first();
+        }
+
+        elseif ($idSousCat <> '14' and $idCat == '4') {
+            $result = DB::table('ad_cars')->where('id_annonce', '=', $id)->first();
+        }
+
+        elseif ($idSousCat == '16') {
+            $result = DB::table('ad_phones')->where('id_annonce', '=', $id)->first();
+        }
+
+        elseif ($idSousCat == '36') {
+            $result = DB::table('ad_storages')->where('id_annonce', '=', $id)->first();
+        }
+
+        elseif ($idSousCat == '37') {
+            $result = DB::table('ad_computers')->where('id_annonce', '=', $id)->first();
+        } else {
+            $result = "NULL";
+        }
+        
+      return view('details',[
+            'annonce' => $annonce,
+            'result' => $result,
+            'categorie' => $idCat,
+            'sousCategorie' => $idSousCat,
+            'user' => $user,
+            'images' => $images
+        ]);
+     }
 }
