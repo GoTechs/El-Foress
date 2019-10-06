@@ -8,6 +8,7 @@
           <div class="col-sm-9 page-content">
             <div class="inner-box">
               <h2 class="title-2"><i class="fa fa-heart-o"></i> Mes favoris</h2>
+              @if ($result <> [])
               <div class="table-responsive">
                 <form action="/deleteAllFav" method="post">
                   @csrf
@@ -71,7 +72,10 @@
                   @endforeach
                 </table>
               </form>
-              </div>               
+              </div> 
+            @else  
+              <h6>Vous avez trouvé une annonce intéressante sur Foress? Il vous suffit de cliquer sur l'option «Favori» lorsque vous en trouvez une qui vous intéresse. <a href="/categorie">Trouver des annonces</a></h6>
+            @endif             
             </div>
           </div>
 

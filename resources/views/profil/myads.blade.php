@@ -9,6 +9,7 @@
           <div class="col-sm-9 page-content">
             <div class="inner-box">
               <h2 class="title-2"><i class="fa fa-credit-card"></i> Mes annonces</h2>
+              @if ($result <> [])
               <div class="table-responsive">
               <form action="/deleteAll" method="post">
                 @csrf
@@ -74,7 +75,11 @@
                   @endforeach
                 </table>
                 </form>
-              </div>               
+              </div> 
+            @else 
+              <h6>Vous n'avez aucune annonce active pour le moment.</h6> <br>
+              <h6>Pourquoi ne pas <a href="/add-Ad"> afficher une annonce</a> dès maintenant ?</h6>      
+            @endif              
             </div>
           </div>
        

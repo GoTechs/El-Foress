@@ -8,6 +8,7 @@
           <div class="col-sm-9 page-content">
             <div class="inner-box">              
               <h2 class="title-2"><i class="fa fa-folder-o"></i> Mes anciennes annonces </h2>
+              @if ($result <> [])
               <div class="table-responsive">
                 <form action="/deleteAll" method="post">
                   @csrf
@@ -73,7 +74,10 @@
                   @endforeach
                 </table>
               </form>
-              </div>               
+              </div>  
+              @else 
+              <h6>Vous n'avez aucune annonce archivée pour le moment.</h6>
+              @endif
             </div>
           </div>
 
