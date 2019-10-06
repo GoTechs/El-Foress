@@ -27,9 +27,7 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/a-propos', function () {
-    return view('Apropos');
-});
+Route::get('/a-propos', 'categorieController@apropos');
 
 // Route for Authentication
 

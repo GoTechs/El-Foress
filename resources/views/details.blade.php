@@ -121,12 +121,16 @@
                         <a href="#" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"> <i class=" fa fa-heart"></i> Favoris</a>
                         </li>
                       </ul>
-                    </aside>
-
-                    
+                    </aside>                    
                   </div>
-                </div>
+                </div>                
               </div>
+            </div>
+             <div class="col-sm-4">
+              <div class="inner-box">
+                
+                <img src="{{asset('img/pubmobilis.jpg')}}" alt="">
+              </div>        
             </div>
           </div>
       </div>         

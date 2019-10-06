@@ -603,42 +603,14 @@
                         <div class="widget">
                             <h3 class="block-title">récemment ajoutés</h3>
                             <ul class="featured-list">
-                                <li>
-                                    <img alt="" src="{{asset('img/featured/img1.jpg')}}">
-                                    <div class="hover">
-                                        <a href="#"><span>$49</span></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img alt="" src="{{asset('img/featured/img2.jpg')}}">
-                                    <div class="hover">
-                                        <a href="#"><span>$49</span></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img alt="" src="{{asset('img/featured/img3.jpg')}}">
-                                    <div class="hover">
-                                        <a href="#"><span>$49</span></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img alt="" src="{{asset('img/featured/img4.jpg')}}">
-                                    <div class="hover">
-                                        <a href="#"><span>$49</span></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img alt="" src="{{asset('img/featured/img5.jpg')}}">
-                                    <div class="hover">
-                                        <a href="#"><span>$49</span></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img alt="" src="{{asset('img/featured/img6.jpg')}}">
-                                    <div class="hover">
-                                        <a href="#"><span>$49</span></a>
-                                    </div>
-                                </li>
+                                @foreach($recentlyAdd as $recent)
+                                    <li>
+                                        <img alt="" src="{{asset('img/nondisponible.jpg')}}">
+                                        <div class="hover">
+                                            <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

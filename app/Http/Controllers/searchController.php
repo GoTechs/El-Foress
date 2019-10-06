@@ -145,7 +145,6 @@ class searchController extends Controller
 
       $nomTable = 'annonces';
 
-   		//$annonce = DB::table($nomTable)->where('id', '=', $id)->first();
       $annonce = annonce::find($id);
 
       $idCat = $annonce->id_Cat;
@@ -202,7 +201,5 @@ class searchController extends Controller
           'user' => $user,
           'images' => $images
       ]);
-
-
    }
 }

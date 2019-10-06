@@ -146,7 +146,7 @@
             </div>-->
           </div>
             
- <!-- ********************************************* VEHICULES ******************************************************* -->
+ <!-- ********************************************* VEHICULES ************************************=*********** -->
             
           <div class="mb30"></div>
           <div class="box details" id="vehicule">
@@ -255,7 +255,7 @@
           </div>
           </div>
 
-<!-- ********************************************* EVENEMENT ******************************************************* -->
+<!-- ********************************************* EVENEMENT *********************************************** -->
 
             <div class="mb30"></div>
             <div class="box details" id="event">
@@ -274,7 +274,7 @@
                 </div>
             </div>
             
-<!-- ********************************************* ORDINATEURS ******************************************************* -->
+<!-- ********************************************* ORDINATEURS ********************************************* -->
             
           <div class="mb30"></div>    
           <div class="box details" id="ordinateurs">
@@ -319,7 +319,7 @@
           </div>
           </div>
 
-<!-- ********************************************* Offres d'emploi *************************************************** -->
+<!-- ********************************************* Offres d'emploi ****************************************** -->
 
             <div class="mb30"></div>
             <div class="box details" id="offresEmploi">
@@ -366,7 +366,7 @@
                 </div>
             </div>
 
- <!-- ********************************************* Demandes d'emploi ********************************************** -->
+ <!-- ********************************************* Demandes d'emploi ************************************** -->
 
             <div class="mb30"></div>
             <div class="box details" id="demandesEmploi">
@@ -453,8 +453,8 @@
                 </div>
             </div>
 
-<!-- ********************************************* INFO COMMUNE **************************************************** -->
-            
+<!-- ********************************************* INFO COMMUNE *********************************************** -->
+      
           <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Prix</h2>
@@ -557,42 +557,14 @@
     					<div class="widget">
     						<h3 class="block-title">récemment ajoutés</h3>
                 <ul class="featured-list">
-                    <li>
-                        <img alt="" src="{{asset('img/featured/img1.jpg')}}">
-                        <div class="hover">
-                            <a href="#"><span>$49</span></a>
-                        </div>
-                    </li>
-                    <li>
-                        <img alt="" src="{{asset('img/featured/img2.jpg')}}">
-                        <div class="hover">
-                            <a href="#"><span>$49</span></a>
-                        </div>
-                    </li>
-                    <li>
-                        <img alt="" src="{{asset('img/featured/img3.jpg')}}">
-                        <div class="hover">
-                            <a href="#"><span>$49</span></a>
-                        </div>
-                    </li>
-                    <li>
-                        <img alt="" src="{{asset('img/featured/img4.jpg')}}">
-                        <div class="hover">
-                            <a href="#"><span>$49</span></a>
-                        </div>
-                    </li>
-                    <li>
-                        <img alt="" src="{{asset('img/featured/img5.jpg')}}">
-                        <div class="hover">
-                            <a href="#"><span>$49</span></a>
-                        </div>
-                    </li>
-                    <li>
-                        <img alt="" src="{{asset('img/featured/img6.jpg')}}">
-                        <div class="hover">
-                            <a href="#"><span>$49</span></a>
-                        </div>
-                    </li>
+                    @foreach($recentlyAdd as $recent)
+                        <li>
+                            <img alt="" src="{{asset('img/nondisponible.jpg')}}">
+                            <div class="hover">
+                                <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
     					</div>
     				</div>

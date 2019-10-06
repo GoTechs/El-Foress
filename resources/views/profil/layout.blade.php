@@ -136,6 +136,9 @@
           </div>
         </div>
       </div>
+      <div class="inner-box">
+        <img src="{{asset('img/pub/pubhabbache.gif')}}" alt="">
+      </div>
     </aside>
   </div>
 

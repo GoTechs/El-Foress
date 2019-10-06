@@ -56,7 +56,7 @@
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4 class="title"><a href="#">{{$results->titre}}</a></h4>
+                        <h4 class="title"><a href="/details/{{$results->id_annonce}}">{{$results->titre}}</a></h4>
                         <p> <strong> Posté le </strong>:
                           {{$results->created_at}} </p>
                         <p> <strong>Nombre de visiteurs </strong>: {{$results->numberViews}} <strong>Wilaya :</strong> {{$results->wilaya}} </p>

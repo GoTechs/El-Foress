@@ -34,111 +34,42 @@
           <div class="col-sm-4 page-sidebar">
             <aside>
               <div class="inner-box">
+                <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
+              </div>
+              <div class="inner-box">
                 <div class="categories">
                   <div class="widget-title">
                     <i class="fa fa-align-justify"></i>
                     <h4>Toutes les catégories</h4>
                   </div>
                   <div class="categories-list">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-desktop"></i>
-                          Communauté <span class="category-counter">(9)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-desktop"></i>
-                          Emplois <span class="category-counter">(9)</span>
-                        </a>
-                      </li>
-                      
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-wrench"></i>
-                          Immobiliers <span class="category-counter">(8)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-github-alt"></i>
-                          Véhicules <span class="category-counter">(2)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-leaf"></i>
-                          Boutiques <span class="category-counter">(3)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-leaf"></i>
-                          Électroménagers <span class="category-counter">(3)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-home"></i>
-                          Services <span class="category-counter">(4)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-black-tie"></i>
-                          Matériels Informatiques <span class="category-counter">(5)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-black-tie"></i>
-                          Voyages <span class="category-counter">(5)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-black-tie"></i>
-                          Animaux <span class="category-counter">(5)</span>
-                        </a>
-                      </li>
-                    </ul>
+                  <div class="panel-group" id="accordion">
+                  @foreach ($search as $searchCat)
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}">
+                              {{$searchCat ->categories}} 
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="{{$searchCat ->idCat}}" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            <ul>
+                              @foreach ($sousCat as $sousCategorie)
+                                @if ($sousCategorie->categories == $searchCat ->categories and $sousCategorie->sousCat <> 'Autres')
+                                  <li><a href="/search/{{$sousCategorie->idCat}}/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
+                                @endif 
+                              @endforeach
+                              <li><a href="/search/{{$searchCat->idCat}}">Autres</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                  @endforeach
+                  </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="inner-box">
-                <div class="widget-title">
-                  <h4>Les dernières annonces</h4>
-                </div>
-                <div class="advimg">
-                  <ul class="featured-list">
-                    <li>
-                      <img alt="" src="{{asset('img/featured/img1.jpg')}}">
-                      <div class="hover">
-                        <a href="#"><span>$49</span></a>
-                      </div>
-                    </li>
-                    <li>
-                      <img alt="" src="{{asset('img/featured/img2.jpg')}}">
-                      <div class="hover">
-                        <a href="#"><span>$49</span></a>
-                      </div>
-                    </li>
-                    <li>
-                      <img alt="" src="{{asset('img/featured/img3.jpg')}}">
-                      <div class="hover">
-                        <a href="#"><span>$49</span></a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="inner-box">
-                <div class="widget-title">
-                  <h4>Ici on laissera cette espace vide, pour les publicités</h4>
-                </div>
-                <img src="{{asset('img/img1.jpg')}}" alt="">
               </div>
             </aside>
           </div>

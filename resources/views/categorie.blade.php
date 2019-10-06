@@ -748,7 +748,9 @@
                 </div>       
             </aside>
           </div>
+
           <div class="col-sm-9 page-content">
+
 
          @if ($data->count() <> '0')
             <!-- Product idSousCat Start -->

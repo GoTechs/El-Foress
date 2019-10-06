@@ -151,7 +151,7 @@
     
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.expsensor=false">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.expsensor=false&key=AIzaSyCLH3AD_WG8oWXUlIbrxywtkbo3EYkEFOo&">
     </script>
     <!-- Google Maps JS Only for Contact Pages -->
     <script type="text/javascript">
