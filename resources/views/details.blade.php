@@ -129,7 +129,7 @@
              <div class="col-sm-4">
               <div class="inner-box">
                 
-                <img src="{{asset('img/pubmobilis.jpg')}}" alt="">
+                <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
               </div>        
             </div>
           </div>
