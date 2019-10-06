@@ -61,18 +61,15 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     @auth
-                        <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
+                        <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
-                        <li class="postadd">
-                            <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
-                        </li>
                     @else
                         <li><a href="/connexion"><i class="fa fa-sign-in"></i> Connexion</a></li>
                         <li><a href="/inscription"><i class="fa fa-user"></i> Inscription</a></li>
-                        <li class="postadd">
-                            <a class="btn btn-danger btn-post" href="/connexion"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
-                        </li>
                     @endauth
+                        <li class="postadd">
+                            <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
+                        </li>
                 </ul>
             </div>
             <!-- Navbar End -->
@@ -88,7 +85,7 @@
         <ul class="nav navmenu-nav"> <!--- Menu -->
             <li><a href="/">Accueil</a></li>
             <li><a href="/a-propos">À Propos</a></li>
-            <li><a href="/categorie">Catégorie</a></li>
+            <li><a href="/categorie">Toutes les annonces</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">Faq</a></li>
         </ul><!--- End Menu -->
@@ -122,10 +119,10 @@
                             <li><a href="/">Accueil</a></li>
                             <li><a href="/contact">Contact</a></li>
                             <li><a href="/a-propos">À Propos</a></li>
-                            <li><a href="/connexion">Connexion</a></li>
-                            <li><a href="/categorie">Catégories</a></li>
+                            <li><a href="/connexion">Connexion</a></li>                            
                             <li><a href="/inscription">Inscription</a></li>
                             <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/categorie">Toutes les annonces</a></li>
                         </ul>
                     </div>
                 </div>

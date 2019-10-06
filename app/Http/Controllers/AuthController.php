@@ -70,7 +70,8 @@ class AuthController extends Controller
             'password'=> $password
         ]))
         {
-            return redirect('/my-ads');
+            //return redirect('/my-ads');
+            return redirect()->intended('my-ads');
         } else {
             return redirect()->back()->with('error', 'Nom d\'utilisateur ou mot de passe invalide.');
         }

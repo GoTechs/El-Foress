@@ -49,7 +49,7 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/home"><i class="fa fa-home"></i> Accueil</a>
+                        <a href="/my-ads"><i class="fa fa-home"></i> Accueil</a>
                     </li>
                     <li>
                         <a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a>
@@ -67,7 +67,7 @@
         <ul class="nav navmenu-nav"> <!--- Menu -->
             <li><a href="/">Accueil</a></li>
             <li><a href="/a-propos">À Propos</a></li>
-            <li><a href="/categorie">Catégorie</a></li>
+            <li><a href="/categorie">Toutes les annonces</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">Faq</a></li>
         </ul><!--- End Menu -->
@@ -571,10 +571,10 @@
                                 <li><a href="/">Accueil</a></li>
                                 <li><a href="/contact">Contact</a></li>
                                 <li><a href="/a-propos">À Propos</a></li>
-                                <li><a href="/connexion">Connexion</a></li>
-                                <li><a href="/categorie">Catégories</a></li>
+                                <li><a href="/connexion">Connexion</a></li>                                
                                 <li><a href="/inscription">Inscription</a></li>
                                 <li><a href="/faq">FAQ</a></li>
+                                <li><a href="/categorie">Toutes les annonces</a></li>
                             </ul>
                         </div>
                     </div>
