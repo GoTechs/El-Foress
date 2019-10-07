@@ -68,7 +68,7 @@
                         <li><a href="/inscription"><i class="fa fa-user"></i> Inscription</a></li>
                     @endauth
                         <li class="postadd">
-                            <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Afficher</a>
+                            <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Afficher2</a>
                         </li>
                         <li class="postadd allsearch">
                             <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> Catégories</a>
