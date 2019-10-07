@@ -36,41 +36,6 @@
               <div class="inner-box">
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
               </div>
-              <div class="inner-box">
-                <div class="categories">
-                  <div class="widget-title">
-                    <i class="fa fa-align-justify"></i>
-                    <h4>Toutes les catégories</h4>
-                  </div>
-                  <div class="categories-list">
-                  <div class="panel-group" id="accordion">
-                  @foreach ($search as $searchCat)
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}">
-                              {{$searchCat ->categories}} 
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="{{$searchCat ->idCat}}" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <ul>
-                              @foreach ($sousCat as $sousCategorie)
-                                @if ($sousCategorie->categories == $searchCat ->categories and $sousCategorie->sousCat <> 'Autres')
-                                  <li><a href="/search/{{$sousCategorie->idCat}}/{{$sousCategorie->idSousCat}}">{{$sousCategorie->sousCat}}</a></li>
-                                @endif 
-                              @endforeach
-                              <li><a href="/search/{{$searchCat->idCat}}">Autres</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                  @endforeach
-                  </div>
-                  </div>
-                </div>
-              </div>
             </aside>
           </div>
         </div>

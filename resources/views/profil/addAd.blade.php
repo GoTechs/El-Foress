@@ -43,7 +43,7 @@
         <div class="navbar-header">
           <!-- Stat Toggle Nav Link For Mobiles -->
            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <!-- End Toggle Nav Link For Mobiles -->
-           <a class="navbar-brand logo" href=""><img alt="" src="{{asset('img/Capture.PNG')}}"></a>
+           <a class="navbar-brand logo" href="/"><img alt="" src="{{asset('img/Capture.PNG')}}"></a>
         </div><!-- brand and toggle menu for mobile End -->
         <!-- Navbar Start -->
         <div class="collapse navbar-collapse" id="navbar">
@@ -54,27 +54,13 @@
             <li>
                 <a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a>
             </li>
+            <li class="postadd allsearch">
+                <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> Catégories</a>
+            </li>
           </ul>
         </div><!-- Navbar End -->
       </div>
-    </nav><!-- Off Canvas Navigation -->
-    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-      <!--- Off Canvas Side Menu -->
-      <div class="close" data-target=".navmenu" data-toggle="offcanvas">
-        <i class="fa fa-close"></i>
-      </div>
-      <h3 class="title-menu">Menu</h3>
-          <ul class="nav navmenu-nav"> <!--- Menu -->
-              <li><a href="/">Accueil</a></li>
-              <li><a href="/a-propos">À Propos</a></li>
-              <li><a href="/categorie">Toutes les annonces</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/faq">Faq</a></li>
-        </ul><!--- End Menu -->
-      </div> <!--- End Off Canvas Side Menu -->
-      <div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
-        <p><i class="fa fa-file-text-o"></i> Menu</p>
-  </div><!-- Header Section End -->
+    </nav>
   <!-- Content section Start -->
   <section id="content">
     <div class="container">
@@ -104,7 +90,7 @@
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
                             @endforeach
                         </select>
-                 </div>
+                      </div>
                   </div>
                  <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
@@ -113,15 +99,13 @@
                       </select>
                     </div>
                   </div>
-                     <div class="col-md-4 col-sm-12 search-col">
+                  <div class="col-md-4 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select location-select"><span class="hidden-sm hidden-xs"> </span>
                           <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{old('wilaya')}}">
                           </label>
                     </div>
                   </div>
-
-
               </div>
             </div><!-- End Search box -->            
               <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">

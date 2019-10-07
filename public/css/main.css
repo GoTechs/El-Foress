@@ -58,8 +58,10 @@ img {
     max-width: 100%;
 }
 .logo img {
- position: relative;
- bottom: 17px;
+    position: fixed;
+    width: 154px;
+    top: 0px;
+}
 }
 ul {
   margin: 0px;
@@ -479,7 +481,7 @@ nav#menu span.fa.fa-bars:hover {
   margin-right: 3px;
 }
 .main-navigation .navbar-nav > li.postadd {
-  padding-left: 25px;
+  padding-left: 10px;
   margin-left: 5px;
   border-left: 1px solid #ddd;
 }
@@ -490,7 +492,7 @@ nav#menu span.fa.fa-bars:hover {
   height: 40px;
   line-height: normal;
   text-transform: uppercase;
-  width: 196px;
+  width: 150px;
   webkit-transition: all .3s linear;
   -moz-transition: all .3s linear;
   -ms-transition: all .3s linear;
@@ -500,6 +502,13 @@ nav#menu span.fa.fa-bars:hover {
 .main-navigation .navbar-nav > li.postadd a:hover {
   color: #fff;
   background: #FF625D;
+}
+.main-navigation .navbar-nav > li.allsearch a {
+  background-color: #373373;
+}
+.main-navigation .navbar-nav > li.allsearch a:hover {
+  color: #fff;
+  background: #57529f;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,

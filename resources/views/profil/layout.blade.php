@@ -52,7 +52,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
-                <a class="navbar-brand logo" href=""><img src="{{asset('img/Capture.PNG')}}" alt=""></a>
+                <a class="navbar-brand logo" href="/"><img src="{{asset('img/Capture.PNG')}}" alt=""></a>
             </div>
             <!-- brand and toggle menu for mobile End -->
 
@@ -62,7 +62,10 @@
                     <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                     <li class="postadd">
-                        <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
+                        <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Afficher</a>
+                    </li>
+                    <li class="postadd allsearch">
+                        <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> Catégories</a>
                     </li>
                 </ul>
             </div>
@@ -70,23 +73,23 @@
         </div>
     </nav>
     <!-- Off Canvas Navigation -->
-    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+    <!--<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">-->
         <!--- Off Canvas Side Menu -->
-        <div class="close" data-toggle="offcanvas" data-target=".navmenu">
+        <!--<div class="close" data-toggle="offcanvas" data-target=".navmenu">
             <i class="fa fa-close"></i>
         </div>
         <h3 class="title-menu">Menu</h3>
-        <ul class="nav navmenu-nav"> <!--- Menu -->
+        <ul class="nav navmenu-nav"> 
             <li><a href="/">Accueil</a></li>
             <li><a href="/a-propos">À Propos</a></li>
             <li><a href="/categorie">Toutes les annonces</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">Faq</a></li>
-        </ul><!--- End Menu -->
-    </div> <!--- End Off Canvas Side Menu -->
-    <div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
+        </ul>--><!--- End Menu -->
+    <!--</div>--> <!--- End Off Canvas Side Menu -->
+    <!--<div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
         <p><i class="fa fa-file-text-o"></i> Menu</p>
-    </div>
+    </div>-->
 </div>
 <!-- Header Section End -->
 
