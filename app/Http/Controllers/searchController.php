@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Analytics;
+use Spatie\Analytics\Period;
 use App\annonce;
 use App\Users;
 use App\categories;
@@ -27,6 +29,9 @@ class searchController extends Controller
 {
    public function showCat(){
 
+      //Retreive Total visitors and pageviews
+      $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7))->toArray();
+
 	   	$search = categories::all();
       $nbrAds = annonce::where('stateAd' ,'=', '1')->count();
 
@@ -43,7 +48,7 @@ class searchController extends Controller
 
       //$test = annonce::recentlyAdd();
 
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds]);
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds,'analyticsData'=>$analyticsData]);
 
    }
 

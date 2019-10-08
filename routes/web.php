@@ -1,8 +1,5 @@
 <?php
 
-//use Analytics;
-use Spatie\Analytics\Period;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -114,8 +111,3 @@ Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
 // Update User Password
 
 Route::patch('/updatePassword/{idpost}','ProfilController@updatePassword')->middleware('auth');
-
-Route::get('/data', function(){
-    $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
-    dd($analyticsData);
-});
