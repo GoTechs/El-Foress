@@ -7,7 +7,7 @@
     
           <div class="col-sm-9 page-content">
             <div class="inner-box">              
-              <h2 class="title-2"><i class="fa fa-folder-o"></i> Mes anciennes annonces </h2>
+              <h2 class="title-2"><i class="fa fa-folder-o"></i> {{__('myads.archive_page_title')}} </h2>
               @if ($result <> [])
               <div class="table-responsive">
                 <form action="/deleteAll" method="post">
@@ -17,12 +17,12 @@
                   <div class="checkbox">
                     <label for="checkAll">
                       <input id="checkAll" type="checkbox">
-                      Tout sélectionner | <button type="submit" class="btn btn-xs btn-danger"> Supprimer <i class="fa fa-close"></i></button>
+                      {{__('myads.select_all_button')}} | <button type="submit" class="btn btn-xs btn-danger"> {{__('myads.delete_all_button')}} <i class="fa fa-close"></i></button>
                     </label>
                   </div>
                   <div class="table-search pull-right col-xs-7">
                     <div class="form-group">
-                      <label class="col-xs-5 control-label text-right">Recherche <br>
+                      <label class="col-xs-5 control-label text-right">{{__('myads.search_input')}} <br>
                       </label>
                       <div class="col-xs-7 searchpan">
                         <input class="form-control" id="filter" type="text">
@@ -35,10 +35,10 @@
                   <thead>
                     <tr>
                       <th data-type="numeric"></th>
-                      <th>Photo</th>
-                      <th>Détails</th>
-                      <th>Prix</th>
-                      <th>Option</th>
+                      <th>{{__('myads.image_column')}}</th>
+                      <th>{{__('myads.details_column')}}</th>
+                      <th>{{__('myads.price_column')}}</th>
+                      <th>{{__('myads.option_column')}}</th>
                     </tr>
                   </thead>
                   @foreach ($result as $results)
@@ -58,16 +58,16 @@
                       </td>
                       <td class="ads-details-td">
                         <h4 class="title"><a href="/my-ads/details/{{$results->id_annonce}}">{{$results->titre}}</a></h4>
-                        <p> <strong> Posté le </strong>:
+                        <p> <strong> {{__('myads.date_add_info')}} </strong>:
                           {{$results->created_at}} </p>
-                        <p> <strong>Nombre de visiteurs </strong>: {{$results->numberViews}}  <strong>Wilaya :</strong> {{$results->wilaya}} </p>
+                        <p> <strong>{{__('myads.number_visitor_info')}} </strong>: {{$results->numberViews}}  <strong>{{__('myads.wilaya_info')}} :</strong> {{$results->wilaya}} </p>
                       </td>
                       <td class="price-td">
                         <strong> {{$results->prix}}</strong>
                       </td>
                       <td class="action-td">
-                        <p> <a class="btn btn-info btn-xs" onclick="repostAd({{$results->id_annonce}})"> <i class="fa fa-recycle"></i> Republier </a></p>
-                        <p> <a class="btn btn-danger btn-xs" onclick="deleteAd({{$results->id_annonce}})"> <i class=" fa fa-trash"></i> Supprimer </a></p>
+                        <p> <a class="btn btn-info btn-xs" onclick="repostAd({{$results->id_annonce}})"> <i class="fa fa-recycle"></i> {{__('myads.republish')}} </a></p>
+                        <p> <a class="btn btn-danger btn-xs" onclick="deleteAd({{$results->id_annonce}})"> <i class=" fa fa-trash"></i> {{__('myads.delete_button')}} </a></p>
                       </td>
                     </tr>
                     </tbody>
@@ -76,7 +76,7 @@
               </form>
               </div>  
               @else 
-              <h6>Vous n'avez aucune annonce archivée pour le moment.</h6>
+              <h6>{{__('myads.archive_empty_result')}}</h6>
               @endif
             </div>
           </div>

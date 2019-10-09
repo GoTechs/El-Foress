@@ -11,9 +11,9 @@
             <div class="col-sm-8">
               <div class="inner-box ads-details-wrapper">
                 <h2>{{$annonce->titre}}</h2>
-                <p class="item-intro"><span class="poster">Publié par <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{$annonce->created_at}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+                <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{$annonce->created_at}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
                 @if ($annonce->etat <> "")
-                  <p class="item-intro"><strong> État : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
+                  <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
                 @endif             
                 <div class="fotorama">
                   @foreach ($images as $image)
@@ -24,69 +24,69 @@
               </div>
 
               <div class="box">
-                <h2 class="title-2"><strong>Détails</strong></h2>
+                <h2 class="title-2"><strong>{{__('details.details_title')}}</strong></h2>
                   <div class="row">
                   <div class="ads-details-info col-md-7">
                     <p class="mb15">{{$annonce->description}}</p>
                     <ul class="list-circle">
                       @if ($categorie == '3')
 
-                       <li>{{$result->typeBien ? ' Type du bien : '.$result->typeBien : '' }}</li>
-                       <li>{{$result->superficie ? ' Superficie : '.$result->superficie  : '' }}</li>
-                       <li>{{$result->nbrePiece ? ' Nombre de pièces : '.$result->nbrePiece  : '' }}</li>
-                       <li>{{$result->etage ? ' Étage : '.$result->etage : '' }}</li>
+                       <li>{{$result->typeBien ? __('details.type_property_info').' : '.$result->typeBien : '' }}</li>
+                       <li>{{$result->superficie ? __('details.surface_info'). ' : ' .$result->superficie  : '' }}</li>
+                       <li>{{$result->nbrePiece ? __('details.number_piece_info').' : '.$result->nbrePiece  : '' }}</li>
+                       <li>{{$result->etage ? __('details.etage_info').' : '.$result->etage : '' }}</li>
 
                        @elseif ($sousCategorie == '2')
 
-                       <li>{{$result->dateHeureEvent ? ' Date et heure de l\'événement : '.$result->dateHeureEvent : '' }}</li>
-                       <li>{{$result->du ? ' Du : '.$result->du  : '' }}</li>
-                       <li>{{$result->au ? ' Au : '.$result->au  : '' }}</li>
+                       <li>{{$result->dateHeureEvent ? __('details.date_event_info').' : '.$result->dateHeureEvent : '' }}</li>
+                       <li>{{$result->du ? __('details.from_event_info').' : '.$result->du  : '' }}</li>
+                       <li>{{$result->au ? __('details.to_event_info').' : '.$result->au  : '' }}</li>
 
                        @elseif ($sousCategorie == '53')
 
-                       <li>{{$result->domaine ? ' Domaine d\'emploi : '.$result->domaine : '' }}</li>
-                       <li>{{$result->entreprise ? ' Entreprise : '.$result->entreprise : '' }}</li>
-                       <li>{{$result->adresse ? ' Adresse : '.$result->adresse : '' }}</li>
-                       <li>{{$result->poste ? ' Poste : '.$result->poste : '' }}</li>
-                       <li>{{$result->salaire ? ' Salaire : '.$result->salaire : '' }}</li>
-                       <li>{{$result->diplomeRequis ? ' Diplôme requis : '.$result->diplomeRequis : '' }}</li>
+                       <li>{{$result->domaine ? __('details.work_domain').' : '.$result->domaine : '' }}</li>
+                       <li>{{$result->entreprise ? __('details.entreprise').' : '.$result->entreprise : '' }}</li>
+                       <li>{{$result->adresse ? __('details.adresse').' : '.$result->adresse : '' }}</li>
+                       <li>{{$result->poste ? __('details.poste').' : '.$result->poste : '' }}</li>
+                       <li>{{$result->salaire ? __('details.salaire').' : '.$result->salaire : '' }}</li>
+                       <li>{{$result->diplomeRequis ? __('details.diplome_requis').' : '.$result->diplomeRequis : '' }}</li>
 
                        @elseif ($sousCategorie == '54')
 
-                       <li>{{$result->sexe ? ' Sexe : '.$result->sexe  : '' }}</li>
-                       <li>{{$result->domaine ? ' Domaine d\'emploi : '.$result->domaine  : '' }}</li>
-                       <li>{{$result->age ? ' Âge : '.$result->age  : '' }}</li>
-                       <li>{{$result->poste ? ' Poste : '.$result->poste  : '' }}</li>
-                       <li>{{$result->niveau ? ' Niveau d\'éducation : '.$result->niveau  : '' }}</li>
-                       <li>{{$result->diplome ? ' Diplôme : '.$result->diplome  : '' }}</li>
-                       <li>{{$result->anneExp ? ' Année d\'expérience : '.$result->anneExp : '' }}</li>
+                       <li>{{$result->sexe ? __('details.sexe').' : '.$result->sexe  : '' }}</li>
+                       <li>{{$result->domaine ?  __('details.work_domain').' : '.$result->domaine  : '' }}</li>
+                       <li>{{$result->age ? __('details.age_info').' : '.$result->age  : '' }}</li>
+                       <li>{{$result->poste ? __('details.poste').' : '.$result->poste  : '' }}</li>
+                       <li>{{$result->niveau ? __('details.niveau_education').' : '.$result->niveau  : '' }}</li>
+                       <li>{{$result->diplome ? __('details.diplome_info').' : '.$result->diplome  : '' }}</li>
+                       <li>{{$result->anneExp ? __('details.year_experience').' : '.$result->anneExp : '' }}</li>
 
                        @elseif ($sousCategorie <> '14' and $categorie == '4')
                        
-                       <li>{{$result->marque ? ' Marque : '.$result->marque  : '' }}</li>
-                       <li>{{$result->modele ? ' Modèle : '.$result->modele  : '' }}</li>
-                       <li>{{$result->annee ? ' Année : '.$result->annee  : '' }}</li>
-                       <li>{{$result->kilometrage ? ' Kilomètrage : '.$result->kilometrage  : '' }}</li>
-                       <li>{{$result->typeCarb ? ' Type carburant : '.$result->typeCarb  : '' }}</li>
+                       <li>{{$result->marque ? __('details.marque').' : '.$result->marque  : '' }}</li>
+                       <li>{{$result->modele ? __('details.modele').' : '.$result->modele  : '' }}</li>
+                       <li>{{$result->annee ? __('details.year').' : '.$result->annee  : '' }}</li>
+                       <li>{{$result->kilometrage ? __('details.kilom_info').' : '.$result->kilometrage  : '' }}</li>
+                       <li>{{$result->typeCarb ? __('details.type_carb').' : '.$result->typeCarb  : '' }}</li>
 
                        @elseif ($sousCategorie == '16')
 
-                       <li>{{$result->marque ? ' Marque : '.$result->marque : '' }}</li>
-                       <li>{{$result->modele ? ' Modèle : '.$result->modele : '' }}</li>
+                       <li>{{$result->marque ? __('details.marque').' : '.$result->marque : '' }}</li>
+                       <li>{{$result->modele ? __('details.modele').' : '.$result->modele : '' }}</li>
 
                        @elseif ($sousCategorie == '36')
 
-                       <li>{{$result->type ? ' Type : '.$result->type : '' }}</li>
-                       <li>{{$result->marque ? ' Marque : '.$result->marque : '' }}</li>
-                       <li>{{$result->capacite ? ' Capacité : '.$result->capacite : '' }}</li>
+                       <li>{{$result->type ? __('details.type_info').' : '.$result->type : '' }}</li>
+                       <li>{{$result->marque ? __('details.marque').' : '.$result->marque : '' }}</li>
+                       <li>{{$result->capacite ? __('details.capacite_info').' : '.$result->capacite : '' }}</li>
 
                        @elseif ($sousCategorie == '37')
 
-                       <li>{{$result->marque ? ' Marque : '.$result->marque : '' }}</li>
-                       <li>{{$result->tailleEcran ? ' Taille de l\'écran : '.$result->tailleEcran : '' }}</li>                       
-                       <li>{{$result->processeur ? ' Processeur : '.$result->processeur : '' }}</li>
-                       <li>{{$result->ram ? ' Mémoire RAM : '.$result->ram : '' }}</li>
-                       <li>{{$result->tailleDisque ? ' Taille du disque : '.$result->tailleDisque : '' }}</li>
+                       <li>{{$result->marque ? __('details.marque').' : '.$result->marque : '' }}</li>
+                       <li>{{$result->tailleEcran ? __('details.taille_ecran').' : '.$result->tailleEcran : '' }}</li>                       
+                       <li>{{$result->processeur ? __('details.processeur').' : '.$result->processeur : '' }}</li>
+                       <li>{{$result->ram ? __('details.memoire_ram').' : '.$result->ram : '' }}</li>
+                       <li>{{$result->tailleDisque ? __('details.taille_disque').' : '.$result->tailleDisque : '' }}</li>
                        
                       @endif
                     </ul>
@@ -96,29 +96,29 @@
                       <ul>
                         @if ($annonce->prix <> "")
                           <li>
-                            <p class="no-margin"><strong> Prix : </strong> {{$annonce->prix}} DA</a></li>
+                            <p class="no-margin"><strong> {{__('details.price_info')}} : </strong> {{$annonce->prix}} DA</a></li>
                           <li>
                         @endif
                         @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "")
                          <li>
-                          <p class="no-margin"><i class=" fa fa-phone"></i> <strong> N° Téléphone : </strong> {{$annonce->phoneNumber}} </a>
+                          <p class="no-margin"><i class=" fa fa-phone"></i> <strong> {{__('details.phone_info')}} : </strong> {{$annonce->phoneNumber}} </a>
                         </li>
                         @endif
                         <li>
                         @if ($annonce->email <> "")
                           <li>
-                            <p class="no-margin"><i class="fa fa-envelope"></i> <strong> Email : </strong> {{$annonce->email}} </a></li>
+                            <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} : </strong> {{$annonce->email}} </a></li>
                           <li>
                         @endif
                         <li>
-                            <p class="no-margin"><i class="fa fa-eye"></i> <strong> Nombre de visiteurs : </strong> {{$annonce->numberViews}} </a></li>
+                            <p class="no-margin"><i class="fa fa-eye"></i> <strong> {{__('details.number_visit_info')}} : </strong> {{$annonce->numberViews}} </a></li>
                           <li>
                         <li>
-                          <p class=" no-margin "><i class=" fa fa-user"></i> Publié par {{$user->username}}</a>
+                          <p class=" no-margin "><i class=" fa fa-user"></i> {{__('details.publish_info')}} {{$user->username}}</a>
                         </li>
 
                         <li>
-                        <a href="#" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"> <i class=" fa fa-heart"></i> Favoris</a>
+                        <a href="#" title="{{__('details.favorits_add')}}" onclick="addToFav({{$annonce->id}})"> <i class=" fa fa-heart"></i> {{__('details.favorits')}}</a>
                         </li>
                       </ul>
                     </aside>                    

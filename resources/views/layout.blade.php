@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Foress -  Notre mission vous simplifier la vie </title>
+    <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
@@ -60,18 +60,24 @@
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
+                    @php $locale = session()->get('locale'); @endphp
+                    @if($locale == 'fr')
+                        <li><a href="lang/ar"> <strong> AR </strong></a></li>
+                    @else 
+                        <li><a href="lang/fr"> <strong> FR </strong></a></li>
+                    @endif
                     @auth
                         <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                     @else
-                        <li><a href="/connexion"><i class="fa fa-sign-in"></i> Connexion</a></li>
-                        <li><a href="/inscription"><i class="fa fa-user"></i> Inscription</a></li>
+                        <li><a href="/connexion"><i class="fa fa-sign-in"></i> {{__('layout.login_button')}}</a></li>
+                        <li><a href="/inscription"><i class="fa fa-user"></i> {{__('layout.register_button')}}</a></li>
                     @endauth
                         <li class="postadd">
-                            <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> Afficher</a>
+                            <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> {{__('layout.post_button')}}</a>
                         </li>
                         <li class="postadd allsearch">
-                            <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> Catégories</a>
+                            <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> {{__('layout.category_button')}}</a>
                         </li>
                 </ul>
             </div>
@@ -109,23 +115,23 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">à propos de <span style="color:#3188c2;">foress</span></h3>
+                        <h3 class="block-title">{{__('layout.description_title_footer')}} <span style="color:#3188c2;">{{__('layout.name_app')}}</span></h3>
                         <div class="textwidget">
-                            <p>Lancé en 2017, l'idée était d'offrir aux gens une opportunité qui va leur faciliter la façon dont ils vendent, achètent et échangent des articles, des véhicules, des services, de l'immobilier ou du travail.</p>
+                            <p>{{__('layout.description_text_footer')}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">Liens Utiles</h3>
+                        <h3 class="block-title">{{__('layout.title_menu')}}</h3>
                         <ul class="menu">
-                            <li><a href="/">Accueil</a></li>
-                            <li><a href="/contact">Contact</a></li>
-                            <li><a href="/a-propos">À Propos</a></li>
-                            <li><a href="/connexion">Connexion</a></li>                            
-                            <li><a href="/inscription">Inscription</a></li>
-                            <li><a href="/faq">FAQ</a></li>
-                            <li><a href="/categorie">Toutes les annonces</a></li>
+                            <li><a href="/">{{__('layout.index_menu')}}</a></li>
+                            <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
+                            <li><a href="/a-propos">{{__('layout.about_menu')}}</a></li>
+                            <li><a href="/connexion">{{__('layout.login_menu')}}</a></li>                            
+                            <li><a href="/inscription">{{__('layout.register_menu')}}</a></li>
+                            <li><a href="/faq">{{__('layout.faq_menu')}}</a></li>
+                            <li><a href="/categorie">{{__('layout.category_menu')}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -152,7 +158,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">récemment ajoutés</h3>
+                        <h3 class="block-title">{{__('layout.recently_add')}}</h3>
                         <ul class="featured-list">
                             @foreach($recentlyAdd as $recent)
                                 <li>

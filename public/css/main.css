@@ -58,11 +58,9 @@ img {
     max-width: 100%;
 }
 .logo img {
-    position: fixed;
-    width: 154px;
-    top: 0px;
+    position: relative;
 }
-}
+
 ul {
   margin: 0px;
   padding: 0px;

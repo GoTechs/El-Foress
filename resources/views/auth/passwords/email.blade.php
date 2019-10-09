@@ -10,7 +10,7 @@
           <div class="col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
             <div class="page-login-form box">
               <h3>
-                MOT DE PASSE OUBLIÉ
+                {{__('authentication.reset_password_title')}}
               </h3>
               @if (session('status'))
                 <div class="alert alert-success">
@@ -31,14 +31,14 @@
                     <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
                     @endif
                     
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email"/>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="{{__('authentication.email_input')}}""/>
                 </div>
 
-                <button type="submit" class="btn btn-common log-btn">Envoyer</button>
+                <button type="submit" class="btn btn-common log-btn">{{__('authentication.send_email_button')}}</button>
               </form>
               <ul class="form-links">
-                <li class="pull-left"><a href="/inscription">Vous n'avez pas de compte ?</a></li>
-                <li class="pull-right"><a href="/connexion">Connexion</a></li>
+                <li class="pull-left"><a href="/inscription">{{__('authentication.register_redirect')}}</a></li>
+                <li class="pull-right"><a href="/connexion">{{__('authentication.login_redirect')}}</a></li>
               </ul>
             </div>
           </div>

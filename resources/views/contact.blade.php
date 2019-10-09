@@ -19,7 +19,7 @@
         <div class="row">         
           <div class="col-md-12">
             <div class="breadcrumb-wrapper">
-              <h2 class="page-title">contactez nous</h2>
+              <h2 class="page-title">{{__('contact.contact_tiltle')}}</h2>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <div class="row">
             <div class="col-md-8">
               <h2 class="title-2">
-                Si vous avez des questions, n'hésitez pas à nous contacter.
+                {{__('contact.contact_message')}}
               </h2>
 
               @if(Session('message'))
@@ -55,7 +55,7 @@
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror       
                         <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }} has-feedback">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Nom complet" value="{{old('name')}}">
+                          <input type="text" class="form-control" id="name" name="name" placeholder="{{__('contact.name_input')}}" value="{{old('name')}}">
                           <div class="help-block with-errors"></div>
                         </div>             
                       </div>
@@ -65,7 +65,7 @@
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror 
                         <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">  
-                          <input type="text" class="form-control" id="email" name="email" placeholder="Adresse mail" value="{{old('email')}}">
+                          <input type="text" class="form-control" id="email" name="email" placeholder="{{__('contact.adresse_email_input')}}" value="{{old('email')}}">
                           <div class="help-block with-errors"></div>
                         </div>
                       </div>
@@ -75,7 +75,7 @@
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror 
                         <div class="form-group {{ $errors->has('subject') ? ' has-error' : '' }} has-feedback"> 
-                          <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" value="{{old('subject')}}">
+                          <input type="text" class="form-control" id="subject" name="subject" placeholder="{{__('contact.subject_input')}}" value="{{old('subject')}}">
                           <div class="help-block with-errors"></div>
                         </div>
                       </div> 
@@ -89,14 +89,14 @@
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror 
                         <div class="form-group {{ $errors->has('message') ? ' has-error' : '' }} has-feedback"> 
-                          <textarea class="form-control" placeholder="Message" rows="10" name="message" id="message">{{old('message')}}</textarea>
+                          <textarea class="form-control" placeholder="{{__('contact.message_input')}}" rows="10" name="message" id="message">{{old('message')}}</textarea>
                           <div class="help-block with-errors"></div>
                         </div>                        
                       </div>
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <button type="submit" id="submit" class="btn btn-common">Envoyez votre message</button>
+                    <button type="submit" id="submit" class="btn btn-common">{{__('contact.submit_input')}}</button>
                     <div id="msgSubmit" class="h3 text-center hidden"></div> 
                     <div class="clearfix"></div>   
                   </div>
@@ -106,7 +106,7 @@
             </div>
             <div class="col-md-4">
               <h2 class="title-2">
-                Contact Information
+                {{__('contact.contact_information')}}
               </h2>
               <div class="information">
                 <div class="contact-datails">
@@ -114,9 +114,9 @@
                     <i class="fa fa-map-marker icon-radius"></i>
                   </div>
                   <div class="info">
-                    <h3>Adresse</h3>
-                    <span class="detail">9 Rue des 8 mètres coop.el.nasr point du jour.</span>
-                    <span class="datail">Oran, Algérie</span>
+                    <h3>{{__('contact.adresse_info')}}</h3>
+                    <span class="detail">{{__('contact.adresse_one')}}</span>
+                    <span class="datail">{{__('contact.adresse_two')}}</span>
                   </div>
                 </div>                
                 <div class="contact-datails">
@@ -124,8 +124,8 @@
                     <i class="fa fa-phone icon-radius"></i>
                   </div>
                   <div class="info">
-                    <h3>Numéro de téléphone</h3>
-                    <span class="detail">0669-57-69-08</span>
+                    <h3>{{__('contact.phone_info')}}</h3>
+                    <span class="detail">{{__('contact.phone')}}</span>
                   </div>
                 </div>
                 <div class="contact-datails">
@@ -133,8 +133,8 @@
                     <i class="fa fa-location-arrow icon-radius"></i>
                   </div>
                   <div class="info">
-                    <h3>Adresse Mail</h3>
-                    <span class="detail"> contact.foress@gmail.com</span>
+                    <h3>{{__('contact.adresse_email_info')}}</h3>
+                    <span class="detail"> {{__('contact.adresse_email')}}</span>
                   </div>
                 </div>
               </div>

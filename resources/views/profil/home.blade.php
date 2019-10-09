@@ -20,14 +20,14 @@
                   </div>
               </div>
             @else 
-              <span class="page-sub-header-sub small">Dernier accès au Web le: 01-03-2017 à 02:55 PM</span>  
+              <span class="page-sub-header-sub small"><!--Dernier accès au Web le: 01-03-2017 à 02:55 PM--></span>  
             @endif
 
           </div>
           <div id="accordion" class="panel-group">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> Informations personnels </a> </h4>
+                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> {{__('home_profil.home_page_title')}}</a> </h4>
               </div>
               <div class="panel-collapse collapse in" id="collapseB1">
                 <div class="panel-body">
@@ -35,36 +35,36 @@
                     @csrf
                     {{ method_field('PATCH') }}
                     <div class="form-group {{ $errors->has('nom') ? ' has-error' : '' }} has-feedback">
-                      <label class="control-label">Nom</label>
+                      <label class="control-label">{{__('home_profil.last_name_input')}}</label>
                       <input class="form-control" value="{{Auth::user()->nom}}" type="text" name="nom">
                       @error('nom')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="form-group {{ $errors->has('prenom') ? ' has-error' : '' }} has-feedback">
-                      <label class="control-label">Prénom</label>
+                      <label class="control-label">{{__('home_profil.first_name_input')}}</label>
                       <input class="form-control" value="{{Auth::user()->prenom}}" type="text" name="prenom">
                       @error('prenom')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
-                      <label class="control-label">Email</label>
+                      <label class="control-label">{{__('home_profil.email_input')}}</label>
                       <input class="form-control" value="{{Auth::user()->email}}" type="email" name="email">
                       @error('email')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="form-group">
-                      <label class="control-label">Adresse</label>
+                      <label class="control-label">{{__('home_profil.adresse_input')}}</label>
                       <input class="form-control" value="{{Auth::user()->adresse}}" type="text" name="adresse">
                     </div>
                     <div class="form-group">
-                      <label for="Phone" class="control-label">Numéro de téléphone</label>
+                      <label for="Phone" class="control-label">{{__('home_profil.phone_input')}}</label>
                       <input class="form-control" id="Phone" value="{{Auth::user()->phone}}" type="text" name="phone">
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-common">Modifier</button>
+                      <button type="submit" class="btn btn-common">{{__('home_profil.update_button')}}</button>
                     </div>
                   </form>
                 </div>
@@ -73,11 +73,11 @@
             <div class="panel panel-default" id="error">
               <div class="panel-heading">
               @if ($errors->any())
-                <h4 class="panel-title"> <a href="#collapseB2" data-toggle="collapse"> Paramètres </a> </h4>
+                <h4 class="panel-title"> <a href="#collapseB2" data-toggle="collapse"> {{__('home_profil.setting_title')}} </a> </h4>
               </div>
               <div class="panel-collapse collapse in" id="collapseB2">
               @else 
-              <h4 class="panel-title"> <a aria-expanded="false" class="collapsed" href="#collapseB2" data-toggle="collapse"> Paramètres </a> </h4>
+              <h4 class="panel-title"> <a aria-expanded="false" class="collapsed" href="#collapseB2" data-toggle="collapse"> {{__('home_profil.setting_title')}} </a> </h4>
               </div>
               <div style="height: 0px;" aria-expanded="false" class="panel-collapse collapse" id="collapseB2">
               @endif
@@ -91,21 +91,21 @@
                       </div>-->
                     </div>
                     <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
-                      <label class="control-label">Nouveau mot de passe</label>
+                      <label class="control-label">{{__('home_profil.password_input')}}</label>
                       <input class="form-control" placeholder="" name="password" type="password">
                        @error('password')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="form-group {{ $errors->has('confirmPassword') ? ' has-error' : '' }} has-feedback">
-                      <label class="control-label">Confirmation</label>
+                      <label class="control-label">{{__('home_profil.confirm_password_input')}}</label>
                       <input class="form-control" placeholder="" name="confirmPassword" type="password">
                        @error('confirmPassword')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-common">Modifier</button>
+                      <button type="submit" class="btn btn-common">{{__('home_profil.update_button')}}</button>
                     </div>
                   </form>
                 </div>

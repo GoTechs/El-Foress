@@ -7,8 +7,8 @@
       <div class="overlay">
         <div class="container">
           <div class="main-text">
-            <h1 class="intro-title">Bienvenue à <span style="color: #3498DB">Foress</span></h1>
-            <p class="sub-title">Notre mission vous simplifier la vie </p>
+            <h1 class="intro-title">{{__('index.welcome_message')}} <span style="color: #3498DB">{{__('layout.name_app')}}</span></h1>
+            <p class="sub-title">{{__('index.description_message')}} </p>
     <!-- Start Search box -->
             <div class="row search-bar">
               <div class="advanced-search">
@@ -18,7 +18,7 @@
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select">
                         <select class="dropdown-product selectpicker" name="categorie" >
-                          <option value="">Toutes les catégories</option>
+                          <option value="">{{__('index.categorie_input')}}</option>
                           @foreach ($search as $key => $value)
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
                             @endforeach
@@ -27,15 +27,15 @@
                     </div>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{old('wilaya')}}">
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="{{__('index.wilaya_input')}}" type="text" value="{{old('wilaya')}}">
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{old('keyword')}}">
+                    <input class="form-control keyword" name="keyword" placeholder="{{__('index.keyword_input')}}" type="text" value="{{old('keyword')}}">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
+                    <button class="btn btn-common btn-search btn-block"><strong>{{__('index.search_button')}}</strong></button>
                   </div>
                 </form>
               </div>
@@ -56,7 +56,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="section-title">Parcourir toutes les catégories</h3>
+              <h3 class="section-title">{{__('index.category_all')}}</h3>
             </div> 
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-1 wow fadeInUpQuick" data-wow-delay="0.3s">
@@ -64,7 +64,7 @@
                   <a href="/search/1"><i class="lnr lnr-users color-1"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/1"><h4>Communauté</h4></a>
+                  <a href="/search/1"><h4>{{__('index.category_community')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -77,7 +77,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/1">Autres →</a>
+                      <a href="/search/1">{{__('index.category_other')}} →</a>
                       <sapn class="category-counter"></sapn>
                     </li>
                   </ul>
@@ -90,7 +90,7 @@
                   <a href="/search/2"><i class="lnr lnr-briefcase color-2"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/2"><h4>Emplois</h4></a>
+                  <a href="/search/2"><h4>{{__('index.category_job')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -112,7 +112,7 @@
                   <a href="/search/3"><i class="lnr lnr-apartment color-3"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/3"><h4>Immobiliers</h4></a>
+                  <a href="/search/3"><h4>{{__('index.category_real_estat')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -134,7 +134,7 @@
                   <a href="/search/4"><i class="lnr lnr-car color-4"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/4"><h4>Véhicules</h4></a>
+                  <a href="/search/4"><h4>{{__('index.category_car')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -149,7 +149,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/4">Autres →</a>
+                      <a href="/search/4">{{__('index.category_other')}} →</a>
                     </li>
                   </ul>
                 </div>
@@ -161,7 +161,7 @@
                   <a href="/search/5"><i class="lnr lnr-cart color-5"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/5"><h4>Boutiques</h4></a>
+                  <a href="/search/5"><h4>{{__('index.category_shop')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -174,7 +174,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/5">Autres →</a>
+                      <a href="/search/5">{{__('index.category_other')}} →</a>
                     </li>
                   </ul>
                 </div>
@@ -186,7 +186,7 @@
                   <a href="/search/6"><i class="lnr lnr-coffee-cup color-6"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/6"><h4>Électroménagers</h4></a>
+                  <a href="/search/6"><h4>{{__('index.category_house_hold')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -199,7 +199,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/6">Autres →</a>
+                      <a href="/search/6">{{__('index.category_other')}} →</a>
                       <sapn class="category-counter"></sapn>
                     </li>
                   </ul>
@@ -212,7 +212,7 @@
                   <a href="/search/7"><i class="lnr lnr-cog color-7"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/7"><h4>Services</h4></a>
+                  <a href="/search/7"><h4>{{__('index.category_service')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -225,7 +225,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/7">Autres →</a>
+                      <a href="/search/7">{{__('index.category_other')}} →</a>
                     </li>
                   </ul>
                 </div>
@@ -237,7 +237,7 @@
                   <a href="/search/8"><i class="lnr lnr-laptop-phone color-8"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/8"><h4>Matériel informatique</h4></a>
+                  <a href="/search/8"><h4>{{__('index.category_computer_science')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -250,7 +250,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/8">Autres →</a>
+                      <a href="/search/8">{{__('index.category_other')}} →</a>
                     </li>
                   </ul>
                 </div>
@@ -265,7 +265,7 @@
                   <a href="/search/9"><i class="lnr lnr-rocket color-9"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/9"><h4>Voyages</h4></a>
+                  <a href="/search/9"><h4>{{__('index.category_travel')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -278,7 +278,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/9">Autres →</a>
+                      <a href="/search/9">{{__('index.category_other')}} →</a>
                     </li>
                   </ul>
                 </div>
@@ -290,7 +290,7 @@
                   <a href="/search/10"><i class="lnr lnr-paw color-10"></i></a>
                 </div>
                 <div class="category-header">  
-                  <a href="/search/10"><h4>Animaux</h4></a>
+                  <a href="/search/10"><h4>{{__('index.category_animals')}}</h4></a>
                 </div>
                 <div class="category-content">
                   <ul>
@@ -303,7 +303,7 @@
                       @endif
                     @endforeach
                     <li>
-                      <a href="/search/10">Autres →</a>
+                      <a href="/search/10">{{__('index.category_other')}} →</a>
                     </li>
                   </ul>
                 </div>
@@ -320,7 +320,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
-              <h3 class="section-title">Annonces les plus visités</h3>
+              <h3 class="section-title">{{__('index.most_visited_ad')}}</h3>
               <div id="new-products" class="owl-carousel">
                @foreach ($annonces as $result) 
                 <div class="item">
@@ -359,7 +359,7 @@
                 <h3 class="counter">
                   {{ $analyticsData <> [] ? $analyticsData[0][visitors] : '0' }}
                 </h3>
-                <p>Nombre de visiteurs</p>
+                <p>{{__('index.number_visitors')}}</p>
               </div>
             </div>
           </div>
@@ -372,7 +372,7 @@
               </div>
               <div class="desc">
                 <h3 class="counter">{{$nbrAds}}</h3>
-                <p>Nombre d'annonces</p>
+                <p>{{__('index.number_ads')}}</p>
               </div>
             </div>
           </div>
@@ -385,7 +385,7 @@
               </div>
               <div class="desc">
                 <h3 class="counter">150</h3>
-                <p>Annonces Premium</p>
+                <p>{{__('index.ads_premium')}}</p>
               </div>
             </div>
           </div>

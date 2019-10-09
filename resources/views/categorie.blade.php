@@ -28,7 +28,7 @@
                           @foreach ($search as $key => $value)  
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
                           @endforeach
-                          @endif                            
+                          @endif                                 
                        </select>                                    
                       </label>
                     </div>
