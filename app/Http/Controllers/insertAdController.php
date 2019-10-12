@@ -77,7 +77,6 @@ class insertAdController extends Controller
 
          if($request->hasfile('fileToUpload'))
         {
-
             foreach($request->fileToUpload as $image)
             {
                 $name = $image->getClientOriginalName();
@@ -86,17 +85,15 @@ class insertAdController extends Controller
                 //$image->move(public_path().'/images/', $name);
 
                 //Upload File to s3
-                $test =  Storage::disk('s3')->put($name, file_get_contents($image), 'public');
+                Storage::disk('s3')->put($name, file_get_contents($image), 'public');
 
                 $fileModel = new imagead();
                 $fileModel->imagename = $name;
                 $fileModel->id_annonce = $lastID;
                 $fileModel->save();               
                 
-            }
-             
-        }
-         
+            }             
+        }         
 
         if ($idSousCat == '2'){
             $event = adEvent::create([
@@ -203,6 +200,7 @@ class insertAdController extends Controller
     public function edit($id){
 
         $annonce = DB::table('annonces')->where('id', '=', $id)->first();
+        //$image = DB::table('imageads')->where('id_annonce', '=', $id)->get();
 
         $idCat = $annonce->id_Cat;
         $idSousCat = $annonce->id_sous_Cat;
@@ -266,25 +264,40 @@ class insertAdController extends Controller
     public function update($id, Request $request){        
 
         // Save and upload picture if exist
+
         if($request->hasfile('fileToUpload'))
         {
-            //Update IMAGES
             //Delete Those there exist
-            $checkAd = imagead::where('id_annonce', $id)->delete();
-            //File::delete($image_path);
+
+            $result = DB::table('imageads')->where('id_annonce', '=', $id)->get();
+
+            $nbrePicture = $result->count();
+
+            if ($nbrePicture <> '0'){
+                foreach ($result as $picture) {
+                    Storage::disk('s3')->delete($picture->imagename);
+                    DB::table('imageads')->where('id', '=', $picture->id)->delete();                
+                }
+            }
 
             foreach($request->fileToUpload as $image)
             {
+
                 $name = $image->getClientOriginalName();
                 $currentDate = date('YmdHis');
                 $name = $currentDate.$name;
-                $image->move(public_path().'/images/', $name);
+
+                //Upload File to s3
+                Storage::disk('s3')->put($name, file_get_contents($image), 'public');
+
                 $fileModel = new imagead();
                 $fileModel->imagename = $name;
                 $fileModel->id_annonce = $id;
-                $fileModel->save();
-            }
-        }
+                $fileModel->save();               
+                
+            }          
+             
+        } 
 
         $annonce = annonce::find($id);
 
