@@ -111,12 +111,3 @@ Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
 // Update User Password
 
 Route::patch('/updatePassword/{idpost}','ProfilController@updatePassword')->middleware('auth');
-
-Route::get('lang/{locale}', function($locale){
-
-        \App::setLocale($locale);
-        //storing the locale in session to get it back in the middleware
-        session()->put('locale', $locale);
-        return redirect()->back();
-
-});

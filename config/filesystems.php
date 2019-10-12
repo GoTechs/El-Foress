@@ -57,11 +57,11 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
+            'key' => 'AKIA22BBQECAVDX5SH4M',
+            'secret' => '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',
+            'region' => 'ca-central-1',
+            'bucket' => 'foress',
+            'url' => 'http://foress.s3-ca-central-1.amazonaws.com',
         ],
 
     ],

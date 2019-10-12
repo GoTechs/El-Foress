@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
         "sendgrid/sendgrid": "^7.3",
         "spatie/laravel-analytics": "3.7.0",
         "yajra/laravel-datatables-oracle": "^9.4"

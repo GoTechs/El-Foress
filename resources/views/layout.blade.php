@@ -60,14 +60,6 @@
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    @php $locale = session()->get('locale'); @endphp
-                    @if($locale == 'fr')
-                        <li><a href="lang/ar"> AR </a></li>
-                        <li><a href="lang/fr"> <strong> FR </strong></a></li>
-                    @else 
-                        <li><a href="lang/ar"> <strong> AR </strong></a></li>
-                        <li><a href="lang/fr"> FR </a></li>
-                    @endif
                     @auth
                         <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>

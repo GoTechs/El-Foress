@@ -59,12 +59,6 @@
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    @php $locale = session()->get('locale'); @endphp
-                    @if($locale == 'fr')
-                        <li><a href="lang/ar"> <strong> AR </strong></a></li>
-                    @else 
-                        <li><a href="lang/fr"> <strong> FR </strong></a></li>
-                    @endif
                     <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out"></i> {{__('layout.logout_button')}}</a></li>
                     <li class="postadd">

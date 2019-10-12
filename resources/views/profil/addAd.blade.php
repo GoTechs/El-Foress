@@ -48,12 +48,6 @@
         <!-- Navbar Start -->
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav navbar-right">
-            @php $locale = session()->get('locale'); @endphp
-            @if($locale == 'fr')
-                <li><a href="lang/ar"> <strong> AR </strong></a></li>
-            @else 
-                <li><a href="lang/fr"> <strong> FR </strong></a></li>
-            @endif
             <li>
               <a href="/my-ads"><i class="fa fa-home"></i> {{__('layout.index_menu')}}</a>
             </li>
@@ -488,7 +482,7 @@
           <h2 class="title-2">Média</h2>
           <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur votre annonce</label>
-              <input class="form-control" name="fileToUpload[]" type="file" multiple value="{{old('fileToUpload[]')}}"> <br>
+              <input class="form-control" name="fileToUpload[]" type="file" multiple> <br>
           </div>
           </div>
           <div class="mb30"></div>

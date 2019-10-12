@@ -17,7 +17,8 @@
                 @endif             
                 <div class="fotorama">
                   @foreach ($images as $image)
-                  <img src="{{asset('images/'.$image->imagename)}}">
+                  <!--<img src="{{asset('images/'.$image->imagename)}}">-->
+                  <img src="{{Storage::disk('s3')->url($image->imagename)}}">
                   @endforeach
                 </div>
 

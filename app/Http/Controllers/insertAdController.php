@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use App\Users;
 use App\annonce;
 use App\categories;
@@ -30,6 +31,7 @@ class insertAdController extends Controller
 {
 
     public function store(Request $request){
+
 
         $idUser = Auth::user()->id;
 
@@ -73,7 +75,7 @@ class insertAdController extends Controller
 
         // Save and upload picture if exist
 
-        if($request->hasfile('fileToUpload'))
+         if($request->hasfile('fileToUpload'))
         {
 
             foreach($request->fileToUpload as $image)
@@ -81,13 +83,20 @@ class insertAdController extends Controller
                 $name = $image->getClientOriginalName();
                 $currentDate = date('YmdHis');
                 $name = $currentDate.$name;
-                $image->move(public_path().'/images/', $name);
+                //$image->move(public_path().'/images/', $name);
+
+                //Upload File to s3
+                $test =  Storage::disk('s3')->put($name, file_get_contents($image), 'public');
+
                 $fileModel = new imagead();
                 $fileModel->imagename = $name;
                 $fileModel->id_annonce = $lastID;
-                $fileModel->save();
+                $fileModel->save();               
+                
             }
+             
         }
+         
 
         if ($idSousCat == '2'){
             $event = adEvent::create([
