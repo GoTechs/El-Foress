@@ -77,7 +77,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
+                        <h2 class="title-2">Modification</h2><!-- Start Search box -->
                         <div class="row search-bar mb30 red-bg">
                             <div class="advanced-search">
                                 <form class="search-form" method="post" action="/update-AD/{{$annonce->id}}" enctype="multipart/form-data">
