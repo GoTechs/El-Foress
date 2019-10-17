@@ -45,12 +45,12 @@
               </h3>
               <form class="login-form" method="post" action="/connexion">
                 @csrf
-                <div class="form-group {{ $errors->has('username') ? ' has-error' : '' }} has-feedback">
+                <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-user"></i>
-                    <input type="text" id="username" class="form-control" name="username" placeholder="{{__('authentication.user_input')}}" value="{{old('username')}}">
+                    <input type="text" id="username" class="form-control" name="email" placeholder="{{__('authentication.email_input')}}" value="{{old('email')}}">
                   </div>
-                    @error('username')
+                    @error('email')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div> 

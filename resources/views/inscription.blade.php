@@ -37,48 +37,12 @@
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
-                <div class="form-group {{ $errors->has('prenom') ? ' has-error' : '' }} has-feedback">
-                  <div class="input-icon">
-                    <i class="icon fa fa-user"></i>
-                    <input type="text" id="prenom" class="form-control" name="prenom" placeholder="{{__('authentication.first_name_input')}}" value="{{old('prenom')}}">
-                  </div>
-                  @error('prenom')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-                <div class="form-group {{ $errors->has('adresse') ? ' has-error' : '' }} has-feedback">
-                  <div class="input-icon">
-                    <i class="icon fa fa-envelope"></i>
-                    <input type="text" id="adresse" class="form-control" name="adresse" placeholder="{{__('authentication.adresse_input')}}" value="{{old('adresse')}}">
-                  </div>
-                  @error('adresse')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-                <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} has-feedback">
-                  <div class="input-icon">
-                    <i class="icon fa fa-phone"></i>
-                    <input type="text" id="phone" class="form-control" name="phone" placeholder="{{__('authentication.phone_input')}}" value="{{old('phone')}}">
-                  </div>
-                  @error('phone')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-envelope"></i>
                     <input  id="email" class="form-control" name="email" placeholder="{{__('authentication.email_input')}}" value="{{old('email')}}">
                   </div>
                   @error('email')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-                <div class="form-group {{ $errors->has('username') ? ' has-error' : '' }} has-feedback">
-                  <div class="input-icon">
-                    <i class="icon fa fa-user"></i>
-                    <input type="text" id="username" class="form-control" name="username" placeholder="{{__('authentication.username_input')}}" value="{{old('username')}}">
-                  </div>
-                  @error('username')
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>

@@ -59,7 +59,7 @@
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
+                    <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out"></i> {{__('layout.logout_button')}}</a></li>
                     <li class="postadd">
                         <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> {{__('layout.post_button')}}</a>
@@ -107,7 +107,7 @@
             <div aria-expanded="true" id="myclassified" class="panel-collapse collapse in">
               <ul class="acc-list">
                 <li class="{{ (request()->is('home')) ? 'active' : '' }}">
-                  <a href="/home"><i class="fa fa-home"></i> {{Auth::user()->username}}  </a>
+                  <a href="/home"><i class="fa fa-home"></i> {{Auth::user()->nom}}  </a>
                 </li>
               </ul>
             </div>

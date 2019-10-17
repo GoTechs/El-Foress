@@ -218,8 +218,7 @@ class ProfilController extends Controller
 
         $validator = Validator::make($request->all(),[
             "nom" => "required",
-            "prenom" => "required",
-            "email" => "email|max:255|unique:users",
+            "email" => "required|email|max:255|unique:users",
         ]);
 
         if ($validator->fails()) {
@@ -231,8 +230,6 @@ class ProfilController extends Controller
         $user = Users::find($id);
 
         $user->nom = request('nom');
-        $user->prenom = request('prenom');
-        $user->adresse = request('adresse');
         $user->email = request('email');
         $user->phone = request('phone');
 

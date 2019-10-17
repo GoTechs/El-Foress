@@ -7,7 +7,7 @@
       <div class="col-sm-9 page-content">
         <div class="inner-box">
           <div class="usearadmin">
-            <h3><a href="#"><img class="userimg" src="{{asset('img/picto-user.png')}}" alt=""> {{Auth::user()->nom ." ". Auth::user()->prenom}}</a></h3>
+            <h3><a href="#"><img class="userimg" src="{{asset('img/picto-user.png')}}" alt=""> {{Auth::user()->nom}}</a></h3>
           </div>
         </div>
         <div class="inner-box">
@@ -41,23 +41,12 @@
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
-                    <div class="form-group {{ $errors->has('prenom') ? ' has-error' : '' }} has-feedback">
-                      <label class="control-label">{{__('home_profil.first_name_input')}}</label>
-                      <input class="form-control" value="{{Auth::user()->prenom}}" type="text" name="prenom">
-                      @error('prenom')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                      @enderror
-                    </div>
                     <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                       <label class="control-label">{{__('home_profil.email_input')}}</label>
                       <input class="form-control" value="{{Auth::user()->email}}" type="email" name="email">
                       @error('email')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label">{{__('home_profil.adresse_input')}}</label>
-                      <input class="form-control" value="{{Auth::user()->adresse}}" type="text" name="adresse">
                     </div>
                     <div class="form-group">
                       <label for="Phone" class="control-label">{{__('home_profil.phone_input')}}</label>

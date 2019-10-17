@@ -18,11 +18,7 @@ class AuthController extends Controller
 
         $validator = Validator::make($request->all(),[
             "nom" => "required|string",
-            "prenom" => "required|string",
-            "adresse" => "nullable|string",
             "email" => "required|email|max:255|unique:users",
-            "phone" => "nullable",
-            "username" => "required|min:6|max:55",
             "password" => "required|min:6|max:55",
             "confirmPassword" => "required|same:password",
         ]);
@@ -34,13 +30,13 @@ class AuthController extends Controller
         }
 
         $nom = $request->nom;
-        $prenom = $request->prenom;
-        $adresse = $request->adresse;
-        $phone = $request->phone;
         $email = $request->email;
-        $username = $request->username;
         $request['password']= bcrypt($request->password);
-        Users::create($request->all());
+        Users::create([
+            'nom' => request('nom'),
+            'email' => request('email'),
+            'password' => request('password'),
+        ]);
 
         return redirect('connexion')->with('message','Inscription réussie : Connectez-vous pour ajouter des annonces');
     }
@@ -52,7 +48,7 @@ class AuthController extends Controller
     public function checklogin(Request $request){
 
         $validator = Validator::make($request->all(),[
-            "username" => "required",
+            "email" => "required|email",
             "password" => "required",
         ]);
 
@@ -62,11 +58,11 @@ class AuthController extends Controller
                 ->withInput();
         }
 
-        $username = $request->username;
+        $email = $request->email;
         $password = $request->password;
 
         if (Auth::attempt([
-            'username'=> $username,
+            'email'=> $email,
             'password'=> $password
         ]))
         {

@@ -61,7 +61,7 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     @auth
-                        <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->username}}</a></li>
+                        <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                     @else
                         <li><a href="/connexion"><i class="fa fa-sign-in"></i> {{__('layout.login_button')}}</a></li>

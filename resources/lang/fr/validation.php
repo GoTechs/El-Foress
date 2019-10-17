@@ -82,6 +82,9 @@ return [
         'condition' => [
             'required' => 'Vous devez accepter nos conditions d’utilisation pour poster l’annonce',
         ],
+        'email' => [
+            'unique' => 'Vous êtes déjà inscrit',
+        ],
     ],
 
     /*
