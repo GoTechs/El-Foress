@@ -82,45 +82,28 @@
               <div class="advanced-search">
                 <form class="search-form" method="post" action="/insertAd" enctype="multipart/form-data">
                     @csrf
-                  <div class="col-md-4 col-sm-12 search-col">
-                    <div class="input-group-addon search-category-container">
-                        <select class="form-control"  id="categorie" name="categorie">
-                            <option value="">Catégories</option>
-                            
-
-                            @if (isset($_POST['categorie']))
-                          @foreach ($categorie as $key => $value)                                
-                              @if($_POST['categorie'] == $value->idCat)
-                                <option value="{{$value->idCat}}" selected="">{{ $value->categories }}</option>
-                              @else 
-                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                              @endif
+                  <div class="form-group">
+                    <select class="form-control"  id="categorie" name="categorie">
+                      <option value="">Catégories</option>
+                          @foreach ($categorie as $key => $value)    
+                            <option @if(old('categorie') == $value->idCat) {{ 'selected' }} @endif value="{{$value->idCat}}">{{ $value->categories }}</option>
                           @endforeach
-                          @else
-                          @foreach ($categorie as $key => $value)  
-                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                          @endforeach
-                          @endif  
-                        </select>
-                      </div>
-                  </div>
-                 <div class="col-md-4 col-sm-12 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <select class="form-control" id="sousCat" name="sousCat" onchange="field()">
-                         <option value="">Sous Catégories</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <label class="styled-select location-select"><span class="hidden-sm hidden-xs"> </span>
-                          <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{old('wilaya')}}">
-                          </label>
-                    </div>
-                  </div>
+                    </select>
+                  </div>                 
               </div>
-            </div><!-- End Search box -->            
-              <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
+            </div>
+
+            <div class="form-group sub_cat">
+              <label class="control-label" for="textarea">Sous Catégories</label> 
+              <select class="form-control" id="sousCat" name="sousCat" onchange="field()">
+                 <option value="">Sous Catégories</option>
+              </select>
+            </div>
+          </div>
+          <input type="hidden" id="id_subcat" value="{{old('sousCat')}}">  
+          <div class="mb30"></div>
+          <div class="box">
+           <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Titre de l'annonce</label>
                   <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{old('Adtitle')}}">
               </div>
@@ -136,13 +119,9 @@
               <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{old('descrp')}}</textarea>
               </div>
-           
-            <!--<div class="content" ng-if="form.template">
-             <div data-ng-include="'templates/' + form.template + '.php'"></div>
-            </div>-->
-          </div>
-            
- <!-- ********************************************* VEHICULES ************************************=*********** -->
+          </div> 
+
+ <!-- ********************************************* VEHICULES ********************************************** -->
             
           <div class="mb30"></div>
           <div class="box details" id="vehicule">
@@ -226,7 +205,7 @@
           </div>
           </div>
             
-<!-- ********************************************* STOCKAGE ******************************************************** -->
+<!-- ******************************************** STOCKAGE ******************************************* -->
             
           <div class="mb30"></div>
           <div class="box details" id="stockage">
@@ -459,15 +438,24 @@
               <input class="form-control" placeholder="Prix en DA" name="prix" type="text" value="{{old('prix')}}">
           </div>
           </div>
+
+          <div class="mb30"></div>
+          <div class="box">
+          <h2 class="title-2">Emplacement</h2>
+          <div class="form-group {{ $errors->has('wilaya') ? ' has-error' : '' }} has-feedback">
+            <label class="control-label" for="textarea">Wilaya</label>
+              <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{old('wilaya')}}">
+          </div>
+          </div>
             
           <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Coordonnées</h2>
-          <div class="form-group">
+          <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">E-mail</label>
               <input class="form-control" placeholder="Votre E-mail" name="email" id="email" type="text" value="{{old('email')}}">
           </div>
-          <div class="form-group">
+          <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Numéro de téléphone</label>
               <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" type="text" value="{{old('phone')}}">
             <div class="checkbox">
@@ -614,7 +602,103 @@
       <script>
           
           $(document).ready(function() {
-                $('.details').hide();
+
+                var categorie = $( "#categorie option:selected" ).text();
+
+                if (categorie != 'Catégories'){
+                  var cat_id = $( "#categorie option:selected" ).val();
+                  var subcat_id = $('#id_subcat').val();
+
+                  $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
+
+                      $('#sousCat').empty();
+                      $('#sousCat').append('<option value="" disable="true" selected="true">Sous Catégories</option>');
+
+                      $.each(data, function(index, sousCatObj){
+                        if (subcat_id != ''){
+                          if (subcat_id == sousCatObj.idSousCat ){
+                            $('#sousCat').append('<option selected value="'+ sousCatObj.idSousCat +'">'+ sousCatObj.sousCat +'</option>');
+                          } else {
+                            $('#sousCat').append('<option value="'+ sousCatObj.idSousCat +'">'+ sousCatObj.sousCat +'</option>');
+                          }
+
+                          } else {
+                            $('#sousCat').append('<option value="'+ sousCatObj.idSousCat +'">'+ sousCatObj.sousCat +'</option>');
+                          }
+                      })
+
+                      $('.sub_cat').show();
+                      var nameSousCat = $( "#sousCat option:selected" ).text();
+                switch (nameSousCat)  {
+
+                case "Automobiles":
+                case "Camions":
+                case "Remorques":
+                case "Engin":
+                case "Tracteurs":
+                case "Motos - Scooters":
+                case "Bus":
+                case "Bateaux":
+                    $('#vehicule, .state').show();    
+                    $('#phone, #stockage, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
+                    break;
+                      
+                case "Téléphones":
+                    $('#phone, .state').show();
+                    $('#vehicule, #stockage, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
+                    break;
+                      
+                case "Stockage":
+                    $('#stockage, .state').show();
+                    $('#vehicule, #phone, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
+                    break;
+                      
+                case "Ordinateurs":
+                    $('#ordinateurs, .state').show();
+                    $('#vehicule, #stockage, #phone, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
+                    break;
+
+                case "Offres d'emploi":
+                    $('#offresEmploi').show();
+                    $('#vehicule, #stockage, #phone, .state, #ordinateurs, #demandesEmploi, #immobilier, #event').hide();
+                    break;
+
+                 case "Demandes d'emploi":
+                      $('#demandesEmploi').show();
+                      $('#vehicule, #stockage, #phone, .state, #ordinateurs, #offresEmploi, #immobilier, #event').hide();
+                      break;
+
+                 case "Événements":
+                      $('#event').show();
+                      $('#vehicule, #stockage, #phone, .state, #ordinateurs, #offresEmploi, #immobilier, #demandesEmploi').hide();
+                      break;
+
+                 case "Vente":
+                 case "Cherche Achat":
+                 case "Location":
+                 case "Cherche Location":
+                      $('#immobilier, .state').show();
+                      $('#vehicule, #stockage, #phone, #ordinateurs, #offresEmploi, #demandesEmploi, #event').hide();
+                      break;
+
+
+                case "hideState":
+                    $('.state').hide();
+                    $('.details').hide();
+                    break;
+
+                default:
+                      // Hiding All Elements
+                      $('.details').hide();
+                      $('.state').show();
+                    break;
+              }
+
+                  });
+
+                } else {
+                    $('.details, .sub_cat').hide();
+                  }
 
             });
           
@@ -709,11 +793,12 @@
               $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
 
                   $('#sousCat').empty();
-                  $('#sousCat').append('<option value="0" disable="true" selected="true">Sous Catégories</option>');
+                  $('#sousCat').append('<option value="" disable="true" selected="true">Sous Catégories</option>');
 
                   $.each(data, function(index, sousCatObj){
                       $('#sousCat').append('<option value="'+ sousCatObj.idSousCat +'">'+ sousCatObj.sousCat +'</option>');
                   })
+                  $('.sub_cat').show();
               });
           });
 

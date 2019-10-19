@@ -61,10 +61,15 @@ class AuthController extends Controller
         $email = $request->email;
         $password = $request->password;
 
+        $rememberMe = false;
+        if ($request->rememberme == '1'){
+            $rememberMe = true;
+        }
+
         if (Auth::attempt([
             'email'=> $email,
             'password'=> $password
-        ]))
+        ], $rememberMe))
         {
             //return redirect('/my-ads');
             return redirect()->intended('my-ads');

@@ -39,9 +39,11 @@ class insertAdController extends Controller
             "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
             "categorie" => "required",
             "sousCat" => "required",
-            "wilaya" => "required",
             "Adtitle" => "required|min:6",
             "descrp" => "required",
+            "wilaya" => "required",
+            "email" => "email|nullable",
+            "phone" => "numeric|nullable",
             "condition" => "required",
         ]);
 

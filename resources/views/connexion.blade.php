@@ -64,7 +64,7 @@
                     @enderror
                 </div>                  
                 <div class="checkbox">
-                  <input type="checkbox" id="remember" name="rememberme" value="{{ old('remember') ? 'checked' : '' }}" style="float: left;">
+                  <input type="checkbox" id="remember" name="rememberme" value="1" style="float: left;">
                   <label for="remember">{{__('authentication.remember_input')}}</label>
                 </div>
                 <button class="btn btn-common log-btn" name="connect" type="submit">{{__('authentication.connect_submit_button')}}</button>
