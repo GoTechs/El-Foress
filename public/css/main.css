@@ -2337,7 +2337,7 @@ table.add-manage-table > tbody > tr > th {
 }
 .panel-group .panel {
   margin-bottom: 24px;
-  width: 106%;
+  width: 100%;
 }
 .panel-default {
   border-radius: 0px;

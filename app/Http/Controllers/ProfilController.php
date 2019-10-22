@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Rules\MatchOldPassword;
 use App\Users;
 use App\annonce;
 use App\categories;
@@ -217,8 +218,9 @@ class ProfilController extends Controller
     public function updateUser($id, Request $request){
 
         $validator = Validator::make($request->all(),[
-            "nom" => "required",
-            "email" => "required|email|max:255|unique:users",
+            "nom" => "required|string",
+            //"email" => "required|email|max:255|unique:users",
+            "phone" => "numeric|nullable",
         ]);
 
         if ($validator->fails()) {
@@ -230,7 +232,6 @@ class ProfilController extends Controller
         $user = Users::find($id);
 
         $user->nom = request('nom');
-        $user->email = request('email');
         $user->phone = request('phone');
 
         $user->save();
@@ -241,6 +242,7 @@ class ProfilController extends Controller
     public function updatePassword($id, Request $request){
 
         $validator = Validator::make($request->all(),[
+            "currentpassword" => ["required",new MatchOldPassword],
             "password" => "required|min:6|max:55",
             "confirmPassword" => "required|same:password",
         ]);

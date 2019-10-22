@@ -41,16 +41,16 @@
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
-                    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
-                      <label class="control-label">{{__('home_profil.email_input')}}</label>
-                      <input class="form-control" value="{{Auth::user()->email}}" type="email" name="email">
-                      @error('email')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                      @enderror
-                    </div>
                     <div class="form-group">
+                      <label class="control-label">{{__('home_profil.email_input')}}</label>
+                      <input class="form-control" value="{{Auth::user()->email}}" type="email" name="email" disabled>
+                    </div>
+                    <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} has-feedback">
                       <label for="Phone" class="control-label">{{__('home_profil.phone_input')}}</label>
                       <input class="form-control" id="Phone" value="{{Auth::user()->phone}}" type="text" name="phone">
+                      @error('phone')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-common">{{__('home_profil.update_button')}}</button>
@@ -79,16 +79,23 @@
                         <label><input type="checkbox">Activés les commentaires sur mes annonces </label>
                       </div>-->
                     </div>
+                    <div class="form-group {{ $errors->has('currentpassword') ? ' has-error' : '' }} has-feedback">
+                      <label class="control-label">Mot de passe actuel</label>
+                      <input class="form-control" placeholder="" name="currentpassword" type="password" value="{{old('currentpassword')}}">
+                       @error('currentpassword')
+                      <div class="invalid-feedback">{!! $message !!}</div>
+                      @enderror
+                    </div>
                     <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
                       <label class="control-label">{{__('home_profil.password_input')}}</label>
-                      <input class="form-control" placeholder="" name="password" type="password">
+                      <input class="form-control" placeholder="" name="password" type="password" value="{{old('password')}}">
                        @error('password')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="form-group {{ $errors->has('confirmPassword') ? ' has-error' : '' }} has-feedback">
                       <label class="control-label">{{__('home_profil.confirm_password_input')}}</label>
-                      <input class="form-control" placeholder="" name="confirmPassword" type="password">
+                      <input class="form-control" placeholder="" name="confirmPassword" type="password" value="{{old('confirmPassword')}}">
                        @error('confirmPassword')
                       <div class="invalid-feedback">{{ $message }}</div>
                       @enderror

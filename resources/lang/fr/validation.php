@@ -66,6 +66,7 @@ return [
     "unique"           => "La valeur du champ :attribute est déjà utilisée.",
     "url"              => "Le format de l'URL de :attribute n'est pas valide.",
     'uploaded' => 'Echec du téléchargement des l\'images.',
+    'matcholdpasswor' => 'Le mot de passe saisi n’est pas valide.',
 
     /*
     |--------------------------------------------------------------------------
