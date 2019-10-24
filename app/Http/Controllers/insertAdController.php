@@ -263,7 +263,22 @@ class insertAdController extends Controller
 
     }
 
-    public function update($id, Request $request){        
+    public function update($id, Request $request){   
+
+        $validator = Validator::make($request->all(),[
+            "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
+            "Adtitle" => "required|min:6",
+            "descrp" => "required",
+            "wilaya" => "required",
+            "email" => "email|nullable",
+            "phone" => "numeric|nullable",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('update-AD/'.$id.'/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }     
 
         // Save and upload picture if exist
 

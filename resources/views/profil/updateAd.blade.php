@@ -82,55 +82,47 @@
                             <div class="advanced-search">
                                 <form class="search-form" method="post" action="/update-AD/{{$annonce->id}}" enctype="multipart/form-data">
                                     @csrf
-                                    {{ method_field('PATCH') }}
-                                    <div class="col-md-4 col-sm-12 search-col">
-                                        <div class="input-group-addon search-category-container">
-                                            <select class="form-control"  id="categorie" name="categorie" readonly>
-                                                <option value="">Catégories</option>
-                                                @foreach ($categorie as $key => $value)
-                                                    @if ($annonce->id_Cat == $value->idCat)
-                                                        <option value="{{$value->idCat}}" selected>{{ $value->categories }}</option>
-                                                    @else
-                                                        <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
+                                    {{ method_field('PATCH') }}                              
 
-                                    <div class="col-md-4 col-sm-12 search-col">
-                                        <div class="input-group-addon search-category-container">
-                                            <select class="form-control" id="sousCat" name="sousCat" readonly>
-                                                <option value="">Sous Catégories</option>
-                                                @foreach ($sousCategorie as $key => $value)
-                                                    @if ($annonce->id_sous_Cat == $value->idSousCat)
-                                                        <option value="{{$value->idSousCat}}" selected>{{ $value->sousCat }}</option>
-                                                    @else
-                                                        <option value="{{$value->idSousCat}}">{{ $value->sousCat }}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12 search-col">
-                                        <div class="input-group-addon search-category-container">
-                                            <label class="styled-select location-select"><span class="hidden-sm hidden-xs"> </span>
-                                                <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{$annonce->wilaya}}">
-                                            </label>
-                                        </div>
-                                    </div>
-
-
-                            </div>
-                        </div><!-- End Search box -->
-                        <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
-                            <label class="control-label">Titre de l'annonce</label>
-                            <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{$annonce->titre}}">
+                            <div class="form-group">
+                                <select class="form-control"  id="categorie" name="categorie" disabled>
+                                  <option value="">Catégories</option>
+                                     @foreach ($categorie as $key => $value)
+                                        @if ($annonce->id_Cat == $value->idCat)
+                                            <option value="{{$value->idCat}}" selected>{{ $value->categories }}</option>
+                                        @else
+                                            <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>                 
                         </div>
-                        <div class="form-group state">
-                            <label class="control-label" for="textarea">État</label>
-                            <select class="form-control" name="etat">
-                                <option value="">Sélectionner</option>
+                    </div>
+                    <div class="form-group sub_cat">
+                      <label class="control-label" for="textarea">Sous Catégories</label> 
+                      <select class="form-control" id="sousCat" name="sousCat" onchange="field()" disabled>
+                         <option value="">Sous Catégories</option>
+                         @foreach ($sousCategorie as $key => $value)
+                            @if ($annonce->id_sous_Cat == $value->idSousCat)
+                                <option value="{{$value->idSousCat}}" selected>{{ $value->sousCat }}</option>
+                            @else
+                                <option value="{{$value->idSousCat}}">{{ $value->sousCat }}</option>
+                            @endif
+                        @endforeach
+                      </select>
+                    </div>
+                </div>
+                
+          <div class="mb30"></div>
+          <div class="box">
+           <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
+                <label class="control-label">Titre de l'annonce</label>
+                  <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{$annonce->titre}}">
+              </div>
+              <div class="form-group state">
+                <label class="control-label" for="textarea">État</label> 
+                <select class="form-control" name="etat">
+                    <option value="">Sélectionner</option>
                                 @if ($annonce->etat == 'Produit neuf jamais utilisé')
                                     <option selected>Produit neuf jamais utilisé</option>
                                     <option>État neuf (Sous emballage)</option>
@@ -144,14 +136,14 @@
                                     <option>État neuf (Sous emballage)</option>
                                     <option selected>État moyen</option>
                                 @endif
-                            </select>
-                        </div>
-                        <div class="form-group mb30">
-                            <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{$annonce->description}}</textarea>
-                        </div>
-                    </div>
+                </select>
+              </div>
+              <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
+                <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{$annonce->description}}</textarea>
+              </div>
+          </div> 
 
-<!-- ********************************************* VEHICULES ************************************************************** -->
+<!-- ************************************** VEHICULES ****************************************** -->
                 @if ($annonce->id_sous_Cat <> '14' and $annonce->id_Cat == '4')
                     <div class="mb30"></div>
                     <div class="box details" id="vehicule">
@@ -218,7 +210,7 @@
                         </div>
                     </div>
 
-<!-- ********************************************* PHONE ***************************************************************** -->
+<!-- ************************************ PHONE ******************************************** -->
                 @elseif ($annonce->id_sous_Cat == 16)
                     <div class="mb30"></div>
                     <div class="box details" id="phone">
@@ -241,7 +233,7 @@
                         </div>
                     </div>
 
-<!-- ********************************************* STOCKAGE ************************************************************* -->
+<!-- **************************************** STOCKAGE ********************************* -->
                     @elseif ($annonce->id_sous_Cat == 36)
                     <div class="mb30"></div>
                     <div class="box details" id="stockage">
@@ -283,7 +275,7 @@
                         </div>
                     </div>
 
-<!-- ********************************************* EVENEMENT ************************************************************** -->
+<!-- ********************************************* EVENEMENT ********************************* -->
                     @elseif ($annonce->id_sous_Cat == 2)
                     <div class="mb30"></div>
                     <div class="box details" id="event">
@@ -302,7 +294,7 @@
                         </div>
                     </div>
 
-<!-- ********************************************* ORDINATEURS ***************************************************** -->
+<!-- **************************************** ORDINATEURS **************************************** -->
                     @elseif ($annonce->id_sous_Cat == 37)
                     <div class="mb30"></div>
                     <div class="box details" id="ordinateurs">
@@ -361,7 +353,7 @@
                         </div>
                     </div>
 
-<!-- ********************************************* Offres d'emploi ********************************************** -->
+<!-- ********************************** Offres d'emploi ************************************* -->
                     @elseif ($annonce->id_sous_Cat == 53)
                     <div class="mb30"></div>
                     <div class="box details" id="offresEmploi">
@@ -401,7 +393,7 @@
                         </div>
                     </div>
 
-<!-- ************************************** Demandes d'emploi ************************************************** -->
+<!-- ************************************** Demandes d'emploi ************************************ -->
                     @elseif ($annonce->id_sous_Cat == 54)
                     <div class="mb30"></div>
                     <div class="box details" id="demandesEmploi">
@@ -452,7 +444,7 @@
                         </div>
                     </div>
 
-<!-- ********************************************* Immobilier ********************************************************* -->
+<!-- ********************************** Immobilier ******************************************** -->
                     @elseif ($annonce->id_Cat == 3)
                     <div class="mb30"></div>
                     <div class="box details" id="immobilier">
@@ -484,7 +476,7 @@
                         </div>
                     </div>
 
-<!-- ********************************************* INFO COMMUNE ********************************************************* -->
+<!-- *************************************** INFO COMMUNE ************************************ -->
                     @endif
                     <div class="mb30"></div>
                     <div class="box">
@@ -494,6 +486,15 @@
                             <input class="form-control" placeholder="Prix en DA" name="prix" type="number" value="{{$annonce->prix}}">
                         </div>
                     </div>
+
+                    <div class="mb30"></div>
+                      <div class="box">
+                      <h2 class="title-2">Emplacement</h2>
+                      <div class="form-group {{ $errors->has('wilaya') ? ' has-error' : '' }} has-feedback">
+                        <label class="control-label" for="textarea">Wilaya</label>
+                          <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{$annonce->wilaya}}">
+                      </div>
+                      </div>
 
                     <div class="mb30"></div>
                     <div class="box">

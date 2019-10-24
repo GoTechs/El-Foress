@@ -111,9 +111,9 @@
                 <label class="control-label" for="textarea">État</label> 
                 <select class="form-control" name="etat">
                     <option value="">Sélectionner</option>
-                    <option>Produit neuf jamais utilisé</option>
-                    <option>État neuf (Sous emballage)</option>
-                    <option>État moyen</option>
+                    <option {{ old('etat') == 'Produit neuf jamais utilisé' ? 'selected' : ''}}>Produit neuf jamais utilisé</option>
+                    <option {{ old('etat') == 'État neuf (Sous emballage)' ? 'selected' : ''}}>État neuf (Sous emballage)</option>
+                    <option {{ old('etat') == 'État moyen' ? 'selected' : ''}}>État moyen</option>
                 </select>
               </div>
               <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
@@ -121,40 +121,48 @@
               </div>
           </div> 
 
- <!-- ********************************************* VEHICULES ********************************************** -->
+ <!-- *************************************** VEHICULES ************************************** -->
             
           <div class="mb30"></div>
           <div class="box details" id="vehicule">
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <div class="checkbox">
-                <label><input type="radio" name="vente" value="selling"> Je vends </label><br>
-                <label><input type="radio" name="vente" value="searching"> Je recherche </label>
+                @if (old('vente') == 'selling')
+                    <label><input type="radio" name="vente" value="selling" checked> Je vends </label><br>
+                    <label><input type="radio" name="vente" value="searching"> Je recherche </label>
+                @elseif (old('vente') == 'searching')
+                    <label><input type="radio" name="vente" value="selling"> Je vends </label><br>
+                    <label><input type="radio" name="vente" value="searching" checked> Je recherche </label>
+                @else 
+                    <label><input type="radio" name="vente" value="selling"> Je vends </label><br>
+                    <label><input type="radio" name="vente" value="searching"> Je recherche </label>
+                @endif
               </div>
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
             <select class="form-control" name="marqueVeh">
                 <option value="">Sélectionner</option>
-                <option>Audi</option>
-                <option>BMW</option>
-                <option>Cadillac</option>
-                <option>Chevrolet</option>
-                <option>Citroen</option>
-                <option>Dacia</option>
-                <option>Honda</option>
-                <option>Hyundai</option>
-                <option>Isuzu</option>
-                <option>Kia</option>
-                <option>Seat</option>
-                <option>Skoda</option>
-                <option>Volkswagen</option>
-                <option>Baic</option>
-                <option>Nissan</option>
-                <option>Peugeot</option>
-                <option>Renault</option>
-                <option>Toyota</option>
-                <option>Autres</option>
+                <option {{ old('marqueVeh') == 'Audi' ? 'selected' : ''}}>Audi</option>
+                <option {{ old('marqueVeh') == 'BMW' ? 'selected' : ''}}>BMW</option>
+                <option {{ old('marqueVeh') == 'Cadillac' ? 'selected' : ''}}>Cadillac</option>
+                <option {{ old('marqueVeh') == 'Chevrolet' ? 'selected' : ''}}>Chevrolet</option>
+                <option {{ old('marqueVeh') == 'Citroen' ? 'selected' : ''}}>Citroen</option>
+                <option {{ old('marqueVeh') == 'Dacia' ? 'selected' : ''}}>Dacia</option>
+                <option {{ old('marqueVeh') == 'Honda' ? 'selected' : ''}}>Honda</option>
+                <option {{ old('marqueVeh') == 'Hyundai' ? 'selected' : ''}}>Hyundai</option>
+                <option {{ old('marqueVeh') == 'Isuzu' ? 'selected' : ''}}>Isuzu</option>
+                <option {{ old('marqueVeh') == 'Kia' ? 'selected' : ''}}>Kia</option>
+                <option {{ old('marqueVeh') == 'Seat' ? 'selected' : ''}}>Seat</option>
+                <option {{ old('marqueVeh') == 'Skoda' ? 'selected' : ''}}>Skoda</option>
+                <option {{ old('marqueVeh') == 'Volkswagen' ? 'selected' : ''}}>Volkswagen</option>
+                <option {{ old('marqueVeh') == 'Baic' ? 'selected' : ''}}>Baic</option>
+                <option {{ old('marqueVeh') == 'Nissan' ? 'selected' : ''}}>Nissan</option>
+                <option {{ old('marqueVeh') == 'Peugeot' ? 'selected' : ''}}>Peugeot</option>
+                <option {{ old('marqueVeh') == 'Renault' ? 'selected' : ''}}>Renault</option>
+                <option {{ old('marqueVeh') == 'Toyota' ? 'selected' : ''}}>Toyota</option>
+                <option {{ old('marqueVeh') == 'Autres' ? 'selected' : ''}}>Autres</option>
               </select>
           </div>
           <div class="form-group">
@@ -170,15 +178,15 @@
             <label class="control-label" for="textarea">Type carburant</label>
             <select class="form-control" name="typeCarb">
                     <option value="">Sélectionner</option>
-                    <option>Essence</option>
-                    <option>Gas oil</option>
-                    <option>GPL</option>
-                    <option>Eléctrique</option>
+                    <option {{ old('typeCarb') == 'Essence' ? 'selected' : ''}}>Essence</option>
+                    <option {{ old('typeCarb') == 'Gas oil' ? 'selected' : ''}}>Gas oil</option>
+                    <option {{ old('typeCarb') == 'GPL' ? 'selected' : ''}}>GPL</option>
+                    <option {{ old('typeCarb') == 'Eléctrique' ? 'selected' : ''}}>Eléctrique</option>
                 </select>
             </div>
           </div>
             
-<!-- ********************************************* PHONE ********************************************************* -->
+<!-- ************************************* PHONE ********************************************** -->
             
           <div class="mb30"></div>
           <div class="box details" id="phone">
@@ -187,17 +195,17 @@
             <label class="control-label" for="textarea">Marque</label>
             <select class="form-control" name="marquePhone">
                     <option value="">Sélectionner</option>
-                    <option>Apple</option>
-                    <option>BlackBerry</option>
-                    <option>Condor</option>
-                    <option>Ericsson</option>
-                    <option>Huawei</option>
-                    <option>LG</option>
-                    <option>Motorola</option>
-                    <option>Nokia</option>
-                    <option>Samsung</option>
-                    <option>Sony</option>
-                    <option>Autres</option>
+                    <option {{ old('marquePhone') == 'Apple' ? 'selected' : ''}}>Apple</option>
+                    <option {{old('marquePhone')== 'BlackBerry' ? 'selected' : ''}}>BlackBerry</option>
+                    <option {{ old('marquePhone') == 'Condor' ? 'selected' : ''}}>Condor</option>
+                    <option {{ old('marquePhone') == 'Ericsson' ? 'selected' : ''}}>Ericsson</option>
+                    <option {{ old('marquePhone') == 'Huawei' ? 'selected' : ''}}>Huawei</option>
+                    <option {{ old('marquePhone') == 'LG' ? 'selected' : ''}}>LG</option>
+                    <option {{ old('marquePhone') == 'Motorola' ? 'selected' : ''}}>Motorola</option>
+                    <option {{ old('marquePhone') == 'Nokia' ? 'selected' : ''}}>Nokia</option>
+                    <option {{ old('marquePhone') == 'Samsung' ? 'selected' : ''}}>Samsung</option>
+                    <option {{ old('marquePhone') == 'Sony' ? 'selected' : ''}}>Sony</option>
+                    <option {{ old('marquePhone') == 'Autres' ? 'selected' : ''}}>Autres</option>
                 </select>
           </div>
           <div class="form-group">
@@ -205,7 +213,7 @@
           </div>
           </div>
             
-<!-- ******************************************** STOCKAGE ******************************************* -->
+<!-- ************************************** STOCKAGE ******************************************* -->
             
           <div class="mb30"></div>
           <div class="box details" id="stockage">
@@ -213,12 +221,12 @@
           <div class="form-group">
             <label class="control-label" for="textarea">Type</label>
             <select class="form-control" name="typeStockage">
-                    <option value="">Sélectionner</option>
-                    <option>Flash disque</option>
-                    <option>Disque dur externe</option>
-                    <option>Disque dur interne</option>
-                    <option>Carte mémoire</option>
-                </select>
+              <option value="">Sélectionner</option>
+              <option {{old('typeStockage')== 'Flash disque' ? 'selected' : ''}}>Flash disque</option>
+              <option {{old('typeStockage')== 'Disque dur externe' ? 'selected' : ''}}>Disque dur externe</option>
+              <option {{old('typeStockage')== 'Disque dur interne' ? 'selected' : ''}}>Disque dur interne</option>
+              <option {{old('typeStockage')== 'Carte mémoire' ? 'selected' : ''}}>Carte mémoire</option>
+          </select>
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
@@ -230,7 +238,7 @@
           </div>
           </div>
 
-<!-- ********************************************* EVENEMENT *********************************************** -->
+<!-- *************************************** EVENEMENT **************************************** -->
 
             <div class="mb30"></div>
             <div class="box details" id="event">
@@ -249,7 +257,7 @@
                 </div>
             </div>
             
-<!-- ********************************************* ORDINATEURS ********************************************* -->
+<!-- ******************************** ORDINATEURS ******************************************* -->
             
           <div class="mb30"></div>    
           <div class="box details" id="ordinateurs">
@@ -258,27 +266,27 @@
             <label class="control-label" for="textarea">Marque</label>
             <select class="form-control" name="marqueOrd">
                     <option value="">Sélectionner</option>
-                    <option>Acer</option>
-                    <option>Apple</option>
-                    <option>Asus</option>
-                    <option>Dell</option>
-                    <option>HP</option>
-                    <option>Lenovo</option>
-                    <option>Samsung</option>
-                    <option>Sony</option>
-                    <option>Toshiba</option>
-                    <option>Autre</option>
+                    <option {{old('marqueOrd')== 'Acer' ? 'selected' : ''}}>Acer</option>
+                    <option {{old('marqueOrd')== 'Apple' ? 'selected' : ''}}>Apple</option>
+                    <option {{old('marqueOrd')== 'Asus' ? 'selected' : ''}}>Asus</option>
+                    <option {{old('marqueOrd')== 'Dell' ? 'selected' : ''}}>Dell</option>
+                    <option {{old('marqueOrd')== 'HP' ? 'selected' : ''}}>HP</option>
+                    <option {{old('marqueOrd')== 'Lenovo' ? 'selected' : ''}}>Lenovo</option>
+                    <option {{old('marqueOrd')== 'Samsung' ? 'selected' : ''}}>Samsung</option>
+                    <option {{old('marqueOrd')== 'Sony' ? 'selected' : ''}}>Sony</option>
+                    <option {{old('marqueOrd')== 'Toshiba' ? 'selected' : ''}}>Toshiba</option>
+                    <option {{old('marqueOrd')== 'Autre' ? 'selected' : ''}}>Autre</option>
                 </select>
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Taille de l'écran</label>
             <select class="form-control" name="tailleOrd">
-                    <option value="">Sélectionner</option>
-                    <option>14 po ou moins</option>
-                    <option>15 po</option>
-                    <option>16 po</option>
-                    <option>17 po ou plus</option>
-                </select>
+              <option value="">Sélectionner</option>
+              <option {{old('tailleOrd')== '14 po ou moins' ? 'selected' : ''}}>14 po ou moins</option>
+              <option {{old('tailleOrd')== '15 po' ? 'selected' : ''}}>15 po</option>
+              <option {{old('tailleOrd')== '16 po' ? 'selected' : ''}}>16 po</option>
+              <option {{old('tailleOrd')== '17 po ou plus' ? 'selected' : ''}}>17 po ou plus</option>
+          </select>
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Processeur</label>
@@ -294,7 +302,7 @@
           </div>
           </div>
 
-<!-- ********************************************* Offres d'emploi ****************************************** -->
+<!-- ******************************** Offres d'emploi ****************************************** -->
 
             <div class="mb30"></div>
             <div class="box details" id="offresEmploi">
@@ -302,21 +310,14 @@
                 <div class="form-group">
                     <label class="control-label" for="textarea">Domaine d'emploi</label>
                     <select class="form-control" name="domaineOffre">
-                        <option value="">Sélectionner</option>
-                        <option>Assistanat, secrétariat</option>
-                        <option>Comptabilité, Finance</option>
-                        <option>Banque et assurances</option>
-                        <option>Juridique, Fiscal, Audit, Conseil</option>
-                        <option>RH, personnel, formation</option>
-                        <option>Education, Enseignement</option>
-                        <option>Commercial, Technico Commercial, Service client</option>
-                        <option>Marketing, Communication</option>
-                        <option>Journalisme, Médias, Traduction</option>
-                        <option>Informatique, Systèmes d'information, Réseaux</option>
-                        <option>Chantier, Métiers BTP, Architecture</option>
-                        <option>Santé, Médical, Pharmacie</option>
-                        <option>Hôtellerie, Tourisme, Restauration, Loisirs</option>
-                        <option>Autre</option>
+                      <option value="">Sélectionner</option>
+                        @foreach ($domaineEmploi as $domaine)
+                            @if (old('domaineOffre') == $domaine->nomDomaine)
+                                <option selected>{{ $domaine->nomDomaine}}</option>
+                            @else
+                                <option>{{ $domaine->nomDomaine }}</option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">
@@ -341,35 +342,36 @@
                 </div>
             </div>
 
- <!-- ********************************************* Demandes d'emploi ************************************** -->
+ <!-- ******************************* Demandes d'emploi ************************************** -->
 
             <div class="mb30"></div>
             <div class="box details" id="demandesEmploi">
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <div class="checkbox">
-                        <label><input type="radio" value="Femme" name="sexe"> Femme </label><br>
-                        <label><input type="radio" value="Homme" name="sexe"> Homme </label>
+                        @if (old('sexe') == 'Femme')
+                            <label><input type="radio" value="Femme" name="sexe" checked> Femme </label><br>
+                            <label><input type="radio" value="Homme" name="sexe"> Homme </label>
+                        @elseif (old('sexe') == 'Homme')
+                            <label><input type="radio" value="Femme" name="sexe"> Femme </label><br>
+                            <label><input type="radio" value="Homme" name="sexe" checked> Homme </label>
+                        @else
+                            <label><input type="radio" value="Femme" name="sexe"> Femme </label><br>
+                            <label><input type="radio" value="Homme" name="sexe"> Homme </label>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Domaine d'emploi</label>
                     <select class="form-control" name="domaineDemande">
-                        <option value="">Sélectionner</option>
-                        <option>Assistanat, secrétariat</option>
-                        <option>Comptabilité, Finance</option>
-                        <option>Banque et assurances</option>
-                        <option>Juridique, Fiscal, Audit, Conseil</option>
-                        <option>RH, personnel, formation</option>
-                        <option>Education, Enseignement</option>
-                        <option>Commercial, Technico Commercial, Service client</option>
-                        <option>Marketing, Communication</option>
-                        <option>Journalisme, Médias, Traduction</option>
-                        <option>Informatique, Systèmes d'information, Réseaux</option>
-                        <option>Chantier, Métiers BTP, Architecture</option>
-                        <option>Santé, Médical, Pharmacie</option>
-                        <option>Hôtellerie, Tourisme, Restauration, Loisirs</option>
-                        <option>Autre</option>
+                      <option value="">Sélectionner</option>
+                        @foreach ($domaineEmploi as $domaine)
+                            @if (old('domaineDemande') == $domaine->nomDomaine)
+                                <option selected>{{ $domaine->nomDomaine}}</option>
+                            @else
+                                <option>{{ $domaine->nomDomaine }}</option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">
@@ -394,7 +396,7 @@
                 </div>
             </div>
 
-<!-- ********************************************* Immobilier **************************************************** -->
+<!-- *********************************** Immobilier ***************************************** -->
 
             <div class="mb30"></div>
             <div class="box details" id="immobilier">
@@ -403,15 +405,15 @@
                     <label class="control-label" for="textarea">Type du Bien</label>
                     <select class="form-control" name="typeBien">
                         <option value="">Sélectionner</option>
-                        <option>Appartement</option>
-                        <option>Studio</option>
-                        <option>Villa</option>
-                        <option>Local</option>
-                        <option>Terrain</option>
-                        <option>Carcasse</option>
-                        <option>Usine</option>
-                        <option>Immeuble</option>
-                        <option>Autre</option>
+                        <option {{old('typeBien')== 'Appartement' ? 'selected' : ''}}>Appartement</option>
+                        <option {{old('typeBien')== 'Studio' ? 'selected' : ''}}>Studio</option>
+                        <option {{old('typeBien')== 'Villa' ? 'selected' : ''}}>Villa</option>
+                        <option {{old('typeBien')== 'Local' ? 'selected' : ''}}>Local</option>
+                        <option {{old('typeBien')== 'Terrain' ? 'selected' : ''}}>Terrain</option>
+                        <option {{old('typeBien')== 'Carcasse' ? 'selected' : ''}}>Carcasse</option>
+                        <option {{old('typeBien')== 'Usine' ? 'selected' : ''}}>Usine</option>
+                        <option {{old('typeBien')== 'Immeuble' ? 'selected' : ''}}>Immeuble</option>
+                        <option {{old('typeBien')== 'Autre' ? 'selected' : ''}}>Autre</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -428,7 +430,7 @@
                 </div>
             </div>
 
-<!-- ********************************************* INFO COMMUNE *********************************************** -->
+<!-- *************************************** INFO COMMUNE ************************************** -->
       
           <div class="mb30"></div>
           <div class="box">
@@ -639,8 +641,9 @@
                 case "Motos - Scooters":
                 case "Bus":
                 case "Bateaux":
-                    $('#vehicule, .state').show();    
+                    $('#vehicule').show();    
                     $('#phone, #stockage, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
+                    $('.state').hide();
                     break;
                       
                 case "Téléphones":
@@ -660,25 +663,29 @@
 
                 case "Offres d'emploi":
                     $('#offresEmploi').show();
-                    $('#vehicule, #stockage, #phone, .state, #ordinateurs, #demandesEmploi, #immobilier, #event').hide();
+                    $('#vehicule, #stockage, #phone, #ordinateurs, #demandesEmploi, #immobilier, #event').hide();
+                    $('.state').hide();
                     break;
 
                  case "Demandes d'emploi":
                       $('#demandesEmploi').show();
-                      $('#vehicule, #stockage, #phone, .state, #ordinateurs, #offresEmploi, #immobilier, #event').hide();
+                      $('#vehicule, #stockage, #phone, #ordinateurs, #offresEmploi, #immobilier, #event').hide();
+                      $('.state').hide();
                       break;
 
                  case "Événements":
                       $('#event').show();
-                      $('#vehicule, #stockage, #phone, .state, #ordinateurs, #offresEmploi, #immobilier, #demandesEmploi').hide();
+                      $('#vehicule, #stockage, #phone, #ordinateurs, #offresEmploi, #immobilier, #demandesEmploi').hide();
+                      $('.state').hide();
                       break;
 
                  case "Vente":
                  case "Cherche Achat":
                  case "Location":
                  case "Cherche Location":
-                      $('#immobilier, .state').show();
+                      $('#immobilier').show();
                       $('#vehicule, #stockage, #phone, #ordinateurs, #offresEmploi, #demandesEmploi, #event').hide();
+                      $('.state').hide();
                       break;
 
 
@@ -690,7 +697,7 @@
                 default:
                       // Hiding All Elements
                       $('.details').hide();
-                      $('.state').show();
+                      $('.state').hide();
                     break;
               }
 
@@ -698,6 +705,7 @@
 
                 } else {
                     $('.details, .sub_cat').hide();
+                    $('.state').hide();
                   }
 
             });
@@ -729,8 +737,9 @@
                 case "Motos - Scooters":
                 case "Bus":
                 case "Bateaux":
-                    $('#vehicule, .state').show();    
+                    $('#vehicule').show();    
                     $('#phone, #stockage, #ordinateurs, #offresEmploi, #demandesEmploi, #immobilier, #event').hide();
+                    $('.state').hide();   
                     break;
                       
                 case "Téléphones":
@@ -760,15 +769,17 @@
 
                  case "Événements":
                       $('#event').show();
-                      $('#vehicule, #stockage, #phone, .state, #ordinateurs, #offresEmploi, #immobilier, #demandesEmploi').hide();
+                      $('#vehicule, #stockage, #phone, #ordinateurs, #offresEmploi, #immobilier, #demandesEmploi').hide();
+                      $('.state').hide();
                       break;
 
                  case "Vente":
                  case "Cherche Achat":
                  case "Location":
                  case "Cherche Location":
-                      $('#immobilier, .state').show();
+                      $('#immobilier').show();
                       $('#vehicule, #stockage, #phone, #ordinateurs, #offresEmploi, #demandesEmploi, #event').hide();
+                      $('.state').hide();
                       break;
 
 
@@ -780,13 +791,13 @@
                 default:
                       // Hiding All Elements
                       $('.details').hide();
-                      $('.state').show();
+                      $('.state').hide();
                     break;
               }
 
           }
 
-       // Load Sous catégorie from catégorir
+       // Load Sous catégorie from catégorie
 
           $('#categorie').on('change', function(e){
               var cat_id = e.target.value;

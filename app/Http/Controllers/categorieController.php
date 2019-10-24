@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\DB;
 
 use App\categories;
 use App\souscategories;
+use App\domainemploi;
 
 class categorieController extends Controller
 {
     public function categories(){
         $categorie = categories::all();
-        return view('profil.addAd', compact('categorie'));
+        $domaineEmploi = domainemploi::all();
+        return view('profil.addAd',['categorie'=>$categorie,'domaineEmploi'=>$domaineEmploi]);
     }
 
     public function sousCat(){
