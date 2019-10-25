@@ -32,7 +32,6 @@ class insertAdController extends Controller
 
     public function store(Request $request){
 
-
         $idUser = Auth::user()->id;
 
         $validator = Validator::make($request->all(),[
@@ -43,7 +42,7 @@ class insertAdController extends Controller
             "descrp" => "required",
             "wilaya" => "required",
             "email" => "email|nullable",
-            "phone" => "numeric|nullable",
+            "phone" => "regex:/^[0-9\s+-]*$/|nullable",
             "condition" => "required",
         ]);
 
@@ -271,7 +270,7 @@ class insertAdController extends Controller
             "descrp" => "required",
             "wilaya" => "required",
             "email" => "email|nullable",
-            "phone" => "numeric|nullable",
+            "phone" => "regex:/^[0-9\s+-]*$/|nullable",
         ]);
 
         if ($validator->fails()) {

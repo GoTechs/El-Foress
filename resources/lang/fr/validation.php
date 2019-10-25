@@ -86,6 +86,9 @@ return [
         'email' => [
             'unique' => 'Vous êtes déjà inscrit',
         ],
+        'password' => [
+            'regex' => 'Votre mot de passe doit inclure au moins une lettre minuscule, une lettre majuscule, un chiffre et un symbole.',
+        ],
     ],
 
     /*

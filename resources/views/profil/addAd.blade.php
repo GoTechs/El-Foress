@@ -462,8 +462,16 @@
               <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" type="text" value="{{old('phone')}}">
             <div class="checkbox">
               <label>
+                @if (old('phoneHide') == '0')
                   <input type="hidden" name="phoneHide" value="0" />
                   <input type="checkbox" value="1" name="phoneHide"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
+                @elseif (old('phoneHide') == '1')
+                  <input type="hidden" name="phoneHide" value="0" />
+                  <input type="checkbox" value="1" name="phoneHide" checked> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
+                @else
+                  <input type="hidden" name="phoneHide" value="0" />
+                  <input type="checkbox" value="1" name="phoneHide"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
+                @endif
             </div>
             </div>
           </div>
@@ -478,8 +486,14 @@
           <div class="mb30"></div>
           <div class="form-group">
             <div class="page-ads box">
-              <div class="checkbox {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
-                <label><input type="checkbox" name="condition"> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a></label>
+              <div class="checkbox {{ $errors->has('condition') ? ' has-error' : '' }} has-feedback">
+                <label>
+                  @if (old('condition') == 'on')
+                    <input type="checkbox" name="condition" checked> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
+                  @else 
+                    <input type="checkbox" name="condition"> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
+                  @endif
+                </label>
               </div><br>
               <button class="btn btn-common" type="submit">Poster</button>
             </div>
