@@ -1,5 +1,5 @@
 @component('mail::message')
-# CONTACTEZ NOUS
+# Sujet : {{$subject}}
 
 <strong>Nom : </strong> {{$name}} <br>
 <strong>Email : </strong> {{$email}} <br>
