@@ -804,7 +804,7 @@
                       <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                     </div>
                     <div class="item_desc">
-                      <a href="/details/{{$result->id}}">{{$result->description}}</a>
+                      <a href="/details/{{$result->id}}">{{Str::limit($result->description, 30)}}</a>
                     </div>
                   </div>
                 </div>
@@ -819,9 +819,15 @@
             </div>
             <!-- Adds wrapper End -->
 
-            <!-- Start Pagination -->
-            {{ $data->appends(request()->input())->links() }}
-            <!-- End Pagination -->
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-5">
+
+                <!-- Start Pagination -->
+                {{ $data->links() }}
+                <!-- End Pagination -->
+
+              </div>
+            </div>
           @else 
 
           <div class="alert alert-warning" role="alert">

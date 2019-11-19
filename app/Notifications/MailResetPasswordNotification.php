@@ -45,9 +45,9 @@ class MailResetPasswordNotification extends Notification
 
         return ( new MailMessage )
           ->subject( 'Réinitialisez votre mot de passe' )
-          ->line( "Hey, We've successfully changed the text " )
-          ->action( 'Réinitialiser le mot de passe', $link )
-          ->line( 'Thank you!' );
+          ->line( "Quelqu'un a demandé une réinitialisation du mot de passe pour votre compte. Si ce n'était pas vous, veuillez ignorer cet email. Si vous souhaitez continuer, cliquez sur le lien ci-dessous. Ce lien expirera dans 20 minutes. " )
+          ->action( 'Réinitialiser le mot de passe', $link );
+          //->line( 'Merci !' );
     }
 
     /**
