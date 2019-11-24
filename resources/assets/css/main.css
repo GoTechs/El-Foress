@@ -548,7 +548,7 @@ nav#menu span.fa.fa-bars:hover {
       intro section style
     ====================================================*/
 .section-intro {
-  background: url("../img/bg/alger-alger-algerie-algiers.jpg") center center no-repeat;
+  background: url("../img/bg/alger-alger-algerie-algiers.jpg") center center no-repeat !important;
   background-size: cover;
   color: #fff;
   text-align: center;

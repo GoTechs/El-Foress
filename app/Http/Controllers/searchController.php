@@ -30,7 +30,7 @@ class searchController extends Controller
    public function showCat(){
 
       //Retreive Total visitors and pageviews
-      $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7))->toArray();
+      //$analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7))->toArray();
 
 	   	$search = categories::all();
       $nbrAds = annonce::where('stateAd' ,'=', '1')->count();
@@ -48,7 +48,7 @@ class searchController extends Controller
 
       //$test = annonce::recentlyAdd();
 
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds,'analyticsData'=>$analyticsData]);
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds]);
 
    }
 

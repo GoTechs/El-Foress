@@ -357,7 +357,7 @@
               </div>
               <div class="desc">
                 <h3 class="counter">
-                  {{ $analyticsData <> [] ? $analyticsData[0][visitors] : '0' }}
+                 0
                 </h3>
                 <p>{{__('index.number_visitors')}}</p>
               </div>
