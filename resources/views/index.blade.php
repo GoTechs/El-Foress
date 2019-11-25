@@ -357,7 +357,7 @@
               </div>
               <div class="desc">
                 <h3 class="counter">
-                 0
+                 50
                 </h3>
                 <p>{{__('index.number_visitors')}}</p>
               </div>
