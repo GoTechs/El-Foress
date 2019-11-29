@@ -35,11 +35,11 @@ mix.styles([
 mix.scripts([
 	'resources/assets/js/jquery-min.js',
 	'resources/assets/js/jquery-ui.js',
+	'resources/assets/js/owl.carousel.min.js',
 	'resources/assets/js/bootstrap.min.js',
 	'resources/assets/js/material.min.js',
     'resources/assets/js/material-kit.js',
     'resources/assets/js/jquery.parallax.js',
-    'resources/assets/js/owl.carousel.min.js',
     'resources/assets/js/wow.js',
     'resources/assets/js/main.js',
     'resources/assets/js/jquery.counterup.min.js',
