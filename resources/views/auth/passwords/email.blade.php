@@ -1,47 +1,51 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    @extends('../../layout')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    @section('content')
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+    <!-- Content section Start --> 
+    <section id="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
+            <div class="page-login-form box">
+              <h3>
+                {{__('authentication.reset_password_title')}}
+              </h3>
+              @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
+                @endif
+              <form role="form" class="login-form" method="POST" action="{{ route('password.email') }}">
+                @csrf
+                <!--<div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-user"></i>
+                    <input type="text" id="sender-email" class="form-control" name="email" placeholder="E-mail">
+                  </div>
+                </div> -->
+
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    @if ($errors->has('email'))
+                    <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
+                    @endif
+                    
+                    <input type="text" class="form-control" id="email" name="email" placeholder="{{__('authentication.email_input')}}""/>
+                </div>
+
+                <button type="submit" class="btn btn-common log-btn">{{__('authentication.send_email_button')}}</button>
+              </form>
+              <ul class="form-links">
+                <li class="pull-left"><a href="/inscription">{{__('authentication.register_redirect')}}</a></li>
+                <li class="pull-right"><a href="/connexion">{{__('authentication.login_redirect')}}</a></li>
+              </ul>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-@endsection
+      </div>
+    </section>
+
+    <!-- Content section End -->
+
+    @endsection

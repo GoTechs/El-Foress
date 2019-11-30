@@ -5,36 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Foress -  Notre mission vous simplifier la vie </title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
-    <!-- Material CSS -->
-    <link rel="stylesheet" href="{{asset('css/material-kit.css')}}" type="text/css">
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css">
+   
     <!-- Line Icons CSS -->
-    <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
-    <!-- Line Icons CSS -->
-    <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
-    <!-- Main Styles -->
-    <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="{{asset('css/extras/animate.css')}}" type="text/css">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="{{asset('css/extras/owl.carousel.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/extras/owl.theme.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/extras/settings.css')}}" type="text/css">
-    <!-- Responsive CSS Styles -->
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css">
-    <!-- Slicknav js -->
-    <link rel="stylesheet" href="{{asset('css/slicknav.css')}}" type="text/css">
-    <!-- Bootstrap Select -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/line-icons/line-icons.css')}}" type="text/css">
+    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 
 </head>
 
@@ -60,34 +41,42 @@
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/connexion"><i class="lnr lnr-enter"></i> Connexion</a></li>
-                    <li><a href="/inscription"><i class="lnr lnr-user"></i> Inscription</a></li>
-                    <li class="postadd">
-                        <a class="btn btn-danger btn-post" href="/ajouter-annonce"><span class="fa fa-plus-circle"></span> Poster une Annonce</a>
-                    </li>
+                    @auth
+                        <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
+                        <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
+                    @else
+                        <li><a href="/connexion"><i class="fa fa-sign-in"></i> {{__('layout.login_button')}}</a></li>
+                        <li><a href="/inscription"><i class="fa fa-user"></i> {{__('layout.register_button')}}</a></li>
+                    @endauth
+                        <li class="postadd">
+                            <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> {{__('layout.post_button')}}</a>
+                        </li>
+                        <li class="postadd allsearch">
+                            <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> {{__('layout.category_button')}}</a>
+                        </li>
                 </ul>
             </div>
             <!-- Navbar End -->
         </div>
     </nav>
     <!-- Off Canvas Navigation -->
-    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+   <!-- <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">-->
         <!--- Off Canvas Side Menu -->
-        <div class="close" data-toggle="offcanvas" data-target=".navmenu">
+       <!-- <div class="close" data-toggle="offcanvas" data-target=".navmenu">
             <i class="fa fa-close"></i>
         </div>
         <h3 class="title-menu">Menu</h3>
-        <ul class="nav navmenu-nav"> <!--- Menu -->
+        <ul class="nav navmenu-nav"> 
             <li><a href="/">Accueil</a></li>
-            <li><a href="/Apropos">À Propos</a></li>
-            <li><a href="/categorie">Catégorie</a></li>
+            <li><a href="/a-propos">À Propos</a></li>
+            <li><a href="/categorie">Toutes les annonces</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">Faq</a></li>
-        </ul><!--- End Menu -->
-    </div> <!--- End Off Canvas Side Menu -->
-    <div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
+        </ul>
+    </div> --> <!--- End Off Canvas Side Menu -->
+   <!-- <div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
         <p><i class="fa fa-file-text-o"></i> Menu</p>
-    </div>
+    </div>-->
 </div>
 <!-- Header Section End -->
 
@@ -101,23 +90,23 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">à propos de <span style="color:#3188c2;">foress</span></h3>
+                        <h3 class="block-title">{{__('layout.description_title_footer')}} <span style="color:#3188c2;">{{__('layout.name_app')}}</span></h3>
                         <div class="textwidget">
-                            <p>Lancé en 2017, l'idée était d'offrir aux gens une opportunité qui va leur faciliter la façon dont ils vendent, achètent et échangent des articles, des véhicules, des services, de l'immobilier ou du travail.</p>
+                            <p>{{__('layout.description_text_footer')}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">Liens Utiles</h3>
+                        <h3 class="block-title">{{__('layout.title_menu')}}</h3>
                         <ul class="menu">
-                            <li><a href="/">Accueil</a></li>
-                            <li><a href="/contact">Contact</a></li>
-                            <li><a href="/Apropos">À Propos</a></li>
-                            <li><a href="/connexion">Connexion</a></li>
-                            <li><a href="/categorie">Catégories</a></li>
-                            <li><a href="/inscription">Inscription</a></li>
-                            <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/">{{__('layout.index_menu')}}</a></li>
+                            <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
+                            <li><a href="/a-propos">{{__('layout.about_menu')}}</a></li>
+                            <li><a href="/connexion">{{__('layout.login_menu')}}</a></li>                            
+                            <li><a href="/inscription">{{__('layout.register_menu')}}</a></li>
+                            <li><a href="/faq">{{__('layout.faq_menu')}}</a></li>
+                            <li><a href="/categorie">{{__('layout.category_menu')}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,44 +133,16 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">récemment ajoutés</h3>
+                        <h3 class="block-title">{{__('layout.recently_add')}}</h3>
                         <ul class="featured-list">
-                            <li>
-                                <img alt="" src="{{asset('img/featured/img1.jpg')}}">
-                                <div class="hover">
-                                    <a href="#"><span>$49</span></a>
-                                </div>
-                            </li>
-                            <li>
-                                <img alt="" src="{{asset('img/featured/img2.jpg')}}">
-                                <div class="hover">
-                                    <a href="#"><span>$49</span></a>
-                                </div>
-                            </li>
-                            <li>
-                                <img alt="" src="{{asset('img/featured/img3.jpg')}}">
-                                <div class="hover">
-                                    <a href="#"><span>$49</span></a>
-                                </div>
-                            </li>
-                            <li>
-                                <img alt="" src="{{asset('img/featured/img4.jpg')}}">
-                                <div class="hover">
-                                    <a href="#"><span>$49</span></a>
-                                </div>
-                            </li>
-                            <li>
-                                <img alt="" src="{{asset('img/featured/img5.jpg')}}">
-                                <div class="hover">
-                                    <a href="#"><span>$49</span></a>
-                                </div>
-                            </li>
-                            <li>
-                                <img alt="" src="{{asset('img/featured/img6.jpg')}}">
-                                <div class="hover">
-                                    <a href="#"><span>$49</span></a>
-                                </div>
-                            </li>
+                            @foreach($recentlyAdd as $recent)
+                                <li>
+                                    <img alt="" src="{{asset('img/nondisponible.jpg')}}">
+                                    <div class="hover">
+                                        <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -219,23 +180,115 @@
 </a>
 
 <!-- Main JS  -->
-<script type="text/javascript" src="{{asset('js/jquery-min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/material.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/material-kit.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.parallax.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/wow.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.counterup.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jasny-bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/form-validator.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/contact-form-script.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.themepunch.revolution.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
-<script type="text/javascript"  src="{{asset('js/bootstrap-select.min.js')}}"></script>
+<script src="{{asset('js/libs.js')}}"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+<script type="text/javascript">
+
+/* ******************************   AutoComplete Field Wilaya *************************************** */    
+    
+    $( function() {
+        var wilaya = [
+            "ADRAR","AIN DEFLA","AIN TEMOUCHENT","AL TARF","ALGER","ANNABA","B.B.ARRERIDJ","BATNA","BECHAR","BEJAIA",           "BISKRA","BLIDA","BOUIRA","BOUMERDES","CHLEF","CONSTANTINE","DJELFA","EL BAYADH","EL OUED","GHARDAIA",             "GUELMA","ILLIZI","JIJEL","KHENCHELA","LAGHOUAT","MASCARA","MEDEA","MILA","MOSTAGANEM","M’SILA","NAAMA",               "ORAN","OUARGLA","OUM ELBOUAGHI","RELIZANE","SAIDA","SETIF","SIDI BEL ABBES","SKIKDA","SOUKAHRAS",               "TAMANGHASSET","TEBESSA","TIARET","TINDOUF","TIPAZA","TISSEMSILT","TIZI.OUZOU","TLEMCEN"
+        ];
+        $( "#wilaya" ).autocomplete({
+          source: wilaya
+        });
+      } );
+
+    /* ******************************   Add post to favorits *************************************** */            
+
+    function addToFav(idAnnonce){
+        var csrf_token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url : "/addtofav/"+idAnnonce,
+            type : "POST",
+            data : {'_method' : 'PATCH','_token':csrf_token},
+            success : function(data){
+              if (data == 'Unauthenticated'){
+                document.location.href = "/connexion";
+
+                  } else if (data == '1') {
+                    swal("L'annonce a déjà été ajoutée aux favoris", "", "warning");
+
+                    } else if (data == 'owner') {
+                        swal("Vous êtes le propriétaire de cette annonce!", "", "warning");
+                    }  else {
+                        swal("L'annonce a été ajoutée aux favoris", "", "success");
+                    }             
+            }
+        })       
+    } 
+
+
+       $(document).on("change", ".orderby", function() {
+
+            var sortingMethod = $(this).val();
+
+            if(sortingMethod == 'asc')
+            {
+                sortProductsPriceAscending();
+            }
+            else if(sortingMethod == 'desc')
+            {
+                sortProductsPriceDescending();
+            } 
+            else if(sortingMethod == 'popularity')
+            {
+                sortByPopularity();
+            }
+            else if (sortingMethod == 'mostrecent')
+            {
+                sortByDateDesc();
+            }
+            else if (sortingMethod == 'lessrecent')
+            {
+                sortByDateAsc();
+            }
+
+        });
+
+        function sortProductsPriceAscending()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return $(a).data("price")-$(b).data("price")});
+            $(".adds-wrapper").html(products);
+
+        }
+
+        function sortProductsPriceDescending()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return $(b).data("price") - $(a).data("price")});
+            $(".adds-wrapper").html(products);
+
+        }
+
+        function sortByPopularity()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return $(b).data("views") - $(a).data("views")});
+            $(".adds-wrapper").html(products);
+
+        }
+        function sortByDateDesc()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return new Date($(b).data("date")) - new Date($(a).data("date"))});
+            $(".adds-wrapper").html(products);
+
+        }
+         function sortByDateAsc()
+        {
+            var products = $('.item-list');
+            products.sort(function(a, b){ return new Date($(a).data("date")) - new Date($(b).data("date"))});
+            $(".adds-wrapper").html(products);
+        }
+ 
+
+  </script>
 
 </body>
 </html>
