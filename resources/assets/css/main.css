@@ -59,6 +59,7 @@ img {
 }
 .logo img {
     position: relative;
+    bottom: 40px;
 }
 
 ul {
@@ -95,10 +96,14 @@ a:focus {
   margin: 0px 0px 20px;
 }
 h3.block-title {
-  font-size: 24px;
-  color: #fff;
-  text-transform: uppercase;
-  padding-bottom: 5px;
+  font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #c5c6cb;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 15px;
 }
 /*====================================================
 		bootstrap default style overriding
@@ -164,9 +169,11 @@ h3.block-title {
   text-transform: capitalize;
 }
 .btn-post {
+  width: 190px;
   padding: 10px 16px;
 }
 .wrapper {
+  background-color: #f8f9f9;
   padding: 60px 0;
 }
 .section {
@@ -191,6 +198,7 @@ h3.block-title {
 }
 .main-container {
   padding: 80px 0;
+  background-color: #f8f9f9;
 }
 .page-header {
   padding: 40px 0;
@@ -350,7 +358,7 @@ select.form-control:focus {
 .navbar > .container .navbar-brand,
 .navbar > .container-fluid .navbar-brand {
   padding: 0 0 0 15px;
-  width: 120px;
+  width: 150px;
 }
 .tbtn {
   color: #FFF !important;
@@ -437,6 +445,9 @@ nav#menu span.fa.fa-bars:hover {
 /* ==========================================================================
    Header Style
    ========================================================================== */
+.header {
+  background-color: #f8f9f9;
+}
 .navbar-default {
   margin-bottom: 0;
   background: transparent;
@@ -595,7 +606,7 @@ nav#menu span.fa.fa-bars:hover {
    Advanced search
    ========================================================================== */
 .search-bar {
-  background: rgba(151, 151, 151, 0.33);
+  background: rgba(151, 151, 151, 0.22);
   padding: 20px;
 }
 .search-bar i {
@@ -1129,7 +1140,7 @@ select > opation:focus {
    Footer Style
    ========================================================================== */
 footer .footer-Content {
-  background-color: #222;
+  background-color: #3e4153;
   padding: 60px 0;
   color: #fff;
 }
@@ -1141,6 +1152,8 @@ footer .footer-Content {
 }
 footer .menu {
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
 }
 footer .menu li {
   float: left;
@@ -1209,6 +1222,10 @@ footer .menu li a:hover {
 }
 .featured-list li .hover a:hover {
   opacity: 1;
+}
+.bottom-social-icons {
+  text-align: center;
+  margin: 10px 0;
 }
 .bottom-social-icons a {
   color: #fff;

@@ -27,7 +27,8 @@ mix.styles([
     'resources/assets/css/extras/settings.css',
     'resources/assets/css/responsive.css',
     'resources/assets/css/slicknav.css',
-    'resources/assets/css/bootstrap-select.min.css'
+    'resources/assets/css/bootstrap-select.min.css',
+    'resources/assets/css/custom-components.css',
 
 
 ], 'public/css/libs.css');
