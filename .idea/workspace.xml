@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="523ba1fc-2ac6-4b40-b090-4f98a2c617f4" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
     <list default="true" id="16ab37a0-0c9d-4b6f-a600-a55101cd8e90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/foress.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/foress.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/annonce.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/annonce.php" afterDir="false" />
+>>>>>>> develop
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +44,21 @@
     <select />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_29_122837_create_foress_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+=======
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
+=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/annonce.php">
@@ -55,6 +80,7 @@
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
+>>>>>>> develop
             </state>
           </provider>
         </entry>
@@ -115,6 +141,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_07_29_122837_create_foress_table.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+=======
+        <option value="$PROJECT_DIR$/routes/web.php" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
+=======
         <option value="$PROJECT_DIR$/app/adimmobilier.php" />
         <option value="$PROJECT_DIR$/app/adJoboffer.php" />
         <option value="$PROJECT_DIR$/app/adPhone.php" />
@@ -166,6 +203,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ContactFormController.php" />
         <option value="$PROJECT_DIR$/resources/views/contact.blade.php" />
         <option value="$PROJECT_DIR$/app/annonce.php" />
+>>>>>>> develop
       </list>
     </option>
   </component>
@@ -278,7 +316,11 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
+<<<<<<< HEAD
+    <option name="width" value="979" />
+=======
     <option name="width" value="980" />
+>>>>>>> develop
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -292,6 +334,19 @@
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
+<<<<<<< HEAD
+              <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foress" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="foress" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foress" type="462c0819:PsiDirectoryNode" />
+=======
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -299,12 +354,18 @@
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+>>>>>>> develop
             </path>
             <path>
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
+=======
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+>>>>>>> develop
             </path>
           </expand>
           <select />
@@ -355,6 +416,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564337381031</updated>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <workItem from="1564337382192" duration="7613000" />
+      <workItem from="1564409447284" duration="733000" />
+=======
+      <workItem from="1564337382192" duration="420000" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
+=======
       <workItem from="1564337382192" duration="742000" />
       <workItem from="1565270620776" duration="171396000" />
       <workItem from="1567093265442" duration="40000" />
@@ -364,16 +433,29 @@
       <workItem from="1569514186608" duration="1284000" />
       <workItem from="1571761858383" duration="1252000" />
       <workItem from="1571769311978" duration="389000" />
+>>>>>>> develop
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="8346000" />
+=======
+    <option name="totallyTimeSpent" value="420000" />
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
+=======
     <option name="totallyTimeSpent" value="231899000" />
+>>>>>>> develop
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
+<<<<<<< HEAD
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
+=======
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21208054" />
+>>>>>>> develop
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -385,6 +467,16 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+=======
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
@@ -393,6 +485,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.3295302" />
+>>>>>>> develop
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2590604" />
@@ -432,6 +525,37 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/../blog/routes/web.php" />
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding>
+            <element signature="e#33#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-791" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+=======
     <entry file="file://$PROJECT_DIR$/app/adJobapplication.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -459,10 +583,59 @@
           <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#23#63#0#PHP" expanded="true" />
+>>>>>>> develop
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_29_122104_foress-table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_29_122807_create_foress-table.php" />
+    <entry file="file://$PROJECT_DIR$/config/auth.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ModelForess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+=======
     <entry file="file://$PROJECT_DIR$/app/categories.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -596,11 +769,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="157" column="83" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="83" />
+>>>>>>> develop
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="471">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/.styleci.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_29_122837_create_foress_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
+=======
         <state relative-caret-position="488">
           <caret line="85" column="24" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
         </state>
@@ -766,5 +960,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+>>>>>>> develop
   </component>
 </project>

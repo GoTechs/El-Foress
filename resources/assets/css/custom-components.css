@@ -6,10 +6,9 @@
    ========================================================================== */
 .navbar-default {
   margin-bottom: 0;
-  background: transparent;
+  background-color: #f8f9f9;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #ddd;
 }
 .navbar-header {
   position: relative;
@@ -57,7 +56,8 @@
   height: 40px;
   line-height: normal;
   text-transform: uppercase;
-  width: 140px;
+  width: 100%;
+  max-width: 195px;
   webkit-transition: all .3s linear;
   -moz-transition: all .3s linear;
   -ms-transition: all .3s linear;
@@ -155,7 +155,6 @@
    Advanced search
    ========================================================================== */
 .search-bar {
-  background: rgba(151, 151, 151, 0.33);
   padding: 20px;
 }
 .search-bar i {
@@ -170,7 +169,6 @@
 .search-bar label {
   z-index: 0;
   font-weight: 400;
-  width: 100%;
   margin: 0px;
 }
 .search-bar .form-group {
@@ -227,7 +225,6 @@ select > opation:focus {
   border: none;
 }
 .dropdown-product {
-  padding: 10px 12px;
   width: 100%;
 }
 .dropdown-product select {
@@ -675,7 +672,7 @@ select > opation:focus {
    Footer Style
    ========================================================================== */
 footer .footer-Content {
-  background-color: #222;
+  background-color: #3e4153;
   padding: 60px 0;
   color: #fff;
 }
@@ -753,14 +750,23 @@ footer .menu li a:hover {
 .bottom-social-icons a {
   color: #fff;
   text-align: center;
-  width: 32px;
+  width: 35px;
   line-height: 32px;
-  border-radius: 0px;
-  background: #444;
+  border-radius: 50%;
+  background: #6f727f;
   display: inline-block;
   height: 32px;
   position: relative;
   overflow: hidden;
+  margin: 10px;
+}
+.copyright {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #c5c6cb;
+  text-align: center;
 }
 #copyright {
   background-color: #393939;

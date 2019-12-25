@@ -35,9 +35,6 @@
                     <li>
                         <a href="/logout"><i class="fa fa-sign-out"></i> {{__('layout.logout_button')}}</a>
                     </li>
-                    <li class="postadd allsearch">
-                        <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> {{__('layout.category_button')}}</a>
-                    </li>
                 </ul>
             </div><!-- Navbar End -->
         </div>
@@ -519,80 +516,53 @@
     </section><!-- Content section End -->
 
     <!-- Footer Section Start -->
+  
+    <!-- Footer Area Start -->
     <footer>
-        <!-- Footer Area Start -->
-        <section class="footer-Content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
-                        <div class="widget">
-                            <h3 class="block-title">{{__('layout.description_title_footer')}} <span style="color:#3188c2;">{{__('layout.name_app')}}</span></h3>
-                            <div class="textwidget">
-                                <p>{{__('layout.description_text_footer')}}</p>
-                            </div>
-                        </div>
+    <section class="footer-Content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
+                    <div class="widget">
+                        <h3 class="block-title">Foress</h3>
+                        <ul class="menu">
+                         <li><a href="/a-propos">À propos de nous</a></li>
+                         <li><a href="/">Avantages de l’inscription</a></li>
+                         <li><a href="/">Publicité sur Foress</a></li> 
+                        </ul>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
-                        <div class="widget">
-                            <h3 class="block-title">{{__('layout.title_menu')}}</h3>
-                            <ul class="menu">
-                                <li><a href="/">{{__('layout.index_menu')}}</a></li>
-                                <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
-                                <li><a href="/a-propos">{{__('layout.about_menu')}}</a></li>
-                                <li><a href="/connexion">{{__('layout.login_menu')}}</a></li>                                
-                                <li><a href="/inscription">{{__('layout.register_menu')}}</a></li>
-                                <li><a href="/faq">{{__('layout.faq_menu')}}</a></li>
-                                <li><a href="/categorie">{{__('layout.category_menu')}}</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
-                        <div class="widget">
-                            <h3 class="block-title">DERNIERS TWEETS</h3>
-                            <div class="twitter-content clearfix">
-                                <ul class="twitter-list">
-                                    <li class="clearfix">
-                      <span>
-                        Suivez nous sur le nouveau site d'annonce FORESS
-                        <a href="#">http://t.co/cLo2w7rWOx</a>
-                      </span>
-                                    </li>
-                                    <li class="clearfix">
-                      <span>
-                        Cherchez, Trouvez !
-                        <a href="#">http://t.co/cLo2w7rWOx</a>
-                      </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
-                        <div class="widget">
-                            <h3 class="block-title">{{__('layout.recently_add')}}</h3>
-                            <ul class="featured-list">
-                                @foreach($recentlyAdd as $recent)
-                                    <li>
-                                        <img alt="" src="{{asset('img/nondisponible.jpg')}}">
-                                        <div class="hover">
-                                            <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
-                                        </div>
-                                    </li>
-                                @endforeach
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
+                    <div class="widget">
+                        <h3 class="block-title"> RENSEIGNEMENTS</h3>
+                        <div class="twitter-content clearfix">
+                            <ul class="twitter-list">
+                            <li><a href="/">Conditions d’utilisation</a></li>
+                            <li><a href="/">Politique de confidentialité</a></li>
+                            <li><a href="/">Règles d’affichage</a></li> 
                             </ul>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
+                    <div class="widget">
+                        <h3 class="block-title">{{__('layout.recently_add')}}</h3>
+                        <ul class="featured-list">
+                            @foreach($recentlyAdd as $recent)
+                                <li>
+                                    <img alt="" src="{{asset('img/nondisponible.jpg')}}">
+                                    <div class="hover">
+                                        <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
-        <!-- Footer area End -->
-
-        <!-- Copyright Start  -->
-        <div id="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="bottom-social-icons social-icon pull-right">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="bottom-social-icons social-icon ">
                             <a class="facebook" target="_blank" href=""><i class="fa fa-facebook"></i></a>
                             <a class="twitter" target="_blank" href=""><i class="fa fa-twitter"></i></a>
                             <a class="dribble" target="_blank" href=""><i class="fa fa-dribbble"></i></a>
@@ -602,12 +572,19 @@
                             <a class="linkedin" target="_blank" href=""><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                 <p> ©2014-2019 GoTechs</p><br/>
+                 <p>Tous droits réservés. Google, Google Play, You Tube et autres marques sont des marques déposées de Google Inc.</p>
                 </div>
             </div>
         </div>
-        <!-- Copyright End -->
-
+    </section>
     </footer>
+    <!-- Footer area End -->
+
+
     <!-- Footer Section End -->
 
     <!-- Go To Top Link -->

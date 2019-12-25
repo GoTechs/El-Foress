@@ -2,57 +2,6 @@
     @extends('layout')
 
     @section('content')
-    <!-- Search wrapper Start -->
-    <div id="search-row-wrapper">
-      <div class="container">
-        <div class="search-inner">
-    <!-- Start Search box -->
-            <div class="row search-bar">
-              <div class="advanced-search">
-                <form class="search-form" method="post" action="/categorie">
-                  @csrf
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <label class="styled-select">
-                        <select class="dropdown-product selectpicker" name="categorie" >
-                          <option value="">Toutes les catégories</option>
-                          @if (isset($_POST['categorie']))
-                          @foreach ($search as $key => $value)                                
-                              @if($_POST['categorie'] == $value->idCat)
-                                <option value="{{$value->idCat}}" selected="">{{ $value->categories }}</option>
-                              @else 
-                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                              @endif
-                          @endforeach
-                          @else
-                          @foreach ($search as $key => $value)  
-                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                          @endforeach
-                          @endif                                 
-                       </select>                                    
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
-                    <i class="fa fa-search"></i>
-                  </div>
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <!-- End Search box -->   
-        </div>
-      </div>
-    </div>
-    <!-- Search wrapper End -->
-
     <!-- Main container Start -->
     <div class="main-container">
       <div class="container">

@@ -2,50 +2,6 @@
   @extends('layout')
 
   @section('content')
-    <!-- Start intro section -->
-    <section id="intro" class="section-intro">
-      <div class="overlay">
-        <div class="container">
-          <div class="main-text">
-            <h1 class="intro-title">{{__('index.welcome_message')}} <span style="color: #3498DB">{{__('layout.name_app')}}</span></h1>
-            <p class="sub-title">{{__('index.description_message')}} </p>
-    <!-- Start Search box -->
-            <div class="row search-bar">
-              <div class="advanced-search">
-                <form class="search-form" method="post" action="/categorie">
-                  @csrf
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <label class="styled-select">
-                        <select class="dropdown-product selectpicker" name="categorie" >
-                          <option value="">{{__('index.categorie_input')}}</option>
-                          @foreach ($search as $key => $value)
-                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                            @endforeach
-                       </select>                                    
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="{{__('index.wilaya_input')}}" type="text" value="{{old('wilaya')}}">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="{{__('index.keyword_input')}}" type="text" value="{{old('keyword')}}">
-                    <i class="fa fa-search"></i>
-                  </div>
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <button class="btn btn-common btn-search btn-block"><strong>{{__('index.search_button')}}</strong></button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <!-- End Search box -->   
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end intro section -->
 
     <div class="wrapper">
       <!-- Categories Homepage Section Start -->

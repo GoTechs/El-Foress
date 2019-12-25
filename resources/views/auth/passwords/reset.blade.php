@@ -1,5 +1,4 @@
-
-    @extends('../../layout')
+@extends('../../layout')
 
     @section('content')
 

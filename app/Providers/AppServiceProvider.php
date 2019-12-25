@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -26,9 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        if(config('app.env') === 'production') {
-            URL::forceScheme('https');
-        }
         Schema::defaultStringLength(191);
         view()->composer('*', function($view){
             $view->with('recentlyAdd', \App\annonce::recentlyAdd());

@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
-                <a class="navbar-brand logo" href="/"><img src="{{asset('img/Capture.PNG')}}" alt=""></a>
+                <a class="navbar-brand logo" href="/"><img src="{{asset('img/logo.png')}}" alt=""></a>
             </div>
             <!-- brand and toggle menu for mobile End -->
 
@@ -51,32 +51,62 @@
                         <li class="postadd">
                             <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> {{__('layout.post_button')}}</a>
                         </li>
-                        <li class="postadd allsearch">
-                            <a class="btn btn-danger btn-post" href="/categorie"><span class="fa fa-search"></span> {{__('layout.category_button')}}</a>
-                        </li>
                 </ul>
             </div>
             <!-- Navbar End -->
         </div>
     </nav>
-    <!-- Off Canvas Navigation -->
-   <!-- <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">-->
-        <!--- Off Canvas Side Menu -->
-       <!-- <div class="close" data-toggle="offcanvas" data-target=".navmenu">
-            <i class="fa fa-close"></i>
+   <!-- Search wrapper Start -->
+   <div id="search-row-wrapper">
+      <div class="container">
+        <div class="search-inner">
+    <!-- Start Search box -->
+            <div class="row search-bar">
+              <div class="advanced-search">
+                <form class="search-form" method="post" action="/categorie">
+                  @csrf
+                  <div class="col-md-3 col-sm-6 search-col">
+                    <div class="input-group-addon search-category-container">
+                      <label class="styled-select">
+                        <select class="dropdown-product selectpicker" name="categorie" >
+                          <option value="">Toutes les catégories</option>
+                          @if (isset($_POST['categorie']))
+                          @foreach ($search as $key => $value)                                
+                              @if($_POST['categorie'] == $value->idCat)
+                                <option value="{{$value->idCat}}" selected="">{{ $value->categories }}</option>
+                              @else 
+                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                              @endif
+                          @endforeach
+                          @else
+                          @foreach ($search as $key => $value)  
+                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                          @endforeach
+                          @endif                                 
+                       </select>                                    
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-6 search-col">
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <div class="col-md-3 col-sm-6 search-col">
+                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
+                    <i class="fa fa-search"></i>
+                  </div>
+                  <div class="col-md-3 col-sm-6 search-col">
+                    <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- End Search box -->   
         </div>
-        <h3 class="title-menu">Menu</h3>
-        <ul class="nav navmenu-nav"> 
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/a-propos">À Propos</a></li>
-            <li><a href="/categorie">Toutes les annonces</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/faq">Faq</a></li>
-        </ul>
-    </div> --> <!--- End Off Canvas Side Menu -->
-   <!-- <div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
-        <p><i class="fa fa-file-text-o"></i> Menu</p>
-    </div>-->
+      </div>
+    </div>
+    <!-- Search wrapper End -->
+   
 </div>
 <!-- Header Section End -->
 
@@ -88,50 +118,30 @@
     <section class="footer-Content">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">{{__('layout.description_title_footer')}} <span style="color:#3188c2;">{{__('layout.name_app')}}</span></h3>
-                        <div class="textwidget">
-                            <p>{{__('layout.description_text_footer')}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
-                    <div class="widget">
-                        <h3 class="block-title">{{__('layout.title_menu')}}</h3>
+                        <h3 class="block-title">Foress</h3>
                         <ul class="menu">
-                            <li><a href="/">{{__('layout.index_menu')}}</a></li>
-                            <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
-                            <li><a href="/a-propos">{{__('layout.about_menu')}}</a></li>
-                            <li><a href="/connexion">{{__('layout.login_menu')}}</a></li>                            
-                            <li><a href="/inscription">{{__('layout.register_menu')}}</a></li>
-                            <li><a href="/faq">{{__('layout.faq_menu')}}</a></li>
-                            <li><a href="/categorie">{{__('layout.category_menu')}}</a></li>
+                         <li><a href="/a-propos">À propos de nous</a></li>
+                         <li><a href="/">Avantages de l’inscription</a></li>
+                         <li><a href="/">Publicité sur Foress</a></li> 
+                         <li><a href="/">Contactez-nous</a></li> 
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">DERNIERS TWEETS</h3>
-                        <div class="twitter-content clearfix">
-                            <ul class="twitter-list">
-                                <li class="clearfix">
-                      <span>
-                        Suivez nous sur le nouveau site d'annonce FORESS
-                        <a href="#">http://t.co/cLo2w7rWOx</a>
-                      </span>
-                                </li>
-                                <li class="clearfix">
-                      <span>
-                        Cherchez, Trouvez !
-                        <a href="#">http://t.co/cLo2w7rWOx</a>
-                      </span>
-                                </li>
+                    <h3 class="block-title"> RENSEIGNEMENTS</h3>
+                       
+                            <ul class="menu">
+                            <li><a href="/">Conditions d’utilisation</a></li>
+                            <li><a href="/">Politique de confidentialité</a></li>
+                            <li><a href="/">Règles d’affichage</a></li> 
                             </ul>
-                        </div>
+                        
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn">
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
                         <h3 class="block-title">{{__('layout.recently_add')}}</h3>
                         <ul class="featured-list">
@@ -147,29 +157,25 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Footer area End -->
-
-    <!-- Copyright Start  -->
-    <div id="copyright">
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="bottom-social-icons social-icon pull-right">
-                        <a class="facebook" target="_blank" href=""><i class="fa fa-facebook"></i></a>
-                        <a class="twitter" target="_blank" href=""><i class="fa fa-twitter"></i></a>
-                        <a class="dribble" target="_blank" href=""><i class="fa fa-dribbble"></i></a>
-                        <a class="flickr" target="_blank" href=""><i class="fa fa-flickr"></i></a>
-                        <a class="youtube" target="_blank" href=""><i class="fa fa-youtube"></i></a>
-                        <a class="google-plus" target="_blank" href=""><i class="fa fa-google-plus"></i></a>
-                        <a class="linkedin" target="_blank" href=""><i class="fa fa-linkedin"></i></a>
+                        <div class="bottom-social-icons social-icon ">
+                            <a class="facebook" target="_blank" href=""><i class="fa fa-facebook"></i></a>
+                            <a class="instagram" target="_blank" href=""><i class="fa fa-instagram"></i></a>
+                            <a class="youtube" target="_blank" href=""><i class="fa fa-youtube"></i></a>    
+                            <a class="linkedin" target="_blank" href=""><i class="fa fa-linkedin"></i></a>
+                        </div>
                     </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 copyright">
+                  <p> ©2014-2019 GoTechs</p><br/>
+                  <p>Tous droits réservés. Google, Google Play, You Tube et autres marques sont des marques déposées de Google Inc.</p>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Copyright End -->
+    </section>
+    <!-- Footer area End -->
 
 </footer>
 <!-- Footer Section End -->

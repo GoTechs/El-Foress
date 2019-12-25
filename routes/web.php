@@ -111,3 +111,4 @@ Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
 // Update User Password
 
 Route::patch('/updatePassword/{idpost}','ProfilController@updatePassword')->middleware('auth');
+
