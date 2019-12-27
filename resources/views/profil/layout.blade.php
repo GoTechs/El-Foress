@@ -216,7 +216,11 @@
                         <ul class="featured-list">
                             @foreach($recentlyAdd as $recent)
                                 <li>
-                                    <img alt="" src="{{asset('img/nondisponible.jpg')}}">
+                                @foreach ($imageAd as $img)
+                                    @if ($recent->id == $img->id_annonce)
+                                        <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                                    @endif
+                                @endforeach
                                     <div class="hover">
                                         <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
                                     </div>

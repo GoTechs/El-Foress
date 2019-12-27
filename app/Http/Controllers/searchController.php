@@ -46,9 +46,9 @@ class searchController extends Controller
                 ->limit(10)
                 ->get();  
 
-      //$test = annonce::recentlyAdd();
-
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds]);
+        $imageAd = DB::table('imageads')->groupBy('id_annonce')->get(); 
+        
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$imageAd]);
 
    }
 

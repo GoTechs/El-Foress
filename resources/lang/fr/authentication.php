@@ -5,11 +5,11 @@ return [
     /*** Connexion PAGE ***/
 
     'connect_title' => 'Connectez-vous',
-    'connect_description' => 'Connexion',
+    'connect_description' => 'Ouvrir une session',
     'user_input' => 'Nom d\'utilisateur',
     'password_input' => 'Mot de passe',
     'remember_input' => 'Se souvenir de moi',
-    'connect_submit_button' => 'Envoyer',
+    'connect_submit_button' => 'Ouvrir une session',
     'register_redirect' => 'Vous n\'avez pas de compte?',
     'reset_password_redirect' => 'Mot de passe oublier?',  
 
@@ -23,7 +23,7 @@ return [
     'phone_input' => 'N° Téléphone',
     'email_input' => 'Adresse mail',
     'username_input' => 'Nom d\'utilisateur',
-    'register_submit_button' => 'Inscription',
+    'register_submit_button' => "S'inscrire",
     'confirm_password_input' => 'Confirmer Mot de passe',
 
     /*** Reset Password Page ***/
@@ -32,7 +32,7 @@ return [
     'reset_button' => 'Réinitialiser',
 
     /*** Send Email reset Page ***/
-    'send_email_button' => 'Envoyer',
+    'send_email_button' => "S'inscrire",
     'login_redirect' => 'Connexion',
     
 ];

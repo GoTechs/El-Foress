@@ -5,7 +5,7 @@ return [
     'description_page' => 'Notre mission vous simplifier la vie',
     'login_button' => 'Connexion',
     'logout_button' => 'Déconnexion',
-    'register_button' => 'Inscription',
+    'register_button' => "S'inscrire",
     'post_button' => 'Publier une annonce',
     'category_button' => 'Catégories',
     'description_title_footer' => 'À propos de',

@@ -133,16 +133,16 @@ textarea:focus {
   top: 5px;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
-  font-size: 35px;
+  font-size: 31px;
   text-align: center;
-  line-height: 11px;
+  line-height: 15px;
 }
 .page-login-form .checkbox input[type=checkbox]:checked + label:before {
   content: "\2022";
   color: #3498DB;
   font-size: 35px;
   text-align: center;
-  line-height: 11px;
+  line-height: 14px;
 }
 .page-login-form .checkbox-inline + .checkbox-inline {
   margin-left: 0;

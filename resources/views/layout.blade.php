@@ -45,8 +45,9 @@
                         <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                     @else
-                        <li><a href="/connexion"><i class="fa fa-sign-in"></i> {{__('layout.login_button')}}</a></li>
                         <li><a href="/inscription"><i class="fa fa-user"></i> {{__('layout.register_button')}}</a></li>
+                        <li><a href="/connexion"><i class="fa fa-sign-in"></i> {{__('layout.login_button')}}</a></li>
+                        
                     @endauth
                         <li class="postadd">
                             <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> {{__('layout.post_button')}}</a>
@@ -92,7 +93,7 @@
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Mot clé" type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
+                    <input class="form-control keyword" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
@@ -147,7 +148,11 @@
                         <ul class="featured-list">
                             @foreach($recentlyAdd as $recent)
                                 <li>
-                                    <img alt="" src="{{asset('img/nondisponible.jpg')}}">
+                                @foreach ($imageAd as $img)
+                                    @if ($recent->id == $img->id_annonce)
+                                        <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                                    @endif
+                                @endforeach
                                     <div class="hover">
                                         <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
                                     </div>

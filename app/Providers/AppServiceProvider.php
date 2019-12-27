@@ -29,5 +29,13 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function($view){
             $view->with('recentlyAdd', \App\annonce::recentlyAdd());
         });
+
+        view()->composer('*', function($view){
+            $view->with('search', \App\categories::allCategory());
+        });
+
+        view()->composer('*', function($view){
+            $view->with('imageAd', \App\imagead::images());
+        });
     }
 }
