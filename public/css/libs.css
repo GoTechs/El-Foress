@@ -3504,7 +3504,7 @@ h3.block-title {
   background: #48acef;
 }
 .btn-danger:hover {
-  background: #ed6763;
+  background: #AEA1EA;
 }
 .btn-border {
   background: #4285F4;
@@ -3541,6 +3541,10 @@ h3.block-title {
 .btn-post {
   width: 190px;
   padding: 10px 16px;
+  background-color: #8C53A1;
+}
+.btn-post:hover {
+  background-color: #AEA1EA;
 }
 .wrapper {
   background-color: #f8f9f9;
@@ -4281,6 +4285,7 @@ select > opation:focus {
   -ms-transition: all .4s ease;
   -o-transition: all .4s ease;
   transition: all .4s ease;
+  height: 175px;
 }
 #new-products .product-item .carousel-thumb img {
   -webkit-transition: all 0.9s ease;
@@ -9618,6 +9623,9 @@ stretchRight
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 }
+.owl-item {
+	height: 240px;
+}
 
 /* preloading images */
 .owl-item.loading{
@@ -12579,6 +12587,7 @@ zoom: 1;
   font-size: 12px;
   height: 40px;
   line-height: normal;
+  text-transform: uppercase;
   width: 100%;
   max-width: 195px;
   webkit-transition: all .3s linear;
@@ -12589,7 +12598,7 @@ zoom: 1;
 }
 .main-navigation .navbar-nav > li.postadd a:hover {
   color: #fff;
-  background: #FF625D;
+  background: #b273ca;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,

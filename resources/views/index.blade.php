@@ -14,78 +14,9 @@
             <div class="col-md-12">
               <h3 class="section-title">{{__('index.category_all')}}</h3>
             </div> 
+
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-1 wow fadeInUpQuick" data-wow-delay="0.3s">
-                <div class="icon">
-                  <a href="/search/1"><i class="lnr lnr-users color-1"></i></a>
-                </div>
-                <div class="category-header">  
-                  <a href="/search/1"><h4>{{__('index.category_community')}}</h4></a>
-                </div>
-                <div class="category-content">
-                  <ul>
-                    @foreach ($categorie as $cat)
-                      @if ($cat->categories == 'Communauté' and $cat->sousCat <> 'Autres')
-                      <li>
-                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
-                        <sapn class="category-counter"></sapn>
-                      </li>
-                      @endif
-                    @endforeach
-                    <li>
-                      <a href="/search/1">{{__('index.category_other')}} →</a>
-                      <sapn class="category-counter"></sapn>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-2 wow fadeInUpQuick" data-wow-delay="0.6s">
-                <div class="icon">
-                  <a href="/search/2"><i class="lnr lnr-briefcase color-2"></i></a>
-                </div>
-                <div class="category-header">  
-                  <a href="/search/2"><h4>{{__('index.category_job')}}</h4></a>
-                </div>
-                <div class="category-content">
-                  <ul>
-                    @foreach ($categorie as $cat)
-                      @if ($cat->categories == 'Emplois')
-                      <li>
-                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
-                        <sapn class="category-counter"></sapn>
-                      </li>
-                      @endif
-                    @endforeach
-                  </ul>
-                </div>
-              </div>
-            </div>
-             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-3 wow fadeInUpQuick" data-wow-delay="0.9s">
-                <div class="icon">
-                  <a href="/search/3"><i class="lnr lnr-apartment color-3"></i></a>
-                </div>
-                <div class="category-header">  
-                  <a href="/search/3"><h4>{{__('index.category_real_estat')}}</h4></a>
-                </div>
-                <div class="category-content">
-                  <ul>
-                    @foreach ($categorie as $cat)
-                      @if ($cat->categories == 'Immobiliers')
-                      <li>
-                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
-                        <sapn class="category-counter"></sapn>
-                      </li>
-                      @endif
-                    @endforeach
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-4 wow fadeInUpQuick" data-wow-delay="1.2s">
+              <div class="category-box border-4 wow fadeInUpQuick" data-wow-delay="0.3s">
                 <div class="icon">
                   <a href="/search/4"><i class="lnr lnr-car color-4"></i></a>
                 </div>
@@ -110,9 +41,33 @@
                   </ul>
                 </div>
               </div>
-            </div>            
+            </div>  
+            
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-5 wow fadeInUpQuick" data-wow-delay="1.4s">
+              <div class="category-box border-3 wow fadeInUpQuick" data-wow-delay="0.6s">
+                <div class="icon">
+                  <a href="/search/3"><i class="lnr lnr-apartment color-3"></i></a>
+                </div>
+                <div class="category-header">  
+                  <a href="/search/3"><h4>{{__('index.category_real_estat')}}</h4></a>
+                </div>
+                <div class="category-content">
+                  <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Immobiliers')
+                      <li>
+                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="category-box border-5 wow fadeInUpQuick" data-wow-delay="0.9s">
                 <div class="icon">
                   <a href="/search/5"><i class="lnr lnr-cart color-5"></i></a>
                 </div>
@@ -136,6 +91,56 @@
                 </div>
               </div>
             </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="category-box border-2 wow fadeInUpQuick" data-wow-delay="1.2s">
+                <div class="icon">
+                  <a href="/search/2"><i class="lnr lnr-briefcase color-2"></i></a>
+                </div>
+                <div class="category-header">  
+                  <a href="/search/2"><h4>{{__('index.category_job')}}</h4></a>
+                </div>
+                <div class="category-content">
+                  <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Emplois')
+                      <li>
+                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="category-box border-8 wow fadeInUpQuick" data-wow-delay="1.4s">
+                <div class="icon">
+                  <a href="/search/8"><i class="lnr lnr-laptop-phone color-8"></i></a>
+                </div>
+                <div class="category-header">  
+                  <a href="/search/8"><h4>{{__('index.category_computer_science')}}</h4></a>
+                </div>
+                <div class="category-content">
+                  <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Matériel informatique' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
+                    <li>
+                      <a href="/search/8">{{__('index.category_other')}} →</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div> 
+            
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-6 wow fadeInUpQuick" data-wow-delay="1.8s">
                 <div class="icon">
@@ -161,9 +166,37 @@
                   </ul>
                 </div>
               </div>
-            </div>                      
+            </div>   
+
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-7 wow fadeInUpQuick" data-wow-delay="2.1s">
+              <div class="category-box border-1 wow fadeInUpQuick" data-wow-delay="2.1s">
+                <div class="icon">
+                  <a href="/search/1"><i class="lnr lnr-users color-1"></i></a>
+                </div>
+                <div class="category-header">  
+                  <a href="/search/1"><h4>{{__('index.category_community')}}</h4></a>
+                </div>
+                <div class="category-content">
+                  <ul>
+                    @foreach ($categorie as $cat)
+                      @if ($cat->categories == 'Communauté' and $cat->sousCat <> 'Autres')
+                      <li>
+                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
+                        <sapn class="category-counter"></sapn>
+                      </li>
+                      @endif
+                    @endforeach
+                    <li>
+                      <a href="/search/1">{{__('index.category_other')}} →</a>
+                      <sapn class="category-counter"></sapn>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="category-box border-7 wow fadeInUpQuick" data-wow-delay="2.4s">
                 <div class="icon">
                   <a href="/search/7"><i class="lnr lnr-cog color-7"></i></a>
                 </div>
@@ -187,31 +220,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-8 wow fadeInUpQuick" data-wow-delay="2.4s">
-                <div class="icon">
-                  <a href="/search/8"><i class="lnr lnr-laptop-phone color-8"></i></a>
-                </div>
-                <div class="category-header">  
-                  <a href="/search/8"><h4>{{__('index.category_computer_science')}}</h4></a>
-                </div>
-                <div class="category-content">
-                  <ul>
-                    @foreach ($categorie as $cat)
-                      @if ($cat->categories == 'Matériel informatique' and $cat->sousCat <> 'Autres')
-                      <li>
-                        <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
-                        <sapn class="category-counter"></sapn>
-                      </li>
-                      @endif
-                    @endforeach
-                    <li>
-                      <a href="/search/8">{{__('index.category_other')}} →</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>   
+            
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div ></div>
             </div>

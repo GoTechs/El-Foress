@@ -134,7 +134,7 @@ h3.block-title {
   background: #48acef;
 }
 .btn-danger:hover {
-  background: #ed6763;
+  background: #AEA1EA;
 }
 .btn-border {
   background: #4285F4;
@@ -171,6 +171,10 @@ h3.block-title {
 .btn-post {
   width: 190px;
   padding: 10px 16px;
+  background-color: #8C53A1;
+}
+.btn-post:hover {
+  background-color: #AEA1EA;
 }
 .wrapper {
   background-color: #f8f9f9;
@@ -911,6 +915,7 @@ select > opation:focus {
   -ms-transition: all .4s ease;
   -o-transition: all .4s ease;
   transition: all .4s ease;
+  height: 175px;
 }
 #new-products .product-item .carousel-thumb img {
   -webkit-transition: all 0.9s ease;

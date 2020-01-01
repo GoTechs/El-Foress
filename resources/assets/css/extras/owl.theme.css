@@ -71,6 +71,9 @@
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 }
+.owl-item {
+	height: 240px;
+}
 
 /* preloading images */
 .owl-item.loading{
