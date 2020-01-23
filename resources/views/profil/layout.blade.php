@@ -11,7 +11,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
 
-    <!-- <link href="{{asset('css/libs.css')}}" rel="stylesheet"> -->
+    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
    
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
     
