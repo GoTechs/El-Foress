@@ -13,20 +13,6 @@
         }
       </style>
 
-          <!-- Page Header Start -->
-    <div class="page-header" style="background: url({{asset('img/banner1.jpg')}}">
-      <div class="container">
-        <div class="row">         
-          <div class="col-md-12">
-            <div class="breadcrumb-wrapper">
-              <h2 class="page-title">{{__('contact.contact_tiltle')}}</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Page Header End --> 
-      
       <!-- Start Contact Us Section -->
       <section id="content">
         <div class="container">
@@ -146,10 +132,7 @@
         
          <div id="google-map"></div>
       <!-- End Map Section -->
-
-    @endsection
     
-
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.expsensor=false&key=AIzaSyCLH3AD_WG8oWXUlIbrxywtkbo3EYkEFOo&">
     </script>
@@ -284,3 +267,5 @@
     }
     google.maps.event.addDomListener(window, 'load', initialize);
   </script>
+
+@endsection

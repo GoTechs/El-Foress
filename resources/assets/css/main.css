@@ -595,7 +595,7 @@ nav#menu span.fa.fa-bars:hover {
   margin-bottom: 15px;
 }
 #search-row-wrapper {
-  background: url("../img/bg/counter-bg.jpg") center center no-repeat;
+  background: url("../img/bg/bg-intro.png") center center no-repeat;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -905,8 +905,6 @@ select > opation:focus {
 #new-products .product-item .carousel-thumb {
   display: block;
   border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
   position: relative;
   z-index: 99;
   overflow: hidden;
@@ -918,6 +916,8 @@ select > opation:focus {
   height: 175px;
 }
 #new-products .product-item .carousel-thumb img {
+  height: 100%;
+  width: 100%;
   -webkit-transition: all 0.9s ease;
   -moz-transition: all 0.9s ease;
   -ms-transition: all 0.9s ease;
@@ -1199,6 +1199,9 @@ footer .menu li a:hover {
   overflow: hidden;
   position: relative;
 }
+.featured-list img {
+  height: 100%;
+}
 .featured-list li .hover a {
   position: absolute;
   left: 0;
@@ -1232,19 +1235,19 @@ footer .menu li a:hover {
 }
 .bottom-social-icons {
   text-align: center;
-  margin: 10px 0;
 }
 .bottom-social-icons a {
-  color: #fff;
-  text-align: center;
-  width: 32px;
-  line-height: 32px;
-  border-radius: 0px;
-  background: #444;
-  display: inline-block;
-  height: 32px;
-  position: relative;
-  overflow: hidden;
+   color: #fff;
+    text-align: center;
+    width: 35px;
+    line-height: 32px;
+    border-radius: 50%;
+    background: #6f727f;
+    display: inline-block;
+    height: 32px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
 }
 #copyright {
   background-color: #222222;
@@ -1329,11 +1332,10 @@ footer .menu li a:hover {
   border-bottom: 1px solid #eee;
 }
 .panel-body .active {
-  background-color: #f6f7f9;
-  outline: #dddfe2 1px solid;
+  background-color: #d8d5d8;
+  outline: transparent 1px solid;
   padding: 6px;
-  margin-left: -06px;
-}
+ 
 }
 .categories-list .filter {  
   line-height: 4px;

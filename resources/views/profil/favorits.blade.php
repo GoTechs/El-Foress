@@ -81,8 +81,6 @@
 
     <!-- End Content -->
 
-          @endsection
-
           <script type="text/javascript">
             
             function deleteFav(id){
@@ -110,3 +108,5 @@
                   });
             }
           </script>
+
+@endsection

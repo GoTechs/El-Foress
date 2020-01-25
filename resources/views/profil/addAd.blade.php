@@ -492,7 +492,6 @@
                     <div class="widget">
                         <h3 class="block-title">Foress</h3>
                         <ul class="menu">
-                         <li><a href="/a-propos">À propos de nous</a></li>
                          <li><a href="/">Avantages de l’inscription</a></li>
                          <li><a href="/">Publicité sur Foress</a></li> 
                         </ul>
@@ -575,7 +574,6 @@
     					<div class="widget">
     						<h3 class="block-title">{{__('layout.title_menu')}}</h3>
   							<ul class="menu">
-                     <li><a href="/a-propos">À propos de nous</a></li>
                      <li><a href="/">Avantages de l’inscription</a></li>
                     <li><a href="/">Publicité sur Foress</a></li>                    
                  </ul>
