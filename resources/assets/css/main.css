@@ -1314,7 +1314,7 @@ footer .menu li a:hover {
 }
 .inner-box {
   border: 1px solid #eee;
-  padding: 30px;
+  padding: 15px;
   margin-bottom: 30px;
 }
 .categories-list ul {
@@ -1332,11 +1332,14 @@ footer .menu li a:hover {
   border-bottom: 1px solid #eee;
 }
 .panel-body .active {
-  background-color: #d8d5d8;
-  outline: transparent 1px solid;
-  padding: 6px;
- 
+  background-color: #3498db;
+  outline: transparent 1px solid; 
+  padding: 5px;
 }
+.panel-body .active a {
+  color: white;
+}
+
 .categories-list .filter {  
   line-height: 4px;
   border-bottom: none;
@@ -1756,6 +1759,12 @@ footer .menu li a:hover {
   padding: 5px 10px;
   text-align: left;
   border-bottom: 1px solid #eee;
+}
+.page-sidebar{
+  background-color: #eee;
+}
+.search-bar .open .dropdown-menu {
+  max-height: 123px !important;
 }
 .user-panel-sidebar ul li a:hover,
 .user-panel-sidebar ul li a:active,
@@ -2410,7 +2419,6 @@ table.add-manage-table > tbody > tr > th {
   content: "";
 }
 .panel-default .panel-collapse .panel-body {
-  padding: 15px 30px;
   background-color: #fff;
   border: 1px solid #ccc;
 }
