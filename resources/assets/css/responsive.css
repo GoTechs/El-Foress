@@ -5,6 +5,15 @@
   .section {
     padding: 30px 0;
   }
+  .dropdown-menu {
+    position: relative;
+  }
+  .search-bar label, .btn-search{
+    margin: 0 0 0 12px !important;
+  }
+  .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+   width: 310px !important;
+  }
   .wrapper {
     padding: 30px 0;
     background-color: #f8f9f9;
@@ -61,9 +70,16 @@
     font-size: 24px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 750px) {
   .section {
     padding: 30px 0;
+  }
+  .search-bar .form-group {
+    margin: 0;
+    max-width: 310px;
+  }
+  .dropdown-menu {
+    position: relative;
   }
   .wrapper {
     padding: 30px 0;
@@ -130,6 +146,16 @@
 @media (max-width: 480px) {
   .section {
     padding: 30px 0;
+  }
+  .dropdown-menu {
+    position: relative;
+  }
+  .back-to-top {
+    right: 50px !important; 
+  }
+  .search-bar .form-group {
+    margin: 0;
+    max-width: 310px;
   }
   .wrapper {
     padding: 30px 0;

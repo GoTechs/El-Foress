@@ -149,6 +149,7 @@ h3.block-title {
 }
 .btn-search {
   padding: 11px;
+  max-width: 310px;
 }
 .btn-sm {
   font-size: 13px;
@@ -599,6 +600,7 @@ nav#menu span.fa.fa-bars:hover {
   background-size: cover;
   color: #fff;
   text-align: center;
+  display: flex;
 }
 #search-row-wrapper .overlay {
   background: rgba(0, 0, 0, 0.49);
@@ -626,6 +628,7 @@ nav#menu span.fa.fa-bars:hover {
 }
 .search-bar .form-group {
   margin: 0 0 0 12px;
+  max-width: 310px;
 }
 .search-bar .btn-group,
 .search-bar .btn-group-vertical {
@@ -644,6 +647,9 @@ nav#menu span.fa.fa-bars:hover {
   background-color: #3498db;
   color: #FFFFFF;
   border-radius: 0;
+}
+.search-bar .btn-group.bootstrap-select.dropdown-product{
+  max-width: 310px;
 }
 .search-bar .btn-group.bootstrap-select.dropdown-product ul.dropdown-menu.inner {
   display: none;
@@ -1472,11 +1478,14 @@ footer .menu li a:hover {
 }
 .pagination {
   margin: 0;
+  display: flex;
+  margin: 10px !important;
 }
 .pagination > li > a,
 .pagination .pagination > li > span {
   border: 1px solid #eee;
   border-radius: 0;
+  background: #FFF;
 }
 .pagination .active > a,
 .pagination .active > a:focus,
@@ -2634,5 +2643,6 @@ ul.ui-autocomplete {
         background-color: white;
         width: 200px;
         cursor: pointer;
+        padding: 5px;
     }
 
