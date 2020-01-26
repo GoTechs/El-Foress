@@ -12096,6 +12096,9 @@ zoom: 1;
   .section {
     padding: 30px 0;
   }
+  .dropdown-menu {
+    position: relative;
+  }
   .search-bar label, .btn-search{
     margin: 0 0 0 12px !important;
   }
@@ -12166,6 +12169,9 @@ zoom: 1;
     margin: 0;
     max-width: 310px;
   }
+  .dropdown-menu {
+    position: relative;
+  }
   .wrapper {
     padding: 30px 0;
     background-color: #f8f9f9;
@@ -12231,6 +12237,9 @@ zoom: 1;
 @media (max-width: 480px) {
   .section {
     padding: 30px 0;
+  }
+  .dropdown-menu {
+    position: relative;
   }
   .back-to-top {
     right: 50px !important; 
