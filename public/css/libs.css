@@ -4123,7 +4123,7 @@ select > opation:focus {
 }
 .category-box .category-header {
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   display: inline-block;
   text-align: center;
   padding: 40px 15px 20px;
@@ -4444,7 +4444,7 @@ select > opation:focus {
     Counter Style
     ========================================================================== */
 #counter {
-  background: url("../img/bg/counter-bg.jpg") center center no-repeat;
+  background: url("../img/bg/bg-intro.png") center center no-repeat;
   background-size: cover;
   color: #fff;
   padding: 60px 0;

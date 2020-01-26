@@ -798,18 +798,4 @@
 
     @endsection
 
-    <script type="text/javascript">
-
-/* ******************************   Advanced Filter *************************************** */ 
-
-     /* function filter(){
-          
-           var sites = {!! json_encode($data->toArray()) !!};
-           var test = sites.data;
-           
-           console.log(sites);
-        }*/
-
-        
-
-    </script>
+  

@@ -95,6 +95,8 @@ Route::get('/advanced-Search','advancedSearchController@search');
 
 // Password Operation
 
+Auth::routes(['verify' => true]);
+
 Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
     // Authentication Routes...
     Route::get('login', 'LoginController@showLoginForm')->name('login');
