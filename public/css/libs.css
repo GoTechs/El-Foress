@@ -4271,7 +4271,7 @@ select > opation:focus {
    Featured Listings Styles
    ========================================================================== */
 .featured-lis {
-  margin-top: 30px;
+  margin: 35px;
 }
 #new-products .product-item {
   padding: 0px 5px;
@@ -4576,6 +4576,7 @@ footer .menu li a:hover {
 }
 .featured-list img {
   height: 100%;
+  width: 100%;
 }
 .featured-list li .hover a {
   position: absolute;
