@@ -12,7 +12,7 @@
           height: 460px;
         }
       </style>
-      
+
       <!-- Start Contact Us Section -->
       <section id="content">
         <div class="container">
@@ -132,10 +132,7 @@
         
          <div id="google-map"></div>
       <!-- End Map Section -->
-
     
-    
-
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.expsensor=false&key=AIzaSyCLH3AD_WG8oWXUlIbrxywtkbo3EYkEFOo&">
     </script>
@@ -272,3 +269,4 @@
   </script>
 
   @endsection
+

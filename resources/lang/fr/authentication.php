@@ -32,7 +32,7 @@ return [
     'reset_button' => 'Réinitialiser',
 
     /*** Send Email reset Page ***/
-    'send_email_button' => "S'inscrire",
+    'send_email_button' => "Envoyer",
     'login_redirect' => 'Connexion',
     
 ];

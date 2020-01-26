@@ -553,7 +553,6 @@
                     <div class="widget">
                         <h3 class="block-title">Foress</h3>
                         <ul class="menu">
-                         <li><a href="/a-propos">À propos de nous</a></li>
                          <li><a href="/">Avantages de l’inscription</a></li>
                          <li><a href="/">Publicité sur Foress</a></li> 
                          <li><a href="/">Contactez-nous</a></li> 
@@ -613,8 +612,6 @@
     <!-- Footer area End -->
 
 </footer>
-<!-- Footer Section End -->
-    
 
     <!-- Go To Top Link -->
     <a href="#" class="back-to-top">

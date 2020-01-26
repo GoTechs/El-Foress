@@ -86,8 +86,6 @@
        
         <!-- End Content -->
 
-          @endsection
-
           <script>
 
             function deleteAd(id){
@@ -143,3 +141,5 @@
             }
 
           </script>
+
+@endsection

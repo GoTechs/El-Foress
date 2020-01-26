@@ -362,7 +362,6 @@
   content: "";
 }
 .panel-default .panel-collapse .panel-body {
-  padding: 15px 30px;
   background-color: #fff;
   border: 1px solid #ccc;
 }
@@ -3965,7 +3964,7 @@ nav#menu span.fa.fa-bars:hover {
   margin-bottom: 15px;
 }
 #search-row-wrapper {
-  background: url("../img/bg/counter-bg.jpg") center center no-repeat;
+  background: url("../img/bg/bg-intro.png") center center no-repeat;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -4275,8 +4274,6 @@ select > opation:focus {
 #new-products .product-item .carousel-thumb {
   display: block;
   border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
   position: relative;
   z-index: 99;
   overflow: hidden;
@@ -4288,6 +4285,8 @@ select > opation:focus {
   height: 175px;
 }
 #new-products .product-item .carousel-thumb img {
+  height: 100%;
+  width: 100%;
   -webkit-transition: all 0.9s ease;
   -moz-transition: all 0.9s ease;
   -ms-transition: all 0.9s ease;
@@ -4569,6 +4568,9 @@ footer .menu li a:hover {
   overflow: hidden;
   position: relative;
 }
+.featured-list img {
+  height: 100%;
+}
 .featured-list li .hover a {
   position: absolute;
   left: 0;
@@ -4602,19 +4604,19 @@ footer .menu li a:hover {
 }
 .bottom-social-icons {
   text-align: center;
-  margin: 10px 0;
 }
 .bottom-social-icons a {
-  color: #fff;
-  text-align: center;
-  width: 32px;
-  line-height: 32px;
-  border-radius: 0px;
-  background: #444;
-  display: inline-block;
-  height: 32px;
-  position: relative;
-  overflow: hidden;
+   color: #fff;
+    text-align: center;
+    width: 35px;
+    line-height: 32px;
+    border-radius: 50%;
+    background: #6f727f;
+    display: inline-block;
+    height: 32px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
 }
 #copyright {
   background-color: #222222;
@@ -4681,7 +4683,7 @@ footer .menu li a:hover {
 }
 .inner-box {
   border: 1px solid #eee;
-  padding: 30px;
+  padding: 15px;
   margin-bottom: 30px;
 }
 .categories-list ul {
@@ -4699,12 +4701,14 @@ footer .menu li a:hover {
   border-bottom: 1px solid #eee;
 }
 .panel-body .active {
-  background-color: #f6f7f9;
-  outline: #dddfe2 1px solid;
-  padding: 6px;
-  margin-left: -06px;
+  background-color: #3498db;
+  outline: transparent 1px solid; 
+  padding: 5px;
 }
+.panel-body .active a {
+  color: white;
 }
+
 .categories-list .filter {  
   line-height: 4px;
   border-bottom: none;
@@ -5124,6 +5128,12 @@ footer .menu li a:hover {
   padding: 5px 10px;
   text-align: left;
   border-bottom: 1px solid #eee;
+}
+.page-sidebar{
+  background-color: #eee;
+}
+.search-bar .open .dropdown-menu {
+  max-height: 123px !important;
 }
 .user-panel-sidebar ul li a:hover,
 .user-panel-sidebar ul li a:active,
@@ -5778,7 +5788,6 @@ table.add-manage-table > tbody > tr > th {
   content: "";
 }
 .panel-default .panel-collapse .panel-body {
-  padding: 15px 30px;
   background-color: #fff;
   border: 1px solid #ccc;
 }
@@ -12670,7 +12679,7 @@ zoom: 1;
   margin-bottom: 15px;
 }
 #search-row-wrapper {
-  background: url("../img/bg/counter-bg.jpg") center center no-repeat;
+  background: url("../img/bg/bg-intro.png") center center no-repeat;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -12963,8 +12972,6 @@ select > opation:focus {
 #new-products .product-item .carousel-thumb {
   display: block;
   border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
   position: relative;
   z-index: 99;
   overflow: hidden;
@@ -12975,6 +12982,8 @@ select > opation:focus {
   transition: all .4s ease;
 }
 #new-products .product-item .carousel-thumb img {
+  height: 100%;
+  width: 100%;
   -webkit-transition: all 0.9s ease;
   -moz-transition: all 0.9s ease;
   -ms-transition: all 0.9s ease;
@@ -13254,6 +13263,9 @@ footer .menu li a:hover {
   overflow: hidden;
   position: relative;
 }
+.featured-list img {
+  height: 100%;
+}
 .featured-list li .hover a {
   position: absolute;
   left: 0;
@@ -13292,6 +13304,7 @@ footer .menu li a:hover {
   overflow: hidden;
   margin: 10px;
 }
+
 .copyright {
   margin-top: 20px;
   font-size: 13px;
@@ -13365,7 +13378,7 @@ footer .menu li a:hover {
 }
 .inner-box {
   border: 1px solid #eee;
-  padding: 30px;
+  padding: 15px;
   margin-bottom: 30px;
 }
 .categories-list ul {
