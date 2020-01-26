@@ -35,14 +35,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
-                <a class="navbar-brand logo" href="/"><img src="{{asset('img/Capture.PNG')}}" alt=""></a>
+                <a class="navbar-brand logo" href="/"><img src="{{asset('img/logo.png')}}" alt=""></a>
             </div>
             <!-- brand and toggle menu for mobile End -->
 
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
+                    <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out"></i> {{__('layout.logout_button')}}</a></li>
                     <li class="postadd">
                         <a class="btn btn-danger btn-post" href="/add-Ad"><span class="fa fa-plus-circle"></span> {{__('layout.post_button')}}</a>
@@ -52,11 +52,10 @@
             <!-- Navbar End -->
         </div>
     </nav>
-     <!-- Start intro section -->
-     <section id="intro" class="sub-header">
-      <div class="overlay">
-        <div class="container">
-          <div class="main-text">
+   <!-- Search wrapper Start -->
+   <div id="search-row-wrapper">
+      <div class="container">
+        <div class="search-inner">
     <!-- Start Search box -->
             <div class="row search-bar">
               <div class="advanced-search">
@@ -66,52 +65,44 @@
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select">
                         <select class="dropdown-product selectpicker" name="categorie" >
-                          <option value="">{{__('index.categorie_input')}}</option>
-                          @foreach ($search as $key => $value)
+                          <option value="">Toutes les catégories</option>
+                          @if (isset($_POST['categorie']))
+                          @foreach ($search as $key => $value)                                
+                              @if($_POST['categorie'] == $value->idCat)
+                                <option value="{{$value->idCat}}" selected="">{{ $value->categories }}</option>
+                              @else 
                                 <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                            @endforeach
+                              @endif
+                          @endforeach
+                          @else
+                          @foreach ($search as $key => $value)  
+                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
+                          @endforeach
+                          @endif                                 
                        </select>                                    
                       </label>
                     </div>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="{{__('index.wilaya_input')}}" type="text" value="{{old('wilaya')}}">
+                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="{{__('index.keyword_input')}}" type="text" value="{{old('keyword')}}">
+                    <input class="form-control keyword" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
                     <i class="fa fa-search"></i>
                   </div>
                   <div class="col-md-3 col-sm-6 search-col">
-                    <button class="btn btn-common btn-search btn-block"><strong>{{__('index.search_button')}}</strong></button>
+                    <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
                   </div>
                 </form>
               </div>
             </div>
             <!-- End Search box -->   
-          </div>
         </div>
       </div>
-    </section>
-    <!-- end intro section -->
-    <!-- Off Canvas Navigation -->
-    <!--<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">-->
-        <!--- Off Canvas Side Menu -->
-        <!--<div class="close" data-toggle="offcanvas" data-target=".navmenu">
-            <i class="fa fa-close"></i>
-        </div>
-        <h3 class="title-menu">Menu</h3>
-        <ul class="nav navmenu-nav"> 
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/a-propos">À Propos</a></li>
-            <li><a href="/categorie">Toutes les annonces</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/faq">Faq</a></li>
-        </ul>--><!--- End Menu -->
-    <!--</div>--> <!--- End Off Canvas Side Menu -->
-    <!--<div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
-        <p><i class="fa fa-file-text-o"></i> Menu</p>
-    </div>-->
+    </div>
+    <!-- Search wrapper End -->
+   
 </div>
 <!-- Header Section End -->
 
@@ -185,28 +176,20 @@
                         <ul class="menu">
                          <li><a href="/">Avantages de l’inscription</a></li>
                          <li><a href="/">Publicité sur Foress</a></li> 
+                         <li><a href="/">Contactez-nous</a></li> 
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
                     <div class="widget">
-                        <h3 class="block-title">DERNIERS TWEETS</h3>
-                        <div class="twitter-content clearfix">
-                            <ul class="twitter-list">
-                                <li class="clearfix">
-                      <span>
-                        Suivez nous sur le nouveau site d'annonce FORESS
-                        <a href="#">http://t.co/cLo2w7rWOx</a>
-                      </span>
-                                </li>
-                                <li class="clearfix">
-                      <span>
-                        Cherchez, Trouvez !
-                        <a href="#">http://t.co/cLo2w7rWOx</a>
-                      </span>
-                                </li>
+                    <h3 class="block-title"> RENSEIGNEMENTS</h3>
+                       
+                            <ul class="menu">
+                            <li><a href="/">Conditions d’utilisation</a></li>
+                            <li><a href="/">Politique de confidentialité</a></li>
+                            <li><a href="/">Règles d’affichage</a></li> 
                             </ul>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
@@ -233,20 +216,17 @@
                 <div class="col-md-12">
                         <div class="bottom-social-icons social-icon ">
                             <a class="facebook" target="_blank" href=""><i class="fa fa-facebook"></i></a>
-                            <a class="twitter" target="_blank" href=""><i class="fa fa-twitter"></i></a>
-                            <a class="dribble" target="_blank" href=""><i class="fa fa-dribbble"></i></a>
-                            <a class="flickr" target="_blank" href=""><i class="fa fa-flickr"></i></a>
-                            <a class="youtube" target="_blank" href=""><i class="fa fa-youtube"></i></a>
-                            <a class="google-plus" target="_blank" href=""><i class="fa fa-google-plus"></i></a>
+                            <a class="instagram" target="_blank" href=""><i class="fa fa-instagram"></i></a>
+                            <a class="youtube" target="_blank" href=""><i class="fa fa-youtube"></i></a>    
                             <a class="linkedin" target="_blank" href=""><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                <p> ©2014-2019 GoTechs</p><br/>
-                <p>Tous droits réservés. Google, Google Play, You Tube et autres marques sont des marques déposées de Google Inc.</p>
-                    </div>
+                <div class="col-md-12 copyright">
+                  <p> ©2014-2019 GoTechs</p><br/>
+                  <p>Tous droits réservés. Google, Google Play, You Tube et autres marques sont des marques déposées de Google Inc.</p>
+                </div>
             </div>
         </div>
     </section>
