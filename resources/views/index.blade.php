@@ -291,11 +291,15 @@
                 <div class="item">
                   <div class="product-item">
                     <div class="carousel-thumb">
-                      @foreach ($imageAd as $img)
-                        @if ($result->id == $img->id_annonce)
-                          <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
-                        @endif
-                      @endforeach
+                      @if ($result->hasPicture == '1')
+                        @foreach ($imageAd as $img)
+                          @if ($result->id == $img->id_annonce)                                                
+                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                          @endif
+                        @endforeach
+                      @else 
+                        <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                      @endif
                       <div class="overlay">
                         <a href="/details/{{$result->id}}"><i class="fa fa-link"></i></a>
                       </div> 

@@ -733,11 +733,15 @@
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
                     <a href="/details/{{$result->id}}">
-                     @foreach ($imageAd as $img) 
-                      @if ($result->id == $img->id_annonce)
-                        <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                      @if ($result->hasPicture == '1')
+                        @foreach ($imageAd as $img) 
+                          @if ($result->id == $img->id_annonce)
+                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                          @endif
+                        @endforeach
+                      @else 
+                        <img src="{{asset('img/nopicture.png')}}" alt=""></a>
                       @endif
-                      @endforeach
                     <span class="photo-count"><i class="fa fa-camera"></i></span>
                   </div>
                 </div>

@@ -54,6 +54,12 @@ class insertAdController extends Controller
 
       //Add fields in common
 
+        if($request->hasfile('fileToUpload')){
+            $hasPicture = 1;
+        } else {
+            $hasPicture = 0;
+        } 
+
         $annonce = annonce::create([
             'titre' => request('Adtitle'),
             'description' => request('descrp'),
@@ -66,7 +72,8 @@ class insertAdController extends Controller
             'id_user' => $idUser ,
             'phoneHide' => request('phoneHide'),
             'wilaya' => request('wilaya'),
-            'stateAd' => '1'
+            'stateAd' => '1',
+            'hasPicture' => $hasPicture 
         ]);
 
         $lastID = $annonce->id;
