@@ -1472,11 +1472,14 @@ footer .menu li a:hover {
 }
 .pagination {
   margin: 0;
+  display: flex;
+  margin: 10px !important;
 }
 .pagination > li > a,
 .pagination .pagination > li > span {
   border: 1px solid #eee;
   border-radius: 0;
+  background: #FFF;
 }
 .pagination .active > a,
 .pagination .active > a:focus,

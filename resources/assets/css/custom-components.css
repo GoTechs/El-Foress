@@ -977,6 +977,7 @@ footer .menu li a:hover {
 .pagination .pagination > li > span {
   border: 1px solid #eee;
   border-radius: 0;
+  background: #FFF;
 }
 .pagination .active > a,
 .pagination .active > a:focus,
