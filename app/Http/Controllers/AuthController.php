@@ -38,7 +38,9 @@ class AuthController extends Controller
             'password' => request('password'),
         ]);
 
-        return redirect('connexion')->with('message','Inscription réussie : Connectez-vous pour ajouter des annonces');
+
+
+        return view('auth.verify');
     }
 
     public function connexion(){

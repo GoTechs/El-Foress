@@ -31,9 +31,6 @@ Route::get('/a-propos', 'categorieController@apropos');
 
 // Route for Authentication
 
-Route::get('/inscription','AuthController@create');
-Route::post('/inscription','AuthController@store');
-
 Route::get('/connexion','AuthController@connexion')->name('connexion');
 Route::post('/connexion','AuthController@checklogin');
 
@@ -43,8 +40,8 @@ Route::get('/logout','AuthController@logout')->middleware('auth');
 // Route to Profil
 
 Route::get('/home','ProfilController@home')->middleware('auth');
-Route::get('/my-ads','ProfilController@myads')->middleware('auth');
-Route::get('/favorites','ProfilController@favorits')->middleware('auth');
+Route::get('/my-ads','ProfilController@myads')->middleware(['auth', 'verified']);
+Route::get('/favorites','ProfilController@favorits')->middleware(['auth', 'verified']);
 Route::get('/archives','ProfilController@archives')->middleware('auth');
 
 // Dynamic dropDown Categorie And Sous categorie
@@ -92,10 +89,7 @@ Route::get('/my-ads/details/{idpost}','searchController@myAdsDetails')->middlewa
 
 Route::get('/advanced-Search','advancedSearchController@search');
 
-
 // Password Operation
-
-Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
     // Authentication Routes...
@@ -108,7 +102,16 @@ Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
     Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
     Route::post('password/reset', 'ResetPasswordController@reset');
+    Route::get('logout', 'LoginController@logout')->name('logout');
+
+    Route::get('/inscription','AuthController@create');
+    Route::post('/inscription','AuthController@store');    
+
 });
+
+    Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+    Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+    Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 // Update User Password
 
