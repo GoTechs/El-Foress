@@ -1,6 +1,8 @@
 
   @extends('layout')
 
+  @extends('googleAnalytics')
+
   @section('content')
 
     <div class="wrapper">
