@@ -34,7 +34,7 @@
                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
                     <i class="icon fa fa-user"></i>
-                    <input type="text" id="username" class="form-control" name="email" placeholder="{{__('authentication.email_input')}}" value="{{old('email')}}">
+                    <input type="text" id="username" class="form-control" name="email" placeholder="{{__('authentication.email_input')}}" value="{{old('username')}}">
                   </div>
                     @error('email')
                     <div class="invalid-feedback">{{ $message }}</div>
