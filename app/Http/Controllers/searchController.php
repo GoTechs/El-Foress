@@ -29,12 +29,12 @@ class searchController extends Controller
 {
    public function showCat(){
 
-      /*//Retreive Total visitors and pageviews
+      //Retreive Total visitors and pageviews
       $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7))->toArray();
       if ($analyticsData == []){
         $analyticsData = 0;
       } 
-*/
+
 	   	$search = categories::all();
       $nbrAds = annonce::where('stateAd' ,'=', '1')->count();
 
@@ -51,7 +51,7 @@ class searchController extends Controller
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get(); 
         
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$imageAd]);
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$imageAd, 'numberViews' => $analyticsData]);
 
    }
 

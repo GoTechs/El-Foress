@@ -329,7 +329,7 @@
               </div>
               <div class="desc">
                 <h3 class="counter">
-                 5
+                 {{dd($numberViews)}}
                 </h3>
                 <p>{{__('index.number_visitors')}}</p>
               </div>
