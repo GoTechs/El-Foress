@@ -277,9 +277,7 @@
             </div>
           </div>
         </div>
-      </section>
-
-        
+      </section>        
         
       <!-- Featured Listings Start -->
       <section class="featured-lis" >
@@ -331,7 +329,7 @@
               </div>
               <div class="desc">
                 <h3 class="counter">
-                 {{$numberViews}}
+                 5
                 </h3>
                 <p>{{__('index.number_visitors')}}</p>
               </div>

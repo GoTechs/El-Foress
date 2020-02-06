@@ -157,7 +157,6 @@
                         <ul class="featured-list">
                             @foreach($recentlyAdd as $recent)
                                 <li>
-
                                 @if ($recent->hasPicture == '1')
                                     @foreach ($imageAd as $img)
                                         @if ($recent->id == $img->id_annonce)
