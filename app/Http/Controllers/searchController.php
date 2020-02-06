@@ -30,7 +30,14 @@ class searchController extends Controller
    public function showCat(){
 
       //Retreive Total visitors and pageviews
-      $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7))->toArray();
+      $analyticsData = Analytics::performQuery(
+          Period::years(1),
+          'ga:sessions',
+          [
+              'metrics' => 'ga:sessions, ga:pageviews, ga:users, ga:visitors',
+              'dimensions' => 'ga:yearMonth'
+          ]
+      );
       if ($analyticsData == []){
         $analyticsData = 0;
       } 
