@@ -56,7 +56,7 @@
                 <button class="btn btn-common log-btn" name="connect" type="submit">{{__('authentication.connect_submit_button')}}</button>
               </form>
               <ul class="form-links">
-                <li class="pull-left"><a href="/inscription">{{__('authentication.register_redirect')}}</a></li>
+                <li class="pull-left"><a href="/admin/inscription">{{__('authentication.register_redirect')}}</a></li>
                 <li class="pull-right"><a href="{{route('password.reset')}}">{{__('authentication.reset_password_redirect')}}</a></li>
               </ul>
             </div>

@@ -42,17 +42,17 @@ Route::get('/logout','AuthController@logout')->middleware('auth');
 Route::get('/home','ProfilController@home')->middleware('auth');
 Route::get('/my-ads','ProfilController@myads')->middleware(['auth', 'verified']);
 Route::get('/favorites','ProfilController@favorits')->middleware(['auth', 'verified']);
-Route::get('/archives','ProfilController@archives')->middleware('auth');
+Route::get('/archives','ProfilController@archives')->middleware(['auth', 'verified']);
 
 // Dynamic dropDown Categorie And Sous categorie
 
-Route::get('/add-Ad','categorieController@categories')->middleware('auth');
+Route::get('/add-Ad','categorieController@categories')->middleware(['auth', 'verified']);
 
 Route::get('/json-sousCategorie','categorieController@sousCat')->middleware('auth');
 
 // Insert Ad
 
-Route::post('/insertAd','insertAdController@store')->middleware('auth');
+Route::post('/insertAd','insertAdController@store')->middleware(['auth', 'verified']);
 
 // Update and Delete Ad
 
