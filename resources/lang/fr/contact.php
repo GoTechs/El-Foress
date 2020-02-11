@@ -3,7 +3,7 @@
 return [
 
     'contact_tiltle' => 'contactez nous',
-    'contact_message' => 'Si vous avez des questions, n\'hésitez pas à nous contacter.',
+    'contact_message' => 'Comment pouvons-nous vous aider ?',
     'name_input' => 'Nom complet',
     'adresse_email_input' => 'Adresse mail',
     'subject_input' => 'Sujet',

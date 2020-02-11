@@ -14,7 +14,7 @@ return [
     'title_menu' => 'Liens Utiles',
     'recently_add' => 'recemment ajoutes',
     'index_menu' => 'Accueil',
-    'contact_menu' => 'Contact',
+    'contact_menu' => 'Contactez-nous',
     'about_menu' => 'À Propos',
     'faq_menu' => 'FAQ',
     'login_menu' => 'Connexion',

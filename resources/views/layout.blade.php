@@ -134,6 +134,7 @@
                     <div class="widget">
                         <h3 class="block-title">Foress</h3>
                         <ul class="menu">
+                         <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
                          <li><a href="/">Avantages de l’inscription</a></li>
                          <li><a href="/">Publicité sur Foress</a></li> 
                         </ul>

@@ -90,7 +90,13 @@
                 </div> 
               </form>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-4">
+              <div class="inner-box">
+                
+                <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
+              </div>        
+            </div>
+            <!-- <div class="col-md-4">
               <h2 class="title-2">
                 {{__('contact.contact_information')}}
               </h2>
@@ -124,13 +130,13 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
       <!-- End Contact Us Section  -->  
         
-         <div id="google-map"></div>
+         <!-- <div id="google-map"></div> -->
       <!-- End Map Section -->
     
     <!-- Google Maps API -->
