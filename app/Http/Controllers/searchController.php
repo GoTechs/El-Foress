@@ -56,9 +56,15 @@ class searchController extends Controller
                 ->limit(10)
                 ->get();  
 
-        $imageAd = DB::table('imageads')->groupBy('id_annonce')->get(); 
+        //$imageAd = DB::table('imageads')->groupBy('id_annonce')->get(); 
+        $users_grouped  = DB::select('SELECT * from 
+          `imageads` GROUP BY `id_annonce`');
+
+
+        /*dd($users_grouped);
+       */
         
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$imageAd, 'numberViews' => $analyticsData]);
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$users_grouped, 'numberViews' => $analyticsData]);
 
    }
 

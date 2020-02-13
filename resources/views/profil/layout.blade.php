@@ -171,12 +171,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn">
-                    <div class="widget">
+                         <div class="widget">
                         <h3 class="block-title">Foress</h3>
                         <ul class="menu">
                          <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
-                         <li><a href="/">Avantages de l’inscription</a></li>
-                         <li><a href="/">Publicité sur Foress</a></li> 
+                         <li><a href="/centre-aide/avantages-de-l-inscription">Avantages de l’inscription</a></li>
+                         <li><a href="/centre-aide/publicite-sur-foress">Publicité sur Foress</a></li> 
                         </ul>
                     </div>
                 </div>
@@ -185,9 +185,9 @@
                     <h3 class="block-title"> RENSEIGNEMENTS</h3>
                        
                             <ul class="menu">
-                            <li><a href="/">Conditions d’utilisation</a></li>
-                            <li><a href="/">Politique de confidentialité</a></li>
-                            <li><a href="/">Règles d’affichage</a></li> 
+                            <li><a href="/centre-aide/conditions-d-utilisation">Conditions d’utilisation</a></li>
+                            <li><a href="/centre-aide/politique-de-confidentialite">Politique de confidentialité</a></li>
+                            <li><a href="/centre-aide/regles-d-affichage">Règles d’affichage</a></li> 
                             </ul>
                         
                     </div>

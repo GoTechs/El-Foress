@@ -3,21 +3,6 @@
 
   @section('content')
 
-
-    <!-- Page Header Start -->
-    <div class="page-header" style="background: url({{asset('img/banner1.jpg')}}">
-      <div class="container">
-        <div class="row">         
-          <div class="col-md-12">
-            <div class="breadcrumb-wrapper">
-              <h2 class="page-title">{{__('faq.faq')}}</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Page Header End --> 
-
     <!-- Start Content -->
     <div id="content">
       <div class="container">        

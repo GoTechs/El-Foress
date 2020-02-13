@@ -11,6 +11,12 @@
 |
 */
 
+// Footer link
+
+Route::get('/centre-aide/{id}', function () {
+    return view('politique');
+});
+
 Route::get('/','searchController@showCat');
 
 Route::post('/categorie','searchController@search');
