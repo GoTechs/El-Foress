@@ -30,17 +30,20 @@ class searchController extends Controller
    public function showCat(){
 
       //Retreive Total visitors and pageviews
-      $analyticsData = Analytics::performQuery(
+       $analyticsData = Analytics::performQuery(
           Period::years(1),
           'ga:sessions',
           [
-              'metrics' => 'ga:sessions, ga:pageviews, ga:users, ga:visitors',
-              'dimensions' => 'ga:yearMonth'
+              'metrics' => 'ga:sessions, ga:pageviews, ga:users, ga:newUsers'
           ]
       );
-      if ($analyticsData == []){
-        $analyticsData = 0;
-      } 
+
+            if ($analyticsData == []){
+              $analyticsData = 0;
+            }
+
+      $nbrVisitors = $analyticsData->totalsForAllResults['ga:users'];
+
 
 	   	$search = categories::all();
       $nbrAds = annonce::where('stateAd' ,'=', '1')->count();
@@ -58,7 +61,7 @@ class searchController extends Controller
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();        
         
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$imageAd, 'numberViews' => $analyticsData]);
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$imageAd, 'nbrVisitors' => $nbrVisitors]);
 
    }
 
