@@ -57,11 +57,9 @@ class searchController extends Controller
       $annonce = DB::table('annonces')
                 ->orderBy('numberViews', 'desc')
                 ->limit(10)
-                ->get();  
-
-        $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();        
+                ->get();     
         
-	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'imageAd'=>$imageAd, 'nbrVisitors' => $nbrVisitors]);
+	    return view('index', ['categorie'=>$categorie,'search'=>$search,'annonces'=>$annonce, 'nbrAds'=>$nbrAds, 'nbrVisitors' => $nbrVisitors]);
 
    }
 
