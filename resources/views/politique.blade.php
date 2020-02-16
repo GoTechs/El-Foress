@@ -1,4 +1,3 @@
-
   @extends('layout')
 
   @section('content')
@@ -18,7 +17,7 @@
                     </a>
                   </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse in">
+                  <div id="collapseOne" class="panel-collapse collapse {{$id == 'conditions-d-utilisation' ? 'in' : ''}}">             
                   <div class="panel-body">
                     <p>Bienvenue à&nbsp;
                       <a href="http://www.foress-dz.com">www.foress-dz.com</a> et Merci de votre visite.&nbsp;
@@ -189,7 +188,7 @@
                     </a>
                   </h4>
                 </div>
-                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div id="collapseTwo" class="panel-collapse collapse {{$id == 'politique-de-confidentialite' ? 'in' : ''}}">
                   <div class="panel-body">
                     <p><strong>Table des matières</strong></p>
                       <ol start="1" type="1">
@@ -278,7 +277,7 @@
                     </a>
                   </h4>
                 </div>
-                <div id="collapseThree" class="panel-collapse collapse">
+                  <div id="collapseThree" class="panel-collapse collapse {{$id == 'regles-d-affichage' ? 'in' : ''}}">
                   <div class="panel-body">
                     <p><strong>&nbsp;</strong></p>
                     <p>Les activités suivantes sont interdites sur&nbsp;www.Foress-dz.com&nbsp;:</p>
@@ -321,7 +320,7 @@
                     </a>
                   </h4>
                 </div>
-                <div id="collapseFour" class="panel-collapse collapse">
+                  <div id="collapseFour" class="panel-collapse collapse {{$id =='avantages-de-l-inscription' ? 'in' : ''}}">
                   <div class="panel-body">
                     <p>Parmi les avantages de la vente ou de l’achat entre particuliers est certainement très avantageux sur le plan économique sur le produit acheté.</p>
                     <p>En effet,&nbsp;devenir membre inscrit du&nbsp;Foress&nbsp;vous permet de mettre en avant vos annonces et de les gérer très facilement via votre profil&nbsp;Foress. Une fois que votre compte est ouvert et validé, vous avez accès à&nbsp;«&nbsp;Mon compte »&nbsp;ou à «&nbsp;Mon Profil »&nbsp;qui vous permet de faire presque tout en quelques clics.</p>

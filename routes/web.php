@@ -13,8 +13,8 @@
 
 // Footer link
 
-Route::get('/centre-aide/{id}', function () {
-    return view('politique');
+Route::get('/centre-aide/{id}', function ($id) {
+    return view('politique', ['id'=>$id]);
 });
 
 Route::get('/','searchController@showCat');
