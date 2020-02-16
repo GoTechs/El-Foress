@@ -12,9 +12,7 @@
     
     <!-- Line Icons CSS -->
     <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
-    <!-- Line Icons CSS -->
-    <link rel="stylesheet" href="{{asset('css/fonts/line-icons/line-icons.css')}}" type="text/css">
-
+    
 </head>
 <body data-ng-controller="poste-controller">
   <!-- Header Section Start -->
@@ -517,9 +515,14 @@
          <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Média</h2>
-          <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">
-            <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur votre annonce</label>
-              <input class="form-control" name="fileToUpload[]" type="file" multiple> <br>
+          <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">            
+          <label class="control-label" >Ajoutez des photos pour attirer l'attention sur votre annonce</label>
+            <input class="pro-image" name="fileToUpload[]" type="file" multiple /> <br>          
+          </div>
+          <div class="preview-images-zone">
+            <div class="preview-image preview-show-1" onClick="$('.pro-image').click()">
+                <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw=="></div>
+            </div>
           </div>
           </div>
           <div class="mb30"></div>
@@ -842,7 +845,55 @@
               source: wilaya
             });
           } );
-      
+
+
+          $(document).ready(function() {
+    document.querySelector('.pro-image').addEventListener('change', readImage, false);
+   
+    $( ".preview-images-zone" ).sortable();
+    
+    $(document).on('click', '.image-cancel', function() {
+
+        let no = $(this).data('no');
+        $(".preview-image.preview-show-"+no).remove();
+    });
+});
+
+
+
+var num = 2;
+function readImage() {
+ var element = $(".preview-images-zone");
+    if (window.File && window.FileList && window.FileReader) {
+        var files = event.target.files; //FileList object
+        var output = $(".preview-images-zone");
+
+        for (let i = 0; i < files.length; i++) {
+ 
+          if(i < 14){
+            var file = files[i];
+            if (!file.type.match('image')) continue;
+            
+            var picReader = new FileReader();
+            
+            picReader.addEventListener('load', function (event) {
+                var picFile = event.target;
+                var html =  '<div class="preview-image preview-show-' + num + '">' +
+                            '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                            '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                            '</div>';
+
+                output.prepend(html);
+                num = num + 1;
+            });
+
+            picReader.readAsDataURL(file);
+          }
+           
+        }
+        $("#pro-image").val('');
+    } 
+}      
       </script>
 </body>
 </html>
