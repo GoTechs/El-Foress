@@ -16,13 +16,19 @@ class SocialAuthController extends Controller
     public function callback($service) {
 
         $serviceUser = Socialite::with($service)->stateless()->user();
-        $today = date("Y-m-d H:i:s");         
-        $user = Users::create([
-            'nom' => $serviceUser->getName(),
-            'email' => $serviceUser->getEmail(),
-            'email_verified_at' => $today,
-        ]);
-        auth()->login($user);
+        $today = date("Y-m-d H:i:s"); 
+        $existingUser = Users::where('email', $serviceUser->getEmail)->first();  
+        if($existingUser){
+            // log them in
+            auth()->login($existingUser);
+        } else {    
+            $user = Users::create([
+                'nom' => $serviceUser->getName(),
+                'email' => $serviceUser->getEmail(),
+                'email_verified_at' => $today,
+            ]);
+            auth()->login($user);
+        }
         return redirect()->action('ProfilController@myads');
     }
 }
