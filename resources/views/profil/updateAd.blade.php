@@ -627,10 +627,10 @@
             <div class="row">
                 <div class="col-md-12">
                         <div class="bottom-social-icons social-icon ">
-                            <a class="facebook" target="_blank" href=""><i class="fa fa-facebook"></i></a>
-                            <a class="instagram" target="_blank" href=""><i class="fa fa-instagram"></i></a>
-                            <a class="youtube" target="_blank" href=""><i class="fa fa-youtube"></i></a>    
-                            <a class="linkedin" target="_blank" href=""><i class="fa fa-linkedin"></i></a>
+                            <a class="facebook" target="_blank" href="https://www.facebook.com/Foress-111899207061171/?__tn__=%2Cd%2CP-R&eid=ARASPotcXhYJOJ-wvJjPnuBDvDZC9CphhqUNtRhQComsB1AHbq0T-NPd6fFC6FeEArdE9mewa5dmrfc_"><i class="fa fa-facebook"></i></a>
+                            <a class="instagram" target="_blank" href="https://www.instagram.com/foress_dz/?hl=fr-ca"><i class="fa fa-instagram"></i></a>
+                            <a class="youtube" target="_blank" href="https://www.youtube.com/channel/UCuvPoCDLC9ido1GDafDexiQ?fbclid=IwAR3_lUl-W8JX107T3RQF-U4lw5_n1QDRxQd_W6ZX1ng5XxsJVBhHgsRmrQg"><i class="fa fa-youtube"></i></a>    
+                            <a class="linkedin" target="_blank" href="https://www.linkedin.com/company/foress-dz"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
             </div>
