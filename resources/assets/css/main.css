@@ -2711,4 +2711,11 @@ ul.ui-autocomplete {
       width: 90px !important;
       height: 90px !important;
   }
+  .page-login-form .btn-facebook {
+    padding: 12px;
+  }
+  .page-login-form .btn-google {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
 

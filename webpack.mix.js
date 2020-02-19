@@ -29,6 +29,7 @@ mix.styles([
     'resources/assets/css/slicknav.css',
     'resources/assets/css/bootstrap-select.min.css',
     'resources/assets/css/custom-components.css',
+    'resources/assets/css/bootstrap-social.css',
 
 
 ], 'public/css/libs.css');

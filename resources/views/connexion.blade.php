@@ -29,8 +29,17 @@
               <h3>
                 {{__('authentication.connect_description')}}
               </h3>
-              <a href="redirect/facebook">Connexion avec facebook</a>
-              <a href="redirect/google">Connexion avec google</a>
+
+              <a class="btn btn-block btn-facebook" href="redirect/facebook">
+                <span class="fa fa-facebook fa-fw"></span>
+                 Connectez-vous avec <strong>Facebook</strong>
+              </a>
+
+              <a class="btn btn-block btn-google" href="redirect/google">
+                <span class="fa fa-google fa-fw"></span>
+                 Connectez-vous avec <strong>Google</strong>
+              </a>
+
               <form class="login-form" method="post" action="/connexion">
                 @csrf
                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">

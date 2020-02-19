@@ -14,12 +14,15 @@ class SocialAuthController extends Controller
     }
 
     public function callback($service) {
-
-        $serviceUser = Socialite::with($service)->stateless()->user();
+                
+        try {
+            $serviceUser = Socialite::with($service)->stateless()->user();
+        } catch (\Exception $e) {
+            return redirect('/connexion');
+        }
         $today = date("Y-m-d H:i:s"); 
-        $existingUser = Users::where('email', $serviceUser->getEmail)->first();  
+        $existingUser = Users::where('email', $serviceUser->email)->first();  
         if($existingUser){
-            // log them in
             auth()->login($existingUser);
         } else {    
             $user = Users::create([
