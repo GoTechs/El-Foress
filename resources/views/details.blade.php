@@ -16,10 +16,13 @@
                   <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
                 @endif             
                 <div class="fotorama">
+                @if ($annonce->hasPicture == '1')
                   @foreach ($images as $image)
-                  <!--<img src="{{asset('images/'.$image->imagename)}}">-->
                   <img src="{{Storage::disk('s3')->url($image->imagename)}}">
                   @endforeach
+                @else 
+                <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                @endif
                 </div>
 
               </div>
