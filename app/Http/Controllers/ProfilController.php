@@ -30,7 +30,7 @@ class ProfilController extends Controller
         return view('profil.home');
     }
 
-    public function myads(Request $request){
+    public function myads(){
         
         $idUser = Auth::user()->id;
 

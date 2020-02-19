@@ -123,3 +123,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
 
 Route::patch('/updatePassword/{idpost}','ProfilController@updatePassword')->middleware('auth');
 
+// Login with facebook
+
+Route::get('redirect/{service}','SocialAuthController@redirect');
+Route::get('/callback/{service}','SocialAuthController@callback');
+

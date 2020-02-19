@@ -29,6 +29,7 @@
               <h3>
                 {{__('authentication.connect_description')}}
               </h3>
+              <a href="redirect/facebook">Connexion avec facebook</a>
               <form class="login-form" method="post" action="/connexion">
                 @csrf
                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
