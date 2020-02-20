@@ -155,8 +155,7 @@
                                     @endforeach
                                   @else 
                                     <img src="{{asset('img/nopicture.png')}}" alt=""></a>
-                                  @endif   
-                                
+                                  @endif                                   
                                     <div class="hover">
                                         <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
                                     </div>
