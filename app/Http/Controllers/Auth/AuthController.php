@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         $validator = Validator::make($request->all(),[
             "nom" => "required|string",
-            "email" => "required|email|max:255|unique:users",
+            "email" => "required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|max:255|unique:users",
             "password" => "bail|required|min:8|max:30|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/",
             "confirmPassword" => "required|same:password",
         ]);
