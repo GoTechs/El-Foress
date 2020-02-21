@@ -3379,9 +3379,9 @@ h2.title {
    Common Styles
    ========================================================================== */
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 24px;
   overflow-x: hidden;
   /* fixing the overflow duting animation */
@@ -3406,7 +3406,7 @@ h3 {
 }
 p {
   font-size: 13px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   line-height: 24px;
   font-weight: 400;
@@ -3541,7 +3541,7 @@ h3.block-title {
 .btn-post {
   width: 190px;
   padding: 10px 16px;
-  background-color: #8C53A1;
+  background-color: #512EA7;
 }
 .btn-post:hover {
   background-color: #AEA1EA;
@@ -3549,6 +3549,7 @@ h3.block-title {
 .wrapper {
   background-color: #f8f9f9;
   padding: 60px 0;
+  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.75);
 }
 .section {
   padding: 60px 0;
@@ -3560,7 +3561,7 @@ h3.block-title {
     float: left;
     margin-bottom: 10px;
     color: #3e4153;
-    font-family: Larsseit,Arial,sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .title-2 {
   border-bottom: 1px solid #E6E6E6;
@@ -3822,14 +3823,15 @@ nav#menu span.fa.fa-bars:hover {
    Header Style
    ========================================================================== */
 .header {
-  background-color: #f8f9f9;
+  background-color: #fff;
+  padding-bottom: 30px;
 }
 .navbar-default {
   margin-bottom: 0;
   background: transparent;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
 }
 .navbar-header {
   position: relative;
@@ -3845,11 +3847,11 @@ nav#menu span.fa.fa-bars:hover {
   transition: all 0.2s linear;
 }
 .main-navigation .navbar-nav > li a {
-  color: #444;
+  color: #3498db;
   line-height: normal;
   border-radius: 4px;
   padding: 12px 15px;
-  font-size: 13px;
+  font-size: 15px;
   outline: 0;
   letter-spacing: 0.3px;
   -moz-transition: color .3s linear;
@@ -3860,7 +3862,7 @@ nav#menu span.fa.fa-bars:hover {
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
-  color: #3498db;
+  color: #444;
 }
 .main-navigation .navbar-nav > li a i {
   margin-right: 3px;
@@ -3965,7 +3967,7 @@ nav#menu span.fa.fa-bars:hover {
   margin-bottom: 15px;
 }
 #search-row-wrapper {
-  background: url("../img/bg/bg-intro.png") center center no-repeat;
+  /* background: url("../img/bg/bg-intro.png") center center no-repeat; */
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -3976,9 +3978,7 @@ nav#menu span.fa.fa-bars:hover {
   width: 100%;
   height: 100%;
 }
-#search-row-wrapper .search-inner {
-  padding: 40px 0;
-}
+
 /* ==========================================================================
    Advanced search
    ========================================================================== */
@@ -4151,7 +4151,7 @@ select > opation:focus {
 }
 .category-box .category-content li {
   float: left;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 16px;
   margin-top: 10px;
   width: 100%;
@@ -4376,7 +4376,7 @@ select > opation:focus {
   line-height: 16px;
 }
 #new-products .product-item .price {
-  color: #444;
+  color: #37a864;
   display: block;
   font-size: 16px;
   font-weight: 700;
@@ -4522,7 +4522,7 @@ select > opation:focus {
    Footer Style
    ========================================================================== */
 footer .footer-Content {
-  background-color: #3e4153;
+  background-color: #2d2e38;
   padding: 60px 0;
   color: #fff;
 }
@@ -4544,9 +4544,11 @@ footer .menu li {
 }
 footer .menu li a {
   color: #fff;
+  font-size: 15px;
 }
 footer .menu li a:hover {
   color: #3498db;
+  
 }
 .twitter-content ul li {
   margin-bottom: 10px;
@@ -12181,6 +12183,7 @@ zoom: 1;
   .wrapper {
     padding: 30px 0;
     background-color: #f8f9f9;
+    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.75);
   }
   .form-control {
     margin-bottom: 20px;
@@ -12316,6 +12319,9 @@ zoom: 1;
   }
   .back-to-top {
     right: 50px !important; 
+  }
+  .search-bar {
+    background: none;
   }
   .search-bar .form-group {
     margin: 0;
@@ -12656,7 +12662,7 @@ zoom: 1;
    ========================================================================== */
 .navbar-default {
   margin-bottom: 0;
-  background-color: #f8f9f9;
+  background-color: #fff;
   border: none;
   border-radius: 0;
 }
@@ -12674,11 +12680,11 @@ zoom: 1;
   transition: all 0.2s linear;
 }
 .main-navigation .navbar-nav > li a {
-  color: #444;
+  color: #3498db;
   line-height: normal;
   border-radius: 4px;
   padding: 12px 15px;
-  font-size: 13px;
+  font-size: 15px;
   outline: 0;
   letter-spacing: 0.3px;
   -moz-transition: color .3s linear;
@@ -12689,7 +12695,7 @@ zoom: 1;
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
-  color: #3498db;
+  color: #444;
 }
 .main-navigation .navbar-nav > li a i {
   margin-right: 3px;
@@ -12788,7 +12794,7 @@ zoom: 1;
   margin-bottom: 15px;
 }
 #search-row-wrapper {
-  background: url("../img/bg/bg-intro.png") center center no-repeat;
+  /* background: url("../img/bg/bg-intro.png") center center no-repeat; */
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -12798,9 +12804,7 @@ zoom: 1;
   width: 100%;
   height: 100%;
 }
-#search-row-wrapper .search-inner {
-  padding: 40px 0;
-}
+
 /* ==========================================================================
    Advanced search
    ========================================================================== */
@@ -12964,7 +12968,7 @@ select > opation:focus {
 }
 .category-box .category-content li {
   float: left;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 16px;
   margin-top: 10px;
   width: 100%;
@@ -13176,7 +13180,7 @@ select > opation:focus {
   line-height: 16px;
 }
 #new-products .product-item .price {
-  color: #444;
+  color: #37a864;
   display: block;
   font-size: 16px;
   font-weight: 700;
@@ -13342,6 +13346,7 @@ footer .menu li {
 }
 footer .menu li a {
   color: #fff;
+  font-size: 15px;
 }
 footer .menu li a:hover {
   color: #3498db;

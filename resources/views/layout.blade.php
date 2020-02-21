@@ -64,6 +64,10 @@
             <div class="row search-bar">
               <div class="advanced-search">
                 <form class="search-form" method="post" action="/categorie">
+                <div class="col-md-3 col-sm-6 search-col">
+                    <input class="form-control keyword" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
+                    <i class="fa fa-search"></i>
+                  </div>
                   @csrf
                   <div class="col-md-3 col-sm-6 search-col">
                     <div class="input-group-addon search-category-container">
@@ -91,10 +95,7 @@
                     <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
                     <i class="fa fa-map-marker"></i>
                   </div>
-                  <div class="col-md-3 col-sm-6 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
-                    <i class="fa fa-search"></i>
-                  </div>
+                 
                   <div class="col-md-3 col-sm-6 search-col">
                     <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
                   </div>

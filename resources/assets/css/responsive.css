@@ -17,6 +17,7 @@
   .wrapper {
     padding: 30px 0;
     background-color: #f8f9f9;
+    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.75);
   }
   .form-control {
     margin-bottom: 20px;
@@ -152,6 +153,9 @@
   }
   .back-to-top {
     right: 50px !important; 
+  }
+  .search-bar {
+    background: none;
   }
   .search-bar .form-group {
     margin: 0;
