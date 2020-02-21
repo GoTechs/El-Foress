@@ -16,7 +16,6 @@
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
     <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-    
 </head>
 
 <body>
