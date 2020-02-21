@@ -10,7 +10,7 @@ return [
     'details_column' => 'Détails',
     'price_column' => 'Prix',
     'option_column' => 'Option',
-    'date_add_info' => 'Posté le',
+    'date_add_info' => 'Posté',
     'number_visitor_info' => 'Nombre de visiteurs',
     'wilaya_info' => 'Wilaya',
 

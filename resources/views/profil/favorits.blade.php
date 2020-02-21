@@ -58,7 +58,7 @@
                       <td class="ads-details-td">
                         <h4 class="title"><a href="/my-ads/details/{{$results->id_annonce}}">{{$results->titre}}</a></h4>
                         <p> <strong> {{__('myads.date_add_info')}} </strong>:
-                          {{$results->created_at}} </p>
+                        {{\Carbon\Carbon::parse($results->created_at)->diffForHumans()}} </p>
                         <p> <strong>{{__('myads.number_visitor_info')}} </strong>: {{$results->numberViews}} <strong>{{__('myads.wilaya_info')}} :</strong> {{$results->wilaya}} </p>
                       </td>
                       <td class="price-td">

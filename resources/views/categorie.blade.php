@@ -1,4 +1,3 @@
-
     @extends('layout')
 
     @section('content')
@@ -752,7 +751,7 @@
                       
                       <span class="date">
                         <i class="fa fa-clock"></i>
-                        {{$result->created_at}}
+                        {{\Carbon\Carbon::parse($result->created_at)->diffForHumans()}}
                       </span> -
                       <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                     </div>

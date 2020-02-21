@@ -11,7 +11,7 @@
             <div class="col-sm-8">
               <div class="inner-box ads-details-wrapper">
                 <h2>{{$annonce->titre}}</h2>
-                <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{$annonce->created_at}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+                <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
                 @if ($annonce->etat <> "")
                   <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
                 @endif             
