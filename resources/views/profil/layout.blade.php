@@ -175,8 +175,7 @@
                         <h3 class="block-title">Foress</h3>
                         <ul class="menu">
                          <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
-                         <li><a href="/centre-aide/avantages-de-l-inscription">Avantages de l’inscription</a></li>
-                         <li><a href="/centre-aide/publicite-sur-foress">Publicité sur Foress</a></li> 
+                         <li><a href="/centre-aide/avantages-de-l-inscription">Avantages de l’inscription</a></li>                        
                         </ul>
                     </div>
                 </div>
@@ -198,11 +197,15 @@
                         <ul class="featured-list">
                             @foreach($recentlyAdd as $recent)
                                 <li>
-                                @foreach ($imageAd as $img)
-                                    @if ($recent->id == $img->id_annonce)
-                                        <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
-                                    @endif
-                                @endforeach
+                                @if ($recent->hasPicture == '1')
+                                    @foreach ($imageAd as $img)
+                                        @if ($recent->id == $img->id_annonce)
+                                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                                        @endif
+                                    @endforeach
+                                  @else 
+                                    <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                                  @endif 
                                     <div class="hover">
                                         <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
                                     </div>

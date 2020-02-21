@@ -53,7 +53,16 @@
                       </td>
                       <td class="add-img-td">
                         <a href="/my-ads/details/{{$results->id_annonce}}">
-                          <img class="img-responsive" src="{{asset('img/bientot-disponible.jpg')}}" alt="img">
+
+                        @if ($results->hasPicture == '1')
+                        @foreach ($imageAd as $img) 
+                          @if ($results->id_annonce == $img->id_annonce)
+                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                          @endif
+                        @endforeach
+                      @else 
+                        <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                      @endif
                         </a>
                       </td>
                       <td class="ads-details-td">

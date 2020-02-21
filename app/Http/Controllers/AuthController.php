@@ -38,8 +38,6 @@ class AuthController extends Controller
             'password' => request('password'),
         ]);
 
-
-
         return view('auth.verify');
     }
 

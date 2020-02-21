@@ -30,12 +30,12 @@ class ProfilController extends Controller
         return view('profil.home');
     }
 
-    public function myads(Request $request){
+    public function myads(){
         
         $idUser = Auth::user()->id;
 
         $annonce = DB::table('annonces')
-            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews'])
+            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture'])
             ->where([
                 ['annonces.id_user', '=', $idUser],
                 ['annonces.stateAd','=','1'],
@@ -99,7 +99,7 @@ class ProfilController extends Controller
             ])->get()->toArray();
 
         $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);
-        
+                
         return view('profil.myads', [
             'result' => $result
         ]);
