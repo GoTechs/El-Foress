@@ -9,7 +9,7 @@
     <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('img/favicon.')}}">
    
     <!-- Line Icons CSS -->
     <link rel="stylesheet" href="{{asset('fonts/line-icons/line-icons.css')}}" type="text/css">

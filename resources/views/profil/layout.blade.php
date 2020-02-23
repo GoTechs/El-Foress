@@ -9,7 +9,7 @@
     <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
    

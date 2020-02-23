@@ -59,7 +59,7 @@ img {
 }
 .logo img {
     position: relative;
-    bottom: 40px;
+    bottom: 60px;
 }
 
 ul {
@@ -366,7 +366,7 @@ select.form-control:focus {
 .navbar > .container .navbar-brand,
 .navbar > .container-fluid .navbar-brand {
   padding: 0 0 0 15px;
-  width: 150px;
+  width: 200px;
 }
 .tbtn {
   color: #FFF !important;
@@ -476,6 +476,9 @@ nav#menu span.fa.fa-bars:hover {
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
+}
+.header .container {
+  padding: 0 !important;
 }
 .main-navigation .navbar-nav > li a {
   color: #3498db;
@@ -1325,6 +1328,15 @@ footer .menu li a:hover {
   border: 1px solid #eee;
   padding: 15px;
   margin-bottom: 30px;
+  width: 100%;
+  height: 100%;
+}
+#right-details{
+  display: flex;
+  flex-direction: column;
+}
+#details {
+  width: 60%;
 }
 .categories-list ul {
   margin: 0;
@@ -1975,6 +1987,10 @@ table.add-manage-table > tbody > tr > th {
   text-align: left;
   padding-left: 0px;
   padding-right: 0px;
+}
+.ads-details-wrapper {
+  display: flex;
+  height: 500px;
 }
 .ads-details-wrapper h2 {
   font-size: 24px;
@@ -2720,4 +2736,3 @@ ul.ui-autocomplete {
     padding: 12px;
     margin-bottom: 10px;
   }
-

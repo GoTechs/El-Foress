@@ -8,10 +8,8 @@
       <div class="container">
         <div class="row">
           <!-- Product Info Start -->          
-            <div class="col-sm-8">
-              <div class="inner-box ads-details-wrapper">
-                <h2>{{$annonce->titre}}</h2>
-                <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+            <div class="col-sm-10  col-lg-10 ads-details-wrapper">
+              <div class="inner-box ">
                 @if ($annonce->etat <> "")
                   <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
                 @endif             
@@ -24,12 +22,45 @@
                 <img src="{{asset('img/nopicture.png')}}" alt=""></a>
                 @endif
                 </div>
-
               </div>
 
-              <div class="box">
-                <h2 class="title-2"><strong>{{__('details.details_title')}}</strong></h2>
-                  <div class="row">
+              <div class="inner-box" id="details">
+              <h2>{{$annonce->titre}}</h2>
+              <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+                  
+              <div class="row" id="right-details">
+              <div class="user-details col-md-12">
+                    <aside class="panel panel-body panel-details">
+                      <ul>
+                        @if ($annonce->prix <> "")
+                          <li>
+                            <p class="no-margin"><strong> {{__('details.price_info')}} : </strong> {{$annonce->prix}} DA</a></li>
+                          <li>
+                        @endif
+                        @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "")
+                         <li>
+                          <p class="no-margin"><i class=" fa fa-phone"></i> <strong> {{__('details.phone_info')}} : </strong> {{$annonce->phoneNumber}} </a>
+                        </li>
+                        @endif
+                        <li>
+                        @if ($annonce->email <> "")
+                          <li>
+                            <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} : </strong> {{$annonce->email}} </a></li>
+                          <li>
+                        @endif
+                        <li>
+                            <p class="no-margin"><i class="fa fa-eye"></i> <strong> {{__('details.number_visit_info')}} : </strong> {{$annonce->numberViews}} </a></li>
+                          <li>
+                        <li>
+                          <p class=" no-margin "><i class=" fa fa-user"></i> {{__('details.publish_info')}} {{$user->username}}</a>
+                        </li>
+
+                        <li>
+                        <a href="#" title="{{__('details.favorits_add')}}" onclick="addToFav({{$annonce->id}})"> <i class=" fa fa-heart"></i> {{__('details.favorits')}}</a>
+                        </li>
+                      </ul>
+                    </aside>                    
+                  </div>
                   <div class="ads-details-info col-md-7">
                     <p class="mb15">{{$annonce->description}}</p>
                     <ul class="list-circle">
@@ -95,42 +126,11 @@
                       @endif
                     </ul>
                   </div>
-                  <div class="col-md-5">
-                    <aside class="panel panel-body panel-details">
-                      <ul>
-                        @if ($annonce->prix <> "")
-                          <li>
-                            <p class="no-margin"><strong> {{__('details.price_info')}} : </strong> {{$annonce->prix}} DA</a></li>
-                          <li>
-                        @endif
-                        @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "")
-                         <li>
-                          <p class="no-margin"><i class=" fa fa-phone"></i> <strong> {{__('details.phone_info')}} : </strong> {{$annonce->phoneNumber}} </a>
-                        </li>
-                        @endif
-                        <li>
-                        @if ($annonce->email <> "")
-                          <li>
-                            <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} : </strong> {{$annonce->email}} </a></li>
-                          <li>
-                        @endif
-                        <li>
-                            <p class="no-margin"><i class="fa fa-eye"></i> <strong> {{__('details.number_visit_info')}} : </strong> {{$annonce->numberViews}} </a></li>
-                          <li>
-                        <li>
-                          <p class=" no-margin "><i class=" fa fa-user"></i> {{__('details.publish_info')}} {{$user->username}}</a>
-                        </li>
-
-                        <li>
-                        <a href="#" title="{{__('details.favorits_add')}}" onclick="addToFav({{$annonce->id}})"> <i class=" fa fa-heart"></i> {{__('details.favorits')}}</a>
-                        </li>
-                      </ul>
-                    </aside>                    
-                  </div>
+                
                 </div>                
               </div>
             </div>
-             <div class="col-sm-4">
+             <div class="col-sm-2 col-lg-2">
               <div class="inner-box">
                 
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
