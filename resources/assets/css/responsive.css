@@ -171,7 +171,13 @@
     margin: 0;
   }
   #details-left {
-    margin-bottom: 0;
+    margin-bottom: 0; 
+   }
+   .fotorama__wrap--css3 .fotorama__stage .fotorama__img {
+     height: 100% ! important;
+   }
+   .fotorama__wrap .fotorama__wrap--css3 .fotorama__wrap--slide .fotorama__wrap--toggle-arrows {
+    width: 100% !important;
    }
   .wrapper {
     padding: 30px 0;

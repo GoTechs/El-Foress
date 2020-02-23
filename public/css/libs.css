@@ -4858,7 +4858,20 @@ footer .menu li a:hover {
   color: #37a864;
 }
 #details-left {
-  /* width: 72%; */
+  max-width: 600px;
+}
+.fotorama__stage {
+  width: 100% !important;
+}
+.fotorama__stage__shaft {
+  width: 100% !important;
+}
+.fotorama__img {
+  height: 100% !important;
+  width: 100% !important;
+}
+.fotorama__wrap {
+  width: 100% !important;
 }
 #details-title {
   font-size: 20px;
@@ -12378,7 +12391,13 @@ zoom: 1;
     margin: 0;
   }
   #details-left {
-    margin-bottom: 0;
+    margin-bottom: 0; 
+   }
+   .fotorama__wrap--css3 .fotorama__stage .fotorama__img {
+     height: 100% ! important;
+   }
+   .fotorama__wrap .fotorama__wrap--css3 .fotorama__wrap--slide .fotorama__wrap--toggle-arrows {
+    width: 100% !important;
    }
   .wrapper {
     padding: 30px 0;

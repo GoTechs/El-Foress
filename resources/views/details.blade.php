@@ -34,13 +34,13 @@
               <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$annonce->numberViews}}</span> </a>
               <div class="row" id="right-details">
               <div class="user-details col-md-12">
+              @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "" or $annonce->email <> "")
                     <aside class="panel panel-body panel-details">
-                      <ul>
-                        @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "")
+                      <ul>  
+                      @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "") 
                          <li>
                           <p class="no-margin"><i class=" fa fa-phone"></i> <strong> {{__('details.phone_info')}} : </strong> {{$annonce->phoneNumber}}
                           <a href="tel:{{$annonce->phoneNumber}}"></a>
-
                         </li>
                         @endif
                         <li>
@@ -48,9 +48,10 @@
                           <li>
                             <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} : </strong> {{$annonce->email}} </a></li>
                           <li>
-                        @endif                     
+                          @endif                  
                       </ul>
-                    </aside>                    
+                    </aside> 
+                    @endif                    
                   </div>
                   <div class="ads-details-info col-md-12">
                   <aside class="panel panel-body panel-details">

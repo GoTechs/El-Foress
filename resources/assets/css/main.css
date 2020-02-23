@@ -1489,7 +1489,20 @@ footer .menu li a:hover {
   color: #37a864;
 }
 #details-left {
-  /* width: 72%; */
+  max-width: 600px;
+}
+.fotorama__stage {
+  width: 100% !important;
+}
+.fotorama__stage__shaft {
+  width: 100% !important;
+}
+.fotorama__img {
+  height: 100% !important;
+  width: 100% !important;
+}
+.fotorama__wrap {
+  width: 100% !important;
 }
 #details-title {
   font-size: 20px;
