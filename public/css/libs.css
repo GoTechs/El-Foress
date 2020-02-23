@@ -12371,14 +12371,40 @@ zoom: 1;
   .section {
     padding: 30px 0;
   }
+  .header .container {
+    width: 100%
+  }
   .dropdown-menu {
     position: relative;
+  }
+  .header {
+    padding-bottom: 0;
   }
   .back-to-top {
     right: 50px !important; 
   }
+  .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 310px !important;
+  }
+  .styled-select:before {
+    right: 0 !important;
+  }
+  .main-navigation .navbar-nav > li.postadd {
+    padding-left: 0 !important;
+    border-left: none !important; 
+  }
+  .search-col {
+    margin-bottom: 10px;
+  }
+  .navbar .navbar-collapse {
+    margin: 0px 10px;
+  }
+  .btn-group>.btn:first-child {
+    border: 1px solid #ccc;
+  }
   .search-bar {
     background: none;
+    padding: 50px !important;
   }
   .search-bar .form-group {
     margin: 0;
