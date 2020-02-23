@@ -1336,7 +1336,7 @@ footer .menu li a:hover {
   flex-direction: column;
 }
 #details {
-  width: 60%;
+  margin: 0 10px;
 }
 .categories-list ul {
   margin: 0;
@@ -1489,7 +1489,7 @@ footer .menu li a:hover {
   color: #37a864;
 }
 #details-left {
-  width: 72%;
+  /* width: 72%; */
 }
 #details-title {
   font-size: 20px;
@@ -2010,7 +2010,6 @@ table.add-manage-table > tbody > tr > th {
 }
 .ads-details-wrapper {
   display: flex;
-  height: 550px;
 }
 .ads-details-wrapper h2 {
   font-size: 24px;
@@ -2018,9 +2017,6 @@ table.add-manage-table > tbody > tr > th {
 }
 .ads-details-wrapper .item-intro {
   margin-bottom: 15px;
-}
-#details-img {
-  
 }
 .fotorama__stage {
   height: 450px ! important;

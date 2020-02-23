@@ -99,6 +99,9 @@
   #new-products .owl-buttons {
     top: -190px;
   }
+  .ads-details-wrapper {
+    display: block;
+  }
   #new-products .owl-controls .owl-buttons div.owl-prev {
     margin-left: 0;
   }
@@ -161,6 +164,15 @@
     margin: 0;
     max-width: 310px;
   }
+  .ads-details-wrapper {
+    display: block;
+  }
+  #details {
+    margin: 0;
+  }
+  #details-left {
+    margin-bottom: 0;
+   }
   .wrapper {
     padding: 30px 0;
     background-color: #f8f9f9;
