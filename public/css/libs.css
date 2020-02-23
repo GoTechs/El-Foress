@@ -4855,10 +4855,30 @@ footer .menu li a:hover {
   line-height: 28px;
   font-weight: 400;
   padding-bottom: 15px;
+  color: #37a864;
+}
+#details-left {
+  width: 72%;
+}
+#details-title {
+  font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #373373;
+}
+#details-description {
+  font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #373373;
+    overflow-wrap: break-word;
 }
 .pagination-bar {
   padding-bottom: 35px;
   margin-top: 35px;
+}
+.fotorama__nav--dots .fotorama__nav__frame {
+  width: 40px !important;
 }
 .pagination {
   margin: 0;
@@ -5359,7 +5379,7 @@ table.add-manage-table > tbody > tr > th {
 }
 .ads-details-wrapper {
   display: flex;
-  height: 500px;
+  height: 550px;
 }
 .ads-details-wrapper h2 {
   font-size: 24px;
@@ -5368,6 +5388,15 @@ table.add-manage-table > tbody > tr > th {
 .ads-details-wrapper .item-intro {
   margin-bottom: 15px;
 }
+#details-img {
+  
+}
+.fotorama__stage {
+  height: 450px ! important;
+}
+#details-price {
+  color: #37a864;
+}
 .ads-details-wrapper .item-intro .poster {
   color: #999;
   font-size: 12px;
@@ -5375,6 +5404,8 @@ table.add-manage-table > tbody > tr > th {
 .ads-details-info h4 {
   font-size: 15px;
   padding: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .fallback-inner {
   background: #ddd;
