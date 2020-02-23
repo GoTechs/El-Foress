@@ -42,7 +42,7 @@
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="false">
                               {{$searchCat ->categories}} 
                             </a>
                           </h4>
@@ -100,7 +100,7 @@
                       <div class="panel panel-default">
                       <div class="panel-heading">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                             Emplois
                           </a>
                         </h4>
@@ -172,7 +172,7 @@
                       <div class="panel panel-default">
                       <div class="panel-heading">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                             Emplois
                           </a>
                         </h4>
@@ -235,7 +235,7 @@
                       <div class="panel panel-default">
                       <div class="panel-heading">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                             Boutiques
                           </a>
                         </h4>
@@ -298,7 +298,7 @@
                           <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                 Matériel informatique
                               </a>
                             </h4>
@@ -371,7 +371,7 @@
                           <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                 Immobiliers
                               </a>
                             </h4>
@@ -473,7 +473,7 @@
                           <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                 Véhicules
                               </a>
                             </h4>
@@ -554,7 +554,7 @@
                             <div class="panel panel-default">
                             <div class="panel-heading">
                               <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                   Matériel informatique
                                 </a>
                               </h4>
@@ -605,7 +605,7 @@
                               <div class="panel panel-default">
                               <div class="panel-heading">
                                 <h4 class="panel-title">
-                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true">
+                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                     Communauté
                                   </a>
                                 </h4>
@@ -636,7 +636,7 @@
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="true">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="false">
                                       {{$searchCat ->categories}} 
                                     </a>
                                   </h4>
@@ -669,7 +669,7 @@
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}">
                               {{$searchCat ->categories}} 
                             </a>
                           </h4>
