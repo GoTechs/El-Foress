@@ -703,7 +703,7 @@
          @if ($data->count() <> '0')
             <!-- Product idSousCat Start -->
             <div class="product-filter">
-              <div class="grid-list-count">
+              <div class="grid-list-count list-grid-view">
                 <a class="list switchToGrid" href="#"><i class="fa fa-list"></i></a>
                 <a class="grid switchToList" href="#"><i class="fa fa-th-large"></i></a>
               </div>
@@ -724,6 +724,24 @@
               </div>
             </div>
             <!-- Product filter End -->
+
+            <!-- accordion start -->
+            <div class="panel-group filter-search" id="accordion" style="display:none;">            
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseOne">
+                      Precisez la recherche 
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                  <div class="panel-body">   
+                                     
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- Adds wrapper Start -->
             <div class="adds-wrapper">              
