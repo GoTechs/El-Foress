@@ -214,6 +214,8 @@ class searchController extends Controller
             ['id_sous_Cat', '=', $idSousCat],
             ['id', '<>', $id],
         ])->get()->toArray();
+
+        $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
       
  		return view('details',[
           'annonce' => $annonce,
@@ -222,7 +224,8 @@ class searchController extends Controller
           'sousCategorie' => $idSousCat,
           'user' => $user,
           'images' => $images,
-          'relatedAd' => $relatedAd
+          'relatedAd' => $relatedAd,
+          'imageAd' => $imageAd
       ]);
    }
 

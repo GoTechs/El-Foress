@@ -141,7 +141,15 @@
                       <div class="add-image">
                         <a href="/details/{{$relatedAd->id}}">
                           
-                            <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                        @if ($relatedAd->hasPicture == '1')
+                        @foreach ($imageAd as $img) 
+                          @if ($relatedAd->id == $img->id_annonce)
+                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                          @endif
+                        @endforeach
+                      @else 
+                        <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                      @endif
                   
                         <span class="photo-count"><i class="fa fa-camera"></i></span>
                       </div>
