@@ -8,9 +8,12 @@
           <div class="col-sm-3 page-sidebar">
             <aside>
               <div class="inner-box">
-                <div class="categories">                  
+                <button type='button' class='btn btn-success btn-block btn-filter' data-toggle='collapse' data-target='#filter' aria-expanded='false' style="display:none;">
+                  Préciser la recherche
+                </button>
+                <div class="categories" id="filter">                  
                   <div class="widget-title">
-                    <h4><a href="#"> Annonces correspondantes </a></h4>
+                    <h4><a class="title" href="#"> Annonces correspondantes </a></h4>                    
                   </div>
 
                 @if ($catégorie == 'Catégorie')
@@ -724,24 +727,6 @@
               </div>
             </div>
             <!-- Product filter End -->
-
-            <!-- accordion start -->
-            <div class="panel-group filter-search" id="accordion" style="display:none;">            
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseOne">
-                      Precisez la recherche 
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse">
-                  <div class="panel-body">   
-                                     
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <!-- Adds wrapper Start -->
             <div class="adds-wrapper">              

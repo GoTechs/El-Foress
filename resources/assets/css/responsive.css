@@ -381,4 +381,10 @@
   .categories{
     display : none;
   }
+  .btn-filter {
+    display: block !important;
+  }
+  .title {
+    display : none;
+  }
 }
