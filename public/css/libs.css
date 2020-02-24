@@ -12508,7 +12508,8 @@ zoom: 1;
     margin-right: 0;
   }
   .inner-box {
-    padding: 15px;
+    padding: 15px;    
+    display: none;
   }
   .author .author-img {
     float: none;
@@ -12551,6 +12552,9 @@ zoom: 1;
   }
   .item-list.make-grid {
     width: 100%;
+  }
+  .product-filter {
+    display: none;
   }
   .product-filter .Show-item {
     display: none;

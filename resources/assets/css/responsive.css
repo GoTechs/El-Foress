@@ -288,7 +288,8 @@
     margin-right: 0;
   }
   .inner-box {
-    padding: 15px;
+    padding: 15px;    
+    display: none;
   }
   .author .author-img {
     float: none;
@@ -331,6 +332,9 @@
   }
   .item-list.make-grid {
     width: 100%;
+  }
+  .product-filter {
+    display: none;
   }
   .product-filter .Show-item {
     display: none;
