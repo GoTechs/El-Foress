@@ -302,6 +302,22 @@
             products.sort(function(a, b){ return new Date($(a).data("date")) - new Date($(b).data("date"))});
             $(".adds-wrapper").html(products);
         }
+
+        $(document).ready(function() {
+	$(".fancybox-thumb").fancybox({
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+		helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			thumbs	: {
+				width	: 50,
+				height	: 50
+			}
+		}
+	});
+});
  
 
   </script>

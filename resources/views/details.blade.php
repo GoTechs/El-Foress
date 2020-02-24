@@ -12,18 +12,25 @@
               <div class="inner-box" id="details-left">
                 @if ($annonce->etat <> "")
                   <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
-                @endif             
-                <div class="fotorama" id="details-img">
-                @if ($annonce->hasPicture == '1')
-                  @foreach ($images as $image)
-                  <img src="{{Storage::disk('s3')->url($image->imagename)}}">
-                  @endforeach
-                @else 
-                <img id="details-img" src="{{asset('img/nopicture.png')}}" alt=""></a>
                 @endif
-                </div>
+              <div id="details-img">
+                @if ($annonce->hasPicture == '1')
+                    @foreach ($images as $key => $value)
+                  @if ($key == 0)
+                    <a class="fancybox-thumb" rel="fancybox-thumb" href="{{Storage::disk('s3')->url($value->imagename)}}">
+                      <img src="{{Storage::disk('s3')->url($value->imagename)}}" alt="" />
+                    </a>
+                  @else 
+                  <a class="fancybox-thumb" rel="fancybox-thumb" href="{{Storage::disk('s3')->url($value->imagename)}}" style="display:none;">
+                      <img src="{{Storage::disk('s3')->url($value->imagename)}}" alt="" />
+                    </a>
+                  @endif
+                    @endforeach
+                  @else 
+                  <img id="details-img" src="{{asset('img/nopicture.png')}}" alt=""></a>
+                @endif 
+              </div>            
               </div>
-
               <div class="inner-box" id="details">
 
                 <h4 id="details-title">{{$annonce->titre}}</h4>
