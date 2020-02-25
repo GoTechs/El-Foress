@@ -30,9 +30,6 @@ mix.styles([
     'resources/assets/css/bootstrap-select.min.css',
     'resources/assets/css/custom-components.css',
     'resources/assets/css/bootstrap-social.css',
-    'resources/assets/css/jquery.fancybox.css',
-    'resources/assets/css/fancybox/jquery.fancybox-buttons.css',
-    'resources/assets/css/fancybox/jquery.fancybox-thumbs.css',
 
 
 ], 'public/css/libs.css');
@@ -54,10 +51,5 @@ mix.scripts([
     'resources/assets/js/jquery.maskedinput.min.js',    
     'resources/assets/js/jquery.validate.min.js',      
     'resources/assets/js/fotorama.js',
-    'resources/assets/js/jquery.fancybox.js',
-    'resources/assets/js/fancybox/jquery.fancybox-buttons.js',
-    'resources/assets/js/fancybox/jquery.fancybox-media.js',
-    'resources/assets/js/fancybox/jquery.fancybox-thumbs.js',
-    'resources/assets/js/fancybox/jquery.fancybox.pack.js',
 
 ], 'public/js/libs.js');

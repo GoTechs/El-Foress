@@ -16,23 +16,30 @@
               <div id="details-img">
                 @if ($annonce->hasPicture == '1')
                     @foreach ($images as $key => $value)
-                  @if ($key == 0)
-                    <a class="fancybox-thumb" rel="fancybox-thumb" href="{{Storage::disk('s3')->url($value->imagename)}}">
-                      <img src="{{Storage::disk('s3')->url($value->imagename)}}" alt="" />
-                    </a>
-                  @else 
-                  <a class="fancybox-thumb" rel="fancybox-thumb" href="{{Storage::disk('s3')->url($value->imagename)}}" style="display:none;">
-                      <img src="{{Storage::disk('s3')->url($value->imagename)}}" alt="" />
-                    </a>
+                  @if ($key == 0)                   
+                    <p>
+                      <a href="{{Storage::disk('s3')->url($value->imagename)}}" 
+                        data-fancybox="images-preview" 
+                        data-width="1500" data-height="1000"
+                        data-thumbs='{"autoStart":true}'>
+                        <img src="{{Storage::disk('s3')->url($value->imagename)}}" />
+                      </a>
+                    </p>
+                  @else                   
+                  <div style="display: none;">
+                    <a href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" 
+                      data-width="1500" data-height="1000"
+                      data-thumb="{{Storage::disk('s3')->url($value->imagename)}}"></a>
+                  </div>
                   @endif
+                </a>
                     @endforeach
                   @else 
                   <img id="details-img" src="{{asset('img/nopicture.png')}}" alt=""></a>
                 @endif 
-              </div>            
-              </div>
-              <div class="inner-box" id="details">
-
+              </div>   
+            </div>
+            <div class="inner-box" id="details">
                 <h4 id="details-title">{{$annonce->titre}}</h4>
                 @if ($annonce->prix <> "") <h3 id="details-price" >{{$annonce->prix}} DA</h3> @endif
                 <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
