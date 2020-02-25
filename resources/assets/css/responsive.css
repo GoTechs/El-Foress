@@ -387,4 +387,7 @@
   .title {
     display : none;
   }
+  .btn-facebook, .btn-google {
+    font-size: 10px;
+  }
 }
