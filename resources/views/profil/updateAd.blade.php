@@ -155,7 +155,7 @@
           <div class="mb30"></div>
           <div class="box">
            <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
-                <label class="control-label">Titre de l'annonce</label>
+                <label class="control-label">Titre de l'annonce <span class="required">*</span></label>
                   <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{$annonce->titre}}">
               </div>
               <div class="form-group state">
@@ -178,7 +178,7 @@
                 </select>
               </div>
               <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
-                <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{$annonce->description}}</textarea>
+                <label class="control-label">Description <span class="required">*</span></label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{$annonce->description}}</textarea>
               </div>
           </div> 
 
@@ -530,7 +530,7 @@
                       <div class="box">
                       <h2 class="title-2">Emplacement</h2>
                       <div class="form-group {{ $errors->has('wilaya') ? ' has-error' : '' }} has-feedback">
-                        <label class="control-label" for="textarea">Wilaya</label>
+                        <label class="control-label" for="textarea">Wilaya <span class="required">*</span></label>
                           <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{$annonce->wilaya}}">
                       </div>
                       </div>
