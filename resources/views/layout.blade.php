@@ -445,7 +445,7 @@
 
                         thumbs: {
                             autoStart: true, // Display thumbnails on opening
-                            axis: "x" // Vertical (y) or horizontal (x) scrolling
+                            axis: "y" // Vertical (y) or horizontal (x) scrolling
                         },
 
                         // Use mousewheel to navigate gallery
