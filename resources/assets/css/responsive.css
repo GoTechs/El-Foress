@@ -150,6 +150,9 @@
   .section {
     padding: 30px 0;
   }
+  .pagination {
+    display: block;
+  }
   .header .container {
     width: 100%
   }
