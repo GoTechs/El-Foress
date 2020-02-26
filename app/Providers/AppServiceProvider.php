@@ -37,5 +37,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function($view){
             $view->with('imageAd', \App\imagead::images());
         });
+
+        if (env('APP_ENV') !== 'local'){
+            URL::forceScheme("https");
+        }
     }
 }
