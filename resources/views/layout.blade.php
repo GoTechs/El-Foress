@@ -347,6 +347,7 @@
                             "zoom",
                             "slideShow",
                             "fullScreen",
+                            "download",
                             "thumbs",
                             "close"
                         ],
