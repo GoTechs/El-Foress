@@ -345,10 +345,8 @@
                         // and they will be placed into toolbar (class="fancybox-toolbar"` element)
                         buttons: [
                             "zoom",
-                            "share",
                             "slideShow",
                             "fullScreen",
-                            "download",
                             "thumbs",
                             "close"
                         ],
@@ -441,11 +439,6 @@
                         slideShow: {
                             autoStart: false,
                             speed: 3000
-                        },
-
-                        thumbs: {
-                            autoStart: true, // Display thumbnails on opening
-                            axis: "y" // Vertical (y) or horizontal (x) scrolling
                         },
 
                         // Use mousewheel to navigate gallery
