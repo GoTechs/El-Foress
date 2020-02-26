@@ -61,7 +61,7 @@ return [
             'secret' => 'fpET3Q4OzjaN0W//VBJ/jYIeqrO7+oJcH3BK/y1j',
             'region' => 'ca-central-1',
             'bucket' => 'foress',
-            'url' => 'http://foress.s3-ca-central-1.amazonaws.com',
+            'url' => 'https://foress.s3-ca-central-1.amazonaws.com',
         ],
 
     ],
