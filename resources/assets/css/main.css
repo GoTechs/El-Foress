@@ -148,7 +148,7 @@ h3.block-title {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn-search {
-  padding: 11px;
+  padding: 13px;
 }
 .btn-sm {
   font-size: 13px;
@@ -436,6 +436,12 @@ nav#menu span.fa.fa-bars:hover {
   background: transparent;
   padding: 8px 12px;
   opacity: 1;
+}
+.navbar-toggle .icon-bar {
+  width: 25px !important;
+}
+.navbar .navbar-toggle .icon-bar {
+  border: 2px solid !important; 
 }
 .close i {
   background: #E74C3C;

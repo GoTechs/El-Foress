@@ -3517,7 +3517,7 @@ h3.block-title {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn-search {
-  padding: 11px;
+  padding: 13px;
 }
 .btn-sm {
   font-size: 13px;
@@ -3805,6 +3805,12 @@ nav#menu span.fa.fa-bars:hover {
   background: transparent;
   padding: 8px 12px;
   opacity: 1;
+}
+.navbar-toggle .icon-bar {
+  width: 25px !important;
+}
+.navbar .navbar-toggle .icon-bar {
+  border: 2px solid !important; 
 }
 .close i {
   background: #E74C3C;
@@ -12379,8 +12385,18 @@ zoom: 1;
   .dropdown-menu {
     position: relative;
   }
+  .navbar > .container .navbar-brand {
+    width: 170px;
+  }
+  .container {
+    padding-right: 7px;
+    padding-left: 7px;
+  }
   .header {
     padding-bottom: 0;
+  }
+  #search-row-wrapper{
+    margin: 15px;
   }
   .back-to-top {
     right: 50px !important; 
@@ -12399,7 +12415,11 @@ zoom: 1;
     margin-bottom: 10px;
   }
   .navbar .navbar-collapse {
-    margin: 0px 10px;
+    margin: 0px -35px;
+  }
+  .logo img {
+    bottom: 45px;
+    margin: 0px -50px;
   }
   .btn-group>.btn:first-child {
     border: 1px solid #ccc;

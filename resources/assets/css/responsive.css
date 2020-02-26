@@ -159,8 +159,18 @@
   .dropdown-menu {
     position: relative;
   }
+  .navbar > .container .navbar-brand {
+    width: 170px;
+  }
+  .container {
+    padding-right: 7px;
+    padding-left: 7px;
+  }
   .header {
     padding-bottom: 0;
+  }
+  #search-row-wrapper{
+    margin: 15px;
   }
   .back-to-top {
     right: 50px !important; 
@@ -179,7 +189,11 @@
     margin-bottom: 10px;
   }
   .navbar .navbar-collapse {
-    margin: 0px 10px;
+    margin: 0px -35px;
+  }
+  .logo img {
+    bottom: 45px;
+    margin: 0px -50px;
   }
   .btn-group>.btn:first-child {
     border: 1px solid #ccc;
