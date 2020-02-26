@@ -50,6 +50,6 @@ mix.scripts([
     'resources/assets/js/bootstrap-select.min.js',      
     'resources/assets/js/jquery.maskedinput.min.js',    
     'resources/assets/js/jquery.validate.min.js',      
-    'resources/assets/js/fotorama.js'   
+    'resources/assets/js/fotorama.js',
 
 ], 'public/js/libs.js');

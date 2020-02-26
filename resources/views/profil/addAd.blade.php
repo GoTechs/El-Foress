@@ -5,8 +5,8 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
     
@@ -115,8 +115,8 @@
                   </div>
               @endif
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
-            <div class="row search-bar mb30 red-bg">
-              <div class="advanced-search">
+            <div class="row search-bar mb30 red-bg">            
+              <div class="advanced-search">                
                 <form class="search-form" method="post" action="/insertAd" enctype="multipart/form-data">
                     @csrf
                   <div class="form-group">
@@ -131,7 +131,7 @@
             </div>
 
             <div class="form-group sub_cat">
-              <label class="control-label" for="textarea">Sous Catégories</label> 
+              <label class="control-label" for="textarea">Sous Catégories <span class="required">*</span></label> 
               <select class="form-control" id="sousCat" name="sousCat" onchange="field()">
                  <option value="">Sous Catégories</option>
               </select>
@@ -141,7 +141,7 @@
           <div class="mb30"></div>
           <div class="box">
            <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
-                <label class="control-label">Titre de l'annonce</label>
+                <label class="control-label">Titre de l'annonce <span class="required">*</span></label>
                   <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{old('Adtitle')}}">
               </div>
               <div class="form-group state">
@@ -154,7 +154,7 @@
                 </select>
               </div>
               <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
-                <label class="control-label">Description</label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{old('descrp')}}</textarea>
+                <label class="control-label">Description <span class="required">*</span></label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{old('descrp')}}</textarea>
               </div>
           </div> 
 
@@ -482,7 +482,7 @@
           <div class="box">
           <h2 class="title-2">Emplacement</h2>
           <div class="form-group {{ $errors->has('wilaya') ? ' has-error' : '' }} has-feedback">
-            <label class="control-label" for="textarea">Wilaya</label>
+            <label class="control-label" for="textarea">Wilaya <span class="required">*</span></label>
               <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{old('wilaya')}}">
           </div>
           </div>
@@ -531,9 +531,9 @@
               <div class="checkbox {{ $errors->has('condition') ? ' has-error' : '' }} has-feedback">
                 <label>
                   @if (old('condition') == 'on')
-                    <input type="checkbox" name="condition" checked> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
+                    <input type="checkbox" name="condition" checked> <span class="required">*</span> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
                   @else 
-                    <input type="checkbox" name="condition"> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
+                    <input type="checkbox" name="condition"> <span class="required">*</span> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
                   @endif
                 </label>
               </div><br>
@@ -580,11 +580,15 @@
                         <ul class="featured-list">
                             @foreach($recentlyAdd as $recent)
                                 <li>
-                                @foreach ($imageAd as $img)
-                                    @if ($recent->id == $img->id_annonce)
-                                        <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
-                                    @endif
-                                @endforeach
+                                @if ($recent->hasPicture == '1')
+                                    @foreach ($imageAd as $img)
+                                        @if ($recent->id == $img->id_annonce)
+                                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                                        @endif
+                                    @endforeach
+                                  @else 
+                                    <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                                  @endif                                   
                                     <div class="hover">
                                         <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
                                     </div>

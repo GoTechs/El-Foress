@@ -209,6 +209,14 @@ class searchController extends Controller
       } else {
           $result = "NULL";
       }
+     
+      $relatedAd = DB::table('annonces')->where([
+            ['id_sous_Cat', '=', $idSousCat],
+            ['id', '<>', $id],
+            ['stateAd','=','1'],
+        ])->get()->toArray();
+
+        $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
       
  		return view('details',[
           'annonce' => $annonce,
@@ -216,7 +224,9 @@ class searchController extends Controller
           'categorie' => $idCat,
           'sousCategorie' => $idSousCat,
           'user' => $user,
-          'images' => $images
+          'images' => $images,
+          'relatedAd' => $relatedAd,
+          'imageAd' => $imageAd
       ]);
    }
 
@@ -264,6 +274,14 @@ class searchController extends Controller
         } else {
             $result = "NULL";
         }
+
+        $relatedAd = DB::table('annonces')->where([
+            ['id_sous_Cat', '=', $idSousCat],
+            ['id', '<>', $id],
+            ['stateAd','=','1'],
+        ])->get()->toArray();
+
+        $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
         
       return view('details',[
             'annonce' => $annonce,
@@ -271,7 +289,9 @@ class searchController extends Controller
             'categorie' => $idCat,
             'sousCategorie' => $idSousCat,
             'user' => $user,
-            'images' => $images
+            'images' => $images,
+            'relatedAd' => $relatedAd,
+            'imageAd' => $imageAd
         ]);
      }
 }

@@ -15,7 +15,7 @@ class annonce extends Model
 
          $annonces = DB::table('annonces')
              ->orderBy('created_at', 'desc')
-             ->limit(6)
+             ->limit(8)
              ->get();
          return $annonces;
     }

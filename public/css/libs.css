@@ -6141,6 +6141,10 @@ ul.ui-autocomplete {
     padding: 12px;
     margin-bottom: 10px;
   }
+  .required {
+    color: #d9534f;
+    font-size: 16px;
+}
 @charset "UTF-8";
 /*!
 Animate.css - http://daneden.me/animate
@@ -12506,7 +12510,7 @@ zoom: 1;
     margin-right: 0;
   }
   .inner-box {
-    padding: 15px;
+    padding: 15px;    
   }
   .author .author-img {
     float: none;
@@ -12550,9 +12554,6 @@ zoom: 1;
   .item-list.make-grid {
     width: 100%;
   }
-  .product-filter .Show-item {
-    display: none;
-  }
   .item-list .price-box {
     text-align: left;
   }
@@ -12592,6 +12593,24 @@ zoom: 1;
   }
   .mb15 .input-group .input-group-btn {
     padding: 0 6px;
+  }
+  .filter-search {
+    display: block !important;
+  }
+  .list-grid-view{
+    display : none;
+  }
+  .categories{
+    display : none;
+  }
+  .btn-filter {
+    display: block !important;
+  }
+  .title {
+    display : none;
+  }
+  .btn-facebook, .btn-google {
+    font-size: 10px;
   }
 }
 

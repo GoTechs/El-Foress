@@ -8,9 +8,12 @@
           <div class="col-sm-3 page-sidebar">
             <aside>
               <div class="inner-box">
-                <div class="categories">                  
+                <button type='button' class='btn btn-success btn-block btn-filter' data-toggle='collapse' data-target='#filter' aria-expanded='false' style="display:none;">
+                  Préciser la recherche
+                </button>
+                <div class="categories" id="filter">                  
                   <div class="widget-title">
-                    <h4><a href="#"> Annonces correspondantes </a></h4>
+                    <h4><a class="title" href="#"> Annonces correspondantes </a></h4>                    
                   </div>
 
                 @if ($catégorie == 'Catégorie')
@@ -703,7 +706,7 @@
          @if ($data->count() <> '0')
             <!-- Product idSousCat Start -->
             <div class="product-filter">
-              <div class="grid-list-count">
+              <div class="grid-list-count list-grid-view">
                 <a class="list switchToGrid" href="#"><i class="fa fa-list"></i></a>
                 <a class="grid switchToList" href="#"><i class="fa fa-th-large"></i></a>
               </div>

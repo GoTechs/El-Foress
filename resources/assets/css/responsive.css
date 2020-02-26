@@ -290,7 +290,7 @@
     margin-right: 0;
   }
   .inner-box {
-    padding: 15px;
+    padding: 15px;    
   }
   .author .author-img {
     float: none;
@@ -334,9 +334,6 @@
   .item-list.make-grid {
     width: 100%;
   }
-  .product-filter .Show-item {
-    display: none;
-  }
   .item-list .price-box {
     text-align: left;
   }
@@ -376,5 +373,23 @@
   }
   .mb15 .input-group .input-group-btn {
     padding: 0 6px;
+  }
+  .filter-search {
+    display: block !important;
+  }
+  .list-grid-view{
+    display : none;
+  }
+  .categories{
+    display : none;
+  }
+  .btn-filter {
+    display: block !important;
+  }
+  .title {
+    display : none;
+  }
+  .btn-facebook, .btn-google {
+    font-size: 10px;
   }
 }

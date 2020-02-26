@@ -9,13 +9,14 @@
     <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('img/favicon.')}}">
+    <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
    
     <!-- Line Icons CSS -->
     <link rel="stylesheet" href="{{asset('fonts/line-icons/line-icons.css')}}" type="text/css">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
     <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet">
 </head>
 
 <body>
@@ -200,6 +201,7 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 
 <script type="text/javascript">
 
@@ -302,6 +304,209 @@
             products.sort(function(a, b){ return new Date($(a).data("date")) - new Date($(b).data("date"))});
             $(".adds-wrapper").html(products);
         }
+
+    /* ******************************   Gallery *************************************** */  
+
+    $('[data-fancybox="images-preview"]').fancybox({
+                            // Close existing modals
+                        // Set this to false if you do not need to stack multiple instances
+                        closeExisting: false,
+
+                        // Enable infinite gallery navigation
+                        loop: false,
+
+                        // Horizontal space between slides
+                        gutter: 50,
+
+                        // Enable keyboard navigation
+                        keyboard: true,
+
+                        // Should allow caption to overlap the content
+                        preventCaptionOverlap: true,
+
+                        // Should display navigation arrows at the screen edges
+                        arrows: true,
+
+                        // Should display counter at the top left corner
+                        infobar: true,
+
+                        // Should display close button (using `btnTpl.smallBtn` template) over the content
+                        // Can be true, false, "auto"
+                        // If "auto" - will be automatically enabled for "html", "inline" or "ajax" items
+                        smallBtn: "auto",
+
+                        // Should display toolbar (buttons at the top)
+                        // Can be true, false, "auto"
+                        // If "auto" - will be automatically hidden if "smallBtn" is enabled
+                        toolbar: "auto",
+
+                        // What buttons should appear in the top right corner.
+                        // Buttons will be created using templates from `btnTpl` option
+                        // and they will be placed into toolbar (class="fancybox-toolbar"` element)
+                        buttons: [
+                            "zoom",
+                            "share",
+                            "slideShow",
+                            "fullScreen",
+                            "download",
+                            "thumbs",
+                            "close"
+                        ],
+
+                        // Detect "idle" time in seconds
+                        idleTime: 3,
+
+                        // Disable right-click and use simple image protection for images
+                        protect: false,
+
+                        // Shortcut to make content "modal" - disable keyboard navigtion, hide buttons, etc
+                        modal: false,
+
+                        image: {
+                            // Wait for images to load before displaying
+                            //   true  - wait for image to load and then display;
+                            //   false - display thumbnail and load the full-sized image over top,
+                            //           requires predefined image dimensions (`data-width` and `data-height` attributes)
+                            preload: true
+                        },
+
+                        // Open/close animation type
+                        // Possible values:
+                        //   false            - disable
+                        //   "zoom"           - zoom images from/to thumbnail
+                        //   "fade"
+                        //   "zoom-in-out"
+                        //
+                        animationEffect: "zoom",
+
+                        // Duration in ms for open/close animation
+                        animationDuration: 366,
+
+                        // Should image change opacity while zooming
+                        // If opacity is "auto", then opacity will be changed if image and thumbnail have different aspect ratios
+                        zoomOpacity: "auto",
+
+                        // Transition effect between slides
+                        //
+                        // Possible values:
+                        //   false            - disable
+                        //   "fade'
+                        //   "slide'
+                        //   "circular'
+                        //   "tube'
+                        //   "zoom-in-out'
+                        //   "rotate'
+                        //
+                        transitionEffect: "fade",                      
+
+                        
+
+                        // Container is injected into this element
+                        parentEl: "body",
+
+                        // Hide browser vertical scrollbars; use at your own risk
+                        hideScrollbar: true,
+
+                        // Focus handling
+                        // ==============
+
+                        // Try to focus on the first focusable element after opening
+                        autoFocus: true,
+
+                        // Put focus back to active element after closing
+                        backFocus: true,
+
+                        // Do not let user to focus on element outside modal content
+                        trapFocus: true,
+
+                        // Module specific options
+                        // =======================
+
+                        fullScreen: {
+                            autoStart: false
+                        },
+
+                        // Set `touch: false` to disable panning/swiping
+                        touch: {
+                            vertical: true, // Allow to drag content vertically
+                            momentum: true // Continue movement after releasing mouse/touch when panning
+                        },
+
+                        // Hash value when initializing manually,
+                        // set `false` to disable hash change
+                        hash: null,
+
+                        media: {},
+
+                        slideShow: {
+                            autoStart: false,
+                            speed: 3000
+                        },
+
+                        thumbs: {
+                            autoStart: true, // Display thumbnails on opening
+                            axis: "y" // Vertical (y) or horizontal (x) scrolling
+                        },
+
+                        // Use mousewheel to navigate gallery
+                        // If 'auto' - enabled for images only
+                        wheel: "auto",
+
+                        
+
+                        onInit: $.noop, // When instance has been initialized
+
+                        beforeLoad: $.noop, // Before the content of a slide is being loaded
+                        afterLoad: $.noop, // When the content of a slide is done loading
+
+                        beforeShow: $.noop, // Before open animation starts
+                        afterShow: $.noop, // When content is done loading and animating
+
+                        beforeClose: $.noop, // Before the instance attempts to close. Return false to cancel the close.
+                        afterClose: $.noop, // After instance has been closed
+
+                        onActivate: $.noop, // When instance is brought to front
+                        onDeactivate: $.noop, // When other instance has been activated
+
+
+                        // Clicked on the content
+                        clickContent: function(current, event) {
+                            return current.type === "image" ? "zoom" : false;
+                        },
+
+                        // Clicked on the slide
+                        clickSlide: "close",
+
+                        // Clicked on the background (backdrop) element;
+                        // if you have not changed the layout, then most likely you need to use `clickSlide` option
+                        clickOutside: "close",
+
+                        // Same as previous two, but for double click
+                        dblclickContent: false,
+                        dblclickSlide: false,
+                        dblclickOutside: false,
+
+                        // Custom options when mobile device is detected
+                        // =============================================
+
+                        mobile: {
+                            preventCaptionOverlap: false,
+                            idleTime: false,
+                            clickContent: function(current, event) {
+                            return current.type === "image" ? "toggleControls" : false;
+                            },
+                            clickSlide: function(current, event) {
+                            return current.type === "image" ? "toggleControls" : "close";
+                            },
+                            dblclickContent: function(current, event) {
+                            return current.type === "image" ? "zoom" : false;
+                            },
+                            dblclickSlide: function(current, event) {
+                            return current.type === "image" ? "zoom" : false;
+                            }
+                        },
+
+        });
  
 
   </script>
