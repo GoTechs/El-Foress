@@ -27,8 +27,7 @@
                   @else                   
                   <div style="display: none;">
                     <a href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" 
-                      data-width="1500" data-height="1000"
-                      data-thumb="{{Storage::disk('s3')->url($value->imagename)}}"></a>
+                      data-width="1500" data-height="1000"><img src="{{Storage::disk('s3')->url($value->imagename)}}" /></a>
                   </div>
                   @endif
               

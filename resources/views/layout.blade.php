@@ -395,9 +395,7 @@
                         //   "zoom-in-out'
                         //   "rotate'
                         //
-                        transitionEffect: "fade",                      
-
-                        
+                        transitionEffect: "fade", 
 
                         // Container is injected into this element
                         parentEl: "body",
