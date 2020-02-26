@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta property="og:image" content="http://foress.s3-ca-central-1.amazonaws.com/1468.jpg" />
     <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
 
     <!-- Favicon -->

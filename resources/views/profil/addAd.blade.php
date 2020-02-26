@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta property="og:image" content="http://foress.s3-ca-central-1.amazonaws.com/1468.jpg" />
   <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
