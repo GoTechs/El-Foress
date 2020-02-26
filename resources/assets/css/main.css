@@ -149,7 +149,6 @@ h3.block-title {
 }
 .btn-search {
   padding: 11px;
-  max-width: 310px;
 }
 .btn-sm {
   font-size: 13px;
@@ -477,9 +476,7 @@ nav#menu span.fa.fa-bars:hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.header .container {
-  padding: 0 !important;
-}
+
 .main-navigation .navbar-nav > li a {
   color: #3498db;
   line-height: normal;
@@ -631,7 +628,6 @@ nav#menu span.fa.fa-bars:hover {
 }
 .search-bar .form-group {
   margin: 0 0 0 12px;
-  max-width: 310px;
 }
 .search-bar .btn-group,
 .search-bar .btn-group-vertical {

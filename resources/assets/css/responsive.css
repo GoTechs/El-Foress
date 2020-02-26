@@ -77,7 +77,6 @@
   }
   .search-bar .form-group {
     margin: 0;
-    max-width: 310px;
   }
   .dropdown-menu {
     position: relative;
@@ -154,6 +153,9 @@
   .header .container {
     width: 100%
   }
+  .input-group-addon:last-child{
+    display: none;
+  }
   .dropdown-menu {
     position: relative;
   }
@@ -184,11 +186,11 @@
   }
   .search-bar {
     background: none;
-    padding: 50px !important;
+    padding: 0 !important;
   }
   .search-bar .form-group {
     margin: 0;
-    max-width: 310px;
+    padding: 0;
   }
   .ads-details-wrapper {
     display: block;
