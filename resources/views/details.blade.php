@@ -144,7 +144,7 @@
             </div>
           @if ($relatedAds <> [])
             <!-- Adds wrapper Start -->                     
-            <div class="row"> 
+            <div class="row" id="pagination"> 
               <div class="col-sm-12  col-lg-10">                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAds as $relatedAd)

@@ -774,8 +774,8 @@
             </div>
             <!-- Adds wrapper End -->
 
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-5">
+            <div class="row" id="pagination">
+              <div class="col-sm-12">
 
                 <!-- Start Pagination -->
                 {{ $data->links() }}
