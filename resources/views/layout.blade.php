@@ -346,6 +346,7 @@
                         buttons: [
                             "zoom",
                             "slideShow",
+                            "share",
                             "fullScreen",
                             "download",
                             "thumbs",
