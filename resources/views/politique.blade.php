@@ -338,6 +338,26 @@
                   </div>
                 </div>
               </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                      Pourquoi nous sommes le bon choix pour vous ?
+                    </a>
+                  </h4>
+                </div>
+                  <div id="collapseFour" class="panel-collapse collapse {{$id =='publicite-sur-foress' ? 'in' : ''}}">
+                  <div class="panel-body">
+                    <ul type="disc">
+                      <li>NOUS SOMMES EXACTEMENT LÀ OÙ IL VOUS FAUT ÊTRE ; </li>
+                      <li>Nous avons tous les outils dont vous avez besoin pour créer ou gérer vos propres annonces ;</li>
+                      <li>Votre succès est notre spécialité ;</li>
+                      <li>Notre audience. Votre croissance ;</li>
+                      <li>Nos conseillers spécialement formés sont ici pour vous aider à chaque étape. Vous pouvez travailler en collaboration avec eux pour créer votre campagne ou simplement leur demander de l’aide au besoin.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- accordion End -->    
           </div>      

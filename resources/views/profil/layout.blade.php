@@ -175,7 +175,8 @@
                         <h3 class="block-title">Foress</h3>
                         <ul class="menu">
                          <li><a href="/contact">{{__('layout.contact_menu')}}</a></li>
-                         <li><a href="/centre-aide/avantages-de-l-inscription">Avantages de l’inscription</a></li>                        
+                         <li><a href="/centre-aide/avantages-de-l-inscription">Avantages de l’inscription</a></li>   
+                         <li><a href="/centre-aide/publicite-sur-foress">Publicité sur Foress</a></li>                     
                         </ul>
                     </div>
                 </div>
