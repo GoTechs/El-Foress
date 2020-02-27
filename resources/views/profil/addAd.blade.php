@@ -492,7 +492,7 @@
           </div>
           <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Numéro de téléphone</label>
-              <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" id="phone" type="text">
+              <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" id="phone2" type="text">
             <div class="checkbox">
               <label>
                   <input type="hidden" name="phoneHide" value="0" />
@@ -903,9 +903,10 @@
                       wilaya: $('#wilaya2').val(),
                       Adtitle: $('#Adtitle').val(),
                       email: $('#email').val(),
-                      phone: $('#phone').val()
+                      phone: $('#phone2').val()
                   },
-                  success: function(data){                    
+                  success: function(data){   
+                    $('.alert-danger').empty();                 
                       $.each(data.errors, function(key, value){
                   			$('.alert-danger').show();
                         $('.alert-danger').append('<p>'+value+'</p>');

@@ -96,7 +96,7 @@ class searchController extends Controller
 	    }
 
 	    $data = $data->where('stateAd', '=',  '1') 
-	    		     ->simplePaginate(1);
+	    		     ->paginate(6);
 
       $cat = 'Catégorie'; 
       if (request('categorie')) { $filterKey  = request('categorie'); }
