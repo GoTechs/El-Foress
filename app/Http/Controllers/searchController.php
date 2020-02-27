@@ -96,7 +96,7 @@ class searchController extends Controller
 	    }
 
 	    $data = $data->where('stateAd', '=',  '1') 
-	    		     ->paginate(6);
+	    		     ->simplePaginate(1);
 
       $cat = 'Catégorie'; 
       if (request('categorie')) { $filterKey  = request('categorie'); }
@@ -214,7 +214,7 @@ class searchController extends Controller
             ['id_sous_Cat', '=', $idSousCat],
             ['id', '<>', $id],
             ['stateAd','=','1'],
-        ])->get()->toArray();
+        ])->paginate(5);
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
       
@@ -225,7 +225,7 @@ class searchController extends Controller
           'sousCategorie' => $idSousCat,
           'user' => $user,
           'images' => $images,
-          'relatedAd' => $relatedAd,
+          'relatedAds' => $relatedAd,
           'imageAd' => $imageAd
       ]);
    }
@@ -279,7 +279,7 @@ class searchController extends Controller
             ['id_sous_Cat', '=', $idSousCat],
             ['id', '<>', $id],
             ['stateAd','=','1'],
-        ])->get()->toArray();
+        ])->paginate(5);
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
         
@@ -290,7 +290,7 @@ class searchController extends Controller
             'sousCategorie' => $idSousCat,
             'user' => $user,
             'images' => $images,
-            'relatedAd' => $relatedAd,
+            'relatedAds' => $relatedAd,
             'imageAd' => $imageAd
         ]);
      }

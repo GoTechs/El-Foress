@@ -142,12 +142,12 @@
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
               </div>        
             </div>
-          @if ($relatedAd <> [])
+          @if ($relatedAds <> [])
             <!-- Adds wrapper Start -->                     
             <div class="row"> 
               <div class="col-sm-12  col-lg-10">                 
                 <div class="adds-wrapper">              
-                  @foreach ($relatedAd as $relatedAd)
+                  @foreach ($relatedAds as $relatedAd)
                   <div class="item-list" data-store="{{$relatedAd->prix.$relatedAd->id}}" data-price="{{$relatedAd->prix}}" data-views="{{$relatedAd->numberViews}}" data-date="{{$relatedAd->created_at}}">
                     <div class="col-sm-2 no-padding photobox">
                       <div class="add-image">
@@ -193,6 +193,7 @@
                 </div>                          
               </div>
             </div>
+            {{ $relatedAds->links() }}
             <!-- Adds wrapper End -->
           @endif
           </div>
