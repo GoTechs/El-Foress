@@ -112,7 +112,7 @@ return [
         'password' => 'Mot de passe',
         'confirmPassword' => 'Confirmer mot de passe',
         'password_confirmation' => 'Confirmer mot de passe',
-        'fileToUpload.*' => 'Image',
+        'fileToUpload' => 'MÉDIA',
         'categorie' => 'Catégorie',
         'sousCat' => 'Sous catégorie',
         'wilaya' => 'Wilaya',

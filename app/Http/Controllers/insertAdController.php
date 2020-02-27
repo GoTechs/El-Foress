@@ -35,7 +35,6 @@ class insertAdController extends Controller
         $idUser = Auth::user()->id;
 
         $validator = Validator::make($request->all(),[
-            "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
             "categorie" => "required",
             "sousCat" => "required",
             "Adtitle" => "required|min:6",
@@ -43,13 +42,11 @@ class insertAdController extends Controller
             "wilaya" => "required",
             "email" => "email|nullable",
             "phone" => "regex:/^[0-9\s+-]*$/|nullable",
-            "condition" => "required",
         ]);
 
-        if ($validator->fails()) {
-            return redirect('add-Ad')
-                ->withErrors($validator)
-                ->withInput();
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
         }
 
       //Add fields in common
