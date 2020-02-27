@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta name="_token" content="{{csrf_token()}}" />
   <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
@@ -57,7 +58,7 @@
                   <div class="col-md-3 col-sm-12 search-col">
                     <div class="input-group-addon search-category-container">
                       <label class="styled-select">
-                        <select class="dropdown-product selectpicker" name="categorie" >
+                        <select class="dropdown-product selectpicker" name="categorie">
                           <option value="">Toutes les catégories</option>
                           @if (isset($_POST['categorie']))
                           @foreach ($search as $key => $value)                                
@@ -104,23 +105,18 @@
       <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
           <div class="page-ads box">
-              @if (count($errors) > 0)
-                  <div class="alert alert-danger">
+                  <div class="alert alert-danger" style="display:none">
                       <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>
-                      <ul>
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
+                      
                   </div>
-              @endif
+             
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
             <div class="row search-bar mb30 red-bg">            
               <div class="advanced-search">                
-                <form class="search-form" method="post" action="/insertAd" enctype="multipart/form-data">
+                <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)">
                     @csrf
                   <div class="form-group">
-                    <select class="form-control"  id="categorie" name="categorie">
+                    <select class="form-control" id="categorie" name="categorie">
                       <option value="">Catégories</option>
                           @foreach ($categorie as $key => $value)    
                             <option @if(old('categorie') == $value->idCat) {{ 'selected' }} @endif value="{{$value->idCat}}">{{ $value->categories }}</option>
@@ -142,7 +138,7 @@
           <div class="box">
            <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Titre de l'annonce <span class="required">*</span></label>
-                  <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{old('Adtitle')}}">
+                  <input class="form-control input-md" name="Adtitle" id="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{old('Adtitle')}}">
               </div>
               <div class="form-group state">
                 <label class="control-label" for="textarea">État</label> 
@@ -483,7 +479,7 @@
           <h2 class="title-2">Emplacement</h2>
           <div class="form-group {{ $errors->has('wilaya') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Wilaya <span class="required">*</span></label>
-              <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{old('wilaya')}}">
+              <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya2" placeholder="Wilaya" value="{{old('wilaya')}}">
           </div>
           </div>
             
@@ -496,19 +492,11 @@
           </div>
           <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Numéro de téléphone</label>
-              <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" type="text" value="{{old('phone')}}">
+              <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" id="phone" type="text">
             <div class="checkbox">
               <label>
-                @if (old('phoneHide') == '0')
                   <input type="hidden" name="phoneHide" value="0" />
                   <input type="checkbox" value="1" name="phoneHide"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
-                @elseif (old('phoneHide') == '1')
-                  <input type="hidden" name="phoneHide" value="0" />
-                  <input type="checkbox" value="1" name="phoneHide" checked> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
-                @else
-                  <input type="hidden" name="phoneHide" value="0" />
-                  <input type="checkbox" value="1" name="phoneHide"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
-                @endif
             </div>
             </div>
           </div>
@@ -517,7 +505,7 @@
           <h2 class="title-2">Média</h2>
           <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">            
           <label class="control-label" >Ajoutez des photos pour attirer l'attention sur votre annonce</label>
-            <input class="pro-image" name="fileToUpload[]" type="file" multiple /> <br>          
+            <input class="pro-image" name="fileToUpload[]" id="fileToUpload" type="file" multiple accept="image/png,image/gif,image/jpeg, image/jpg, image/dvg"/> <br>          
           </div>
           <div class="preview-images-zone">
             <div class="preview-image preview-show-1" onClick="$('.pro-image').click()">
@@ -530,14 +518,10 @@
             <div class="page-ads box">
               <div class="checkbox {{ $errors->has('condition') ? ' has-error' : '' }} has-feedback">
                 <label>
-                  @if (old('condition') == 'on')
-                    <input type="checkbox" name="condition" checked> <span class="required">*</span> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
-                  @else 
-                    <input type="checkbox" name="condition"> <span class="required">*</span> En affichant cette annonce, vous acceptez nos <a href="">Conditions d’utilisation</a>
-                  @endif
+                    <input type="checkbox" name="condition">  En affichant cette annonce, vous acceptez nos <a href="/centre-aide/conditions-d-utilisation">Conditions d’utilisation</a>
                 </label>
               </div><br>
-              <button class="btn btn-common" type="submit">Poster</button>
+              <button class="btn btn-common" type="submit" id="submit">Poster</button>
             </div>
           </div>
         </div>
@@ -733,6 +717,7 @@
                     $('.details, .sub_cat').hide();
                     $('.state').hide();
                   }
+         
 
             });
           
@@ -852,52 +837,88 @@
 
 
           $(document).ready(function() {
-    document.querySelector('.pro-image').addEventListener('change', readImage, false);
-   
-    $( ".preview-images-zone" ).sortable();
-    
-    $(document).on('click', '.image-cancel', function() {
-
-        let no = $(this).data('no');
-        $(".preview-image.preview-show-"+no).remove();
-    });
-});
-
-
-
-var num = 2;
-function readImage() {
- var element = $(".preview-images-zone");
-    if (window.File && window.FileList && window.FileReader) {
-        var files = event.target.files; //FileList object
-        var output = $(".preview-images-zone");
-
-        for (let i = 0; i < files.length; i++) {
- 
-          if(i < 14){
-            var file = files[i];
-            if (!file.type.match('image')) continue;
+            document.querySelector('.pro-image').addEventListener('change', readImage, false);
+          
+            $( ".preview-images-zone" ).sortable();
             
-            var picReader = new FileReader();
-            
-            picReader.addEventListener('load', function (event) {
-                var picFile = event.target;
-                var html =  '<div class="preview-image preview-show-' + num + '">' +
-                            '<div class="image-cancel" data-no="' + num + '">x</div>' +
-                            '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
-                            '</div>';
+            $(document).on('click', '.image-cancel', function() {
 
-                output.prepend(html);
-                num = num + 1;
+                let no = $(this).data('no');
+                $(".preview-image.preview-show-"+no).remove();
             });
+        });
 
-            picReader.readAsDataURL(file);
-          }
-           
-        }
-        $("#pro-image").val('');
-    } 
-}      
+
+        var num = 2;
+        function readImage() {
+        var element = $(".preview-images-zone");
+            if (window.File && window.FileList && window.FileReader) {
+                var files = event.target.files; //FileList object
+                var output = $(".preview-images-zone");
+
+                for (let i = 0; i < files.length; i++) {
+        
+                  if(i < 14){
+                    var file = files[i];
+                    if (!file.type.match('image')) continue;
+                    
+                    var picReader = new FileReader();
+                    
+                    picReader.addEventListener('load', function (event) {
+                        var picFile = event.target;
+                        var html =  '<div class="preview-image preview-show-' + num + '">' +
+                                    '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                                    '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                                    '</div>';
+
+                        output.prepend(html);
+                        num = num + 1;
+                    });
+
+                    picReader.readAsDataURL(file);
+                  }
+                  
+                }
+                $("#pro-image").val('');
+            } 
+        }      
+
+  // **************************   SUBMIT FORM AJAX *******************************
+
+        $(document).ready(function(){
+            $('#submit').click(function(e){
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                  }
+              });
+               $.ajax({
+                  url: "{{ url('/insertAd') }}",
+                  method: 'post',
+                  data: {
+                      categorie: $('#categorie').val(),
+                      sousCat: $('#sousCat').val(),
+                      descrp: $('#descrp').val(),
+                      wilaya: $('#wilaya2').val(),
+                      Adtitle: $('#Adtitle').val(),
+                      email: $('#email').val(),
+                      phone: $('#phone').val()
+                  },
+                  success: function(data){                    
+                      $.each(data.errors, function(key, value){
+                  			$('.alert-danger').show();
+                        $('.alert-danger').append('<p>'+value+'</p>');
+                        $("html, body").animate({ 
+                            scrollTop: 0 
+                        }, "slow");
+                      });                   
+                    
+                	}
+                    
+                  });
+               });
+            });
       </script>
 </body>
 </html>
