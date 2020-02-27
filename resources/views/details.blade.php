@@ -144,7 +144,7 @@
             </div>
           @if ($relatedAd <> [])
             <!-- Adds wrapper Start -->                     
-            <div class="row"> 
+            <div class="row" id="pagination"> 
               <div class="col-sm-12  col-lg-10">                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAd as $relatedAd)
@@ -193,6 +193,7 @@
                 </div>                          
               </div>
             </div>
+            {{$relatedAd->links()}}
             <!-- Adds wrapper End -->
           @endif
           </div>

@@ -153,6 +153,12 @@
   .pagination {
     display: block;
   }
+  #pagination{
+    padding: 20px;
+  }
+  .page-login-form{
+    margin: 50px 0;
+  }
   .header .container {
     width: 100%
   }
@@ -165,6 +171,12 @@
   .navbar > .container .navbar-brand {
     width: 170px;
   }
+  #content {
+    padding: 0;
+  }
+  footer .menu li{
+    width: 100% !important;
+  }
   .header {
     padding-bottom: 0;
   }
@@ -172,7 +184,7 @@
     margin: 15px;
   }
   .back-to-top {
-    right: 50px !important; 
+    right: 15px !important; 
   }
   .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     width: 310px !important;

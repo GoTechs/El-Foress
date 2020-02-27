@@ -279,7 +279,7 @@ class searchController extends Controller
             ['id_sous_Cat', '=', $idSousCat],
             ['id', '<>', $id],
             ['stateAd','=','1'],
-        ])->get()->toArray();
+        ])->paginate(6)->toArray();
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
         
