@@ -93,6 +93,11 @@
               <div class="alert alert-warning" role="alert">
                  <i class="fa fa-exclamation-triangle"> {{__('myads.archive_empty_result')}}</i>
               </div>
+              <div class="post-promo text-center">
+              <h2> Avez-vous quelque chose à vendre ?</h2>
+              <h5>Vendez vos produits en ligne GRATUITEMENT. C'est plus facile que vous ne le pensez!</h5>  
+                <a href="/add-Ad" class="btn btn-post btn-danger">Poster une annonce </a>              
+            </div>
               @endif
             </div>
           </div>

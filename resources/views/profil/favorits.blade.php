@@ -90,7 +90,7 @@
               </div> 
             @else  
                <div class="alert alert-warning" role="alert">
-                 <i class="fa fa-exclamation-triangle"> Vous n'avez aucune annonce active pour le moment.</i>
+                 <i class="fa fa-exclamation-triangle"> Vous n'avez aucune annonce dans vos favoris.</i>
               </div>
               <div class="post-promo text-center">
                 <h2> Vous avez trouvé une annonce intéressante sur Foress?</h2>
