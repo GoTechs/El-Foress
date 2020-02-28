@@ -410,6 +410,7 @@
   }
   .btn-filter {
     display: block !important;
+    margin-bottom: 25px;
   }
   .title {
     display : none;
