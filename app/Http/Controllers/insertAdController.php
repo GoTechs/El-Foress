@@ -198,7 +198,7 @@ class insertAdController extends Controller
 
         $annonce->save();
 
-        return redirect('my-ads')->with('message','Success');
+        return response()->json(['success'=>'Record is successfully added']);
 
     }
 

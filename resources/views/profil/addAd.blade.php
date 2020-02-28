@@ -106,14 +106,13 @@
         <div class="col-sm-12 col-md-10 col-md-offset-1">
           <div class="page-ads box">
                   <div class="alert alert-danger" style="display:none">
-                      <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>
-                      
+                      <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>                      
                   </div>
              
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
             <div class="row search-bar mb30 red-bg">            
               <div class="advanced-search">                
-                <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)">
+                <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)" id="contact_us">
                     @csrf
                   <div class="form-group">
                     <select class="form-control" id="categorie" name="categorie">
@@ -142,7 +141,7 @@
               </div>
               <div class="form-group state">
                 <label class="control-label" for="textarea">État</label> 
-                <select class="form-control" name="etat">
+                <select class="form-control" name="etat" id="etat">
                     <option value="">Sélectionner</option>
                     <option {{ old('etat') == 'Produit neuf jamais utilisé' ? 'selected' : ''}}>Produit neuf jamais utilisé</option>
                     <option {{ old('etat') == 'État neuf (Sous emballage)' ? 'selected' : ''}}>État neuf (Sous emballage)</option>
@@ -161,21 +160,13 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <div class="checkbox">
-                @if (old('vente') == 'selling')
-                    <label><input type="radio" name="vente" value="selling" checked> Je vends </label><br>
-                    <label><input type="radio" name="vente" value="searching"> Je recherche </label>
-                @elseif (old('vente') == 'searching')
-                    <label><input type="radio" name="vente" value="selling"> Je vends </label><br>
-                    <label><input type="radio" name="vente" value="searching" checked> Je recherche </label>
-                @else 
-                    <label><input type="radio" name="vente" value="selling"> Je vends </label><br>
-                    <label><input type="radio" name="vente" value="searching"> Je recherche </label>
-                @endif
+                    <label><input type="radio" name="vente" id="vente" value="selling" checked> Je vends </label><br>
+                    <label><input type="radio" name="vente" id="vente1" value="searching"> Je recherche </label>
               </div>
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
-            <select class="form-control" name="marqueVeh">
+            <select class="form-control" name="marqueVeh" id="marqueVeh">
                 <option value="">Sélectionner</option>
                 <option {{ old('marqueVeh') == 'Audi' ? 'selected' : ''}}>Audi</option>
                 <option {{ old('marqueVeh') == 'BMW' ? 'selected' : ''}}>BMW</option>
@@ -199,17 +190,17 @@
               </select>
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modeleVeh" type="text" value="{{old('modeleVeh')}}">
+            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modeleVeh" id="modeleVeh" type="text">
             </div>
             <div class="form-group">
-            <label class="control-label" for="textarea">Année</label> <input class="form-control" name="anneVeh" type="text" value="{{old('anneVeh')}}">
+            <label class="control-label" for="textarea">Année</label> <input class="form-control" name="anneVeh" id="anneVeh" type="text">
             </div>
             <div class="form-group">
-            <label class="control-label" for="textarea">Kilomètrage</label> <input class="form-control" name="kilomVeh" type="text" value="{{old('kilomVeh')}}">
+            <label class="control-label" for="textarea">Kilomètrage</label> <input class="form-control" name="kilomVeh" id="kilomVeh" type="text">
             </div>
             <div class="form-group">
             <label class="control-label" for="textarea">Type carburant</label>
-            <select class="form-control" name="typeCarb">
+            <select class="form-control" name="typeCarb" id="typeCarb">
                     <option value="">Sélectionner</option>
                     <option {{ old('typeCarb') == 'Essence' ? 'selected' : ''}}>Essence</option>
                     <option {{ old('typeCarb') == 'Gas oil' ? 'selected' : ''}}>Gas oil</option>
@@ -226,7 +217,7 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
-            <select class="form-control" name="marquePhone">
+            <select class="form-control" name="marquePhone" id="marquePhone">
                     <option value="">Sélectionner</option>
                     <option {{ old('marquePhone') == 'Apple' ? 'selected' : ''}}>Apple</option>
                     <option {{old('marquePhone')== 'BlackBerry' ? 'selected' : ''}}>BlackBerry</option>
@@ -242,7 +233,7 @@
                 </select>
           </div>
           <div class="form-group">
-            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modelePhone" type="text" value="{{old('modelePhone')}}">
+            <label class="control-label" for="textarea">Modèle</label> <input class="form-control" name="modelePhone" id="modelePhone" type="text">
           </div>
           </div>
             
@@ -253,7 +244,7 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Type</label>
-            <select class="form-control" name="typeStockage">
+            <select class="form-control" name="typeStockage" id="typeStockage">
               <option value="">Sélectionner</option>
               <option {{old('typeStockage')== 'Flash disque' ? 'selected' : ''}}>Flash disque</option>
               <option {{old('typeStockage')== 'Disque dur externe' ? 'selected' : ''}}>Disque dur externe</option>
@@ -263,11 +254,11 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
-            <input class="form-control" name="marqueStockage" type="text" value="{{old('marqueStockage')}}">
+            <input class="form-control" name="marqueStockage" id="marqueStockage" type="text">
           </div>
           <div class="form-group">
               <label class="control-label" for="textarea">Capacité (Go)</label>
-              <input class="form-control" name="capaciteStock" type="text" value="{{old('capaciteStock')}}">
+              <input class="form-control" name="capaciteStock" id="capaciteStock" type="text">
           </div>
           </div>
 
@@ -278,15 +269,15 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Date et heure de l'événement</label>
-                    <input class="form-control" name="datetimeEvent" type="datetime-local" value="{{old('datetimeEvent')}}">
+                    <input class="form-control" name="datetimeEvent" id="datetimeEvent" type="datetime-local">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Du</label>
-                    <input class="form-control" name="du" type="date" value="{{old('du')}}">
+                    <input class="form-control" name="du" id="du" type="date">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Au</label>
-                    <input class="form-control" name="au" type="date" value="{{old('au')}}">
+                    <input class="form-control" name="au" id="au" type="date">
                 </div>
             </div>
             
@@ -297,7 +288,7 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Marque</label>
-            <select class="form-control" name="marqueOrd">
+            <select class="form-control" name="marqueOrd" id="marqueOrd">
                     <option value="">Sélectionner</option>
                     <option {{old('marqueOrd')== 'Acer' ? 'selected' : ''}}>Acer</option>
                     <option {{old('marqueOrd')== 'Apple' ? 'selected' : ''}}>Apple</option>
@@ -313,7 +304,7 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Taille de l'écran</label>
-            <select class="form-control" name="tailleOrd">
+            <select class="form-control" name="tailleOrd" id="tailleOrd">
               <option value="">Sélectionner</option>
               <option {{old('tailleOrd')== '14 po ou moins' ? 'selected' : ''}}>14 po ou moins</option>
               <option {{old('tailleOrd')== '15 po' ? 'selected' : ''}}>15 po</option>
@@ -323,15 +314,15 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Processeur</label>
-            <input class="form-control" name="processeur" type="text" value="{{old('processeur')}}">
+            <input class="form-control" name="processeur" id="processeur" type="text" value="{{old('processeur')}}">
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Mémoire RAM</label>
-            <input class="form-control" name="memoireRAM" type="text" value="{{old('memoireRAM')}}">
+            <input class="form-control" name="memoireRAM" id="memoireRAM" type="text" value="{{old('memoireRAM')}}">
           </div>
           <div class="form-group">
             <label class="control-label" for="textarea">Taille du disque (Go)</label>
-            <input class="form-control" name="tailleDisque" type="text" value="{{old('tailleDisque')}}">
+            <input class="form-control" name="tailleDisque" id="tailleDisque" type="text" value="{{old('tailleDisque')}}">
           </div>
           </div>
 
@@ -342,7 +333,7 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Domaine d'emploi</label>
-                    <select class="form-control" name="domaineOffre">
+                    <select class="form-control" name="domaineOffre" id="domaineOffre">
                       <option value="">Sélectionner</option>
                         @foreach ($domaineEmploi as $domaine)
                             @if (old('domaineOffre') == $domaine->nomDomaine)
@@ -355,23 +346,23 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Entreprise</label>
-                    <input class="form-control" name="entreprise" type="text" value="{{old('entreprise')}}">
+                    <input class="form-control" name="entreprise" id="entreprise" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Adresse</label>
-                    <input class="form-control" name="adresse" type="text" value="{{old('adresse')}}">
+                    <input class="form-control" name="adresse" id="adresse" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Poste</label>
-                    <input class="form-control" name="posteOffre" type="text" value="{{old('posteOffre')}}">
+                    <input class="form-control" name="posteOffre" id="posteOffre"  type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Salaire</label>
-                    <input class="form-control" name="salaire" type="text" value="{{old('salaire')}}">
+                    <input class="form-control" name="salaire" id="salaire" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Diplôme requis</label>
-                    <input class="form-control" name="diplomeRequis" type="text" value="{{old('diplomeRequis')}}">
+                    <input class="form-control" name="diplomeRequis" id="diplomeRequis" type="text" value="{{old('diplomeRequis')}}">
                 </div>
             </div>
 
@@ -382,21 +373,13 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <div class="checkbox">
-                        @if (old('sexe') == 'Femme')
-                            <label><input type="radio" value="Femme" name="sexe" checked> Femme </label><br>
-                            <label><input type="radio" value="Homme" name="sexe"> Homme </label>
-                        @elseif (old('sexe') == 'Homme')
-                            <label><input type="radio" value="Femme" name="sexe"> Femme </label><br>
-                            <label><input type="radio" value="Homme" name="sexe" checked> Homme </label>
-                        @else
                             <label><input type="radio" value="Femme" name="sexe"> Femme </label><br>
                             <label><input type="radio" value="Homme" name="sexe"> Homme </label>
-                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Domaine d'emploi</label>
-                    <select class="form-control" name="domaineDemande">
+                    <select class="form-control" name="domaineDemande" id="domaineDemande">
                       <option value="">Sélectionner</option>
                         @foreach ($domaineEmploi as $domaine)
                             @if (old('domaineDemande') == $domaine->nomDomaine)
@@ -409,23 +392,23 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Âge</label>
-                    <input class="form-control" name="age" type="text" value="{{old('age')}}">
+                    <input class="form-control" name="age" id="age" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Poste</label>
-                    <input class="form-control" name="posteDemande" type="text" value="{{old('posteDemande')}}">
+                    <input class="form-control" name="posteDemande" id="posteDemande" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Niveau d'éducation</label>
-                    <input class="form-control" name="niveauEducation" type="text" value="{{old('niveauEducation')}}">
+                    <input class="form-control" name="niveauEducation" id="niveauEducation" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Diplôme</label>
-                    <input class="form-control" name="diplomeDemande" type="text" value="{{old('diplomeDemande')}}">
+                    <input class="form-control" name="diplomeDemande" id="diplomeDemande" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Année d'expérience</label>
-                    <input class="form-control" name="anneExp" type="text" value="{{old('anneExp')}}">
+                    <input class="form-control" name="anneExp" id="anneExp" type="text">
                 </div>
             </div>
 
@@ -436,7 +419,7 @@
                 <h2 class="title-2">Détails de l'annonce</h2>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Type du Bien</label>
-                    <select class="form-control" name="typeBien">
+                    <select class="form-control" name="typeBien" id="typeBien">
                         <option value="">Sélectionner</option>
                         <option {{old('typeBien')== 'Appartement' ? 'selected' : ''}}>Appartement</option>
                         <option {{old('typeBien')== 'Studio' ? 'selected' : ''}}>Studio</option>
@@ -451,15 +434,15 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Superficie</label>
-                    <input class="form-control" name="superficie" type="text" placeholder="En M²" value="{{old('superficie')}}">
+                    <input class="form-control" name="superficie" id="superficie" type="text" placeholder="En M²">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Nombre de pièces</label>
-                    <input class="form-control" name="nbrePiece" type="text" value="{{old('nbrePiece')}}">
+                    <input class="form-control" name="nbrePiece" id="nbrePiece" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="textarea">Étage</label>
-                    <input class="form-control" name="etage" type="text" value="{{old('etage')}}">
+                    <input class="form-control" name="etage"  id="etage" type="text">
                 </div>
             </div>
 
@@ -470,7 +453,7 @@
           <h2 class="title-2">Prix</h2>
           <div class="form-group">
             <label class="control-label" for="textarea">Prix</label>
-              <input class="form-control" placeholder="Prix en DA" name="prix" type="text" value="{{old('prix')}}">
+              <input class="form-control" placeholder="Prix en DA" name="prix" id="prix" type="text">
           </div>
           </div>
 
@@ -495,17 +478,17 @@
               <input class="form-control" placeholder="Votre numéro de téléphone" name="phone" id="phone2" type="text">
             <div class="checkbox">
               <label>
-                  <input type="hidden" name="phoneHide" value="0" />
-                  <input type="checkbox" value="1" name="phoneHide"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
+                  <input type="hidden" name="phoneHide" id="phoneHide" value="0" />
+                  <input type="checkbox" value="1" name="phoneHide" id="phoneHide1"> <small>Masquer le numéro de téléphone sur cette annonce.</small></label>
             </div>
             </div>
           </div>
          <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Média</h2>
-          <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">            
+          <div class="form-group has-feedback">            
           <label class="control-label" >Ajoutez des photos pour attirer l'attention sur votre annonce</label>
-            <input class="pro-image" name="fileToUpload[]" id="fileToUpload" type="file" multiple accept="image/png,image/gif,image/jpeg, image/jpg, image/dvg"/> <br>          
+            <input class="pro-image" name="fileToUpload[]" type="file" multiple accept="image/png,image/gif,image/jpeg, image/jpg, image/dvg"/> <br>          
           </div>
           <div class="preview-images-zone">
             <div class="preview-image preview-show-1" onClick="$('.pro-image').click()">
@@ -888,6 +871,8 @@
         $(document).ready(function(){
             $('#submit').click(function(e){
                e.preventDefault();
+               var myForm = document.getElementById('contact_us');
+                formData = new FormData(myForm);
                $.ajaxSetup({
                   headers: {
                       'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -896,24 +881,23 @@
                $.ajax({
                   url: "{{ url('/insertAd') }}",
                   method: 'post',
-                  data: {
-                      categorie: $('#categorie').val(),
-                      sousCat: $('#sousCat').val(),
-                      descrp: $('#descrp').val(),
-                      wilaya: $('#wilaya2').val(),
-                      Adtitle: $('#Adtitle').val(),
-                      email: $('#email').val(),
-                      phone: $('#phone2').val()
-                  },
-                  success: function(data){   
-                    $('.alert-danger').empty();                 
-                      $.each(data.errors, function(key, value){
-                  			$('.alert-danger').show();
-                        $('.alert-danger').append('<p>'+value+'</p>');
-                        $("html, body").animate({ 
-                            scrollTop: 0 
-                        }, "slow");
-                      });                   
+                  contentType: false,
+                  processData: false,
+                  data: formData,
+                  success: function(data){
+                    if ($.isEmptyObject(data.success)){   
+                      $('.alert-danger').empty();                 
+                        $.each(data.errors, function(key, value){
+                          $('.alert-danger').show();
+                          $('.alert-danger').append('<p>'+value+'</p>');
+                          $("html, body").animate({ 
+                              scrollTop: 0 
+                          }, "slow");
+                        });  
+                        console.log("error"); 
+                    } else {
+                        document.location.href = "/my-ads";
+                    }            
                     
                 	}
                     
