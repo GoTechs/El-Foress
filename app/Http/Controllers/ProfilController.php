@@ -35,7 +35,7 @@ class ProfilController extends Controller
         $idUser = Auth::user()->id;
 
         $annonce = DB::table('annonces')
-            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture'])
+            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture','description'])
             ->where([
                 ['annonces.id_user', '=', $idUser],
                 ['annonces.stateAd','=','1'],
@@ -101,23 +101,21 @@ class ProfilController extends Controller
         $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);
                 
         return view('profil.myads', [
-            'result' => $result
+            'results' => $result
         ]);
     }
 
     public function favorits(){
         $idUser = Auth::user()->id;
 
-        $storage = DB::table('annonces')
+        $favoris = DB::table('annonces')
             ->join('favoris', 'annonces.id', '=', 'favoris.id_annonce')
             ->where([
                 ['favoris.idUser', '=', $idUser],
             ])->get()->toArray();
 
-        //$result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone);
-
         return view('profil.favorits', [
-            'result' => $storage
+            'results' => $favoris
         ]);
     }
 
@@ -125,7 +123,7 @@ class ProfilController extends Controller
         $idUser = Auth::user()->id;
 
         $annonce = DB::table('annonces')
-            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews'])
+            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture','description'])
             ->where([
                 ['annonces.id_user', '=', $idUser],
                 ['annonces.stateAd','=','0'],
@@ -191,7 +189,7 @@ class ProfilController extends Controller
         $result = array_merge($storage,$jobOffer,$car,$computer,$event,$immobilier,$jobApp,$phone,$annonce);
 
         return view('profil.archives', [
-            'result' => $result
+            'results' => $result
         ]);
     }
 

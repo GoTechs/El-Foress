@@ -8,7 +8,7 @@
           <div class="col-sm-9 page-content">
             <div class="inner-box">
               <h2 class="title-2"><i class="fa fa-heart-o"></i> {{__('myads.myfavorits_page_title')}}</h2>
-              @if ($result <> [])
+              @if ($results <> [])
               <div class="table-responsive">
                 <form action="/deleteAllFav" method="post">
                   @csrf
@@ -30,47 +30,62 @@
                     </div>
                   </div>
                 </div>
-                <table class="table table-striped table-bordered add-manage-table">
-                  <thead>
-                    <tr>
-                      <th data-type="numeric"></th>
-                      <th>{{__('myads.image_column')}}</th>
-                      <th>{{__('myads.details_column')}}</th>
-                      <th>{{__('myads.price_column')}}</th>
-                      <th>{{__('myads.option_column')}}</th>
-                    </tr>
-                  </thead>
-                  @foreach ($result as $results)
-                    <tbody>
-                    <tr id="{{$results->id_annonce}}" class="filter">
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox" name="ids[]" class="selectbox" value="{{$results->id_annonce}}">
-                          </label>
+
+                <div class="product-filter">
+                  <div class="grid-list-count list-grid-view">
+                    <a class="list switchToGrid" href="#"><i class="fa fa-list"></i></a>
+                    <a class="grid switchToList" href="#"><i class="fa fa-th-large"></i></a>
+                  </div>
+                </div>
+                
+                <!-- Adds wrapper Start -->
+                <div class="adds-wrapper">              
+                  @foreach ($results as $result)
+                  <div class="item-list filter" id="{{$result->id_annonce}}">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="ids[]" class="selectbox" value="{{$result->id_annonce}}">
+                        </label>
+                      </div>
+                    <div class="col-sm-2 no-padding photobox">
+                      <div class="add-image">
+                        <a href="/my-ads/details/{{$result->id_annonce}}">
+                          @if ($result->hasPicture == '1')
+                            @foreach ($imageAd as $img) 
+                              @if ($result->id_annonce == $img->id_annonce)
+                                <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                              @endif
+                            @endforeach
+                          @else 
+                            <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                          @endif
+                        <span class="photo-count"><i class="fa fa-camera"></i></span>
+                      </div>
+                    </div>
+                    <div class="col-sm-7 add-desc-box">
+                      <div class="add-details">
+                        <h5 class="add-title title"><a href="/my-ads/details/{{$result->id_annonce}}">{{$result->titre}}</a></h5>
+                        <div class="info">
+                          
+                          <span class="date">
+                            <i class="fa fa-clock"></i>
+                            {{\Carbon\Carbon::parse($result->created_at)->diffForHumans()}}
+                          </span> -
+                          <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                         </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="/my-ads/details/{{$results->id_annonce}}">
-                          <img class="img-responsive" src="{{asset('img/bientot-disponible.jpg')}}" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4 class="title"><a href="/my-ads/details/{{$results->id_annonce}}">{{$results->titre}}</a></h4>
-                        <p> <strong> {{__('myads.date_add_info')}} </strong>:
-                        {{\Carbon\Carbon::parse($results->created_at)->diffForHumans()}} </p>
-                        <p> <strong>{{__('myads.number_visitor_info')}} </strong>: {{$results->numberViews}} <strong>{{__('myads.wilaya_info')}} :</strong> {{$results->wilaya}} </p>
-                      </td>
-                      <td class="price-td">
-                        <strong> {{$results->prix}}</strong>
-                      </td>
-                      <td class="action-td">
-                        <p> <a class="btn btn-danger btn-xs" onclick="deleteFav({{$results->id_annonce}})"> <i class=" fa fa-trash"></i> {{__('myads.delete_button')}} </a></p>
-                      </td>
-                    </tr>
-                    </tbody>
+                        <div class="item_desc">
+                          <a href="/my-ads/details/{{$result->id_annonce}}">{{Str::limit($result->description, 30)}}</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3 text-right  price-box">
+                      <h2 class="item-price" data-test="{{$result->prix}}"> {{$result->prix <> '' ? $result->prix.'DA' : '' }}</h2>
+                      <p> <a class="btn btn-danger btn-xs" onclick="deleteFav({{$result->id_annonce}})"> <i class=" fa fa-trash"></i> {{__('myads.delete_button')}} </a></p>
+                    </div>
+                  </div>    
                   @endforeach
-                </table>
+                </div>
+                <!-- Adds wrapper End -->
               </form>
               </div> 
             @else  
