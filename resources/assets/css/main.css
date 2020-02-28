@@ -212,6 +212,9 @@ h3.block-title {
   margin: 0;
   border-top: 1px solid #eee;
 }
+.invalid-feedback {
+  color: #BB6A68;
+}
 .page-header .page-title {
   font-size: 30px;
   line-height: 38px;

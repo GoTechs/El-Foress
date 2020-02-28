@@ -9,7 +9,7 @@
 
         @if(Session::has('error'))
         <div class="row">
-            <div class="alert alert-danger col-xs-4 col-xs-offset-4">
+            <div class="alert alert-danger col-xs-12">
              <strong>{{Session::get('error')}}</strong>
             </div>
         </div>
