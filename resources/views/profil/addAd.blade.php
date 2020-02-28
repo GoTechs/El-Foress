@@ -899,7 +899,6 @@
                               scrollTop: 0 
                           }, "slow");
                         });  
-                        console.log("error"); 
                     } else {
                         document.location.href = "/my-ads";
                     }            

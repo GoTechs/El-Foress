@@ -285,7 +285,47 @@
         } else {
           $('#checkAll').prop('checked', false);
         }
-    });     
+    });   
+    
+    $(document).ready(function(){
+            $('#submit').click(function(e){
+               e.preventDefault();
+               swal({
+                title: "Êtes-vous sûr?",
+                text: "Une fois supprimé, vous ne pourrez plus récupérer vos annonces!",
+                icon: "warning",
+                buttons: ["Annuler", "Oui"],
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  var myForm = document.getElementById('deleteAll');
+                    formData = new FormData(myForm);
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                      url: "{{ url('/deleteAll') }}",
+                      method: 'post',
+                      contentType: false,
+                      processData: false,
+                      data: formData,
+                      success: function(data){
+                        if ($.isEmptyObject(data.success)){   
+                          console.log("error")
+                        } else {
+                            document.location.href = "/my-ads";
+                        }            
+                        
+                      }
+                        
+                      });
+                    }
+                });    
+               });
+            });
 
 </script>
 

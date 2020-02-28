@@ -442,6 +442,6 @@ class insertAdController extends Controller
         
             $ids = $request->input('ids');
             annonce::whereIn('id',$ids)->delete();
-            return redirect('my-ads');  
+            return response()->json(['success'=>'Record is successfully added']);  
     }
 }

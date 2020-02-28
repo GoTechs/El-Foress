@@ -66,7 +66,7 @@
               </div>
               <div class="panel-collapse collapse in" id="collapseB2">
               @else 
-              <h4 class="panel-title"> <a aria-expanded="false" class="collapsed" href="#collapseB2" data-toggle="collapse"> {{__('home_profil.setting_title')}} </a> </h4>
+              <h4 class="panel-title"> <a aria-expanded="false" class="collapsed" href="#collapseB2" data-toggle="collapse"> Changer le mot de passe</a> </h4>
               </div>
               <div style="height: 0px;" aria-expanded="false" class="panel-collapse collapse" id="collapseB2">
               @endif
