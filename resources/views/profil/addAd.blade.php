@@ -501,7 +501,7 @@
             <div class="page-ads box">
               <div class="checkbox {{ $errors->has('condition') ? ' has-error' : '' }} has-feedback">
                 <label>
-                    <input type="checkbox" name="condition">  En affichant cette annonce, vous acceptez nos <a href="/centre-aide/conditions-d-utilisation">Conditions d’utilisation</a>
+                    <input type="checkbox" name="condition">  En affichant cette annonce, vous acceptez nos <a onclick="acceptCondition()">Conditions d’utilisation</a>
                 </label>
               </div><br>
               <button class="btn btn-common" type="submit" id="submit">Poster</button>
@@ -593,6 +593,7 @@
     </a>
       <!-- Main JS  -->
       <script src="{{asset('js/libs.js')}}"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
       <script>
           
@@ -703,6 +704,10 @@
          
 
             });
+
+         function acceptCondition(){
+          swal("Conditions d'utilisation", "Nos services sont entièrement gratuits et réservés aux personnes juridiquement capables de souscrire des contrats en droit algérien. Nos services ne sont pas disponibles pour les mineurs de moins de 18 ans. Si vous ne remplissez pas ces conditions, vous ne devez pas utiliser nos services.");
+         }   
           
          function field(){
               
