@@ -90,7 +90,9 @@
               </form>
               </div>  
               @else 
-              <h6>{{__('myads.archive_empty_result')}}</h6>
+              <div class="alert alert-warning" role="alert">
+                 <i class="fa fa-exclamation-triangle"> {{__('myads.archive_empty_result')}}</i>
+              </div>
               @endif
             </div>
           </div>

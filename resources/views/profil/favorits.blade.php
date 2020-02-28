@@ -89,7 +89,14 @@
               </form>
               </div> 
             @else  
-              <h6>{{__('myads.myfav_empty_result')}} <a href="/categorie">{{__('myads.find_ads_link')}}</a></h6>
+               <div class="alert alert-warning" role="alert">
+                 <i class="fa fa-exclamation-triangle"> Vous n'avez aucune annonce active pour le moment.</i>
+              </div>
+              <div class="post-promo text-center">
+                <h2> Vous avez trouvé une annonce intéressante sur Foress?</h2>
+                <h5>Il vous suffit de cliquer sur l'option «Favori» lorsque vous en trouvez une qui vous intéresse. </h5>  
+                <a href="/categorie" class="btn btn-post btn-danger">{{__('myads.find_ads_link')}} </a>              
+              </div>
             @endif             
             </div>
           </div>
