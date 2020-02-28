@@ -22,7 +22,7 @@
                 <button class="btn btn-common log-btn">Envoyer</button>
               </form>
               <ul class="form-links">
-                <li class="pull-left"><a href="/inscription">Vous n'avez pas de compte ?</a></li>
+                <li class="pull-left"><a href="/admin/inscription">Vous n'avez pas de compte ?</a></li>
                 <li class="pull-right"><a href="/connexion">Connexion</a></li>
               </ul>
             </div>
