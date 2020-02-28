@@ -12,7 +12,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="{{$id == 'conditions-d-utilisation' ? '' : 'collapsed'}}">
                       Conditions d’utilisation
                     </a>
                   </h4>
@@ -183,7 +183,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="{{$id == 'politique-de-confidentialite' ? '' : 'collapsed'}}">
                       Politique de confidentialité
                     </a>
                   </h4>
@@ -272,7 +272,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="{{$id == 'regles-d-affichage' ? '' : 'collapsed'}}">
                       Règles d’affichage
                     </a>
                   </h4>
@@ -315,7 +315,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="{{$id == 'avantages-de-l-inscription' ? '' : 'collapsed'}}">
                       Avantages de l’inscription
                     </a>
                   </h4>
@@ -341,12 +341,12 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="{{$id == 'publicite-sur-foress' ? '' : 'collapsed'}}">
                       Pourquoi nous sommes le bon choix pour vous ?
                     </a>
                   </h4>
                 </div>
-                  <div id="collapseFour" class="panel-collapse collapse {{$id =='publicite-sur-foress' ? 'in' : ''}}">
+                  <div id="collapseFive" class="panel-collapse collapse {{$id =='publicite-sur-foress' ? 'in' : ''}}">
                   <div class="panel-body">
                     <ul type="disc">
                       <li>NOUS SOMMES EXACTEMENT LÀ OÙ IL VOUS FAUT ÊTRE ; </li>
