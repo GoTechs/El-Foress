@@ -129,13 +129,13 @@
             <h5 class="collapset-title">{{__('layout.account_menu')}}<a aria-expanded="true" class="pull-right" data-toggle="collapse" href="#myads"><i class="fa fa-angle-down"></i></a></h5>
             <div aria-expanded="true" id="myads" class="panel-collapse collapse in">
               <ul class="acc-list">
-                <li class="{{ (request()->is('my-ads')) ? 'active' : '' }}">
+                <li class="{{ (request()->is('my-ads')) ? 'active' : '' }}" id="profile">
                   <a href="/my-ads"><i class="fa fa-credit-card"></i> {{__('layout.my_ads_menu')}}<span class="badge"></span></a>
                 </li>
-                <li class="{{ (request()->is('favorites')) ? 'active' : '' }}">
+                <li class="{{ (request()->is('favorites')) ? 'active' : '' }}" id="profile">
                   <a href="/favorites"><i class="fa fa-heart-o"></i> {{__('layout.my_favorits_menu')}} <span class="badge"></span></a>
                 </li>
-                <li class="{{ (request()->is('archives')) ? 'active' : '' }}">
+                <li class="{{ (request()->is('archives')) ? 'active' : '' }}" id="profile">
                   <a href="/archives"><i class="fa fa-folder-o"></i> {{__('layout.archives_menu')}} <span class="badge"></span></a>
                 </li>
               </ul>

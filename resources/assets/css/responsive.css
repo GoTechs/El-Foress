@@ -425,4 +425,7 @@
   .col-sm-2 {
     padding: 0 !important;
   }
+  #profile {
+    display: block;
+  }
 }
