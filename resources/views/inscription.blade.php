@@ -53,7 +53,7 @@
                 <button class="btn btn-common log-btn" type="submit" name="addMember">{{__('authentication.register_submit_button')}}</button>
               </form>
               <ul class="form-links">
-                <li> Vous avez déjà un compte ? <a href="/connexion">Se connecter</a></li>
+                <li>  <a href="/connexion">Vous avez déjà un compte ?</a></li>
               </ul>
             </div>
           </div>

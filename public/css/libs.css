@@ -12400,9 +12400,9 @@ zoom: 1;
   .navbar > .container .navbar-brand {
     width: 170px;
   }
-  #content {
+  /* #content {
     padding: 0;
-  }
+  } */
   footer .menu li{
     width: 100% !important;
   }

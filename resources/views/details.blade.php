@@ -4,7 +4,7 @@
     @section('content')
 
     <!-- Start Content -->
-    <div id="content">
+    <div class="main-container">
       <div class="container">
         <div class="row">
           <!-- Product Info Start -->          
@@ -144,7 +144,7 @@
             </div>
           @if ($relatedAds <> [])
             <!-- Adds wrapper Start -->                     
-            <div class="row" id="pagination"> 
+            <div class="col-sm-12" id="pagination"> 
               <div class="col-sm-12  col-lg-10">                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAds as $relatedAd)
