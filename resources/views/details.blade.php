@@ -142,9 +142,9 @@
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
               </div>        
             </div>
-          @if ($relatedAds <> [])
+            <h3 class="section-title">Annonces Correspondantes</h3>     
+          @if ($relatedAds->count() <> '0')
             <!-- Adds wrapper Start -->                     
-            <div class="col-sm-12" id="pagination"> 
               <div class="col-sm-12  col-lg-10">                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAds as $relatedAd)
@@ -191,10 +191,11 @@
                   </div>    
                   @endforeach
                 </div>                          
-              </div>
-            </div>
+              </div> 
             {{ $relatedAds->links() }}
             <!-- Adds wrapper End -->
+            @else 
+              
           @endif
           </div>
       </div>         

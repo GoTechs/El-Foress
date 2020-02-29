@@ -13,8 +13,8 @@
                 </button>
                 <div class="categories" id="filter">                  
                   <div class="widget-title title">
-                    <h4><a href="#"> Annonces correspondantes </a></h4>                    
-                  </div>
+                  Annonces correspondantes 
+                  </div> 
 
                 @if ($catégorie == 'Catégorie')
                   <div class="panel-group" id="accordion">
