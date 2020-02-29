@@ -36,7 +36,7 @@
             <!-- Navbar Start -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/my-ads"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
+                    <li><a href="/home"><i class="fa fa-user"></i> {{Auth::user()->nom}}</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out"></i> {{__('layout.logout_button')}}</a></li>
                     <li class="{{ (request()->is('my-ads')) ? 'active' : '' }}" id="profile">
                           <a href="/my-ads"><i class="fa fa-credit-card" ></i> {{__('layout.my_ads_menu')}}<span class="badge"></span></a>

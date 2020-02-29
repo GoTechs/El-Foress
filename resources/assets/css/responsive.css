@@ -431,4 +431,8 @@
   .user-panel-sidebar {
     display: none;
   }
+  #ads {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
