@@ -12652,6 +12652,9 @@ zoom: 1;
   .btn-facebook, .btn-google {
     font-size: 10px;
   }
+  .col-sm-2 {
+    padding: 0 !important;
+  }
 }
 
 /*!
