@@ -17,7 +17,7 @@
                   <div class="checkbox">
                     <label for="checkAll">
                       <input id="checkAll" type="checkbox">
-                      {{__('myads.select_all_button')}} | <button type="submit" class="btn btn-xs btn-danger"> {{__('myads.delete_all_button')}} <i class="fa fa-close"></i></button>
+                      {{__('myads.select_all_button')}} | <button type="submit" class="btn btn-danger btn-sm"> {{__('myads.delete_all_button')}} <i class="fa fa-close"></i></button>
                     </label>
                   </div>
                   <div class="table-search pull-right col-xs-7">
@@ -31,18 +31,12 @@
                   </div>
                 </div>
 
-                <div class="product-filter">
-                  <div class="grid-list-count list-grid-view">
-                    <a class="list switchToGrid" href="#"><i class="fa fa-list"></i></a>
-                    <a class="grid switchToList" href="#"><i class="fa fa-th-large"></i></a>
-                  </div>
-                </div>
-                
+           
                 <!-- Adds wrapper Start -->
                 <div class="adds-wrapper">              
                   @foreach ($results as $result)
                   <div class="item-list filter" id="{{$result->id_annonce}}">
-                      <div class="checkbox">
+                      <div class="checkbox col-sm-2">
                         <label>
                           <input type="checkbox" name="ids[]" class="selectbox" value="{{$result->id_annonce}}">
                         </label>
@@ -62,7 +56,7 @@
                         <span class="photo-count"><i class="fa fa-camera"></i></span>
                       </div>
                     </div>
-                    <div class="col-sm-7 add-desc-box">
+                    <div class="col-sm-5 add-desc-box">
                       <div class="add-details">
                         <h5 class="add-title title"><a href="/my-ads/details/{{$result->id_annonce}}">{{$result->titre}}</a></h5>
                         <div class="info">
@@ -80,7 +74,7 @@
                     </div>
                     <div class="col-sm-3 text-right  price-box">
                       <h2 class="item-price" data-test="{{$result->prix}}"> {{$result->prix <> '' ? $result->prix.'DA' : '' }}</h2>
-                      <p> <a class="btn btn-danger btn-xs" onclick="deleteFav({{$result->id_annonce}})"> <i class=" fa fa-trash"></i> {{__('myads.delete_button')}} </a></p>
+                      <a class="btn btn-danger btn-sm" onclick="deleteFav({{$result->id_annonce}})"> <i class=" fa fa-trash"></i> {{__('myads.delete_button')}} </a>
                     </div>
                   </div>    
                   @endforeach

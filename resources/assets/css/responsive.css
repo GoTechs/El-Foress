@@ -159,8 +159,18 @@
   .header .container {
     width: 100%
   }
+  #content{
+    padding: 0;
+  }
+  .adds-wrapper .item-list {
+    display: block !important;
+  }
   .input-group-addon:last-child{
     display: none;
+  }
+  .adds-wrapper .price-box {
+    display: flex;
+    flex-direction: column;
   }
   .dropdown-menu {
     position: relative;

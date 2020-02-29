@@ -918,7 +918,8 @@ footer .menu li a:hover {
   border: 1px solid #eee;
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   overflow: hidden;
   clear: both;
@@ -1283,10 +1284,6 @@ footer .menu li a:hover {
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
   transition: all .3s linear;
-}
-.table-search .control-label {
-  line-height: 16px;
-  padding-right: 0;
 }
 .searchpan input#filter {
   font-size: 12px;

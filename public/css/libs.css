@@ -3525,6 +3525,8 @@ h3.block-title {
   line-height: 1.5;
   margin-bottom: 5px;
   border: none;
+  max-width: 115px;
+  width: 100%;
 }
 .btn-xs {
   border-radius: 0px;
@@ -4814,7 +4816,8 @@ footer .menu li a:hover {
   border: 1px solid #eee;
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   overflow: hidden;
   clear: both;
@@ -5222,7 +5225,6 @@ footer .menu li a:hover {
   transition: all .3s linear;
 }
 .table-search .control-label {
-  line-height: 16px;
   padding-right: 0;
 }
 .searchpan input#filter {
@@ -12387,8 +12389,18 @@ zoom: 1;
   .header .container {
     width: 100%
   }
+  #content{
+    padding: 0;
+  }
+  .adds-wrapper .item-list {
+    display: block !important;
+  }
   .input-group-addon:last-child{
     display: none;
+  }
+  .adds-wrapper .price-box {
+    display: flex;
+    flex-direction: column;
   }
   .dropdown-menu {
     position: relative;
@@ -13717,7 +13729,8 @@ footer .menu li a:hover {
   border: 1px solid #eee;
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   overflow: hidden;
   clear: both;
@@ -14082,10 +14095,6 @@ footer .menu li a:hover {
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
   transition: all .3s linear;
-}
-.table-search .control-label {
-  line-height: 16px;
-  padding-right: 0;
 }
 .searchpan input#filter {
   font-size: 12px;

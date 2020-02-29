@@ -156,6 +156,8 @@ h3.block-title {
   line-height: 1.5;
   margin-bottom: 5px;
   border: none;
+  max-width: 115px;
+  width: 100%;
 }
 .btn-xs {
   border-radius: 0px;
@@ -1445,7 +1447,8 @@ footer .menu li a:hover {
   border: 1px solid #eee;
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   overflow: hidden;
   clear: both;
@@ -1853,7 +1856,6 @@ footer .menu li a:hover {
   transition: all .3s linear;
 }
 .table-search .control-label {
-  line-height: 16px;
   padding-right: 0;
 }
 .searchpan input#filter {
