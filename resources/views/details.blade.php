@@ -142,10 +142,11 @@
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
               </div>        
             </div>
-            <h3 class="section-title">Annonces Correspondantes</h3>     
+              
           @if ($relatedAds->count() <> '0')
             <!-- Adds wrapper Start -->                     
-              <div class="col-sm-12  col-lg-10">                 
+              <div class="col-sm-12  col-lg-10">   
+              <h3 class="section-title">Annonces Correspondantes</h3>                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAds as $relatedAd)
                   <div class="item-list" data-store="{{$relatedAd->prix.$relatedAd->id}}" data-price="{{$relatedAd->prix}}" data-views="{{$relatedAd->numberViews}}" data-date="{{$relatedAd->created_at}}">
