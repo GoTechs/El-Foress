@@ -428,4 +428,7 @@
   #profile {
     display: block;
   }
+  .user-panel-sidebar {
+    display: none;
+  }
 }

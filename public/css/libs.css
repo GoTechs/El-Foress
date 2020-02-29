@@ -3861,7 +3861,6 @@ nav#menu span.fa.fa-bars:hover {
 }
 
 .main-navigation .navbar-nav > li a {
-  color: #3498db;
   line-height: normal;
   border-radius: 4px;
   padding: 12px 15px;
@@ -3876,7 +3875,7 @@ nav#menu span.fa.fa-bars:hover {
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
-  color: #444;
+  color: #3498db;
 }
 .main-navigation .navbar-nav > li a i {
   margin-right: 3px;
@@ -12661,6 +12660,9 @@ zoom: 1;
   #profile {
     display: block;
   }
+  .user-panel-sidebar {
+    display: none;
+  }
 }
 
 /*!
@@ -12844,7 +12846,6 @@ zoom: 1;
   transition: all 0.2s linear;
 }
 .main-navigation .navbar-nav > li a {
-  color: #3498db;
   line-height: normal;
   border-radius: 4px;
   padding: 12px 15px;
