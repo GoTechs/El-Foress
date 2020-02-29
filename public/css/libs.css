@@ -5395,6 +5395,7 @@ table.add-manage-table > tbody > tr > th {
 }
 .ads-details-wrapper {
   display: flex;
+  margin-bottom: 20px;
 }
 .ads-details-wrapper h2 {
   font-size: 24px;
