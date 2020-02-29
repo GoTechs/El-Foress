@@ -4701,9 +4701,7 @@ footer .menu li a:hover {
 .inner-box {
   border: 1px solid #eee;
   padding: 15px;
-  margin-bottom: 30px;
   width: 100%;
-  height: 100%;
 }
 #right-details{
   display: flex;
@@ -12272,9 +12270,6 @@ zoom: 1;
   .page-sidebar .inner-box {
     padding: 5px;
   }
-  .inner-box {
-    padding: 10px;
-  }
   .widget-title h4 {
     font-size: 14px;
   }
@@ -12542,9 +12537,6 @@ zoom: 1;
   }
   .blog-post .post-content .meta .meta-part i {
     margin-right: 0;
-  }
-  .inner-box {
-    padding: 15px;    
   }
   .author .author-img {
     float: none;
@@ -13639,11 +13631,6 @@ footer .menu li a:hover {
   font-size: 16px;
   display: inline-block;
   text-transform: uppercase;
-}
-.inner-box {
-  border: 1px solid #eee;
-  padding: 15px;
-  margin-bottom: 30px;
 }
 /* #details {
   width: 60%;

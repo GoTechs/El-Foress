@@ -834,11 +834,6 @@ footer .menu li a:hover {
   display: inline-block;
   text-transform: uppercase;
 }
-.inner-box {
-  border: 1px solid #eee;
-  padding: 15px;
-  margin-bottom: 30px;
-}
 /* #details {
   width: 60%;
 } */

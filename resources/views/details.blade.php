@@ -137,10 +137,10 @@
                   </div>                
                 </div>
             </div>
-             <div class="col-sm-12 col-lg-2">
+             <!-- <div class="col-sm-12 col-lg-2">
               <div class="inner-box">                
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
-              </div>        
+              </div>         -->
             </div>
           @if ($relatedAds <> [])
             <!-- Adds wrapper Start -->                     
