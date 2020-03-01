@@ -96,41 +96,6 @@
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
               </div>        
             </div>
-            <!-- <div class="col-md-4">
-              <h2 class="title-2">
-                {{__('contact.contact_information')}}
-              </h2>
-              <div class="information">
-                <div class="contact-datails">
-                  <div class="icon">
-                    <i class="fa fa-map-marker icon-radius"></i>
-                  </div>
-                  <div class="info">
-                    <h3>{{__('contact.adresse_info')}}</h3>
-                    <span class="detail">{{__('contact.adresse_one')}}</span>
-                    <span class="datail">{{__('contact.adresse_two')}}</span>
-                  </div>
-                </div>                
-                <div class="contact-datails">
-                  <div class="icon">
-                    <i class="fa fa-phone icon-radius"></i>
-                  </div>
-                  <div class="info">
-                    <h3>{{__('contact.phone_info')}}</h3>
-                    <span class="detail">{{__('contact.phone')}}</span>
-                  </div>
-                </div>
-                <div class="contact-datails">
-                  <div class="icon">
-                    <i class="fa fa-location-arrow icon-radius"></i>
-                  </div>
-                  <div class="info">
-                    <h3>{{__('contact.adresse_email_info')}}</h3>
-                    <span class="detail"> {{__('contact.adresse_email')}}</span>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </section>

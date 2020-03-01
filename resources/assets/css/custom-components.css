@@ -24,7 +24,6 @@
   transition: all 0.2s linear;
 }
 .main-navigation .navbar-nav > li a {
-  color: #3498db;
   line-height: normal;
   border-radius: 4px;
   padding: 12px 15px;
@@ -834,11 +833,6 @@ footer .menu li a:hover {
   display: inline-block;
   text-transform: uppercase;
 }
-.inner-box {
-  border: 1px solid #eee;
-  padding: 15px;
-  margin-bottom: 30px;
-}
 /* #details {
   width: 60%;
 } */
@@ -923,7 +917,8 @@ footer .menu li a:hover {
   border: 1px solid #eee;
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   overflow: hidden;
   clear: both;
@@ -1288,10 +1283,6 @@ footer .menu li a:hover {
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
   transition: all .3s linear;
-}
-.table-search .control-label {
-  line-height: 16px;
-  padding-right: 0;
 }
 .searchpan input#filter {
   font-size: 12px;
