@@ -95,8 +95,9 @@ class searchController extends Controller
 	        			 ->orWhere('description','LIKE',"%" . request('keyword') . "%");
 	    }
 
-	    $data = $data->where('stateAd', '=',  '1') 
-	    		     ->paginate(6);
+       $data = $data->where('stateAd', '=',  '1')
+                    ->orderBy('created_at','desc') 
+                    ->paginate(6);        
 
       $cat = 'Catégorie'; 
       if (request('categorie')) { $filterKey  = request('categorie'); }
