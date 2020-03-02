@@ -3569,7 +3569,8 @@ h3.block-title {
   font-size: 18px;
   margin-bottom: 10px;
   padding: 10px 0;
-  text-transform: uppercase;
+  color: #3e4153;
+  font-family: 'Roboto', sans-serif;
 }
 #content {
   padding: 80px 0;
