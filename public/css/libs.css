@@ -347,7 +347,7 @@
   text-decoration: none;
 }
 .panel-default .panel-heading a:after {
-  font-family: "FontAwesome";
+  font-family: 'Roboto', sans-serif;
   content: "";
   position: absolute;
   right: 15px;
@@ -3394,7 +3394,7 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
 }
 h1 {
@@ -3473,6 +3473,13 @@ h3.block-title {
     margin: 0;
     text-transform: uppercase;
     padding-bottom: 15px;
+}
+input,
+button,
+select,
+optgroup,
+textarea {
+  font-family: 'Roboto', sans-serif;
 }
 /*====================================================
 		bootstrap default style overriding
@@ -5182,7 +5189,6 @@ footer .menu li a:hover {
   margin-top: 0px;
   padding-bottom: 10px;
   padding-top: 15px;
-  text-transform: uppercase;
 }
 .no-border {
   border: none;
@@ -5856,7 +5862,7 @@ table.add-manage-table > tbody > tr > th {
   text-decoration: none;
 }
 .panel-default .panel-heading a:after {
-  font-family: "FontAwesome";
+  font-family: 'Roboto', sans-serif;
   content: "";
   position: absolute;
   right: 15px;
@@ -9881,7 +9887,7 @@ text-shadow:none;
 font-size:60px;
 line-height:60px;
 font-weight:400;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 background-color:transparent;
 text-decoration:none;
 text-transform:uppercase;
@@ -9912,7 +9918,7 @@ text-shadow:none;
 font-size:37px;
 line-height:37px;
 font-weight:400;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 background-color:transparent;
 text-decoration:none;
 text-transform:uppercase;
@@ -9926,7 +9932,7 @@ border-style:none;
 font-size:25px;
 line-height:25px;
 font-weight:800;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -9959,7 +9965,7 @@ text-shadow:none;
 font-size:25px;
 line-height:25px;
 font-weight:400;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 background-color:transparent;
 text-decoration:none;
 text-transform:uppercase;
@@ -9973,7 +9979,7 @@ border-style:none;
 font-size:13px;
 line-height:25px;
 font-weight:400;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -10006,7 +10012,7 @@ text-shadow: none;
 font-size: 60px;
 line-height: 60px;
 font-weight: 400;
-font-family: "Open Sans", sans-serif;
+font-family: 'Roboto', sans-serif;
 background-color: rgba(0, 0, 0, 0);
 text-decoration: none;
 text-transform: uppercase;
@@ -10022,7 +10028,7 @@ text-shadow: none;
 font-size: 34px;
 line-height: 34px;
 font-weight: 400;
-font-family: "Open Sans", sans-serif;
+font-family: 'Roboto', sans-serif;
 background-color: rgba(0, 0, 0, 0);
 text-decoration: none;
 text-transform: uppercase;
@@ -10038,7 +10044,7 @@ color:rgb(223,75,107);
 font-weight:400;
 font-size:150px;
 line-height:130px;
-font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -10053,7 +10059,7 @@ color:rgb(251,213,114);
 font-weight:600;
 font-size:50px;
 line-height:50px;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -10066,7 +10072,7 @@ color:rgb(251,213,114);
 font-weight:400;
 font-size:90px;
 line-height:90px;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 margin:0px;
 letter-spacing: 20px;
 border-width:0px;
@@ -14076,7 +14082,6 @@ footer .menu li a:hover {
   margin-top: 0px;
   padding-bottom: 10px;
   padding-top: 15px;
-  text-transform: uppercase;
 }
 .no-border {
   border: none;
