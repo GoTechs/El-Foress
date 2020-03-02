@@ -113,12 +113,20 @@
                         url : "/deleteFav/"+id,
                         type : "POST",
                         data : {'_method' : 'DELETE','_token':csrf_token},
+                        beforeSend: function(){
+                          // Show image container
+                          $("#loading").show();
+                        },
                         success : function(){
                           swal("L'annonce a été supprimée des favoris", {
                             icon: "success",
                           });
                           $('#'+id).remove();
-                        }
+                        },
+                        complete:function(data){
+                        // Hide image container
+                        $("#loading").hide();
+                      }
                       })
                     }
                   });

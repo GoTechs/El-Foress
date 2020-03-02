@@ -16,7 +16,7 @@
                     {{ session('status') }}
                 </div>
                 @endif
-              <form role="form" class="login-form" method="POST" action="{{ route('password.reset') }}">
+              <form role="form" class="login-form" method="POST" action="{{ route('password.reset') }}" id="form">
                 @csrf
                 <!--<div class="form-group">
                   <div class="input-icon">
@@ -64,8 +64,7 @@
           </div>
         </div>
       </div>
-    </section>
-
+    </section> 
     <!-- Content section End -->
 
     @endsection

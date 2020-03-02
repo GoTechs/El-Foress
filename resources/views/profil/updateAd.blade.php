@@ -17,6 +17,9 @@
 
 </head>
 <body data-ng-controller="poste-controller">
+<div id="loading">
+    <img src="{{asset('img/loading.gif')}}">
+</div>  
 
       <!-- Header Section Start -->
 <div class="header">
@@ -160,7 +163,6 @@
                       </select>
                     </div>
                 </div>
-                
           <div class="mb30"></div>
           <div class="box">
            <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
@@ -669,7 +671,9 @@
 
     <script>
 
-
+        $(window).load(function(){
+            $('#loading').fadeOut("slow");
+        });
 
         $( function() {
             var wilaya = [

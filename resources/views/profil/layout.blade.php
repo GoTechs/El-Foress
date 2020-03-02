@@ -16,12 +16,14 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
     
     <!-- Line Icons CSS -->
-    <link rel="stylesheet" href="{{asset('fonts/line-icons/line-icons.css')}}" type="text/css">
-    
+    <link rel="stylesheet" href="{{asset('fonts/line-icons/line-icons.css')}}" type="text/css">   
 
 </head>
 
 <body>
+<div id="loading">
+  <img src="{{asset('img/loading.gif')}}">
+</div> 
 <!-- Header Section Start -->
 <div class="header">
     <nav class="navbar navbar-default main-navigation" role="navigation">
@@ -111,7 +113,6 @@
       </div>
     </div>
     <!-- Search wrapper End -->
-   
 </div>
 <!-- Header Section End -->
 
@@ -259,7 +260,11 @@
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> 
 <script type="text/javascript">
-    
+
+
+    $(window).load(function(){
+        $('#loading').fadeOut("slow");
+    });
     
 
     $('#filter').keyup(function(){
@@ -321,6 +326,10 @@
                       contentType: false,
                       processData: false,
                       data: formData,
+                      beforeSend: function(){
+                        // Show image container
+                        $("#loading").show();
+                      },
                       success: function(data){
                         if ($.isEmptyObject(data.success)){   
                           console.log("error")
@@ -328,6 +337,10 @@
                             document.location.href = "/my-ads";
                         }            
                         
+                      },
+                      complete:function(data){
+                        // Hide image container
+                        $("#loading").hide();
                       }
                         
                       });
@@ -335,6 +348,8 @@
                 });    
                });
             });
+
+           
 
 </script>
 

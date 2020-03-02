@@ -17,6 +17,9 @@
 </head>
 <body data-ng-controller="poste-controller">
   <!-- Header Section Start -->
+  <div id="loading">
+    <img src="{{asset('img/loading.gif')}}">
+  </div> 
 <div class="header">
     <nav class="navbar navbar-default main-navigation" role="navigation">
         <div class="container">
@@ -105,7 +108,6 @@
       </div>
     </div>
     <!-- Search wrapper End -->
-   
 </div>
 <!-- Header Section End -->
   <!-- Content section Start -->
@@ -169,7 +171,7 @@
           <h2 class="title-2">Détails de l'annonce</h2>
           <div class="form-group">
             <div class="checkbox">
-                    <label><input type="radio" name="vente" id="vente" value="selling" checked> Je vends </label><br>
+                    <label><input type="radio" name="vente" id="vente" value="selling"> Je vends </label><br>
                     <label><input type="radio" name="vente" id="vente1" value="searching"> Je recherche </label>
               </div>
           </div>
@@ -218,6 +220,7 @@
                 </select>
             </div>
           </div>
+  
             
 <!-- ************************************* PHONE ********************************************** -->
             
@@ -521,7 +524,7 @@
       </div>
     </div>
   </section><!-- Content section End -->
-
+  
   <!-- Footer Section Start -->
 <footer>
     <!-- Footer Area Start -->
@@ -592,6 +595,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Footer area End -->
 
 </footer>
@@ -605,6 +609,10 @@
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
       <script>
+
+          $(window).load(function(){
+                  $('#loading').fadeOut("slow");
+              });
           
           $(document).ready(function() {
 
@@ -883,6 +891,8 @@
   // **************************   SUBMIT FORM AJAX *******************************
 
         $(document).ready(function(){
+
+          
             $('#submit').click(function(e){
                e.preventDefault();
                var myForm = document.getElementById('contact_us');
@@ -898,6 +908,10 @@
                   contentType: false,
                   processData: false,
                   data: formData,
+                  beforeSend: function(){
+                    // Show image container
+                    $("#loading").show();
+                  },
                   success: function(data){
                     if ($.isEmptyObject(data.success)){   
                       $('.alert-danger').empty();                 
@@ -912,7 +926,11 @@
                         document.location.href = "/my-ads";
                     }            
                     
-                	}
+                  },
+                  complete:function(data){
+                    // Hide image container
+                    $("#loading").hide();
+                  }
                     
                   });
                });

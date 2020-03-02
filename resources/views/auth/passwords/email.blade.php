@@ -17,7 +17,7 @@
                     {{ session('status') }}
                 </div>
                 @endif
-              <form role="form" class="login-form" method="POST" action="{{ route('password.email') }}">
+              <form role="form" class="login-form" method="POST" action="{{ route('password.email') }}" id="form">
                 @csrf
                 <!--<div class="form-group">
                   <div class="input-icon">

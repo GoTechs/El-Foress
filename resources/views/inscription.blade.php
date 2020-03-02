@@ -12,7 +12,7 @@
               <h3>
                 {{__('authentication.register_description')}}
               </h3>
-              <form class="login-form" method="post" action="/admin/inscription">
+              <form class="login-form" method="post" action="/admin/inscription" id="form">
                 @csrf
                 <div class="form-group {{ $errors->has('nom') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">
