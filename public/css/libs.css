@@ -3589,6 +3589,9 @@ h3.block-title {
 .invalid-feedback {
   color: #BB6A68;
 }
+navbar .navbar-nav > .active > a {
+
+}
 .page-header .page-title {
   font-size: 30px;
   line-height: 38px;
@@ -3875,7 +3878,10 @@ nav#menu span.fa.fa-bars:hover {
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
-  color: #3498db;
+  color: #3498db !important;
+}
+.navbar .navbar-nav > .active > a, .navbar .navbar-nav > .active > a:hover {
+  color: #3498db !important;
 }
 .main-navigation .navbar-nav > li a i {
   margin-right: 3px;
@@ -12864,7 +12870,7 @@ zoom: 1;
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
-  color: #444;
+  color: #3498db !important;
 }
 .main-navigation .navbar-nav > li a i {
   margin-right: 3px;

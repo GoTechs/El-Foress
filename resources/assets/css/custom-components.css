@@ -38,7 +38,7 @@
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
-  color: #444;
+  color: #3498db !important;
 }
 .main-navigation .navbar-nav > li a i {
   margin-right: 3px;
