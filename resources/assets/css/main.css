@@ -2814,3 +2814,6 @@ ul.ui-autocomplete {
     margin-right: auto;
     margin-top: 15%;
 }
+.price-box a[disabled]{
+    opacity: 0.80;
+}
