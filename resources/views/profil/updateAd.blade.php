@@ -17,9 +17,9 @@
 
 </head>
 <body data-ng-controller="poste-controller">
-<div id="loading">
+<!-- <div id="loading">
     <img src="{{asset('img/loading.gif')}}">
-</div>  
+</div>   -->
 
       <!-- Header Section Start -->
 <div class="header">

@@ -21,9 +21,9 @@
 </head>
 
 <body>
-<div id="loading">
+<!-- <div id="loading">
   <img src="{{asset('img/loading.gif')}}">
-</div> 
+</div>  -->
 <!-- Header Section Start -->
 <div class="header">
     <nav class="navbar navbar-default main-navigation" role="navigation">
