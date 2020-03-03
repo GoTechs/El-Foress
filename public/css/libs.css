@@ -4841,6 +4841,9 @@ footer .menu li a:hover {
 .adds-wrapper .item-list:hover {
   background: #F6F6F5;
 }
+.adds-wrapper .item-list.make-grid {
+  display: block;
+}
 .adds-wrapper .add-title {
   padding-bottom: 10px;
 }
