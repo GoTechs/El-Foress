@@ -40,10 +40,22 @@
               <div class="inner-box" id="details">
                 <h4 id="details-title">{{$annonce->titre}}</h4>
                 @if ($annonce->prix <> "") <h3 id="details-price" >{{$annonce->prix}} DA</h3> @endif
-                <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->username}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
-                  
-                <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"><i class="fa fa-heart"></i>
-                  <span>Favori</span></a>
+                <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->nom}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+                @auth 
+                  @if (App\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $annonce->id)->count() <> 0)
+                    <a disabled="disabled" class="btn btn-danger btn-sm" title="L'annonce a déjà été ajoutée aux favoris"><i class="fa fa-heart"></i>
+                    <span>Favori</span></a>
+                  @elseif  (App\annonce::where('id_user', Auth::user()->id)->where('id', $annonce->id)->count() <> 0)
+                    <a disabled="disabled" class="btn btn-danger btn-sm" title="Vous êtes le propriétaire de cette annonce!"><i class="fa fa-heart"></i>
+                    <span>Favori</span></a>
+                  @else 
+                    <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"><i class="fa fa-heart"></i>
+                    <span>Favori</span></a>
+                  @endif
+                @else 
+                    <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"><i class="fa fa-heart"></i>
+                    <span>Favori</span></a>
+                @endauth    
                 <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$annonce->numberViews}}</span> </a>
                 <div class="row" id="right-details">
                 <div class="user-details col-md-12">
@@ -137,11 +149,11 @@
                   </div>                
                 </div>
             </div>
-             <div class="col-sm-12 col-lg-2">
+             <!-- <div class="col-sm-12 col-lg-2">
               <div class="inner-box">                
                 <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
               </div>        
-            </div>
+            </div> -->
               
           @if ($relatedAds->count() <> '0')
             <!-- Adds wrapper Start -->                     
@@ -185,8 +197,21 @@
                     </div>
                     <div class="col-sm-3 text-right  price-box">
                       <h2 class="item-price" data-test="{{$relatedAd->prix}}"> {{$relatedAd->prix <> '' ? $relatedAd->prix.'DA' : '' }}</h2>
-                      <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$relatedAd->id}})"><i class="fa fa-heart"></i>
-                      <span>Favori</span></a>
+                      @auth 
+                        @if (App\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $relatedAd->id)->count() <> 0)
+                          <a disabled="disabled" class="btn btn-danger btn-sm" title="L'annonce a déjà été ajoutée aux favoris"><i class="fa fa-heart"></i>
+                          <span>Favori</span></a>
+                        @elseif  (App\annonce::where('id_user', Auth::user()->id)->where('id', $relatedAd->id)->count() <> 0)                         
+                          <a disabled="disabled" class="btn btn-danger btn-sm" title="Vous êtes le propriétaire de cette annonce!"><i class="fa fa-heart"></i>
+                          <span>Favori</span></a>
+                        @else 
+                          <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$relatedAd->id}})"><i class="fa fa-heart"></i>
+                          <span>Favori</span></a>
+                        @endif
+                      @else 
+                        <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$relatedAd->id}})"><i class="fa fa-heart"></i>
+                        <span>Favori</span></a>
+                      @endauth    
                       <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$relatedAd->numberViews}}</span> </a>
                     </div>
                   </div>    
