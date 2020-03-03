@@ -162,9 +162,9 @@
           </div>
         </div>
       </div>
-      <div class="inner-box">
+      <!-- <div class="inner-box">
         <img src="{{asset('img/pub/pubhabbache.gif')}}" alt="">
-      </div>
+      </div> -->
     </aside>
   </div>
 
