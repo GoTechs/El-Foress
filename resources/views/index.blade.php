@@ -46,7 +46,7 @@
             </div>  
             
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-3 wow fadeInUpQuick" data-wow-delay="0.6s">
+              <div class="category-box border-3 wow fadeInUpQuick" data-wow-delay="0.4s">
                 <div class="icon">
                   <a href="/search/3"><i class="lnr lnr-apartment color-3"></i></a>
                 </div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-5 wow fadeInUpQuick" data-wow-delay="0.9s">
+              <div class="category-box border-5 wow fadeInUpQuick" data-wow-delay="0.5s">
                 <div class="icon">
                   <a href="/search/5"><i class="lnr lnr-cart color-5"></i></a>
                 </div>
@@ -95,7 +95,7 @@
             </div>
 
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-2 wow fadeInUpQuick" data-wow-delay="1.2s">
+              <div class="category-box border-2 wow fadeInUpQuick" data-wow-delay="0.6s">
                 <div class="icon">
                   <a href="/search/2"><i class="lnr lnr-briefcase color-2"></i></a>
                 </div>
@@ -118,7 +118,7 @@
             </div>
 
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-8 wow fadeInUpQuick" data-wow-delay="1.4s">
+              <div class="category-box border-8 wow fadeInUpQuick" data-wow-delay="0.7s">
                 <div class="icon">
                   <a href="/search/8"><i class="lnr lnr-laptop-phone color-8"></i></a>
                 </div>
@@ -144,7 +144,7 @@
             </div> 
             
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-6 wow fadeInUpQuick" data-wow-delay="1.8s">
+              <div class="category-box border-6 wow fadeInUpQuick" data-wow-delay="0.8s">
                 <div class="icon">
                   <a href="/search/6"><i class="lnr lnr-coffee-cup color-6"></i></a>
                 </div>
@@ -171,7 +171,7 @@
             </div>   
 
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-1 wow fadeInUpQuick" data-wow-delay="2.1s">
+              <div class="category-box border-1 wow fadeInUpQuick" data-wow-delay="0.9s">
                 <div class="icon">
                   <a href="/search/1"><i class="lnr lnr-users color-1"></i></a>
                 </div>
@@ -198,7 +198,7 @@
             </div>
             
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-7 wow fadeInUpQuick" data-wow-delay="2.4s">
+              <div class="category-box border-7 wow fadeInUpQuick" data-wow-delay="1.0s">
                 <div class="icon">
                   <a href="/search/7"><i class="lnr lnr-cog color-7"></i></a>
                 </div>
@@ -227,7 +227,7 @@
               <div ></div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-9 wow fadeInUpQuick" data-wow-delay="2.4s">
+              <div class="category-box border-9 wow fadeInUpQuick" data-wow-delay="1.2s">
                 <div class="icon">
                   <a href="/search/9"><i class="lnr lnr-rocket color-9"></i></a>
                 </div>
@@ -252,7 +252,7 @@
               </div>
             </div> 
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-10 wow fadeInUpQuick" data-wow-delay="2.5s">
+              <div class="category-box border-10 wow fadeInUpQuick" data-wow-delay="1.3s">
                 <div class="icon">
                   <a href="/search/10"><i class="lnr lnr-paw color-10"></i></a>
                 </div>

@@ -218,6 +218,7 @@ class searchController extends Controller
         ])->paginate(5);
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
+        $search = categories::all();
       
  		return view('details',[
           'annonce' => $annonce,
@@ -227,7 +228,8 @@ class searchController extends Controller
           'user' => $user,
           'images' => $images,
           'relatedAds' => $relatedAd,
-          'imageAd' => $imageAd
+          'imageAd' => $imageAd,
+          'search' => $search
       ]);
    }
 
@@ -283,6 +285,7 @@ class searchController extends Controller
         ])->paginate(5);
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
+        $search = categories::all();
         
       return view('details',[
             'annonce' => $annonce,
@@ -292,7 +295,8 @@ class searchController extends Controller
             'user' => $user,
             'images' => $images,
             'relatedAds' => $relatedAd,
-            'imageAd' => $imageAd
+            'imageAd' => $imageAd,
+            'search' => $search
         ]);
      }
 }

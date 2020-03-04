@@ -13090,7 +13090,7 @@ select > opation:focus {
   -moz-appearance: none;
   /* Removes Default Firefox style*/
   appearance: none;
-  background: #0088cc url(img/select-arrow.png) no-repeat 90% center;
+ /* background: #0088cc url(img/select-arrow.png) no-repeat 90% center;*/
   width: 100px;
   /*Width of select dropdown to give space for arrow image*/
   text-indent: 0.01px;

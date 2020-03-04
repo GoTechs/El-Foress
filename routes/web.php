@@ -88,7 +88,7 @@ Route::delete('/deleteAllFav','ProfilController@deleteallFav')->middleware('auth
 
 // Details of ads
 
-Route::get('/details/{idpost}','searchController@details');
+Route::get('/details/{idpost}/{cat}/{title}/{wilaya}','searchController@details');
 Route::get('/my-ads/details/{idpost}','searchController@myAdsDetails')->middleware('auth');
 
 // Advanced Search route

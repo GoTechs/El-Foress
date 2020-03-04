@@ -734,11 +734,15 @@
               <div class="item-list" data-store="{{$result->prix.$result->id}}" data-price="{{$result->prix}}" data-views="{{$result->numberViews}}" data-date="{{$result->created_at}}">
                 <div class="col-sm-2 no-padding photobox">
                   <div class="add-image">
-                    <a href="/details/{{$result->id}}">
+                  @foreach ($search as $cat)
+                    @if ($cat->idCat == $result->id_Cat)
+                      <a href="/details/{{$result->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">
+                    @endif    
+                  @endforeach
                       @if ($result->hasPicture == '1')
                         @foreach ($imageAd as $img) 
                           @if ($result->id == $img->id_annonce)
-                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="">
                           @endif
                         @endforeach
                       @else 
@@ -749,9 +753,12 @@
                 </div>
                 <div class="col-sm-7 add-desc-box">
                   <div class="add-details">
-                    <h5 class="add-title"><a href="/details/{{$result->id}}">{{$result->titre}}</a></h5>
-                    <div class="info">
-                      
+                  @foreach ($search as $cat)
+                    @if ($cat->idCat == $result->id_Cat)
+                      <h5 class="add-title"><a href="/details/{{$result->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{$result->titre}}</a></h5>
+                    @endif    
+                  @endforeach
+                    <div class="info">                      
                       <span class="date">
                         <i class="fa fa-clock"></i>
                         {{\Carbon\Carbon::parse($result->created_at)->diffForHumans()}}
@@ -759,7 +766,11 @@
                       <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                     </div>
                     <div class="item_desc">
-                      <a href="/details/{{$result->id}}">{{Str::limit($result->description, 30)}}</a>
+                    @foreach ($search as $cat)
+                      @if ($cat->idCat == $result->id_Cat)
+                        <a href="/details/{{$result->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{Str::limit($result->description, 30)}}</a>
+                      @endif    
+                    @endforeach
                     </div>
                   </div>
                 </div>

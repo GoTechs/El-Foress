@@ -164,8 +164,11 @@
                   <div class="item-list" data-store="{{$relatedAd->prix.$relatedAd->id}}" data-price="{{$relatedAd->prix}}" data-views="{{$relatedAd->numberViews}}" data-date="{{$relatedAd->created_at}}">
                     <div class="col-sm-2 no-padding photobox">
                       <div class="add-image">
-                        <a href="/details/{{$relatedAd->id}}">
-                          
+                      @foreach ($search as $cat)
+                        @if ($cat->idCat == $relatedAd->id_Cat)
+                          <a href="/details/{{$relatedAd->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $relatedAd->titre)}}/{{str_replace(' ', '-', $relatedAd->wilaya)}}">
+                        @endif
+                      @endforeach
                         @if ($relatedAd->hasPicture == '1')
                         @foreach ($imageAd as $img) 
                           @if ($relatedAd->id == $img->id_annonce)
@@ -181,9 +184,12 @@
                     </div>
                     <div class="col-sm-7 add-desc-box">
                       <div class="add-details">
-                        <h5 class="add-title"><a href="/details/{{$relatedAd->id}}">{{$relatedAd->titre}}</a></h5>
-                        <div class="info">
-                          
+                      @foreach ($search as $cat)
+                          @if ($cat->idCat == $relatedAd->id_Cat)
+                            <h5 class="add-title"><a href="/details/{{$relatedAd->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $relatedAd->titre)}}/{{str_replace(' ', '-', $relatedAd->wilaya)}}">{{$relatedAd->titre}}</a></h5>
+                          @endif
+                      @endforeach
+                        <div class="info">                          
                           <span class="date">
                             <i class="fa fa-clock"></i>
                             {{\Carbon\Carbon::parse($relatedAd->created_at)->diffForHumans()}}
@@ -191,8 +197,12 @@
                           <span class="item-location"><i class="fa fa-map-marker"></i> {{$relatedAd->wilaya}}</span>
                         </div>
                         <div class="item_desc">
-                          <a href="/details/{{$relatedAd->id}}">{{Str::limit($relatedAd->description, 30)}}</a>
-                        </div>
+                        @foreach ($search as $cat)
+                          @if ($cat->idCat == $relatedAd->id_Cat)
+                            <a href="/details/{{$relatedAd->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $relatedAd->titre)}}/{{str_replace(' ', '-', $relatedAd->wilaya)}}">{{Str::limit($relatedAd->description, 30)}}</a>
+                          @endif
+                        @endforeach                        
+                          </div>
                       </div>
                     </div>
                     <div class="col-sm-3 text-right  price-box">
