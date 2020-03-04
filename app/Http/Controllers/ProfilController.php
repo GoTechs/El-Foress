@@ -35,7 +35,7 @@ class ProfilController extends Controller
         $idUser = Auth::user()->id;
 
         $annonce = DB::table('annonces')
-            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture','description'])
+            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture','description','id_Cat'])
             ->where([
                 ['annonces.id_user', '=', $idUser],
                 ['annonces.stateAd','=','1'],
@@ -123,7 +123,7 @@ class ProfilController extends Controller
         $idUser = Auth::user()->id;
 
         $annonce = DB::table('annonces')
-            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture','description'])
+            ->select(['id as id_annonce','titre','created_at','wilaya','prix','numberViews','hasPicture','description','id_Cat'])
             ->where([
                 ['annonces.id_user', '=', $idUser],
                 ['annonces.stateAd','=','0'],

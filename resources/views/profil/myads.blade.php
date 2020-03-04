@@ -42,7 +42,11 @@
                       </div>
                     <div class="col-sm-2 no-padding photobox">
                       <div class="add-image">
-                        <a href="/my-ads/details/{{$result->id_annonce}}">
+                      @foreach ($search as $cat)
+                          @if ($cat->idCat == $result->id_Cat)
+                            <a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">
+                          @endif
+                        @endforeach
                           @if ($result->hasPicture == '1')
                             @foreach ($imageAd as $img) 
                               @if ($result->id_annonce == $img->id_annonce)
@@ -57,7 +61,11 @@
                     </div>
                     <div class="col-sm-5 add-desc-box">
                       <div class="add-details">
-                        <h5 class="add-title title"><a href="/my-ads/details/{{$result->id_annonce}}">{{$result->titre}}</a></h5>
+                      @foreach ($search as $cat)
+                        @if ($cat->idCat == $result->id_Cat)
+                          <h5 class="add-title title"><a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{$result->titre}}</a></h5>
+                        @endif
+                      @endforeach
                         <div class="info">
                           
                           <span class="date">
@@ -67,7 +75,11 @@
                           <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                         </div>
                         <div class="item_desc">
-                          <a href="/my-ads/details/{{$result->id_annonce}}">{{Str::limit($result->description, 30)}}</a>
+                        @foreach ($search as $cat)
+                          @if ($cat->idCat == $result->id_Cat)
+                            <a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{Str::limit($result->description, 30)}}</a>
+                          @endif
+                        @endforeach
                         </div>
                       </div>
                     </div>

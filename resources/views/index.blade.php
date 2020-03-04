@@ -301,10 +301,18 @@
                         <img src="{{asset('img/nopicture.png')}}" alt=""></a>
                       @endif
                       <div class="overlay">
-                        <a href="/details/{{$result->id}}"><i class="fa fa-link"></i></a>
-                      </div> 
-                    </div>    
-                    <a href="/details/{{$result->id}}" class="item-name">{{$result->titre}}</a>
+                      @foreach ($search as $cat)
+                        @if ($cat->idCat == $result->id_Cat)
+                          <a href="/details/{{$result->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}"><i class="fa fa-link"></i></a>
+                        @endif
+                      @endforeach
+                        </div> 
+                    </div>  
+                    @foreach ($search as $cat)
+                        @if ($cat->idCat == $result->id_Cat)  
+                          <a href="/details/{{$result->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}" class="item-name">{{$result->titre}}</a>
+                        @endif
+                    @endforeach
                     <span class="price">{{$result->prix <> '' ? $result->prix.'DA' : ''}}</span>  
                   </div>
                 </div>

@@ -1,10 +1,7 @@
 
     @extends('profil.layout')
-
     @section('content')
-
-    <!-- Start Content -->
-    
+    <!-- Start Content -->    
           <div class="col-sm-9 page-content">
             <div class="inner-box">              
               <h2 class="title-2"><i class="fa fa-folder-o"></i> {{__('myads.archive_page_title')}} </h2>
@@ -29,9 +26,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
-
-                
+                </div>                
                 <!-- Adds wrapper Start -->
                 <div class="adds-wrapper">              
                   @foreach ($results as $result)
@@ -43,8 +38,12 @@
                       </div>
                     <div class="col-sm-2 no-padding photobox">
                       <div class="add-image">
-                        <a href="/my-ads/details/{{$result->id_annonce}}">
-                          @if ($result->hasPicture == '1')
+                        @foreach ($search as $cat)
+                          @if ($cat->idCat == $result->id_Cat)
+                            <a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">
+                          @endif
+                        @endforeach
+                            @if ($result->hasPicture == '1')
                             @foreach ($imageAd as $img) 
                               @if ($result->id_annonce == $img->id_annonce)
                                 <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
@@ -58,9 +57,12 @@
                     </div>
                     <div class="col-sm-5 add-desc-box">
                       <div class="add-details">
-                        <h5 class="add-title title"><a href="/my-ads/details/{{$result->id_annonce}}">{{$result->titre}}</a></h5>
-                        <div class="info">
-                          
+                      @foreach ($search as $cat)
+                        @if ($cat->idCat == $result->id_Cat)
+                          <h5 class="add-title title"><a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{$result->titre}}</a></h5>
+                        @endif
+                      @endforeach
+                          <div class="info">                          
                           <span class="date">
                             <i class="fa fa-clock"></i>
                             {{\Carbon\Carbon::parse($result->created_at)->diffForHumans()}}
@@ -68,8 +70,12 @@
                           <span class="item-location"><i class="fa fa-map-marker"></i> {{$result->wilaya}}</span>
                         </div>
                         <div class="item_desc">
-                          <a href="/my-ads/details/{{$result->id_annonce}}">{{Str::limit($result->description, 30)}}</a>
-                        </div>
+                        @foreach ($search as $cat)
+                          @if ($cat->idCat == $result->id_Cat)
+                            <a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{Str::limit($result->description, 30)}}</a>
+                          @endif
+                        @endforeach
+                          </div>
                       </div>
                     </div>
                     <div class="col-sm-3 text-right  price-box">

@@ -569,7 +569,11 @@
                                     <img src="{{asset('img/nopicture.png')}}" alt=""></a>
                                   @endif                                   
                                     <div class="hover">
-                                        <a href="/details/{{$recent->id}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
+                                    @foreach ($search as $cat)
+                                        @if ($cat->idCat == $recent->id_Cat)  
+                                            <a href="/details/{{$recent->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $recent->titre)}}/{{str_replace(' ', '-', $recent->wilaya)}}"><i class="fa fa-eye views"> {{ $recent->numberViews}}</i></a>
+                                        @endif
+                                    @endforeach
                                     </div>
                                 </li>
                             @endforeach
