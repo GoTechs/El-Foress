@@ -17,7 +17,7 @@
 
 </head>
 <body data-ng-controller="poste-controller">
-<div id="loading">
+<div id="loading" style="display:none;">
     <img src="{{asset('img/loading.gif')}}">
 </div>  
 
@@ -671,9 +671,9 @@
 
     <script>
 
-        $(window).load(function(){
-            $('#loading').fadeOut("slow");
-        });
+        // $(window).load(function(){
+        //     $('#loading').fadeOut("slow");
+        // });
 
         $( function() {
             var wilaya = [

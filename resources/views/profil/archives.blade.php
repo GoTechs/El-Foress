@@ -90,7 +90,7 @@
               <div class="post-promo text-center">
               <h2> Avez-vous quelque chose à vendre ?</h2>
               <h5>Vendez vos produits en ligne GRATUITEMENT. C'est plus facile que vous ne le pensez!</h5>  
-                <a href="/add-Ad" class="btn btn-post btn-danger">Poster une annonce </a>              
+                <a href="/add-Ad" class="btn btn-post btn-danger">Publier une annonce </a>              
             </div>
               @endif
             </div>
@@ -115,20 +115,12 @@
                 url : "/update-AD/"+id,
                 type : "POST",
                 data : {'_method' : 'DELETE','_token':csrf_token},
-                beforeSend: function(){
-                          // Show image container
-                          $("#loading").show();
-                        },
                 success : function(data){
                   swal("Votre annonce a été supprimée!", {
                     icon: "success",
                   });
                   $('#'+id).remove();
-                },
-                complete:function(data){
-                        // Hide image container
-                        $("#loading").hide();
-                      }
+                }
               })
             }
           });
@@ -148,20 +140,12 @@
                   url : "/repostAd/"+id,
                   type : "POST",
                   data : {'_method' : 'PATCH','_token':csrf_token},
-                  beforeSend: function(){
-                          // Show image container
-                          $("#loading").show();
-                        },
                   success : function(data){
                     swal("Votre annonce a été republiée!", {
                       icon: "success",
                     });
                     $('#'+id).remove();
-                  },
-                  complete:function(data){
-                        // Hide image container
-                        $("#loading").hide();
-                      }
+                  }
                 })
               }
             });

@@ -117,19 +117,11 @@
                       url : "/update-AD/"+id,
                       type : "POST",
                       data : {'_method' : 'DELETE','_token':csrf_token},
-                      beforeSend: function(){
-                        // Show image container
-                        $("#loading").show();
-                      },
                       success : function(){
                         swal("Votre annonce a été supprimée!", {
                           icon: "success",
                         });
                         $('#'+id).remove();
-                      },
-                      complete:function(data){
-                        // Hide image container
-                        $("#loading").hide();
                       }
                     })
                   }
@@ -150,20 +142,12 @@
                       url : "/archiveAd/"+id,
                       type : "POST",
                       data : {'_method' : 'PATCH','_token':csrf_token},
-                      beforeSend: function(){
-                        // Show image container
-                        $("#loading").show();
-                      },
                       success : function(data){
                       
                        swal("Votre annonce a été archivée!", {
                           icon: "success",
                         });
                        $('#'+id).remove();
-                      },
-                      complete:function(data){
-                        // Hide image container
-                        $("#loading").hide();
                       }
                     })
                   }

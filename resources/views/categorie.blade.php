@@ -807,7 +807,7 @@
             <div class="post-promo text-center">
               <h2> Avez-vous quelque chose à vendre ?</h2>
               <h5>Vendez vos produits en ligne GRATUITEMENT. C'est plus facile que vous ne le pensez!</h5>  
-                <a href="/add-Ad" class="btn btn-post btn-danger">Poster une annonce </a>              
+                <a href="/add-Ad" class="btn btn-post btn-danger">Publier une annonce </a>              
             </div>
           </div>
         </div>

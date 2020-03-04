@@ -21,7 +21,7 @@
 </head>
 
 <body>
-<div id="loading">
+<div id="loading" style="display:none;">
   <img src="{{asset('img/loading.gif')}}">
 </div> 
 <!-- Header Section Start -->
@@ -262,10 +262,9 @@
 <script type="text/javascript">
 
 
-    $(window).load(function(){
-        $('#loading').fadeOut("slow");
-    });
-    
+    // $(window).load(function(){
+    //     $('#loading').fadeOut("slow");
+    // });    
 
     $('#filter').keyup(function(){
        
@@ -326,10 +325,6 @@
                       contentType: false,
                       processData: false,
                       data: formData,
-                      beforeSend: function(){
-                        // Show image container
-                        $("#loading").show();
-                      },
                       success: function(data){
                         if ($.isEmptyObject(data.success)){   
                           console.log("error")
@@ -337,12 +332,7 @@
                             document.location.href = "/my-ads";
                         }            
                         
-                      },
-                      complete:function(data){
-                        // Hide image container
-                        $("#loading").hide();
-                      }
-                        
+                      }                        
                       });
                     }
                 });    

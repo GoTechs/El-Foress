@@ -17,7 +17,7 @@
 </head>
 <body data-ng-controller="poste-controller">
   <!-- Header Section Start -->
-  <div id="loading">
+  <div id="loading" style="display:none;">
     <img src="{{asset('img/loading.gif')}}">
   </div> 
 <div class="header">
@@ -610,9 +610,9 @@
 
       <script>
 
-          $(window).load(function(){
-                  $('#loading').fadeOut("slow");
-              });
+          // $(window).load(function(){
+          //         $('#loading').fadeOut("slow");
+          //     });
           
           $(document).ready(function() {
 

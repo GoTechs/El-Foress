@@ -40,7 +40,7 @@
                  Connectez-vous avec <strong>Google</strong>
               </a>
 
-              <form class="login-form" method="post" action="/connexion" id="form">
+              <form class="login-form" method="post" action="/connexion">
                 @csrf
                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                   <div class="input-icon">

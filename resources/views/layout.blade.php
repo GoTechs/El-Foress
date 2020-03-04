@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<div id="loading">
+<div id="loading" style="display:none;">
     <img src="{{asset('img/loading.gif')}}">
 </div> 
 <!-- Header Section Start -->
@@ -215,9 +215,9 @@
 
 <script type="text/javascript">
 
-    $(window).load(function(){
-            $('#loading').fadeOut("slow");
-        });
+    // $(window).load(function(){
+    //         $('#loading').fadeOut("slow");
+    //     });
 
 /* ******************************   AutoComplete Field Wilaya *************************************** */    
     
@@ -238,10 +238,6 @@
             url : "/addtofav/"+idAnnonce,
             type : "POST",
             data : {'_method' : 'PATCH','_token':csrf_token},
-            beforeSend: function(){
-                    // Show image container
-                    $("#loading").show();
-                  },
             success : function(data){
               if (data == 'Unauthenticated'){
                 document.location.href = "/connexion";
@@ -254,11 +250,7 @@
                     }  else {
                         swal("L'annonce a été ajoutée aux favoris", "", "success");
                     }             
-            },
-            complete:function(data){
-                    // Hide image container
-                    $("#loading").hide();
-                  }
+            }
         })       
     } 
 
