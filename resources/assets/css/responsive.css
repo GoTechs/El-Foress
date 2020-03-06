@@ -171,9 +171,9 @@
   .adds-wrapper .item-list {
     display: block !important;
   }
-  .input-group-addon:last-child{
+  /* .input-group-addon:last-child{
     display: none;
-  }
+  } */
   .adds-wrapper .price-box {
     display: flex;
     flex-direction: column;
@@ -440,5 +440,14 @@
   #ads {
     display: flex;
     flex-direction: column-reverse;
+  }
+  input.wilaya, .btn-search, .keyword-laptop, .search-category{
+    display: none;
+  }
+  .keyword-phone{
+    display: block !important;
+  }
+  .fa-search {
+    display: none;
   }
 }

@@ -8,6 +8,14 @@
           <div class="col-sm-3 page-sidebar">
             <aside>
               <div class="inner-box">
+                <!-- <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a type="button" class='btn btn-success btn-block btn-filter' data-toggle="collapse"  data-target='#filter' style="display:none;" aria-expanded="false">
+                          Préciser la recherche
+                      </a>
+                    </h4>
+                  </div> -->
                 <button type='button' class='btn btn-success btn-block btn-filter' data-toggle='collapse' data-target='#filter' aria-expanded='false' style="display:none;">
                   Préciser la recherche
                 </button>
@@ -694,8 +702,9 @@
                   @endforeach
                   </div>
 
-                    @endif
-                  </div>
+                    @endif              
+                <!-- </div> 
+                </div> -->
                 </div>       
             </aside>
           </div>
