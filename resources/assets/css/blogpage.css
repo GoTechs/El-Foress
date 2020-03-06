@@ -347,19 +347,22 @@
   text-decoration: none;
 }
 .panel-default .panel-heading a:after {
-  font-family: 'Roboto', sans-serif;
-  content: "";
+  font-family: 'Glyphicons Halflings';
+  content: "\e113";
   position: absolute;
-  right: 15px;
-  color: #3498db;
-  font-size: 14px;
+  right: 0px;
+  color: #444;
+  font-size: 12px;
   font-weight: 300;
   top: 50%;
   line-height: 1;
-  margin-top: -7px;
+  margin-top: -5px;
 }
 .panel-default .panel-heading .collapsed:after {
-  content: "";
+  -webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+
 }
 .panel-default .panel-collapse .panel-body {
   background-color: #fff;

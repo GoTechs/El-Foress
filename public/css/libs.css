@@ -347,19 +347,22 @@
   text-decoration: none;
 }
 .panel-default .panel-heading a:after {
-  font-family: 'Roboto', sans-serif;
-  content: "";
+  font-family: 'Glyphicons Halflings';
+  content: "\e113";
   position: absolute;
-  right: 15px;
-  color: #3498db;
-  font-size: 14px;
+  right: 0px;
+  color: #444;
+  font-size: 12px;
   font-weight: 300;
   top: 50%;
   line-height: 1;
-  margin-top: -7px;
+  margin-top: -5px;
 }
 .panel-default .panel-heading .collapsed:after {
-  content: "";
+  -webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+
 }
 .panel-default .panel-collapse .panel-body {
   background-color: #fff;
@@ -3523,8 +3526,20 @@ textarea {
   color: #fff;
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
+.bootstrap-select>.dropdown-toggle{
+  box-shadow: 0px 1px 1px rgba(39, 25, 25, 0.18);
+  background-color: #FFF;
+  border: 1px solid #ccc;
+  height: 44px;
+
+}
 .btn-search {
-  padding: 13px;
+  padding: 12px;
+  background-color: #3498db;
+  border: 1px solid #d2d3d7;
+  border-radius: 0 4px 4px 0;
+  height: 45px;
+  width: 50px;
 }
 .btn-sm {
   font-size: 13px;
@@ -3586,8 +3601,8 @@ textarea {
   display: none;
 }
 .main-container {
-  padding: 80px 0;
   background-color: #f8f9f9;
+  padding-top: 50px;
 }
 .page-header {
   padding: 40px 0;
@@ -3848,7 +3863,6 @@ nav#menu span.fa.fa-bars:hover {
    ========================================================================== */
 .header {
   background-color: #fff;
-  padding-bottom: 30px;
 }
 .navbar-default {
   margin-bottom: 0;
@@ -4009,25 +4023,25 @@ nav#menu span.fa.fa-bars:hover {
 /* ==========================================================================
    Advanced search
    ========================================================================== */
-.search-bar {
-  background: rgba(151, 151, 151, 0.22);
-  padding: 20px;
-}
 .search-bar i {
-  font-size: 15px;
-  position: absolute;
+  font-size: 20px;
+  position: relative;
   top: 0px;
   background-color: transparent;
-  color: #444;
-  right: 15px;
-  padding: 15px;
+  color: #fff;
 }
-.search-bar .form-group {
-  margin: 0 0 0 12px;
+.search-col {
+  padding: 0;
 }
+.bootstrap-select.btn-group .dropdown-toggle .caret {}
 .search-bar .btn-group,
 .search-bar .btn-group-vertical {
   margin: 0;
+}
+.bootstrap-select .dropdown-toggle:focus{
+  box-shadow: none !important;
+  border: 1px solid #3489db !important;
+  outline: none !important;
 }
 .search-bar .btn-select {
   padding: 12px;
@@ -4743,12 +4757,11 @@ footer .menu li a:hover {
   border-bottom: 1px solid #eee;
 }
 .panel-body .active {
-  background-color: #3498db;
   outline: transparent 1px solid; 
-  padding: 5px;
+  color: #3498db;
 }
 .panel-body .active a {
-  color: white;
+  color: #3498db;
 }
 
 .categories-list .filter {  
@@ -5209,9 +5222,6 @@ footer .menu li a:hover {
   padding: 5px 10px;
   text-align: left;
   border-bottom: 1px solid #eee;
-}
-.page-sidebar{
-  background-color: #eee;
 }
 .search-bar .open .dropdown-menu {
   max-height: 123px !important;
@@ -5865,19 +5875,21 @@ table.add-manage-table > tbody > tr > th {
   text-decoration: none;
 }
 .panel-default .panel-heading a:after {
-  font-family: 'Roboto', sans-serif;
-  content: "";
+  font-family: 'Glyphicons Halflings';
+  content: "\e113";
   position: absolute;
-  right: 15px;
-  color: #3498db;
-  font-size: 14px;
+  right: 0px;
+  color: #444;
+  font-size: 12px;
   font-weight: 300;
   top: 50%;
   line-height: 1;
-  margin-top: -7px;
+  margin-top: -5px;
 }
 .panel-default .panel-heading .collapsed:after {
-  content: "";
+  -webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 .panel-default .panel-collapse .panel-body {
   background-color: #fff;
@@ -5923,6 +5935,13 @@ table.add-manage-table > tbody > tr > th {
   height: 44px;
   padding: 10px 12px;
   width: 100%;
+}
+#search-input {
+  border-radius: 4px 0 0 4px;
+  margin-left: 20px;
+}
+.search-container .btn-group{
+  box-shadow: none;
 }
 .input-icon input {
   padding-left: 40px;
@@ -12273,10 +12292,7 @@ zoom: 1;
     position: relative;
   }
   .search-bar label, .btn-search{
-    margin: 0 0 0 12px !important;
-  }
-  .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
-   width: 310px !important;
+    margin: 0 !important;
   }
   .wrapper {
     padding: 30px 0;
@@ -13009,18 +13025,6 @@ zoom: 1;
 /* ==========================================================================
    Advanced search
    ========================================================================== */
-.search-bar {
-  padding: 20px;
-}
-.search-bar i {
-  font-size: 15px;
-  position: absolute;
-  top: 0px;
-  background-color: transparent;
-  color: #444;
-  right: 15px;
-  padding: 15px;
-}
 .search-bar label {
   z-index: 0;
   font-weight: 400;

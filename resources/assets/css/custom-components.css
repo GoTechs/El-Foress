@@ -151,18 +151,6 @@
 /* ==========================================================================
    Advanced search
    ========================================================================== */
-.search-bar {
-  padding: 20px;
-}
-.search-bar i {
-  font-size: 15px;
-  position: absolute;
-  top: 0px;
-  background-color: transparent;
-  color: #444;
-  right: 15px;
-  padding: 15px;
-}
 .search-bar label {
   z-index: 0;
   font-weight: 400;

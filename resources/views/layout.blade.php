@@ -67,17 +67,17 @@
             <!-- Navbar End -->
         </div>
     </nav>
+    
    <!-- Search wrapper Start -->
-   <div id="search-row-wrapper">
       <div class="container">
         <div class="search-inner">
     <!-- Start Search box -->
-            <div class="row search-bar">
+            <div class="search-bar">
               <div class="advanced-search">
                 <form class="search-form" method="post" action="/categorie">
-                <div class="col-md-3 col-sm-12 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
-                    <i class="fa fa-search"></i>
+                <div class="col-md-5 col-sm-12 search-col">
+                    <input class="form-control keyword" id="search-input" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
+                   
                 </div>
                 <div class="col-md-3 col-sm-12 search-col">
                     <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
@@ -86,9 +86,8 @@
 
                   @csrf
                   <div class="col-md-3 col-sm-12 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <label class="styled-select">
-                        <select class="dropdown-product selectpicker" name="categorie" >
+                    <div class="input-group-addon search-category-container search-container">
+                        <select class="form-control selectpicker" name="categorie" >
                           <option value="">Toutes les catégories</option>
                           @if (isset($_POST['categorie']))
                           @foreach ($search as $key => $value)                                
@@ -104,20 +103,19 @@
                           @endforeach
                           @endif                                 
                        </select>                                    
-                      </label>
                     </div>
                   </div>
-                 
-                 
-                  <div class="col-md-3 col-sm-12 search-col">
-                    <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
+                  <!-- <div class="search-col-mobile">
+                  <button class="btn-search"><strong> Recherche</strong></button>
+                  </div> -->
+                  <div class="col-md-1 search-col">
+                  <button class="btn-search"><strong> <i class="fa fa-search"></i></strong></button>
                   </div>
                 </form>
               </div>
             </div>
             <!-- End Search box -->   
         </div>
-      </div>
     </div>
     <!-- Search wrapper End -->
    
