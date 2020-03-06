@@ -148,7 +148,13 @@
     margin: 0;
   }
   #text-search {
-    display: block;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4;
   }
   .btn-search{
     width: 100%;
@@ -445,9 +451,21 @@
     display: none;
   }
   .keyword-phone{
-    display: block !important;
+    display: inline-block !important;
   }
-  .fa-search {
-    display: none;
+  .btn-search {
+    border-radius: 4px;
+  }
+  .search-bar i {
+    font-size: 20px;
+    position: relative;
+    color: #fff;
+    float: right;
+  }
+  .form-control, .bootstrap-select>.dropdown-toggle, #search-input{
+    border-radius: 4px;
+  }
+  .wrapper {
+    margin: 0;
   }
 }

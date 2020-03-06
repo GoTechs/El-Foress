@@ -107,26 +107,6 @@
                   </div>
 
                   @csrf
-                  <!-- <div class="col-md-3 col-sm-12 search-col">
-                    <div class="input-group-addon search-category-container search-container">
-                        <select class="form-control selectpicker" name="categorie">
-                          <option value="">Toutes les catégories</option>
-                          @if (isset($_POST['categorie']))
-                          @foreach ($search as $key => $value)                                
-                              @if($_POST['categorie'] == $value->idCat)
-                                <option value="{{$value->idCat}}" selected="">{{ $value->categories }}</option>
-                              @else 
-                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                              @endif
-                          @endforeach
-                          @else
-                          @foreach ($search as $key => $value)  
-                                <option value="{{$value->idCat}}">{{ $value->categories }}</option>
-                          @endforeach
-                          @endif                                 
-                       </select>                                    
-                    </div>
-                  </div> -->
                   <div class="col-md-1 search-col">
                   <button class="btn-search"><strong id="text-search"> Recherche</strong><i class="fa fa-search"></i></button>
                   </div>
@@ -241,7 +221,7 @@
     //     });
 
     function showinput() {
-        $('.search-category, .wilaya, .btn-search').show();
+        $('.wilaya, .btn-search').show();
         $( "p" ).addClass( "myClass yourClass" );
     }
 

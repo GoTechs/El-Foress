@@ -3527,14 +3527,14 @@ textarea {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .bootstrap-select>.dropdown-toggle{
-  box-shadow: 0px 1px 1px rgba(39, 25, 25, 0.18);
   background-color: #FFF;
   border: 1px solid #ccc;
   height: 44px;
+  box-shadow: none;
 
 }
 .btn-search {
-  padding: 12px;
+  padding: 11px;
   background-color: #3498db;
   border: 1px solid #d2d3d7;
   border-radius: 0 4px 4px 0;
@@ -3571,7 +3571,8 @@ textarea {
 }
 .wrapper {
   background-color: #f8f9f9;
-  padding: 60px 0;
+  padding: 40px 0;
+  margin-top: 20px;
   box-shadow: 0 0px 1px rgba(0, 0, 0, 0.75);
 }
 .section {
@@ -3602,7 +3603,8 @@ textarea {
 }
 .main-container {
   background-color: #f8f9f9;
-  padding-top: 50px;
+  padding-top: 40px;
+  margin-top: 20px;
 }
 .page-header {
   padding: 40px 0;
@@ -3611,9 +3613,6 @@ textarea {
 }
 .invalid-feedback {
   color: #BB6A68;
-}
-navbar .navbar-nav > .active > a {
-
 }
 .page-header .page-title {
   font-size: 30px;
@@ -4046,7 +4045,7 @@ nav#menu span.fa.fa-bars:hover {
 .search-bar .btn-select {
   padding: 12px;
   border-radius: 0;
-  color: #555;
+  color: #777;
   background: #fff;
   text-transform: none;
 }
@@ -5929,7 +5928,6 @@ table.add-manage-table > tbody > tr > th {
   background-color: #FFF;
   border: -6px solid rgba(44, 47, 78, 0);
   border-radius: 0;
-  box-shadow: 0px 1px 1px rgba(39, 25, 25, 0.18);
   color: #444;
   display: block;
   height: 44px;
@@ -12434,7 +12432,13 @@ zoom: 1;
     margin: 0;
   }
   #text-search {
-    display: block;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4;
   }
   .btn-search{
     width: 100%;
@@ -12731,10 +12735,22 @@ zoom: 1;
     display: none;
   }
   .keyword-phone{
-    display: block !important;
+    display: inline-block !important;
   }
-  .fa-search {
-    display: none;
+  .btn-search {
+    border-radius: 4px;
+  }
+  .search-bar i {
+    font-size: 20px;
+    position: relative;
+    color: #fff;
+    float: right;
+  }
+  .form-control, .bootstrap-select>.dropdown-toggle, #search-input{
+    border-radius: 4px;
+  }
+  .wrapper {
+    margin: 0;
   }
 }
 
