@@ -5940,6 +5940,9 @@ table.add-manage-table > tbody > tr > th {
   border-radius: 4px 0 0 4px;
   margin-left: 20px;
 }
+#text-search {
+  display: none;
+}
 .search-container .btn-group{
   box-shadow: none;
 }
@@ -12426,6 +12429,15 @@ zoom: 1;
 @media (max-width: 480px) {
   .section {
     padding: 30px 0;
+  }
+  #search-input{
+    margin: 0;
+  }
+  #text-search {
+    display: block;
+  }
+  .btn-search{
+    width: 100%;
   }
   .pagination {
     display: block;

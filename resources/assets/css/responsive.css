@@ -144,6 +144,15 @@
   .section {
     padding: 30px 0;
   }
+  #search-input{
+    margin: 0;
+  }
+  #text-search {
+    display: block;
+  }
+  .btn-search{
+    width: 100%;
+  }
   .pagination {
     display: block;
   }

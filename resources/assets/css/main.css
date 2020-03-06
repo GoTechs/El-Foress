@@ -2568,6 +2568,9 @@ table.add-manage-table > tbody > tr > th {
   border-radius: 4px 0 0 4px;
   margin-left: 20px;
 }
+#text-search {
+  display: none;
+}
 .search-container .btn-group{
   box-shadow: none;
 }

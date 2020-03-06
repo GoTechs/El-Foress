@@ -105,11 +105,8 @@
                        </select>                                    
                     </div>
                   </div>
-                  <!-- <div class="search-col-mobile">
-                  <button class="btn-search"><strong> Recherche</strong></button>
-                  </div> -->
                   <div class="col-md-1 search-col">
-                  <button class="btn-search"><strong> <i class="fa fa-search"></i></strong></button>
+                  <button class="btn-search"><strong id="text-search"> Recherche</strong><i class="fa fa-search"></i></button>
                   </div>
                 </form>
               </div>
