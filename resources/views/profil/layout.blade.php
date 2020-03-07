@@ -70,12 +70,20 @@
     <!-- Start Search box -->
             <div class="row search-bar">
               <div class="advanced-search">
-                <form class="search-form" method="post" action="/categorie">
-                  @csrf
-                  <div class="col-md-3 col-sm-12 search-col">
-                    <div class="input-group-addon search-category-container">
-                      <label class="styled-select">
-                        <select class="dropdown-product selectpicker" name="categorie" >
+              <form class="search-form" method="post" action="/categorie">
+                <div class="col-md-5 col-sm-12 search-col">
+                    <input class="form-control keyword keyword-laptop" id="search-input" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
+                    <input class="form-control keyword keyword-phone" id="search-input" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}" style="display:none;" onclick="showinput()">
+                   
+                </div>
+                <div class="col-md-3 col-sm-12 search-col">
+                    <input class="form-control keyword wilaya" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
+                    <!-- <i class="fa fa-map-marker"></i> -->
+                </div>
+
+                <div class="col-md-3 col-sm-12 search-col search-category">
+                    <div class="input-group-addon search-category-container search-container">
+                        <select class="form-control selectpicker" name="categorie">
                           <option value="">Toutes les catégories</option>
                           @if (isset($_POST['categorie']))
                           @foreach ($search as $key => $value)                                
@@ -91,19 +99,12 @@
                           @endforeach
                           @endif                                 
                        </select>                                    
-                      </label>
                     </div>
                   </div>
-                  <div class="col-md-3 col-sm-12 search-col">
-                    <input class="form-control keyword" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                  <div class="col-md-3 col-sm-12 search-col">
-                    <input class="form-control keyword" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
-                    <i class="fa fa-search"></i>
-                  </div>
-                  <div class="col-md-3 col-sm-12 search-col">
-                    <button class="btn btn-common btn-search btn-block"><strong>Recherche</strong></button>
+
+                  @csrf
+                  <div class="col-md-1 search-col">
+                  <button class="btn-search"><strong id="text-search"> Recherche</strong><i class="fa fa-search"></i></button>
                   </div>
                 </form>
               </div>
@@ -268,7 +269,11 @@
 
     // $(window).load(function(){
     //     $('#loading').fadeOut("slow");
-    // });    
+    // });  
+    
+    function showinput() {
+        $('.wilaya, .btn-search').show();
+    }
 
     $('#filter').keyup(function(){
        

@@ -222,7 +222,6 @@
 
     function showinput() {
         $('.wilaya, .btn-search').show();
-        $( "p" ).addClass( "myClass yourClass" );
     }
 
 /* ******************************   AutoComplete Field Wilaya *************************************** */    
