@@ -657,6 +657,7 @@ select > opation:focus {
    Footer Style
    ========================================================================== */
 footer .footer-Content {
+  margin-top: 30px;
   background-color: #3e4153;
   padding: 60px 0;
   color: #fff;

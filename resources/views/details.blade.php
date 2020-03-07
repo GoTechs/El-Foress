@@ -150,15 +150,10 @@
                   <a class="btn-overflow" href="#">Afficher plus...</a>                                           
                 </div>
             </div>
-             <!-- <div class="col-sm-12 col-lg-2">
-              <div class="inner-box">                
-                <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
-              </div>        
-            </div> -->
-              
+            
           @if ($relatedAds->count() <> '0')
             <!-- Adds wrapper Start -->                     
-              <div class="col-sm-12  col-lg-10">   
+              <div class="row col-sm-12  col-lg-10">   
               <h3 class="section-title">Annonces Correspondantes</h3>                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAds as $relatedAd)
