@@ -76,7 +76,7 @@
                     <!-- <i class="fa fa-map-marker"></i> -->
                 </div>
 
-                <div class="col-md-3 col-sm-12 search-col search-category">
+                <div class="col-md-3 col-sm-12 search-col search-category test">
                     <div class="input-group-addon search-category-container search-container">
                         <select class="form-control selectpicker" name="categorie">
                           <option value="">Toutes les catégories</option>
