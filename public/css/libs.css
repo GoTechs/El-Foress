@@ -4564,7 +4564,6 @@ footer .footer-Content {
   background-color: #2d2e38;
   padding: 60px 0;
   color: #fff;
-  margin-top: 30px;
 }
 .textwidget {
   font-size: 14px;
@@ -4749,7 +4748,7 @@ footer .menu li a:hover {
   margin: 0 auto;
   }
   .status-body-text {
-  height: 140px;
+  height: 150px;
   display:block; 
   overflow:hidden;
   word-break: break-word;
@@ -13589,7 +13588,6 @@ select > opation:focus {
    Footer Style
    ========================================================================== */
 footer .footer-Content {
-  margin-top: 30px;
   background-color: #3e4153;
   padding: 60px 0;
   color: #fff;
