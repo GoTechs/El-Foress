@@ -78,10 +78,10 @@
                       </aside> 
                       @endif                    
                     </div>
-                    <div class="ads-details-info col-md-12">
-                    <aside class="panel panel-body panel-details">
+                  <div class="ads-details-info col-md-12 status-body-text">
+                    <aside class="panel panel-body panel-details details-description">
                       <h4 id="details-title">Description</h4>
-                      <p class="mb15" id="details-description">{{$annonce->description}}</p>
+                      <p class="mb15">{{$annonce->description}}</p>
                       <ul class="list-circle">
                         @if ($categorie == '3')
 
@@ -144,9 +144,10 @@
                         
                         @endif
                       </ul>
-                    </aside>
-                    </div>                  
-                  </div>                
+                    </aside> 
+                    </div>  
+                  </div>    
+                  <a class="btn-overflow" href="#">Afficher plus...</a>                                           
                 </div>
             </div>
              <!-- <div class="col-sm-12 col-lg-2">

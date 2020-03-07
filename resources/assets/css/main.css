@@ -1369,6 +1369,22 @@ footer .menu li a:hover {
 #details {
   margin: 0 10px;
 }
+.btn-overflow {
+  display: none;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 auto;
+  }
+  .status-body-text {
+  height: 150px;
+  display:block; 
+  overflow:hidden;
+  word-break: break-word;
+  word-wrap: break-word;
+  }
+.details-description{
+  margin: 0;
+}
 .categories-list ul {
   margin: 0;
 }
@@ -1524,6 +1540,10 @@ footer .menu li a:hover {
 }
 #details-left {
   max-width: 600px;
+  max-height: 450px;
+}
+.panel {
+  box-shadow: none;
 }
 .fotorama__stage {
   width: 100% !important;

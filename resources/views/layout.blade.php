@@ -216,10 +216,6 @@
 
 <script type="text/javascript">
 
-    // $(window).load(function(){
-    //         $('#loading').fadeOut("slow");
-    //     });
-
     function showinput() {
         $('.wilaya, .btn-search').show();
     }
@@ -286,6 +282,34 @@
             }
 
         });
+
+        var text = $('.status-body-text'),
+     btn = $('.btn-overflow'),
+       h = text[0].scrollHeight; 
+
+if(h > 150) {
+	btn.addClass('less');
+	btn.css('display', 'block');
+}
+
+
+btn.click(function(e) 
+{
+  e.stopPropagation();
+
+  if (btn.hasClass('less')) {
+      btn.removeClass('less');
+      btn.addClass('more');
+      btn.text('Afficher moins');
+
+      text.animate({'height': h});
+  } else {
+      btn.addClass('less');
+      btn.removeClass('more');
+      btn.text('Afficher plus...');
+      text.animate({'height': '150px'});
+  }  
+});	
 
         function sortProductsPriceAscending()
         {
