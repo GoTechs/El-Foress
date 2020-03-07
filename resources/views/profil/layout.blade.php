@@ -64,11 +64,11 @@
         </div>
     </nav>
    <!-- Search wrapper Start -->
-   <div id="search-row-wrapper">
+   
       <div class="container">
         <div class="search-inner">
     <!-- Start Search box -->
-            <div class="row search-bar">
+            <div class="search-bar">
               <div class="advanced-search">
               <form class="search-form" method="post" action="/categorie">
                 <div class="col-md-5 col-sm-12 search-col">
