@@ -224,10 +224,12 @@
                   @endforeach
                 </div>                          
               </div> 
+              <div class="row" id="pagination">
+              <div class="col-sm-12">
             {{ $relatedAds->links() }}
+             </div>
+              </div>
             <!-- Adds wrapper End -->
-            @else 
-              
           @endif
           </div>
       </div>         
