@@ -993,6 +993,7 @@ footer .menu li a:hover {
   background: #e5e5e5;
   border: 1px solid #ddd;
   padding: 30px;
+  margin-bottom: 30px;
 }
 .post-promo h2 {
   font-size: 24px;
