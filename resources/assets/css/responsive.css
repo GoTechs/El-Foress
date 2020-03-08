@@ -40,6 +40,10 @@
   .page-sidebar .inner-box {
     padding: 5px;
   }
+  .inner-box {
+    padding: 0;
+  }
+
   .widget-title h4 {
     font-size: 14px;
   }
@@ -176,6 +180,7 @@
   }
   .adds-wrapper .item-list {
     display: block !important;
+    padding: 0 !important;
   }
   /* .input-group-addon:last-child{
     display: none;
@@ -244,6 +249,7 @@
   }
   #details-left {
     margin-bottom: 0; 
+    padding: 0;
    }
    .fotorama__wrap--css3 .fotorama__stage .fotorama__img {
      height: 100% ! important;
@@ -363,15 +369,13 @@
   .table-search {
     display: none;
   }
-  .add-desc-box {
-    padding: 15px 0;
-  }
   .adds-wrapper .add-title {
     font-size: 13px;
   }
   .adds-wrapper .add-type {
     display: none;
   }
+
   .item-list.make-grid {
     width: 100%;
   }
@@ -467,5 +471,8 @@
   }
   .wrapper {
     margin: 0;
+  }
+  .add-desc-box, .price-box {
+    padding: 15px !important;
   }
 }

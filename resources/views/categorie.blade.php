@@ -764,7 +764,7 @@
                   <div class="add-details">
                   @foreach ($search as $cat)
                     @if ($cat->idCat == $result->id_Cat)
-                      <h5 class="add-title"><a href="/details/{{$result->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{$result->titre}}</a></h5>
+                      <h5 class="add-title" id="details-title"><a href="/details/{{$result->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{$result->titre}}</a></h5>
                     @endif    
                   @endforeach
                     <div class="info">                      

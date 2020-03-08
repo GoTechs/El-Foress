@@ -153,7 +153,7 @@
             
           @if ($relatedAds->count() <> '0')
             <!-- Adds wrapper Start -->                     
-              <div class="row col-sm-12  col-lg-10">   
+              <div class="col-sm-12  col-lg-10">   
               <h3 class="section-title">Annonces Correspondantes</h3>                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAds as $relatedAd)
@@ -182,7 +182,7 @@
                       <div class="add-details">
                       @foreach ($search as $cat)
                           @if ($cat->idCat == $relatedAd->id_Cat)
-                            <h5 class="add-title"><a href="/details/{{$relatedAd->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $relatedAd->titre)}}/{{str_replace(' ', '-', $relatedAd->wilaya)}}">{{$relatedAd->titre}}</a></h5>
+                            <h5 class="add-title" id="details-title"><a href="/details/{{$relatedAd->id}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $relatedAd->titre)}}/{{str_replace(' ', '-', $relatedAd->wilaya)}}">{{$relatedAd->titre}}</a></h5>
                           @endif
                       @endforeach
                         <div class="info">                          
