@@ -4992,6 +4992,9 @@ footer .menu li a:hover {
   padding: 30px;
   margin-bottom: 30px;
 }
+#details-img img {
+  width: 100%;
+}
 .post-promo h2 {
   font-size: 24px;
   font-weight: 400;
