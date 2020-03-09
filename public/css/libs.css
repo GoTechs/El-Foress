@@ -4992,7 +4992,7 @@ footer .menu li a:hover {
   padding: 30px;
   margin-bottom: 30px;
 }
-#details-img img {
+#details-img img, .add-image img {
   width: 100%;
 }
 .post-promo h2 {
