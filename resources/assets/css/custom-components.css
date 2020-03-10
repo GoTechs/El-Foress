@@ -893,7 +893,6 @@ footer .menu li a:hover {
      Adds wrapper Style
      ========================================================================== */
 .adds-wrapper {
-  background: #FFF none repeat scroll 0% 0%;
   clear: both;
   display: block;
   height: auto;
@@ -903,6 +902,7 @@ footer .menu li a:hover {
 .adds-wrapper .item-list {
   padding: 15px;
   border: 1px solid #eee;
+  background-color: #fff;
   width: 100%;
   height: auto;
   display: flex;
@@ -993,6 +993,7 @@ footer .menu li a:hover {
   background: #e5e5e5;
   border: 1px solid #ddd;
   padding: 30px;
+  margin-bottom: 30px;
 }
 .post-promo h2 {
   font-size: 24px;

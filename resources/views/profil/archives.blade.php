@@ -59,7 +59,7 @@
                       <div class="add-details">
                       @foreach ($search as $cat)
                         @if ($cat->idCat == $result->id_Cat)
-                          <h5 class="add-title title"><a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{$result->titre}}</a></h5>
+                          <h5 class="add-title title" id="details-title"><a href="/my-ads/details/{{$result->id_annonce}}/{{str_replace(' ', '-', $cat->categories)}}/{{str_replace(' ', '-', $result->titre)}}/{{str_replace(' ', '-', $result->wilaya)}}">{{$result->titre}}</a></h5>
                         @endif
                       @endforeach
                           <div class="info">                          

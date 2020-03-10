@@ -4848,7 +4848,6 @@ footer .menu li a:hover {
      Adds wrapper Style
      ========================================================================== */
 .adds-wrapper {
-  background: #FFF none repeat scroll 0% 0%;
   clear: both;
   display: block;
   height: auto;
@@ -4858,6 +4857,7 @@ footer .menu li a:hover {
 .adds-wrapper .item-list {
   padding: 15px;
   border: 1px solid #eee;
+  background-color: #fff;
   width: 100%;
   height: auto;
   display: flex;
@@ -4990,6 +4990,10 @@ footer .menu li a:hover {
   background: #e5e5e5;
   border: 1px solid #ddd;
   padding: 30px;
+  margin-bottom: 30px;
+}
+#details-img img, .add-image img {
+  width: 100%;
 }
 .post-promo h2 {
   font-size: 24px;
@@ -12344,6 +12348,10 @@ zoom: 1;
   .page-sidebar .inner-box {
     padding: 5px;
   }
+  .inner-box {
+    padding: 0;
+  }
+
   .widget-title h4 {
     font-size: 14px;
   }
@@ -12480,6 +12488,7 @@ zoom: 1;
   }
   .adds-wrapper .item-list {
     display: block !important;
+    padding: 0 !important;
   }
   /* .input-group-addon:last-child{
     display: none;
@@ -12548,6 +12557,7 @@ zoom: 1;
   }
   #details-left {
     margin-bottom: 0; 
+    padding: 0;
    }
    .fotorama__wrap--css3 .fotorama__stage .fotorama__img {
      height: 100% ! important;
@@ -12667,15 +12677,13 @@ zoom: 1;
   .table-search {
     display: none;
   }
-  .add-desc-box {
-    padding: 15px 0;
-  }
   .adds-wrapper .add-title {
     font-size: 13px;
   }
   .adds-wrapper .add-type {
     display: none;
   }
+
   .item-list.make-grid {
     width: 100%;
   }
@@ -12771,6 +12779,9 @@ zoom: 1;
   }
   .wrapper {
     margin: 0;
+  }
+  .add-desc-box, .price-box {
+    padding: 15px !important;
   }
 }
 
@@ -13824,7 +13835,6 @@ footer .menu li a:hover {
      Adds wrapper Style
      ========================================================================== */
 .adds-wrapper {
-  background: #FFF none repeat scroll 0% 0%;
   clear: both;
   display: block;
   height: auto;
@@ -13834,6 +13844,7 @@ footer .menu li a:hover {
 .adds-wrapper .item-list {
   padding: 15px;
   border: 1px solid #eee;
+  background-color: #fff;
   width: 100%;
   height: auto;
   display: flex;
@@ -13924,6 +13935,7 @@ footer .menu li a:hover {
   background: #e5e5e5;
   border: 1px solid #ddd;
   padding: 30px;
+  margin-bottom: 30px;
 }
 .post-promo h2 {
   font-size: 24px;
