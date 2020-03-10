@@ -33,8 +33,7 @@ class advancedSearchController extends Controller
     	$search = categories::all();
         $sousCat = DB::table('categories')
                     ->join('souscategories', 'categories.idCat', '=', 'souscategories.id_Cat')
-                    ->get(); 
-
+					->get(); 
 
     	$idSousCat = request('idSousCat');
     	$filterKey = $idSousCat;

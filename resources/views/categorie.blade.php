@@ -721,9 +721,10 @@
               </div>
               <div class="Show-item">
                 <span>Trier par</span>
-                <form class="woocommerce-ordering" method="post">
+                <form class="woocommerce-ordering" method="get" action="/advanced-Search">
+
                   <label>
-                    <select name="order" class="orderby">
+                    <select name="order" class="orderby" onchange="this.form.submit()">
                       <option selected="selected" value="menu-order">Trier par</option>
                       <option value="mostrecent">Les plus récentes</option>
                       <option value="lessrecent">Les moins récentes</option>
