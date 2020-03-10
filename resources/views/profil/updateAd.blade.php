@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta property="og:url"           content="https://foress-dz.com" />
+    <meta property="og:title"         content="Notre mission vous simplifier la vie" />
+    <meta property="og:description"   content="Nous sommes ravis de vous annoncer le lancement d’un nouveau site de petites annonces FORESS.
+                                            يسرنا أن نقدم عرض موقعنا الجديد للإعلانات عبر الإنترنت."/>
+    <meta property="og:image"         content="https://foress.s3.ca-central-1.amazonaws.com/86802845_111902887060803_4137310999457824768_o.jpg" />
     <title>{{__('layout.name_app')}} -  {{__('layout.description_page')}} </title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
