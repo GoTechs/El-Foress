@@ -224,7 +224,7 @@
                   @endforeach
                 </div>                          
               </div> 
-              <div class="row" id="pagination">
+              <div id="pagination">
               <div class="col-sm-12">
             {{ $relatedAds->links() }}
              </div>
