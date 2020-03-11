@@ -1368,12 +1368,13 @@ footer .menu li a:hover {
 }
 #details {
   margin: 0 10px;
+  background-color: #fff;
 }
 .btn-overflow {
   display: none;
   border-radius: 3px;
   text-align: center;
-  margin: 0 auto;
+  margin: 15px auto;
   }
   .status-body-text {
   height: 150px;
@@ -1541,6 +1542,7 @@ footer .menu li a:hover {
 #details-left {
   max-width: 600px;
   max-height: 450px;
+  background-color: #fff;
 }
 .panel {
   box-shadow: none;
