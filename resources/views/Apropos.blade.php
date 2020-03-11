@@ -33,7 +33,7 @@
           <div class="col-sm-4 page-sidebar">
             <aside>
               <div class="inner-box">
-                <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
+                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="">
               </div>
             </aside>
           </div>
