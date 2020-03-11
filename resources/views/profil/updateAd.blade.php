@@ -106,7 +106,7 @@
 
                   @csrf
                   <div class="col-md-1 search-col">
-                  <button class="btn-search"><strong id="text-search"> Recherche</strong><i class="fa fa-search"></i></button>
+                  <button class="btn-search"><strong id="text-search"> Trouver ce que vous cherchez</strong><i class="fa fa-search"></i></button>
                   </div>
                 </form>
               </div>

@@ -475,4 +475,7 @@
   .add-desc-box, .price-box {
     padding: 15px !important;
   }
+  .user-details, .ads-details-info {
+    padding: 0;
+  }
 }
