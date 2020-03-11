@@ -2861,3 +2861,7 @@ ul.ui-autocomplete {
 .price-box a[disabled]{
     opacity: 0.80;
 }
+.input-hide{
+  position: absolute;
+  display: none;
+}

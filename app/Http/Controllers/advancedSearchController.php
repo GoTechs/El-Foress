@@ -27,7 +27,8 @@ class advancedSearchController extends Controller
 {
     public function search(Request $request){
 
-    	$dataSelected = '';
+		$dataSelected = '';
+		$cat = ''; 
 
     	$imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
     	$search = categories::all();
@@ -82,6 +83,21 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
 			$data = $data->paginate(6);
         	
 		  } 
@@ -113,6 +129,21 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
 			$data = $data->paginate(6);
         	
 		  } 
@@ -140,6 +171,21 @@ class advancedSearchController extends Controller
 
 			if (request('prix-a')){
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
+			}
+
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
 			}
 
 			$data = $data->paginate(6);
@@ -185,6 +231,21 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
 			$data = $data->paginate(6);
         	
 		  } 
@@ -219,6 +280,21 @@ class advancedSearchController extends Controller
 		    	$data = $data->where('annonces.prix','<=',request('prix-a'));
 			}
 
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
 			$data = $data->paginate(6);
         	
 		  } 
@@ -239,13 +315,32 @@ class advancedSearchController extends Controller
 
 		    if (request('au')) {
 		        $data = $data->where('au', '=',  request('au'));
-		    }
+			}
+			
 
 		    $data = $data->join('annonces', function ($join) {
             $join->on('annonces.id', '=', 'ad_events.id_annonce')
                  ->where('annonces.stateAd','=','1')
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
-        	})->paginate(6);        	
+			});    
+			
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
+			$data = $data->paginate(6);
+			
 		  } 
 
 /****************************************** FILTER Offre D'emploi ************************************************/	  
@@ -264,7 +359,24 @@ class advancedSearchController extends Controller
             $join->on('annonces.id', '=', 'ad_joboffers.id_annonce')
                  ->where('annonces.stateAd','=','1')
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
-        	})->paginate(6);        	
+			});
+			
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
+			$data = $data->paginate(6);
 		  } 
 
 /****************************************** FILTER Demande d'Emploi ************************************************/	  
@@ -287,9 +399,99 @@ class advancedSearchController extends Controller
             $join->on('annonces.id', '=', 'ad_jobapplications.id_annonce')
                  ->where('annonces.stateAd','=','1')
                  ->where('annonces.id_sous_Cat','=', request('idSousCat'));
-        	})->paginate(6);        	
+			});   
+			
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
+			$data = $data->paginate(6);
 		  } 	
 
-        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
+/****************************************** Autre ************************************************/	  
+
+		else {		    
+
+		    $data = DB::table('annonces')
+				 ->where('annonces.stateAd','=','1')
+				 ->where('annonces.id_Cat','=', request('idCat'))
+                 ->where('annonces.id_sous_Cat','=', request('idSousCat'));
+			  
+			
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
+			$data = $data->paginate(6);
+		  } 
+		  
+		  if(request('filterPerCat')){
+
+			if(request('filterKey')){
+				$data = DB::table('annonces')
+					->where('annonces.id_Cat','=',request('filterKey'))
+					->where('annonces.stateAd','=','1');
+				$filterKey = request('filterKey');
+			} else {
+				$data = DB::table('annonces')
+					->where('annonces.stateAd','=','1');
+					$filterKey = '';
+			}
+
+			if(request('wilaya')){
+				$data = $data->where('annonces.wilaya', 'LIKE', "%" . request('wilaya') . "%");
+			}
+			  
+			
+			if (request('order')){
+				$orderBy = request('order');
+				if ($orderBy == 'mostrecent'){
+					$data = $data->orderBy('annonces.created_at', 'desc');
+					} elseif ($orderBy == 'lessrecent'){
+						$data = $data->orderBy('annonces.created_at', 'asc');
+					} elseif ($orderBy == 'priceAsc'){
+						$data = $data->orderBy('annonces.prix', 'asc');
+					} elseif ($orderBy == 'priceDesc'){
+						$data = $data->orderBy('annonces.prix', 'desc');
+					} else {
+						$data = $data->orderBy('annonces.numberViews', 'desc');
+					}
+			}
+
+			$data = $data->paginate(6);
+
+			$cat = 'Catégorie'; 
+
+		  }
+
+		  if($cat == ''){
+			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
+		  } else {
+			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'filter'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'catégorie'=>$cat]);
+		  }
+
+        
     }
 }

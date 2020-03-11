@@ -721,16 +721,222 @@
               </div>
               <div class="Show-item">
                 <span>Trier par</span>
-                <form class="woocommerce-ordering" method="post">
-
+                <form class="woocommerce-ordering" method="get" action="/advanced-Search">
+                @if ($catégorie == 'sousCatégorie')
+                <div class="input-hide">
+                    <input type="hidden" class="form-control" name="idSousCat" value="{{$idSousCat}}">
+                    <input type="hidden" class="form-control" name="idCat" value="{{$idCat}}">
+                </div>
+                  @if ($idSousCat == '55' or $idSousCat == '56' or $idSousCat == '57' or $idSousCat == '58')
+                    <div class="input-hide">
+                    <input type="hidden" class="form-control" name="prix-de" placeholder="de" value="{{isset($_GET['prix-de']) ? $_GET['prix-de'] : ''}}">  
+                    <input type="hidden" class="form-control" name="prix-a" placeholder="à" value="{{isset($_GET['prix-a']) ? $_GET['prix-a'] : ''}}">                
+                    <select class="form-control" name="type-bien" size="9" style="display:none;">
+                      <option value="">Sélectionner</option>
+                      @foreach ($dataSelected as $typeBien)
+                          @if (isset($_GET['type-bien']))
+                            @if ($_GET['type-bien'] == $typeBien->typeBien)
+                                <option selected>{{ $typeBien->typeBien}}</option>
+                            @else
+                              <option>{{ $typeBien->typeBien }}</option>
+                            @endif
+                          @else
+                            <option>{{ $typeBien->typeBien }}</option>
+                          @endif
+                      @endforeach
+                    </select>               
+                    <input class="form-control" name="superficie" type="hidden" placeholder="Superficie en M²" value="{{isset($_GET['superficie']) ? $_GET['superficie'] : ''}}">               
+                    <input class="form-control" name="nbre-piece" type="hidden" placeholder="Nombre de pièces" value="{{isset($_GET['nbre-piece']) ? $_GET['nbre-piece'] : ''}}">              
+                    <input class="form-control" name="etage" type="hidden" placeholder="Étage" value="{{isset($_GET['etage']) ? $_GET['etage'] : ''}}">
+                    </div> 
+                  @elseif ($idSousCat == '53')
+                    <div class="input-hide" style="position:absolute;">
+                    <select class="form-control" name="domaine-emploi">
+                      <option value="">Sélectionner</option>
+                        @foreach ($dataSelected as $domaine)
+                            @if (isset($_GET['domaine-emploi']))
+                              @if ($_GET['domaine-emploi'] == $domaine->nomDomaine)
+                                  <option selected>{{ $domaine->nomDomaine}}</option>
+                              @else
+                                <option>{{ $domaine->nomDomaine }}</option>
+                              @endif
+                            @else
+                              <option>{{ $domaine->nomDomaine }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    </div>
+                  @elseif ($idSousCat == '54')
+                    <div class="input-hide" style="position:absolute;">
+                    @if (isset($_GET['sexe'])) 
+                      @if ($_GET['sexe'] == 'Homme')
+                        <label><input type="radio" name="sexe" value="Homme" checked> Homme </label><br>
+                        <label><input type="radio" name="sexe" value="Femme"> Femme </label>
+                      @else
+                        <label><input type="radio" name="sexe" value="Homme"> Homme </label><br>
+                        <label><input type="radio" name="sexe" value="Femme" checked> Femme </label>
+                      @endif
+                    @else
+                        <label><input type="radio" name="sexe" value="Homme"> Homme </label><br>
+                        <label><input type="radio" name="sexe" value="Femme"> Femme </label>
+                    @endif
+                    <select class="form-control" name="domaine-emploi">
+                        <option value="">Sélectionner</option>
+                          @foreach ($dataSelected as $domaine)
+                              @if (isset($_GET['domaine-emploi']))
+                                @if ($_GET['domaine-emploi'] == $domaine->nomDomaine)
+                                    <option selected>{{ $domaine->nomDomaine}}</option>
+                                @else
+                                  <option>{{ $domaine->nomDomaine }}</option>
+                                @endif
+                              @else
+                                <option>{{ $domaine->nomDomaine }}</option>
+                              @endif
+                          @endforeach
+                    </select>
+                    </div>   
+                  @elseif ($idSousCat == '16')
+                    <div class="input-hide" style="position:absolute;">
+                    <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{ isset($_GET['prix-de']) ? $_GET['prix-de'] : '' }}">  
+                    <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{ isset($_GET['prix-a']) ? $_GET['prix-a'] : '' }}">                  
+                    <select class="form-control" name="marque-telephone" size="10">
+                        <option value="">Sélectionner</option>
+                          @foreach ($dataSelected as $marque)
+                              @if (isset($_GET['marque-telephone']))
+                                @if ($_GET['marque-telephone'] == $marque->marque)
+                                    <option selected>{{ $marque->marque}}</option>
+                                @else
+                                  <option>{{ $marque->marque }}</option>
+                                @endif
+                              @else
+                                <option>{{ $marque->marque }}</option>
+                              @endif
+                          @endforeach
+                    </select>
+                    </div>
+                  @elseif ($idSousCat == '36')
+                    <div class="input-hide" style="position:absolute;">
+                    <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{isset($_GET['prix-de']) ? $_GET['prix-de'] : ''}}">  
+                    <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{isset($_GET['prix-a']) ? $_GET['prix-a'] : ''}}">
+                    <select class="form-control" name="type-Stockage">
+                      <option value="">Sélectionner</option>
+                      @if (isset($_GET['type-Stockage']))
+                      <option {{ $_GET['type-Stockage'] == 'Flash disque' ? 'selected' : ''}}>Flash disque</option>
+                      <option {{ $_GET['type-Stockage'] == 'Disque dur externe' ? 'selected' : ''}}>Disque dur externe</option>
+                      <option {{ $_GET['type-Stockage'] == 'Disque dur interne' ? 'selected' : ''}}>Disque dur interne</option>
+                      <option {{ $_GET['type-Stockage'] == 'Carte mémoire' ? 'selected' : ''}}>Carte mémoire</option>
+                      @else
+                      <option>Flash disque</option>
+                      <option>Disque dur externe</option>
+                      <option>Disque dur interne</option>
+                      <option>Carte mémoire</option>
+                      @endif
+                    </select>
+                    </div>
+                  @elseif ($idSousCat == '6' or $idSousCat == '7' or $idSousCat == '8' or $idSousCat == '9' or $idSousCat == '10' or $idSousCat == '11' or $idSousCat == '12' or $idSousCat == '13')
+                    <div class="input-hide" style="position:absolute;">
+                    <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{ isset($_GET['prix-de']) ? $_GET['prix-de'] : '' }}">  
+                    <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{ isset($_GET['prix-a']) ? $_GET['prix-a'] : '' }}">
+                    @if (isset($_GET['vente'])) 
+                      @if ($_GET['vente'] == 'selling')
+                        <label><input type="radio" name="vente" value="selling" checked> Offres </label><br>
+                        <label><input type="radio" name="vente" value="searching"> Recherché </label>
+                      @else
+                        <label><input type="radio" name="vente" value="selling"> Offres </label><br>
+                        <label><input type="radio" name="vente" value="searching" checked> Recherché </label>
+                      @endif
+                    @else
+                        <label><input type="radio" name="vente" value="selling"> Offres </label><br>
+                        <label><input type="radio" name="vente" value="searching"> Recherché </label>
+                    @endif
+                    <select class="form-control" name="marque" size="8">
+                      <option value="">Sélectionner</option>
+                      @foreach ($dataSelected as $marque)
+                          @if (isset($_GET['marque']))
+                            @if ($_GET['marque'] == $marque->marqueVeh)
+                                <option selected>{{ $marque->marqueVeh}}</option>
+                            @else
+                              <option>{{ $marque->marqueVeh }}</option>
+                            @endif
+                          @else
+                            <option>{{ $marque->marqueVeh }}</option>
+                          @endif
+                      @endforeach
+                    </select>   
+                    <input class="form-control" name="anne" id="anne" type="text" placeholder="Année" value="{{ isset($_GET['anne']) ? $_GET['anne'] : '' }}">
+                    <input class="form-control" name="kilom" id="kilom" type="text" placeholder="Kilomètrage" value="{{ isset($_GET['kilom']) ? $_GET['kilom'] : '' }}">
+                    <select class="form-control" name="type-Carburant"> 
+                        <option value="">Sélectionner</option>
+                        @if (isset($_GET['type-Carburant']))
+                        <option {{ $_GET['type-Carburant'] == 'Essence' ? 'selected' : '' }}>Essence</option>
+                        <option {{ $_GET['type-Carburant'] == 'Gas oil' ? 'selected' : '' }}>Gas oil</option>
+                        <option {{ $_GET['type-Carburant'] == 'GPL' ? 'selected' : '' }}>GPL</option>
+                        <option {{ $_GET['type-Carburant'] == 'Eléctrique' ? 'selected' : '' }}>Eléctrique</option>
+                        @else
+                        <option>Essence</option>
+                        <option>Gas oil</option>
+                        <option>GPL</option>
+                        <option>Eléctrique</option>
+                        @endif
+                    </select>
+                    </div>
+                  @elseif ($idSousCat == '37')
+                    <div class="input-hide" style="position:absolute;">
+                    <input type="text" class="form-control" name="prix-de" placeholder="de" value="{{ isset($_GET['prix-de']) ? $_GET['prix-de'] : '' }}">  
+                    <input type="text" class="form-control" name="prix-a" placeholder="à" value="{{ isset($_GET['prix-a']) ? $_GET['prix-a'] : '' }}">
+                    <select class="form-control" name="marque-ordinateur" size="10">
+                      <option value="">Sélectionner</option>
+                        @foreach ($dataSelected as $marque)
+                            @if (isset($_GET['marque-ordinateur']))
+                              @if ($_GET['marque-ordinateur'] == $marque->marque)
+                                  <option selected>{{ $marque->marque}}</option>
+                              @else
+                                <option>{{ $marque->marque }}</option>
+                              @endif
+                            @else
+                              <option>{{ $marque->marque }}</option>
+                            @endif
+                        @endforeach
+                    </select> 
+                    <select class="form-control" name="taille-ordinateur" size="5">
+                        <option value="">Sélectionner</option>
+                        @if (isset($_GET['taille-ordinateur']))
+                        <option {{ $_GET['taille-ordinateur'] == '14 po ou moins' ? 'selected' : '' }}>14 po ou moins</option>
+                        <option {{ $_GET['taille-ordinateur'] == '15 po' ? 'selected' : '' }}>15 po</option>
+                        <option {{ $_GET['taille-ordinateur'] == '16 po' ? 'selected' : '' }}>16 po</option>
+                        <option {{ $_GET['taille-ordinateur'] == '17 po ou plus' ? 'selected' : '' }}>17 po ou plus</option>
+                        @else
+                        <option>14 po ou moins</option>
+                        <option>15 po</option>
+                        <option>16 po</option>
+                        <option>17 po ou plus</option>
+                        @endif
+                    </select>  
+                    </div>
+                  @elseif ($idSousCat == '2')
+                    <div class="input-hide" style="position:absolute;">
+                    <input class="form-control" name="datetimeEvent" type="datetime-local" value="{{ isset($_GET['datetimeEvent']) ? $_GET['datetimeEvent'] : '' }}">
+                    <input class="form-control" name="du" type="date" value="{{ isset($_GET['du']) ? $_GET['du'] : '' }}">
+                    <input class="form-control" name="au" type="date" value="{{ isset($_GET['au']) ? $_GET['au'] : '' }}">
+                    </div>
+                  @endif  
+                  @elseif ($catégorie == 'Catégorie')  
+                  <div class="input-hide" style="position:absolute;">
+                    <input type="hidden" class="form-control" name="filterPerCat" value="filterPerCat">  
+                    <input class="form-control" name="wilaya" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
+                    @if ($filter <> '')
+                      <input type="hidden" class="form-control" name="filterKey" value="{{$filter}}">
+                    @endif
+                  </div>      
+                  @endif
                   <label>
-                    <select name="order" class="orderby">
+                    <select name="order" class="orderby" onchange="this.form.submit()">
                       <option selected="selected" value="menu-order">Trier par</option>
                       <option value="mostrecent">Les plus récentes</option>
                       <option value="lessrecent">Les moins récentes</option>
                       <option value="popularity">les plus populaires</option>
-                      <option value="asc">Prix: Faible à élevé</option>
-                      <option value="desc">Prix: Elevé à faible</option>
+                      <option value="priceAsc">Prix: Faible à élevé</option>
+                      <option value="priceDesc">Prix: Elevé à faible</option>
                     </select>
                   </label>
                 </form>
@@ -812,7 +1018,7 @@
               <div class="col-sm-12">
 
                 <!-- Start Pagination -->
-                {{ $data->links() }}
+                {{ $data->appends(request()->input())->links() }}
                 <!-- End Pagination -->
 
               </div>

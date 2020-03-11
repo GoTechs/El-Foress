@@ -6233,6 +6233,10 @@ ul.ui-autocomplete {
 .price-box a[disabled]{
     opacity: 0.80;
 }
+.input-hide{
+  position: absolute;
+  display: none;
+}
 @charset "UTF-8";
 /*!
 Animate.css - http://daneden.me/animate

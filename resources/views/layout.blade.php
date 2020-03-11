@@ -260,34 +260,6 @@
         })       
     } 
 
-
-       $(document).on("change", ".orderby", function() {
-
-            var sortingMethod = $(this).val();
-
-            if(sortingMethod == 'asc')
-            {
-                sortProductsPriceAscending();
-            }
-            else if(sortingMethod == 'desc')
-            {
-                sortProductsPriceDescending();
-            } 
-            else if(sortingMethod == 'popularity')
-            {
-                sortByPopularity();
-            }
-            else if (sortingMethod == 'mostrecent')
-            {
-                sortByDateDesc();
-            }
-            else if (sortingMethod == 'lessrecent')
-            {
-                sortByDateAsc();
-            }
-
-        });
-
         var text = $('.status-body-text'),
      btn = $('.btn-overflow'),
        h = text[0].scrollHeight; 
@@ -315,43 +287,6 @@ btn.click(function(e)
       text.animate({'height': '150px'});
   }  
 });	
-
-        function sortProductsPriceAscending()
-        {
-            var products = $('.item-list');
-            products.sort(function(a, b){ return $(a).data("price")-$(b).data("price")});
-            $(".adds-wrapper").html(products);
-
-        }
-
-        function sortProductsPriceDescending()
-        {
-            var products = $('.item-list');
-            products.sort(function(a, b){ return $(b).data("price") - $(a).data("price")});
-            $(".adds-wrapper").html(products);
-
-        }
-
-        function sortByPopularity()
-        {
-            var products = $('.item-list');
-            products.sort(function(a, b){ return $(b).data("views") - $(a).data("views")});
-            $(".adds-wrapper").html(products);
-
-        }
-        function sortByDateDesc()
-        {
-            var products = $('.item-list');
-            products.sort(function(a, b){ return new Date($(b).data("date")) - new Date($(a).data("date"))});
-            $(".adds-wrapper").html(products);
-
-        }
-         function sortByDateAsc()
-        {
-            var products = $('.item-list');
-            products.sort(function(a, b){ return new Date($(a).data("date")) - new Date($(b).data("date"))});
-            $(".adds-wrapper").html(products);
-        }
 
     /* ******************************   Gallery *************************************** */  
 

@@ -75,7 +75,6 @@ class searchController extends Controller
    		$keyword =  request('keyword');
 
    		$imageAd = DB::table('imageads')->groupBy('id_annonce')->get()->toArray();
-      //dd($imageAd);
 
       $data = DB::table('annonces');
 
