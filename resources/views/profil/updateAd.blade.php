@@ -125,7 +125,7 @@
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <div class="page-ads box">
                         @if (count($errors) > 0)
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
                                 <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>
                                 <ul>
                                     @foreach ($errors->all() as $error)

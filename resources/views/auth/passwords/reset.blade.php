@@ -12,7 +12,7 @@
                 {{__('authentication.reset_password_title')}}
               </h3>
               @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
                     {{ session('status') }}
                 </div>
                 @endif
