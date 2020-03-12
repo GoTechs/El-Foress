@@ -97,7 +97,7 @@
                 </form>
               </div> 
             @else 
-              <div class="alert alert-warning col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4" role="alert">
+              <div class="alert alert-warning" role="alert">
               <i class="fa fa-exclamation-triangle"> {{__('myads.empty_result')}}</i>
               </div>
               <div class="post-promo text-center">

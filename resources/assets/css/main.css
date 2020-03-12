@@ -1546,8 +1546,8 @@ footer .menu li a:hover {
   max-width: 600px;
   max-height: 410px;
   background-color: #fff;
-  display: flex;
   align-items: center;
+  justify-content: center;
 }
 .panel {
   box-shadow: none;
@@ -1629,6 +1629,12 @@ footer .menu li a:hover {
 }
 #details-img img, .add-image img {
   width: 100%;
+}
+#details-img img {
+  max-height: 315px;
+}
+.add-image img {
+  max-height: 90px;
 }
 .post-promo h2 {
   font-size: 24px;

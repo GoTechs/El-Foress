@@ -478,4 +478,7 @@
   .user-details, .ads-details-info {
     padding: 0;
   }
+  .add-image img { 
+    max-height: 300px;
+  }
 }
