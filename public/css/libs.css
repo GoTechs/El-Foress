@@ -12492,7 +12492,7 @@ zoom: 1;
     display: block;
   }
   #pagination{
-    padding: 20px;
+    margin: 20px;
   }
   .page-login-form{
     margin: 50px 0;
