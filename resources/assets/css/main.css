@@ -702,6 +702,9 @@ nav#menu span.fa.fa-bars:hover {
   border-radius: 0;
   text-transform: none;
 }
+.dropdown-menu {
+  display: none;
+}
 .input-group-addon {
   border: none;
   background: transparent;
