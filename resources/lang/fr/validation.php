@@ -41,13 +41,13 @@ return [
     "max"              => array(
         "numeric" => "La valeur de :attribute ne peut être supérieure à :max.",
         "file"    => "Le fichier :attribute ne peut être plus gros que :max kilobytes.",
-        "string"  => "Le texte de :attribute ne peut contenir plus de :max caractères.",
+        "string"  => "Le :attribute ne peut contenir plus de :max caractères.",
     ),
     "mimes"            => "Le champ :attribute doit être un fichier de type : :values.",
     "min"              => array(
         "numeric" => "La valeur de :attribute doit être inférieure à :min.",
         "file"    => "Le fichier :attribute doit être plus que gros que :min kilobytes.",
-        "string"  => "Le texte :attribute doit contenir au moins :min caractères.",
+        "string"  => "Le :attribute doit contenir au moins :min caractères.",
     ),
     "not_in"           => "Le champ :attribute sélectionné n'est pas valide.",
     "numeric"          => "Le champ :attribute doit contenir un nombre.",
@@ -56,7 +56,7 @@ return [
     "required_if"      => "Le champ :attribute est obligatoire quand la valeur de :other est :value.",
     "required_with"    => "Le champ :attribute est obligatoire quand :values est présent.",
     "required_without" => "Le champ :attribute est obligatoire quand :values n'est pas présent.",
-    "same"             => "Les champs :attribute et :other doivent être identiques.",
+    "same"             => ":attribute et :other doivent être identiques.",
     "size"             => array(
         "numeric" => "La taille de la valeur de :attribute doit être :size.",
         "file"    => "La taille du fichier de :attribute doit être de :size kilobytes.",
@@ -87,7 +87,7 @@ return [
             'unique' => 'Vous êtes déjà inscrit',
         ],
         'password' => [
-            'regex' => 'Votre mot de passe doit inclure au moins une lettre minuscule, une lettre majuscule, un chiffre et un symbole.',
+            'regex' => 'Votre mot de passe doit inclure au moins une lettre minuscule et un chiffre.',
         ],
     ],
 
