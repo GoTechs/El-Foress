@@ -7,12 +7,10 @@
   <div id="content">
     <div class="container">        
       <div class="row">
-        <div class="col-md-12">              
-
+        <div class="col-md-12">           
             <div class="alert alert-warning" role="alert">
-                « Accès refusé »               
+               Désolé, ce lien a expiré. Veuillez vérifier dans votre boîte de réception que c'est le dernier message que nous avons envoyé.       
             </div>
-
         </div>      
       </div>
     </div>      
