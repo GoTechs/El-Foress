@@ -58,13 +58,8 @@ class AuthController extends Controller
             'email' => request('email'),
             'password' => request('password'),
         ])));
-
-
-        //$lastID = $user->id;
-
-        //return redirect()->route('verification.verify', ['id' => $lastID]);
         
-        return view('auth.verify');
+        return redirect('/connexion')->with('Verification', 'Un email a été envoyé à l\'adresse fournie. Veuillez suivre les instructions dans l\'email pour vous inscrire.');
     }
 
 }

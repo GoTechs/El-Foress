@@ -15,6 +15,14 @@
         </div>
         @endif
 
+        @if(Session::has('Verification'))
+        <div class="row">
+            <div class="alert alert-success col-xs-12">
+             <strong>{{Session::get('Verification')}}</strong>
+            </div>
+        </div>
+        @endif
+
         @if(Session('message'))
             <div class="row">
                 <div class="alert alert-success col-xs-4 col-xs-offset-4">
