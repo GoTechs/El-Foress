@@ -45,7 +45,7 @@ Route::get('/logout','AuthController@logout')->middleware('auth');
 
 // Route to Profil
 
-Route::get('/home','ProfilController@home')->middleware('auth');
+Route::get('/home','ProfilController@home')->middleware('auth', 'verified');
 Route::get('/my-ads','ProfilController@myads')->middleware(['auth', 'verified']);
 Route::get('/favorites','ProfilController@favorits')->middleware(['auth', 'verified']);
 Route::get('/archives','ProfilController@archives')->middleware(['auth', 'verified']);
