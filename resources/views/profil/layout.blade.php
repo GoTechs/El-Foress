@@ -168,9 +168,9 @@
           </div>
         </div>
       </div>
-      <!-- <div class="inner-box">
-        <img src="{{asset('img/pub/pubhabbache.gif')}}" alt="">
-      </div> -->
+      <div class="inner-box">
+        <img src="{{asset('img/pub/helpiste.jpg')}}" alt="">
+      </div>
     </aside>
   </div>
 

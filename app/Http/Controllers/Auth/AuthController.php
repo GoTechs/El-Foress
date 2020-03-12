@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Users;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
@@ -18,10 +19,27 @@ class AuthController extends Controller
 
     public function store (Request $request){
 
+        $data = DB::table('users')
+                 ->where('email','=', request('email'))
+                 ->get()->toArray();
+        
+        //dd($data[0]->email_verified_at);
+               
+        if($data == []){
+            $validateEmail = "";
+        } else {
+            if(is_null($data['0']->email_verified_at)){                
+                Users::where('email','=', request('email'))->delete();
+                $validateEmail = "";
+            } else {                
+                $validateEmail = "|unique:users";
+            }
+        }         
+        
         $validator = Validator::make($request->all(),[
             "nom" => "required|string",
-            "email" => "required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|max:255|unique:users",
-            "password" => "bail|required|min:8|max:30|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/",
+            "email" => "required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|max:255".$validateEmail,
+            "password" => "bail|required|min:8|max:30|regex:/^(?=.*?[a-z])(?=.*?[0-9]).{6,}$/",
             "confirmPassword" => "required|same:password",
         ]);
 
@@ -40,13 +58,8 @@ class AuthController extends Controller
             'email' => request('email'),
             'password' => request('password'),
         ])));
-
-
-        //$lastID = $user->id;
-
-        //return redirect()->route('verification.verify', ['id' => $lastID]);
         
-        return view('auth.verify');
+        return redirect('/connexion')->with('Verification', 'Un email a été envoyé à l\'adresse fournie. Veuillez suivre les instructions dans l\'email pour vous inscrire.');
     }
 
 }

@@ -90,12 +90,11 @@
                 </div> 
               </form>
             </div>
-            <!-- <div class="col-sm-4">
-              <div class="inner-box">
-                
-                <img src="{{asset('img/pub/pubmobilis.jpg')}}" alt="">
+            <div class="col-sm-4">
+              <div class="inner-box">                
+                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="">
               </div>        
-            </div> -->
+            </div>
           </div>
         </div>
       </section>
