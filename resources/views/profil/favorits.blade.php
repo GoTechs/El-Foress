@@ -10,14 +10,14 @@
               <h2 class="title-2"><i class="fa fa-heart-o"></i> {{__('myads.myfavorits_page_title')}}</h2>
               @if ($results <> [])
               <div class="table-responsive">
-                <form action="/deleteAllFav" method="post">
+                <form action="/deleteAllFav" method="post" id="formSubmit">
                   @csrf
                   @method('DELETE')
                 <div class="table-action">
                   <div class="checkbox">
                     <label for="checkAll">
                       <input id="checkAll" type="checkbox">
-                      {{__('myads.select_all_button')}} | <button type="submit" class="btn btn-danger btn-sm"> {{__('myads.delete_all_button')}} <i class="fa fa-close"></i></button>
+                      {{__('myads.select_all_button')}} | <button type="button" class="btn btn-danger btn-sm" id="deleteAds"> {{__('myads.delete_all_button')}} <i class="fa fa-close"></i></button>
                     </label>
                   </div>
                   <div class="table-search pull-right col-xs-7">

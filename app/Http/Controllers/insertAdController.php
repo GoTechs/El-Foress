@@ -440,8 +440,8 @@ class insertAdController extends Controller
 
     public function deleteAll(Request $request){
         
-            $ids = $request->input('ids');
-            annonce::whereIn('id',$ids)->delete();
-            return response()->json(['success'=>'Record is successfully added']);  
+        $ids = $request->input('ids');
+        annonce::whereIn('id',$ids)->delete();
+        return redirect()->back();
     }
 }
