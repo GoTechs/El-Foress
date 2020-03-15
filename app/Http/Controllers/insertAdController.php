@@ -40,7 +40,7 @@ class insertAdController extends Controller
             "Adtitle" => "required|min:6",
             "descrp" => "required",
             "wilaya" => "required",
-            "email" => "email|nullable",
+            "email" => "regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|nullable",
             "phone" => "regex:/^[0-9\s+-]*$/|nullable",
         ]);
 
@@ -266,22 +266,22 @@ class insertAdController extends Controller
 
     }
 
-    public function update($id, Request $request){   
+    public function update(Request $request){   
 
         $validator = Validator::make($request->all(),[
-            "fileToUpload.*" => "image|mimes:jpeg,png,jpg,gif,svg",
             "Adtitle" => "required|min:6",
             "descrp" => "required",
             "wilaya" => "required",
-            "email" => "email|nullable",
+            "email" => "regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|nullable",
             "phone" => "regex:/^[0-9\s+-]*$/|nullable",
         ]);
 
-        if ($validator->fails()) {
-            return redirect('update-AD/'.$id.'/edit')
-                ->withErrors($validator)
-                ->withInput();
-        }     
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }   
+        
+        $id = request('idAnnonce');
 
         // Save and upload picture if exist
 
@@ -428,7 +428,7 @@ class insertAdController extends Controller
         }
 
 
-        return redirect('my-ads');
+        return response()->json(['success'=>'Record is successfully added']);
     }
 
     public function destroy($id){

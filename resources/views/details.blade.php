@@ -17,18 +17,19 @@
                 @if ($annonce->hasPicture == '1')
                     @foreach ($images as $key => $value) 
                   @if ($key == 0)                   
-                    <p>
+                  <p>
                       <a href="{{Storage::disk('s3')->url($value->imagename)}}" 
                         data-fancybox="images-preview" 
                         data-width="1500" data-height="1000">
                         <img src="{{Storage::disk('s3')->url($value->imagename)}}" />
                       </a>
-                    </p>
-                  @else                   
+                  </p>
+                  @else  
                   <div style="display: none;">
                     <a href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" 
-                      data-width="1500" data-height="1000"><img src="{{Storage::disk('s3')->url($value->imagename)}}" /></a>
-                  </div>
+                      data-width="1500" data-height="1000"><img src="{{Storage::disk('s3')->url($value->imagename)}}" />
+                    </a>   
+                  </div>            
                   @endif
               
                     @endforeach

@@ -124,23 +124,16 @@
             <div class="row">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <div class="page-ads box">
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
-                                <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                    <div class="alert alert-danger col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4" style="display:none">
+                      <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>                      
+                    </div>
                         <h2 class="title-2">Modification</h2><!-- Start Search box -->
                         <div class="row search-bar mb30 red-bg">
                             <div class="advanced-search">
-                                <form class="search-form" method="post" action="/update-AD/{{$annonce->id}}" enctype="multipart/form-data">
+                                <form class="search-form" method="post" action="javascript:void(0)" id="contact_us" enctype="multipart/form-data">
                                     @csrf
                                     {{ method_field('PATCH') }}                              
-
+                            <input name="idAnnonce" id="idAnnonce" value="{{$annonce->id}}" style="display:none;">
                             <div class="form-group">
                                 <select class="form-control"  id="categorie" name="categorie" disabled>
                                   <option value="">Catégories</option>
@@ -575,16 +568,23 @@
                     </div>
                     <div class="mb30"></div>
                     <div class="box">
+
                         <h2 class="title-2">Média</h2>
                         <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">
                             <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur votre annonce</label>
-                            <input class="form-control" name="fileToUpload[]" type="file" multiple value="{{old('fileToUpload[]')}}"> <br>
+                            <input class="pro-image" name="fileToUpload[]" type="file" multiple accept="image/png,image/gif,image/jpeg, image/jpg, image/dvg"/> <br>     
                         </div>
+                        <div class="preview-images-zone">
+                            <div class="preview-image preview-show-1" onClick="$('.pro-image').click()">
+                                <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw=="></div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="mb30"></div>
                     <div class="form-group">
                         <div class="page-ads box">
-                            <button class="btn btn-common" type="submit">Modifier</button>
+                            <button class="btn btn-common" type="submit" id="submit">Modifier</button>
                         </div>
                     </div>
                 </div>
@@ -697,6 +697,101 @@
                 source: wilaya
             });
         } );
+
+        $(document).ready(function() {
+            document.querySelector('.pro-image').addEventListener('change', readImage, false);
+          
+            $( ".preview-images-zone" ).sortable();
+            
+            $(document).on('click', '.image-cancel', function() {
+
+                let no = $(this).data('no');
+                $(".preview-image.preview-show-"+no).remove();
+            });
+        });
+
+
+        var num = 2;
+        function readImage() {
+        var element = $(".preview-images-zone");
+            if (window.File && window.FileList && window.FileReader) {
+                var files = event.target.files; //FileList object
+                var output = $(".preview-images-zone");
+
+                for (let i = 0; i < files.length; i++) {
+        
+                  if(i < 14){
+                    var file = files[i];
+                    if (!file.type.match('image')) continue;
+                    
+                    var picReader = new FileReader();
+                    
+                    picReader.addEventListener('load', function (event) {
+                        var picFile = event.target;
+                        var html =  '<div class="preview-image preview-show-' + num + '">' +
+                                    '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                                    '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                                    '</div>';
+
+                        output.prepend(html);
+                        num = num + 1;
+                    });
+
+                    picReader.readAsDataURL(file);
+                  }
+                  
+                }
+                $("#pro-image").val('');
+            } 
+        }
+
+        // **************************   SUBMIT FORM AJAX *******************************
+
+        $(document).ready(function(){          
+            $('#submit').click(function(e){
+            e.preventDefault();
+            var id = document.getElementById('idAnnonce');
+            var myForm = document.getElementById('contact_us');
+                formData = new FormData(myForm);
+                formData.append('_method', 'patch'); 
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "/update-AD/"+id,
+                method: 'post',
+                contentType: false,
+                processData: false,
+                data: formData,
+                beforeSend: function(){
+                    // Show image container
+                    $("#loading").show();
+                },
+                success: function(data){
+                    if ($.isEmptyObject(data.success)){   
+                    $('.alert-danger').empty();                 
+                        $.each(data.errors, function(key, value){
+                        $('.alert-danger').show();
+                        $('.alert-danger').append('<p>'+value+'</p>');
+                        $("html, body").animate({ 
+                            scrollTop: 0 
+                        }, "slow");
+                        });  
+                    } else {
+                        document.location.href = "/my-ads";
+                    }            
+                    
+                },
+                complete:function(data){
+                    // Hide image container
+                    $("#loading").hide();
+                }
+                    
+                });
+            });
+            });
 
     </script>
 </body>
