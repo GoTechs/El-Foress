@@ -227,7 +227,7 @@
               <div ></div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-9 wow fadeInUpQuick" data-wow-delay="1.2s">
+              <div class="category-box border-9 wow fadeInUpQuick" data-wow-delay="0.3s">
                 <div class="icon">
                   <a href="/search/9"><i class="lnr lnr-rocket color-9"></i></a>
                 </div>
@@ -252,7 +252,7 @@
               </div>
             </div> 
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="category-box border-10 wow fadeInUpQuick" data-wow-delay="1.3s">
+              <div class="category-box border-10 wow fadeInUpQuick" data-wow-delay="0.3s">
                 <div class="icon">
                   <a href="/search/10"><i class="lnr lnr-paw color-10"></i></a>
                 </div>
