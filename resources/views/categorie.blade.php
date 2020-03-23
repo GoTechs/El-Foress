@@ -29,9 +29,9 @@
                   @foreach ($search as $searchCat)
                     @if ($searchCat->idCat == $filter)                    
                       <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <div class="panel-heading" id="panel-selected">
                           <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="true">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="true" id="title-selected">
                               {{$searchCat ->categories}} 
                             </a>
                           </h4>
@@ -109,9 +109,9 @@
                     <div class="panel-group" id="accordion">
                     <div class="panel panel-default">                
                       <div class="panel panel-default">
-                      <div class="panel-heading">
+                      <div class="panel-heading" id="panel-selected">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                          <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                             Emplois
                           </a>
                         </h4>
@@ -181,9 +181,9 @@
                     <div class="panel-group" id="accordion">
                     <div class="panel panel-default">                
                       <div class="panel panel-default">
-                      <div class="panel-heading">
+                      <div class="panel-heading" id="panel-selected">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                          <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                             Emplois
                           </a>
                         </h4>
@@ -244,9 +244,9 @@
                     <div class="panel-group" id="accordion">
                     <div class="panel panel-default">                
                       <div class="panel panel-default">
-                      <div class="panel-heading">
+                      <div class="panel-heading" id="panel-selected">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                          <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                             Boutiques
                           </a>
                         </h4>
@@ -307,9 +307,9 @@
                       <div class="panel-group" id="accordion">
                         <div class="panel panel-default">                
                           <div class="panel panel-default">
-                          <div class="panel-heading">
+                          <div class="panel-heading" id="panel-selected">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                              <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                 Matériel informatique
                               </a>
                             </h4>
@@ -380,9 +380,9 @@
                       <div class="panel-group" id="accordion">
                         <div class="panel panel-default">                
                           <div class="panel panel-default">
-                          <div class="panel-heading">
+                          <div class="panel-heading" id="panel-selected">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                              <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                 Immobiliers
                               </a>
                             </h4>
@@ -482,9 +482,9 @@
                       <div class="panel-group" id="accordion">
                         <div class="panel panel-default">                
                           <div class="panel panel-default">
-                          <div class="panel-heading">
+                          <div class="panel-heading" id="panel-selected">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                              <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                 Véhicules
                               </a>
                             </h4>
@@ -563,9 +563,9 @@
                         <div class="panel-group" id="accordion">
                           <div class="panel panel-default">                
                             <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" id="panel-selected">
                               <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                                <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                   Matériel informatique
                                 </a>
                               </h4>
@@ -614,9 +614,9 @@
                           <div class="panel-group" id="accordion">
                             <div class="panel panel-default">                
                               <div class="panel panel-default">
-                              <div class="panel-heading">
+                              <div class="panel-heading" id="panel-selected">
                                 <h4 class="panel-title">
-                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
+                                  <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">
                                     Communauté
                                   </a>
                                 </h4>
@@ -645,9 +645,9 @@
                           @foreach ($search as $searchCat)
                             @if ($searchCat->idCat == $idCat)                    
                               <div class="panel panel-default">
-                                <div class="panel-heading">
+                                <div class="panel-heading" id="panel-selected">
                                   <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="false">
+                                    <a id="title-selected" data-toggle="collapse" data-parent="#accordion" href="#{{$searchCat ->idCat}}" aria-expanded="false">
                                       {{$searchCat ->categories}} 
                                     </a>
                                   </h4>
@@ -720,7 +720,6 @@
                 <a class="grid switchToList" href="#"><i class="fa fa-th-large"></i></a>
               </div>
               <div class="Show-item">
-                <span>Trier par</span>
                 <form class="woocommerce-ordering" method="get" action="/advanced-Search">
                 @if ($catégorie == 'sousCatégorie')
                 <div class="input-hide">
@@ -931,7 +930,7 @@
                   @endif
                   <label>
                     <select name="order" class="orderby" onchange="this.form.submit()">
-                      <option selected="selected" value="menu-order">Trier par</option>
+                      <option selected="selected" value="menu-order">Ordre de tri</option>
                       <option value="mostrecent">Les plus récentes</option>
                       <option value="lessrecent">Les moins récentes</option>
                       <option value="popularity">les plus populaires</option>

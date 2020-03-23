@@ -6250,6 +6250,12 @@ ul.ui-autocomplete {
   position: absolute;
   display: none;
 }
+#panel-selected {
+  background-color: #e2e4e7 !important;
+}
+#title-selected {
+  font-weight: 700 !important;
+}
 @charset "UTF-8";
 /*!
 Animate.css - http://daneden.me/animate
