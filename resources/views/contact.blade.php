@@ -31,7 +31,7 @@
               @endif
 
               <!-- Form -->
-              <form id="contactForm" class="contact-form" data-toggle="validator" method="post" action="/contact">
+              <form class="contact-form" data-toggle="validator" method="post" action="/contact">
                 @csrf
                 <div class="row">
                   <div class="col-md-12">
