@@ -2884,3 +2884,8 @@ ul.ui-autocomplete {
 #title-selected {
   font-weight: 700 !important;
 }
+.field-icon {
+  float: right;
+  margin-top: -27px;
+  margin-right: 10px;
+}
