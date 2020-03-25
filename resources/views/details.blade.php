@@ -64,15 +64,13 @@
                       <aside class="panel panel-body panel-details">
                         <ul>  
                         @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "") 
-                          <li>
-                            <p class="no-margin"><i class=" fa fa-phone"></i> <strong> {{__('details.phone_info')}} : </strong> {{$annonce->phoneNumber}}
-                            <a href="tel:{{$annonce->phoneNumber}}"></a>
+                          <li>                            
+                          <p class="no-margin"><i class=" fa fa-phone"></i> <strong> {{__('details.phone_info')}} : </strong> <a href="tel:{{$annonce->phoneNumber}}">  {{$annonce->phoneNumber}}</a> 
                           </li>
                           @endif
-                          <li>
                           @if ($annonce->email <> "")
                             <li>
-                              <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} : </strong> {{$annonce->email}} </a></li>
+                              <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} : </strong> <a href="mailto:{{$annonce->email}}"> {{$annonce->email}} </a>
                             <li>
                             @endif                  
                         </ul>
