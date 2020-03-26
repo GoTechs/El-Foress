@@ -4,7 +4,7 @@
     @section('content')
 
     <!-- Content section Start --> 
-    <section id="content">
+    <section class="main-container">
       <div class="container">
 
         @if(Session::has('error'))

@@ -315,7 +315,7 @@
   margin-bottom: 20px;
 }
 .panel-group .panel {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 .panel-default {
   border-radius: 0px;
@@ -329,6 +329,7 @@
   border: 1px solid #ccc;
   width: 100%;
   box-shadow: none;
+  height: 50px;
 }
 .panel-default .panel-heading .panel-title {
   margin-top: 0px;
@@ -3605,6 +3606,7 @@ textarea {
   background-color: #f8f9f9;
   padding-top: 40px;
   margin-top: 20px;
+  padding-bottom: 50px;
 }
 .page-header {
   padding: 40px 0;
@@ -4010,7 +4012,6 @@ nav#menu span.fa.fa-bars:hover {
   /* background: url("../img/bg/bg-intro.png") center center no-repeat; */
   background-size: cover;
   color: #fff;
-  text-align: center;
   display: flex;
 }
 #search-row-wrapper .overlay {
@@ -4422,7 +4423,6 @@ select > opation:focus {
   display: block;
   font-size: 16px;
   font-weight: 700;
-  padding-top: 7px;
 }
 #new-products .owl-controls .owl-buttons {
   position: relative;
@@ -5878,7 +5878,7 @@ table.add-manage-table > tbody > tr > th {
   margin-bottom: 20px;
 }
 .panel-group .panel {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   width: 100%;
 }
 .panel-default {
@@ -13116,7 +13116,6 @@ zoom: 1;
   /* background: url("../img/bg/bg-intro.png") center center no-repeat; */
   background-size: cover;
   color: #fff;
-  text-align: center;
 }
 #search-row-wrapper .overlay {
   background: rgba(0, 0, 0, 0.49);
@@ -13491,7 +13490,6 @@ select > opation:focus {
   display: block;
   font-size: 16px;
   font-weight: 700;
-  padding-top: 7px;
 }
 #new-products .owl-controls .owl-buttons {
   position: relative;

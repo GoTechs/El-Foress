@@ -4,7 +4,7 @@
     @section('content')
 
     <!-- Content section Start --> 
-    <section id="content">
+    <section class="main-container">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
