@@ -14,11 +14,11 @@
       </style>
 
       <!-- Start Contact Us Section -->
-      <section id="content">
+      <section class="main-container">
         <div class="container">
           <div class="row">
             <div class="col-md-8">
-              <h2 class="title-2">
+              <h2 class="section-title">
                 {{__('contact.contact_message')}}
               </h2>
 

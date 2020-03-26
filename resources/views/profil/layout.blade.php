@@ -124,7 +124,7 @@
 
 <!-- Aside Section -->
 
-<div id="content">
+<div class="main-container">
 <div class="container">
 <div class="row" id="ads">
   <div class="col-sm-3 page-sideabr">

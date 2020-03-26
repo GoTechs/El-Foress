@@ -68,7 +68,7 @@
       <div class="container">
         <div class="search-inner">
     <!-- Start Search box -->
-            <div class="row search-bar">
+            <div class="search-bar">
               <div class="advanced-search">
               <form class="search-form" method="post" action="/categorie">
                 <div class="col-md-5 col-sm-12 search-col">
@@ -117,7 +117,7 @@
 </div>
 <!-- Header Section End -->
   <!-- Content section Start -->
-  <section id="content">
+  <section class="main-container">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -127,7 +127,7 @@
                   </div>
              
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
-            <div class="row search-bar mb30 red-bg">            
+            <div class="search-bar mb30 red-bg">            
               <div class="advanced-search">                
                 <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)" id="contact_us">
                     @csrf
