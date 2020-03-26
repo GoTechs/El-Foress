@@ -334,8 +334,7 @@
         <subPane>
           <expand>
             <path>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -343,10 +342,10 @@
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
               <item name="storage" type="462c0819:PsiDirectoryNode" />
-=======
+
               <item name="foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
-=======
+
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -354,18 +353,14 @@
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
->>>>>>> develop
+
             </path>
             <path>
               <item name="Foress" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foress" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
               <item name="routes" type="462c0819:PsiDirectoryNode" />
->>>>>>> parent of e881b66... Modify AppServiceProvider : forceScheme('https')
-=======
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+    <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
->>>>>>> develop
             </path>
           </expand>
           <select />

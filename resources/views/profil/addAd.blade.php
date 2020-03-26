@@ -79,7 +79,6 @@
                 <div class="col-md-3 col-sm-12 search-col">
                     <input class="form-control keyword wilaya" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
                     <!-- <i class="fa fa-map-marker"></i> -->
-
                 </div>
 
                 <div class="col-md-3 col-sm-12 search-col search-category test">
@@ -122,44 +121,41 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
-          <div class="page-ads box">             
+          <div class="page-ads box">
+                  <div class="alert alert-danger col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4" style="display:none">
+                      <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>                      
+                  </div>
+             
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->
-<<<<<<< HEAD
             <div class="search-bar mb30 red-bg">            
               <div class="advanced-search">                
-=======
-                          
->>>>>>> 1a3b5ecf33ea80250d6c47dd830d233bba793225
                 <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)" id="contact_us">
                     @csrf
-                  <div class="form-group has-feedback Caterror">
-                  <label class="control-label" for="textarea">Catégories <span class="required">*</span></label> 
+                  <div class="form-group">
                     <select class="form-control" id="categorie" name="categorie">
-                      <option value="">-- Sélectionner --</option>
+                      <option value="">Catégories</option>
                           @foreach ($categorie as $key => $value)    
                             <option @if(old('categorie') == $value->idCat) {{ 'selected' }} @endif value="{{$value->idCat}}">{{ $value->categories }}</option>
                           @endforeach
                     </select>
-                    <div class="invalid-feedback Cat-error"></div>
                   </div>                 
-             
+              </div>
+            </div>
 
-            <div class="form-group sub_cat has-feedback sousCaterror">
+            <div class="form-group sub_cat">
               <label class="control-label" for="textarea">Sous Catégories <span class="required">*</span></label> 
-              <select class="form-control" id="sousCat" name="sousCat" onchange="field()" disabled>
-                 <option value="">-- Sélectionner --</option>
+              <select class="form-control" id="sousCat" name="sousCat" onchange="field()">
+                 <option value="">Sous Catégories</option>
               </select>
-              <div class="invalid-feedback sousCat-error"></div>
             </div>
           </div>
           <input type="hidden" id="id_subcat" value="{{old('sousCat')}}">  
           <div class="mb30"></div>
           <div class="box">
-           <div class="form-group mb30 has-feedback titlerror">
+           <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Titre de l'annonce <span class="required">*</span></label>
                   <input class="form-control input-md" name="Adtitle" id="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{old('Adtitle')}}">
-                  <div class="invalid-feedback titl-error"></div>
-                </div>
+              </div>
               <div class="form-group state">
                 <label class="control-label" for="textarea">État</label> 
                 <select class="form-control" name="etat" id="etat">
@@ -169,9 +165,8 @@
                     <option {{ old('etat') == 'État moyen' ? 'selected' : ''}}>État moyen</option>
                 </select>
               </div>
-              <div class="form-group mb30 has-feedback descerror">
+              <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
                 <label class="control-label">Description <span class="required">*</span></label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{old('descrp')}}</textarea>
-                <div class="invalid-feedback desc-error"></div>
               </div>
           </div> 
 
@@ -483,11 +478,10 @@
           <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Emplacement</h2>
-          <div class="form-group has-feedback wilayaerror">
+          <div class="form-group {{ $errors->has('wilaya') ? ' has-error' : '' }} has-feedback">
             <label class="control-label" for="textarea">Wilaya <span class="required">*</span></label>
               <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya2" placeholder="Wilaya" value="{{old('wilaya')}}">
-              <div class="invalid-feedback wilaya-error"></div>
-            </div>
+          </div>
           </div>
             
           <div class="mb30"></div>
@@ -645,7 +639,7 @@
                   $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
 
                       $('#sousCat').empty();
-                      $('#sousCat').append('<option value="" disable="true" selected="true">-- Sélectionner --</option>');
+                      $('#sousCat').append('<option value="" disable="true" selected="true">Sous Catégories</option>');
 
                       $.each(data, function(index, sousCatObj){
                         if (subcat_id != ''){
@@ -660,8 +654,7 @@
                           }
                       })
 
-                      //$('.sub_cat').show();
-                      $( ".sousCat" ).prop( "disabled", false );
+                      $('.sub_cat').show();
                       var nameSousCat = $( "#sousCat option:selected" ).text();
                 switch (nameSousCat)  {
 
@@ -736,7 +729,7 @@
                   });
 
                 } else {
-                    $('.details').hide();
+                    $('.details, .sub_cat').hide();
                     $('.state').hide();
                   }
          
@@ -841,12 +834,12 @@
               $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
 
                   $('#sousCat').empty();
-                  $('#sousCat').append('<option value="" disable="true" selected="true">-- Sélectionner --</option>');
+                  $('#sousCat').append('<option value="" disable="true" selected="true">Sous Catégories</option>');
 
                   $.each(data, function(index, sousCatObj){
                       $('#sousCat').append('<option value="'+ sousCatObj.idSousCat +'">'+ sousCatObj.sousCat +'</option>');
                   })
-                  $('#sousCat').removeAttr('disabled');
+                  $('.sub_cat').show();
               });
           });
 
@@ -935,29 +928,10 @@
                   },
                   success: function(data){
                     if ($.isEmptyObject(data.success)){   
-                     $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();  
-                                  
+                      $('.alert-danger').empty();                 
                         $.each(data.errors, function(key, value){
-                          if (key == 'categorie'){
-                            $( ".Caterror" ).addClass( "has-error" );
-                            $('.Cat-error').append(value);
-                          } 
-                          if (key == 'sousCat'){
-                            $( ".sousCaterror" ).addClass( "has-error" );
-                            $('.sousCat-error').append(value);
-                          } 
-                          if (key == 'Adtitle'){
-                            $( ".titlerror" ).addClass( "has-error" );
-                            $('.titl-error').append(value);
-                          } 
-                          if (key == 'descrp'){
-                            $( ".descerror" ).addClass( "has-error" );
-                            $('.desc-error').append(value);
-                          } 
-                          if (key == 'wilaya'){
-                            $( ".wilayaerror" ).addClass( "has-error" );
-                            $('.wilaya-error').append(value);
-                          }  
+                          $('.alert-danger').show();
+                          $('.alert-danger').append('<p>'+value+'</p>');
                           $("html, body").animate({ 
                               scrollTop: 0 
                           }, "slow");
