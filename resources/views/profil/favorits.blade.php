@@ -129,7 +129,7 @@
                           swal("L'annonce a été supprimée des favoris", {
                             icon: "success",
                           });
-                          $('#'+id).remove();
+                          document.location.href = "/favorites";
                         }
                       })
                     }

@@ -133,7 +133,7 @@
                         swal("Votre annonce a été supprimée!", {
                           icon: "success",
                         });
-                        $('#'+id).remove();
+                        document.location.href = "/my-ads";
                       }
                     })
                   }
@@ -154,12 +154,11 @@
                       url : "/archiveAd/"+id,
                       type : "POST",
                       data : {'_method' : 'PATCH','_token':csrf_token},
-                      success : function(data){
-                      
+                      success : function(data){                      
                        swal("Votre annonce a été archivée!", {
                           icon: "success",
                         });
-                       $('#'+id).remove();
+                        document.location.href = "/my-ads";
                       }
                     })
                   }

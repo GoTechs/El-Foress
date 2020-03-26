@@ -125,7 +125,7 @@
                   swal("Votre annonce a été supprimée!", {
                     icon: "success",
                   });
-                  $('#'+id).remove();
+                  document.location.href = "/archives";
                 }
               })
             }
@@ -150,11 +150,12 @@
                     swal("Votre annonce a été republiée!", {
                       icon: "success",
                     });
-                    $('#'+id).remove();
+                    document.location.href = "/archives";
                   }
                 })
               }
             });
+            
       }
 
     </script>
