@@ -124,9 +124,6 @@
             <div class="row">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <div class="page-ads box">
-                    <div class="alert alert-danger col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4" style="display:none">
-                      <strong>Whoops!</strong> Veuillez corriger les erreurs sur cette page.<br><br>                      
-                    </div>
                         <h2 class="title-2">Modification</h2><!-- Start Search box -->
                         <div class="search-bar mb30 red-bg">
                             <div class="advanced-search">
@@ -146,8 +143,6 @@
                                     @endforeach
                                 </select>
                             </div>                 
-                        </div>
-                    </div>
                     <div class="form-group sub_cat">
                       <label class="control-label" for="textarea">Sous Catégories</label> 
                       <select class="form-control" id="sousCat" name="sousCat" onchange="field()" disabled>
@@ -164,9 +159,10 @@
                 </div>
           <div class="mb30"></div>
           <div class="box">
-           <div class="form-group mb30 {{ $errors->has('Adtitle') ? ' has-error' : '' }} has-feedback">
+           <div class="form-group mb30 has-feedback titlerror">
                 <label class="control-label">Titre de l'annonce <span class="required">*</span></label>
                   <input class="form-control input-md" name="Adtitle" placeholder="Écrivez un titre approprié pour votre annonce" type="text" value="{{$annonce->titre}}">
+                  <div class="invalid-feedback titl-error"></div>
               </div>
               <div class="form-group state">
                 <label class="control-label" for="textarea">État</label> 
@@ -187,8 +183,9 @@
                                 @endif
                 </select>
               </div>
-              <div class="form-group mb30 {{ $errors->has('descrp') ? ' has-error' : '' }} has-feedback">
+              <div class="form-group mb30 has-feedback descerror">
                 <label class="control-label">Description <span class="required">*</span></label> <textarea class="form-control" rows="5" name="descrp" id="descrp">{{$annonce->description}}</textarea>
+                <div class="invalid-feedback desc-error"></div>
               </div>
           </div> 
 
@@ -539,9 +536,10 @@
                     <div class="mb30"></div>
                       <div class="box">
                       <h2 class="title-2">Emplacement</h2>
-                      <div class="form-group {{ $errors->has('wilaya') ? ' has-error' : '' }} has-feedback">
+                      <div class="form-group has-feedback wilayaerror">
                         <label class="control-label" for="textarea">Wilaya <span class="required">*</span></label>
                           <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya" placeholder="Wilaya" value="{{$annonce->wilaya}}">
+                          <div class="invalid-feedback wilaya-error"></div>
                       </div>
                       </div>
 
@@ -771,10 +769,20 @@
                 },
                 success: function(data){
                     if ($.isEmptyObject(data.success)){   
-                    $('.alert-danger').empty();                 
+                        $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();                  
                         $.each(data.errors, function(key, value){
-                        $('.alert-danger').show();
-                        $('.alert-danger').append('<p>'+value+'</p>');
+                        if (key == 'Adtitle'){
+                            $( ".titlerror" ).addClass( "has-error" );
+                            $('.titl-error').append(value);
+                          } 
+                          if (key == 'descrp'){
+                            $( ".descerror" ).addClass( "has-error" );
+                            $('.desc-error').append(value);
+                          } 
+                          if (key == 'wilaya'){
+                            $( ".wilayaerror" ).addClass( "has-error" );
+                            $('.wilaya-error').append(value);
+                          }  
                         $("html, body").animate({ 
                             scrollTop: 0 
                         }, "slow");
