@@ -933,7 +933,6 @@
                      $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();  
                                   
                         $.each(data.errors, function(key, value){
-                          console.log(key);
                           if (key == 'categorie'){
                             $( ".Caterror" ).addClass( "has-error" );
                             $('.Cat-error').append(value);

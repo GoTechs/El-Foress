@@ -278,7 +278,7 @@ class insertAdController extends Controller
 
         if ($validator->fails())
         {
-            return response()->json(['errors'=>$validator->errors()->all()]);
+            return response()->json(['errors'=>$validator->errors()]);
         }   
         
         $id = request('idAnnonce');
