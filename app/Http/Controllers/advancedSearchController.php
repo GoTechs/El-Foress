@@ -29,6 +29,11 @@ class advancedSearchController extends Controller
 
 		$dataSelected = '';
 		$cat = ''; 
+		$orderSelected = '';
+
+		if(request('order')){
+			$orderSelected = request('order');
+		}
 
     	$imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
     	$search = categories::all();
@@ -487,9 +492,9 @@ class advancedSearchController extends Controller
 		  }
 
 		  if($cat == ''){
-			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
+			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'orderSelected'=>$orderSelected]);
 		  } else {
-			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'filter'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'catégorie'=>$cat]);
+			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'filter'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'catégorie'=>$cat,'orderSelected'=>$orderSelected]);
 		  }
 
         

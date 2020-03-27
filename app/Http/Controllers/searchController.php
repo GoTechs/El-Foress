@@ -101,8 +101,9 @@ class searchController extends Controller
       $cat = 'Catégorie'; 
       if (request('categorie')) { $filterKey  = request('categorie'); }
       else { $filterKey = '';  } 
+      $orderSelected = '';
 
-		  return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'search'=>$search,'sousCat'=>$sousCat,'filter'=>$filterKey]);
+		  return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>$cat,'search'=>$search,'sousCat'=>$sousCat,'filter'=>$filterKey,'orderSelected'=>$orderSelected]);
    }
 
    public function searchPerCat($idCat){
@@ -117,10 +118,12 @@ class searchController extends Controller
                     ->get();                                                                                       
 
         $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
-                                           ->paginate(6);      
+                                           ->paginate(6);  
+
+        $orderSelected = '';    
                  
      
-        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'Catégorie','filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat]);
+        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'Catégorie','filter'=>$filterKey,'search'=>$search,'sousCat'=>$sousCat,'orderSelected'=>$orderSelected]);
    }
 
       public function searchPerSousCat($idCat,$idSousCat){
@@ -154,7 +157,9 @@ class searchController extends Controller
                 $dataSelected = domainemploi::all();
               }
 
-      return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idCat'=>$idCat,'idSousCat'=>$idSousCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected]);
+        $orderSelected = '';
+
+        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idCat'=>$idCat,'idSousCat'=>$idSousCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'orderSelected'=>$orderSelected]);
    }
 
 

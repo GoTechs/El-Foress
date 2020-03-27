@@ -705,13 +705,11 @@
                     @endif              
                 <!-- </div> 
                 </div> -->
-                </div>       
-            </aside>
-          </div>
+                </div>  
+            </aside>   
+          </div> 
 
           <div class="col-sm-9 page-content">
-
-
          @if ($data->count() <> '0')
             <!-- Product idSousCat Start -->
             <div class="product-filter">
@@ -930,12 +928,21 @@
                   @endif
                   <label>
                     <select name="order" class="orderby" onchange="this.form.submit()">
-                      <option selected="selected" value="menu-order">Ordre de tri</option>
-                      <option value="mostrecent">Les plus récentes</option>
-                      <option value="lessrecent">Les moins récentes</option>
-                      <option value="popularity">les plus populaires</option>
-                      <option value="priceAsc">Prix: Faible à élevé</option>
-                      <option value="priceDesc">Prix: Elevé à faible</option>
+                      @if ($orderSelected <> '')
+                        <option value="menu-order">Ordre de tri</option>
+                        <option {{ $orderSelected == 'mostrecent' ? 'selected' : '' }} value="mostrecent">Les plus récentes</option>
+                        <option {{ $orderSelected == 'lessrecent' ? 'selected' : '' }} value="lessrecent">Les moins récentes</option>
+                        <option {{ $orderSelected == 'popularity' ? 'selected' : '' }} value="popularity">Les plus populaires</option>
+                        <option {{ $orderSelected == 'priceAsc' ? 'selected' : '' }} value="priceAsc">Prix: Faible à élevé</option>
+                        <option {{ $orderSelected == 'priceDesc' ? 'selected' : '' }} value="priceDesc">Prix: Elevé à faible</option>
+                      @else
+                        <option selected="selected" value="menu-order">Ordre de tri</option>
+                        <option value="mostrecent">Les plus récentes</option>
+                        <option value="lessrecent">Les moins récentes</option>
+                        <option value="popularity">Les plus populaires</option>
+                        <option value="priceAsc">Prix: Faible à élevé</option>
+                        <option value="priceDesc">Prix: Elevé à faible</option>
+                       @endif                      
                     </select>
                   </label>
                 </form>
