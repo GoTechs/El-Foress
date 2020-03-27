@@ -5301,10 +5301,6 @@ footer .menu li a:hover {
 .add-img-td img {
   width: 100%;
 }
-.table-action {
-  display: block;
-  margin-bottom: 15px;
-}
 table.add-manage-table > tbody > tr > td,
 table.add-manage-table > tbody > tr > th {
   vertical-align: middle;
@@ -12706,7 +12702,7 @@ zoom: 1;
     border: 1px solid #eee;
   }
   .table-action {
-    padding: 40px;
+    padding: 15px;
   }
   .table-search {
     display: none;
@@ -14255,7 +14251,7 @@ footer .menu li a:hover {
 }
 .table-action {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
 }
 table.add-manage-table > tbody > tr > td,
 table.add-manage-table > tbody > tr > th {

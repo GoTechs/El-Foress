@@ -1929,10 +1929,6 @@ footer .menu li a:hover {
 .add-img-td img {
   width: 100%;
 }
-.table-action {
-  display: block;
-  margin-bottom: 15px;
-}
 table.add-manage-table > tbody > tr > td,
 table.add-manage-table > tbody > tr > th {
   vertical-align: middle;
