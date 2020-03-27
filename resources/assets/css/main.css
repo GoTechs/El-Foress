@@ -557,7 +557,7 @@ nav#menu span.fa.fa-bars:hover {
 }
 .main-navigation .navbar-nav > li.postadd a:hover {
   color: #fff;
-  background: #FF625D;
+  
 }
 .main-navigation .navbar-nav > li.allsearch a {
   background-color: #373373;
@@ -1363,6 +1363,7 @@ footer .menu li a:hover {
   border: 1px solid #eee;
   padding: 15px;
   width: 100%;
+  background-color: #fff;
 }
 #right-details{
   display: flex;
@@ -1505,7 +1506,7 @@ footer .menu li a:hover {
   transition: background 0.25s ease-in 0s;
 }
 .adds-wrapper .item-list:hover {
-  background: #F6F6F5;
+  background: #c3c3c3;
 }
 .adds-wrapper .item-list.make-grid {
   display: block;
@@ -2647,6 +2648,7 @@ textarea:focus {
   padding: 15px;
   border: 1px solid #ddd;
   box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.075);
+  background-color: #ffffff;
 }
 .page-login-form h3 {
   font-size: 18px;

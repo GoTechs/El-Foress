@@ -63,10 +63,7 @@
   -o-transition: all .3s linear;
   transition: all .3s linear;
 }
-.main-navigation .navbar-nav > li.postadd a:hover {
-  color: #fff;
-  background: #b273ca;
-}
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
@@ -915,9 +912,6 @@ footer .menu li a:hover {
   -ms-transition: background 0.25s ease-in 0s;
   -o-transition: background 0.25s ease-in 0s;
   transition: background 0.25s ease-in 0s;
-}
-.adds-wrapper .item-list:hover {
-  background: #F6F6F5;
 }
 .adds-wrapper .add-title {
   padding-bottom: 10px;

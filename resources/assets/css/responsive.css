@@ -160,6 +160,11 @@
     font-family: 'Roboto', sans-serif;
     border-radius: 4;
   }
+  .checkbox {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+  }
   .btn-search{
     width: 100%;
   }
@@ -364,7 +369,7 @@
     border: 1px solid #eee;
   }
   .table-action {
-    padding: 10px;
+    padding: 40px;
   }
   .table-search {
     display: none;
@@ -437,9 +442,6 @@
   }
   .btn-facebook, .btn-google {
     font-size: 10px;
-  }
-  .col-sm-2 {
-    padding: 0 !important;
   }
   #profile {
     display: block;
