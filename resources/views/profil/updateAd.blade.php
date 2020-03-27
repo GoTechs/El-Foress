@@ -125,8 +125,6 @@
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <div class="page-ads box">
                         <h2 class="title-2">Modification</h2><!-- Start Search box -->
-                        <div class="search-bar mb30 red-bg">
-                            <div class="advanced-search">
                                 <form class="search-form" method="post" action="javascript:void(0)" id="contact_us" enctype="multipart/form-data">
                                     @csrf
                                     {{ method_field('PATCH') }}                              
