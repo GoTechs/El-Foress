@@ -278,17 +278,17 @@ btn.click(function(e)
       btn.addClass('more');
       btn.text('Afficher moins');
       $("html, body").animate({ 
-                              scrollTop: h + 150
-                          }, "slow");
-      text.animate({'height': h});
+                              scrollTop: h + 300
+                          }, 1000);
+      text.animate({'height': h+30});
   } else {
       btn.addClass('less');
       btn.removeClass('more');
       btn.text('Afficher plus...');
       text.animate({'height': '150px'});
       $("html, body").animate({ 
-                              scrollTop: h
-                          }, "slow");
+                              scrollTop: h + 100
+                          }, 1000);
   }  
 });	
 

@@ -9,34 +9,15 @@
         <div class="row">
           <!-- Product Info Start -->          
             <div class="col-sm-9  ads-details-wrapper">
-            <div class="inner-box" id="details-left">
-            <h4 id="details-title">{{$annonce->titre}}</h4>
+              <h4 id="details-title">{{$annonce->titre}}</h4>
               @if ($annonce->prix <> "") <h3 id="details-price" >{{$annonce->prix}} DA</h3> @endif
                 @if ($annonce->etat <> "")
                   <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
-                @endif
+             @endif
              
-              <div id="details-img">
-                @if ($annonce->hasPicture == '1')
-                    @foreach ($images as $key => $value) 
-                  @if ($key == 0)
-                  <a id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($value->imagename)}}">
-                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" />
-                  </a>
-                  @else
-                  <a href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
-                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
-                  </a>
-                @endif
-                    @endforeach
-                  @else 
-                  <img id="principal-image" src="{{asset('img/nopicture.png')}}" alt="">
-                @endif 
-              </div>   
-            </div>
-
-            <div class="inner-box" id="details">      
-                @auth 
+             <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->nom}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+            <div class="options-btn">
+            @auth 
                   @if (App\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $annonce->id)->count() <> 0)
                     <a disabled="disabled" class="btn btn-danger btn-sm" title="L'annonce a déjà été ajoutée aux favoris"><i class="fa fa-heart"></i>
                     <span>Favori</span></a>
@@ -52,6 +33,26 @@
                     <span>Favori</span></a>
                 @endauth    
                 <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$annonce->numberViews}}</span> </a>
+          </div>
+          @if ($annonce->hasPicture == '1')
+            <div class="inner-box" id="details-left">
+              <div id="details-img">
+                    @foreach ($images as $key => $value) 
+                  @if ($key == 0)
+                  <a id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($value->imagename)}}">
+                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" />
+                  </a>
+                  @else
+                  <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
+                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
+                  </a>
+                @endif
+                    @endforeach
+              </div>   
+            </div>
+            @endif 
+
+            <div class="inner-box" id="details">      
                 <div class="row" id="right-details">
                 <div class="user-details col-md-12">
                   @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "" or $annonce->email <> "")
