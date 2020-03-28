@@ -74,25 +74,27 @@ class searchController extends Controller
    		$wilaya =  request('wilaya');
    		$keyword =  request('keyword');
 
-   		$imageAd = DB::table('imageads')->groupBy('id_annonce')->get()->toArray();
+   	  $imageAd = DB::table('imageads')->groupBy('id_annonce')->get()->toArray();
 
       $data = DB::table('annonces');
 
-	    // Search for a user based on their name.
 	    if (request('categorie')) {
 	        $data = $data->where('id_Cat', '=',  request('categorie'));
-	    }
-
-	    // Search for a user based on their company.
+        }
+        
 	    if (request('wilaya')) {
 	        $data = $data->where('wilaya', 'LIKE', "%" . request('wilaya') . "%");
-	    }
-
-	    // Search for a user based on their city.
-	    if (request('keyword')) {
+        }
+        
+	    if (request('keywordPhone')) {
+	        $data = $data->where('titre', 'LIKE', "%" . request('keywordPhone') . "%")
+	        			 ->orWhere('description','LIKE',"%" . request('keywordPhone') . "%");
+        }
+        
+        if (request('keyword')) {
 	        $data = $data->where('titre', 'LIKE', "%" . request('keyword') . "%")
 	        			 ->orWhere('description','LIKE',"%" . request('keyword') . "%");
-	    }
+        }
 
        $data = $data->where('stateAd', '=',  '1')
                     ->orderBy('created_at','desc') 
