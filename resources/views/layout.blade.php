@@ -263,7 +263,6 @@
         var text = $('.status-body-text'),
      btn = $('.btn-overflow'),
        h = text[0].scrollHeight; 
-
 if(h > 150) {
 	btn.addClass('less');
 	btn.css('display', 'block');
@@ -278,21 +277,30 @@ btn.click(function(e)
       btn.removeClass('less');
       btn.addClass('more');
       btn.text('Afficher moins');
-
+      $("html, body").animate({ 
+                              scrollTop: h + 150
+                          }, "slow");
       text.animate({'height': h});
   } else {
       btn.addClass('less');
       btn.removeClass('more');
       btn.text('Afficher plus...');
       text.animate({'height': '150px'});
+      $("html, body").animate({ 
+                              scrollTop: h
+                          }, "slow");
   }  
 });	
 
     /* ******************************   Gallery *************************************** */  
 
     $('[data-fancybox="images-preview"]').fancybox({
+        
                             // Close existing modals
                         // Set this to false if you do not need to stack multiple instances
+                        thumbs : {
+                                 autoStart : true
+                                  },
                         closeExisting: false,
 
                         // Enable infinite gallery navigation

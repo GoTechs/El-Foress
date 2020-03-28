@@ -8,40 +8,34 @@
       <div class="container">
         <div class="row">
           <!-- Product Info Start -->          
-            <div class="col-sm-12  col-lg-10 ads-details-wrapper">
-              <div class="inner-box" id="details-left">
+            <div class="col-sm-9  ads-details-wrapper">
+            <div class="inner-box" id="details-left">
+            <h4 id="details-title">{{$annonce->titre}}</h4>
+              @if ($annonce->prix <> "") <h3 id="details-price" >{{$annonce->prix}} DA</h3> @endif
                 @if ($annonce->etat <> "")
                   <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
                 @endif
+             
               <div id="details-img">
                 @if ($annonce->hasPicture == '1')
                     @foreach ($images as $key => $value) 
-                  @if ($key == 0)                   
-                  <p>
-                      <a href="{{Storage::disk('s3')->url($value->imagename)}}" 
-                        data-fancybox="images-preview" 
-                        data-width="1500" data-height="1000">
-                        <img src="{{Storage::disk('s3')->url($value->imagename)}}" />
-                      </a>
-                  </p>
-                  @else  
-                  <div style="display: none;">
-                    <a href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" 
-                      data-width="1500" data-height="1000"><img src="{{Storage::disk('s3')->url($value->imagename)}}" />
-                    </a>   
-                  </div>            
-                  @endif
-              
+                  @if ($key == 0)
+                  <a id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($value->imagename)}}">
+                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" />
+                  </a>
+                  @else
+                  <a href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
+                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
+                  </a>
+                @endif
                     @endforeach
                   @else 
-                  <img id="details-img" src="{{asset('img/nopicture.png')}}" alt="">
+                  <img id="principal-image" src="{{asset('img/nopicture.png')}}" alt="">
                 @endif 
               </div>   
             </div>
-              <div class="inner-box" id="details">
-                <h4 id="details-title">{{$annonce->titre}}</h4>
-                @if ($annonce->prix <> "") <h3 id="details-price" >{{$annonce->prix}} DA</h3> @endif
-                <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->nom}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+
+            <div class="inner-box" id="details">      
                 @auth 
                   @if (App\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $annonce->id)->count() <> 0)
                     <a disabled="disabled" class="btn btn-danger btn-sm" title="L'annonce a déjà été ajoutée aux favoris"><i class="fa fa-heart"></i>
@@ -61,7 +55,7 @@
                 <div class="row" id="right-details">
                 <div class="user-details col-md-12">
                   @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "" or $annonce->email <> "")
-                      <aside class="panel panel-body panel-details">
+                      <div class="panel panel-body panel-details">
                         <ul>  
                         @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "") 
                           <li>                            
@@ -74,11 +68,11 @@
                             <li>
                             @endif                  
                         </ul>
-                      </aside> 
+                      </div> 
                       @endif                    
                     </div>
                   <div class="ads-details-info col-md-12 status-body-text">
-                    <aside class="panel panel-body panel-details details-description">
+                    <div class="panel panel-body panel-details details-description">
                       <h4 id="details-title">Description</h4>
                       <p class="mb15">{{$annonce->description}}</p>
                       <ul class="list-circle">
@@ -143,16 +137,17 @@
                         
                         @endif
                       </ul>
-                    </aside> 
+                    </div> 
                     </div>  
-                  </div>    
+</div>
+                    
                   <a class="btn-overflow" href="#">Afficher plus...</a>                                           
                 </div>
-            </div>
+          
             
           @if ($relatedAds->count() <> '0')
             <!-- Adds wrapper Start -->                     
-              <div class="col-sm-12  col-lg-10">   
+               
               <h3 class="section-title">Annonces Correspondantes</h3>                 
                 <div class="adds-wrapper">              
                   @foreach ($relatedAds as $relatedAd)
@@ -221,8 +216,7 @@
                     </div>
                   </div>    
                   @endforeach
-                </div>                          
-              </div> 
+                </div>                                       
               <div id="pagination">
               <div class="col-sm-12">
             {{ $relatedAds->links() }}
@@ -230,7 +224,16 @@
               </div>
             <!-- Adds wrapper End -->
           @endif
+          <div class="post-promo text-center">
+              <h2> Avez-vous quelque chose à vendre ?</h2>
+              <h5>Vendez vos produits en ligne GRATUITEMENT. C'est plus facile que vous ne le pensez!</h5>  
+                <a href="/add-Ad" class="btn btn-post btn-danger">Publier une annonce </a>              
           </div>
+          </div>
+          <div class="col-sm-3 page-sideabr">
+                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="">  
+        </div>
+            </div> 
       </div>         
     </div>
 
