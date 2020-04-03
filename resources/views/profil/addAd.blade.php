@@ -832,8 +832,11 @@
 
           $('#categorie').on('change', function(e){
               var cat_id = e.target.value;
-              $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
-
+              if (cat_id == ""){
+                $('#sousCat').attr('disabled','disabled');
+                $('.details').hide();
+              } else {
+                $.get('/json-sousCategorie?idCat=' + cat_id,function(data) {
                   $('#sousCat').empty();
                   $('#sousCat').append('<option value="" disable="true" selected="true">-- Sélectionner --</option>');
 
@@ -841,7 +844,8 @@
                       $('#sousCat').append('<option value="'+ sousCatObj.idSousCat +'">'+ sousCatObj.sousCat +'</option>');
                   })
                   $('#sousCat').removeAttr('disabled');
-              });
+                });
+              }
           });
 
 
