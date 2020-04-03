@@ -120,7 +120,7 @@
   <section class="main-container">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <div class="col-sm-9">
           <div class="page-ads box">             
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->               
                 <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)" id="contact_us">
@@ -166,7 +166,7 @@
                 <div class="invalid-feedback desc-error"></div>
               </div>
           </div> 
-
+        
  <!-- *************************************** VEHICULES ************************************** -->
             
           <div class="mb30"></div>
@@ -525,6 +525,9 @@
           </div>
         </div>
       </form>
+      <div class="col-sm-3 page-sideabr">
+        <img src="{{asset('img/pub/helpiste.jpg')}}" alt=""> 
+      </div>
       </div>
     </div>
   </section><!-- Content section End -->

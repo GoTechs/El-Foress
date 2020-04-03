@@ -178,6 +178,9 @@ textarea {
   max-width: 115px;
   width: 100%;
 }
+.pull-right .collapsed {
+  transform: rotate(180deg);
+}
 .btn-xs {
   border-radius: 0px;
   font-size: 12px;
@@ -556,8 +559,8 @@ nav#menu span.fa.fa-bars:hover {
   transition: all .3s linear;
 }
 .main-navigation .navbar-nav > li.postadd a:hover {
-  color: #fff;
-  
+  color: #fff !important;
+  background-color: #8870c3;
 }
 .main-navigation .navbar-nav > li.allsearch a {
   background-color: #373373;
@@ -1370,6 +1373,7 @@ footer .menu li a:hover {
 }
 #details {
   background-color: #fff;
+  margin-bottom: 50px;
 }
 .btn-overflow {
   display: none;
@@ -1507,7 +1511,9 @@ footer .menu li a:hover {
   background: #c3c3c3;
 }
 .adds-wrapper .item-list.make-grid {
-  display: block;
+  display: grid;
+  grid-template-rows: 140px 1fr;
+  height: 500px;
 }
 .adds-wrapper .add-title {
   padding-bottom: 10px;
@@ -1582,6 +1588,7 @@ footer .menu li a:hover {
   margin: 0;
   display: flex;
   margin: 10px !important;
+  justify-content: center;
 }
 .pagination > li > a,
 .pagination .pagination > li > span {
@@ -2718,12 +2725,13 @@ textarea:focus {
   text-align: center;
   line-height: 15px;
 }
+
 .page-login-form .checkbox input[type=checkbox]:checked + label:before {
   content: "\2022";
   color: #3498DB;
   font-size: 35px;
   text-align: center;
-  line-height: 14px;
+  line-height: 17px;
 }
 .page-login-form .checkbox-inline + .checkbox-inline {
   margin-left: 0;

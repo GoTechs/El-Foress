@@ -1609,10 +1609,9 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .pagination > li > a,
 .pagination > li > span {
   border: 0;
-  border-radius: 30px !important;
   transition: all .3s;
   padding: 0px 11px;
-  margin: 0 3px;
+  margin: 3px;
   min-width: 30px;
   height: 30px;
   line-height: 30px;
@@ -3550,6 +3549,9 @@ textarea {
   max-width: 115px;
   width: 100%;
 }
+.collapse-box > .pull-right .collapsed {
+  transform: rotate(180deg);
+}
 .btn-xs {
   border-radius: 0px;
   font-size: 12px;
@@ -3928,8 +3930,8 @@ nav#menu span.fa.fa-bars:hover {
   transition: all .3s linear;
 }
 .main-navigation .navbar-nav > li.postadd a:hover {
-  color: #fff;
-  
+  color: #fff !important;
+  background-color: #8870c3;
 }
 .main-navigation .navbar-nav > li.allsearch a {
   background-color: #373373;
@@ -4742,6 +4744,7 @@ footer .menu li a:hover {
 }
 #details {
   background-color: #fff;
+  margin-bottom: 50px;
 }
 .btn-overflow {
   display: none;
@@ -4879,7 +4882,9 @@ footer .menu li a:hover {
   background: #c3c3c3;
 }
 .adds-wrapper .item-list.make-grid {
-  display: block;
+  display: grid;
+  grid-template-rows: 140px 1fr;
+  height: 500px;
 }
 .adds-wrapper .add-title {
   padding-bottom: 10px;
@@ -4954,6 +4959,7 @@ footer .menu li a:hover {
   margin: 0;
   display: flex;
   margin: 10px !important;
+  justify-content: center;
 }
 .pagination > li > a,
 .pagination .pagination > li > span {
@@ -6090,12 +6096,13 @@ textarea:focus {
   text-align: center;
   line-height: 15px;
 }
+
 .page-login-form .checkbox input[type=checkbox]:checked + label:before {
   content: "\2022";
   color: #3498DB;
   font-size: 35px;
   text-align: center;
-  line-height: 14px;
+  line-height: 17px;
 }
 .page-login-form .checkbox-inline + .checkbox-inline {
   margin-left: 0;
@@ -13873,9 +13880,38 @@ footer .menu li a:hover {
 }
 .product-filter .button,
 .product-filter select {
-  font-size: 14px;
-  font-weight: 400;
-  color: #333;
+  outline-width: 0;
+    outline: none;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #d2d3d7;
+    box-sizing: border-box;
+    color: #3e4153;
+    display: block;
+    font-family: Larsseit,Arial,sans-serif;
+    font-size: 15px;
+    height: 30px;
+    padding: 0 30px 0 20px;
+    width: 100%;
+    /* -webkit-appearance: none; */
+}
+.product-filter select:focus {
+outline-width: 0;
+    outline: none;
+    border: 1px solid #2681db;
+    box-shadow: 0 0 5px #2681db;
+}
+.product-filter select::after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e113";
+    position: absolute;
+    right: 0px;
+    color: #444;
+    font-size: 10px;
+    font-weight: 300;
+    top: 50%;
+    line-height: 1;
+    margin-top: -5px;
 }
 /* ==========================================================================
      Adds wrapper Style
@@ -14005,6 +14041,7 @@ footer .menu li a:hover {
   background: #eee;
   border-left: 3px solid #3498db;
 }
+
 /* ==========================================================================
    Ads-detail Style
    ========================================================================== */

@@ -880,9 +880,38 @@ footer .menu li a:hover {
 }
 .product-filter .button,
 .product-filter select {
-  font-size: 14px;
-  font-weight: 400;
-  color: #333;
+  outline-width: 0;
+    outline: none;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #d2d3d7;
+    box-sizing: border-box;
+    color: #3e4153;
+    display: block;
+    font-family: Larsseit,Arial,sans-serif;
+    font-size: 15px;
+    height: 30px;
+    padding: 0 30px 0 20px;
+    width: 100%;
+    /* -webkit-appearance: none; */
+}
+.product-filter select:focus {
+outline-width: 0;
+    outline: none;
+    border: 1px solid #2681db;
+    box-shadow: 0 0 5px #2681db;
+}
+.product-filter select::after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e113";
+    position: absolute;
+    right: 0px;
+    color: #444;
+    font-size: 10px;
+    font-weight: 300;
+    top: 50%;
+    line-height: 1;
+    margin-top: -5px;
 }
 /* ==========================================================================
      Adds wrapper Style
@@ -1012,6 +1041,7 @@ footer .menu li a:hover {
   background: #eee;
   border-left: 3px solid #3498db;
 }
+
 /* ==========================================================================
    Ads-detail Style
    ========================================================================== */
