@@ -161,7 +161,11 @@
     border-radius: 4;
   }
   #details-img {
-    grid-template-rows: repeat(3, 100px);
+    grid-template-rows: 1fr 100px;
+    grid-template-columns: repeat(3, 120px);
+  }
+  #principal-image {
+    grid-column: 1/4;
   }
   .header-details{
     display: block;
@@ -170,7 +174,7 @@
     width: 100%;
   }
   #secondary-image {
-    width: 100px;
+    width: 120px;
     height: 100px;
   }
   .checkbox {

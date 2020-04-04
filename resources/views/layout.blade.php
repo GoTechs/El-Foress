@@ -279,24 +279,24 @@ btn.click(function(e)
       btn.addClass('more');
       btn.text('Afficher moins');
       $("html, body").animate({ 
-                              scrollTop: h + 300
+                              scrollTop: h + 500
                           }, 1000);
-      text.animate({'height': h+30});
+      text.animate({'height': h});
   } else {
       btn.addClass('less');
       btn.removeClass('more');
       btn.text('Afficher plus...');
       text.animate({'height': '150px'});
       $("html, body").animate({ 
-                              scrollTop: h + 100
+                              scrollTop: h + 300
                           }, 1000);
   }  
 });	
 /* ******************************   Get the height and the width of the detail pic  *************************************** */ 
  
-        var h = document.querySelector('#principal-image>img').naturalHeight;
-        var w = document.querySelector('#principal-image>img').naturalWidth;
-        if(w < 600 ){
+        var imgHeight = document.querySelector('#principal-image>img').naturalHeight;
+        var imgWidth = document.querySelector('#principal-image>img').naturalWidth;
+        if(imgWidth < 600 ){
             $("#details-pricipale-img").css('width', "300")
         }else{
             $("#details-pricipale-img").css('width', "100%")  
