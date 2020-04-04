@@ -163,6 +163,12 @@
   #details-img {
     grid-template-rows: repeat(3, 100px);
   }
+  .header-details{
+    display: block;
+  }
+  .right-side{
+    width: 100%;
+  }
   #secondary-image {
     width: 100px;
     height: 100px;

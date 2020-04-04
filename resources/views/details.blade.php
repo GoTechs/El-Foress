@@ -9,41 +9,49 @@
         <div class="row">
           <!-- Product Info Start -->          
             <div class="col-sm-9  ads-details-wrapper">
-              <h4 id="details-title">{{$annonce->titre}}</h4>
-              @if ($annonce->prix <> "") <h3 id="details-price" >{{$annonce->prix}} DA</h3> @endif
-                @if ($annonce->etat <> "")
-                  <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
-             @endif
-             
-             <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->nom}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
-            <div class="options-btn">
-            @auth 
-                  @if (App\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $annonce->id)->count() <> 0)
-                    <a disabled="disabled" class="btn btn-danger btn-sm" title="L'annonce a déjà été ajoutée aux favoris"><i class="fa fa-heart"></i>
-                    <span>Favori</span></a>
-                  @elseif  (App\annonce::where('id_user', Auth::user()->id)->where('id', $annonce->id)->count() <> 0)
-                    <a disabled="disabled" class="btn btn-danger btn-sm" title="Vous êtes le propriétaire de cette annonce!"><i class="fa fa-heart"></i>
-                    <span>Favori</span></a>
-                  @else 
-                    <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"><i class="fa fa-heart"></i>
-                    <span>Favori</span></a>
-                  @endif
-                @else 
-                    <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"><i class="fa fa-heart"></i>
-                    <span>Favori</span></a>
-                @endauth    
-                <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$annonce->numberViews}}</span> </a>
-          </div>
+              <div class="header-details">
+              <div class="left-side">
+                <h4 id="details-title">{{$annonce->titre}}</h4>
+                @if ($annonce->prix <> "") <h3 id="details-price" >{{$annonce->prix}} DA</h3> @endif
+                  
+              </div>
+              <div class="right-side">
+                 <p class="item-intro"><span class="poster">{{__('details.publish_info')}} <span class="ui-bubble is-member">{{$user->nom}} - </span> <span class="date"> {{\Carbon\Carbon::parse($annonce->created_at)->diffForHumans()}}</span> - <span class="location">{{$annonce->wilaya}}</span></p>
+                 <div class="options-btn">
+                 @auth 
+                       @if (App\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $annonce->id)->count() <> 0)
+                         <a disabled="disabled" class="btn btn-danger btn-sm" title="L'annonce a déjà été ajoutée aux favoris"><i class="fa fa-heart"></i>
+                         <span>Favori</span></a>
+                       @elseif  (App\annonce::where('id_user', Auth::user()->id)->where('id', $annonce->id)->count() <> 0)
+                         <a disabled="disabled" class="btn btn-danger btn-sm" title="Vous êtes le propriétaire de cette annonce!"><i class="fa fa-heart"></i>
+                         <span>Favori</span></a>
+                       @else 
+                         <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"><i class="fa fa-heart"></i>
+                         <span>Favori</span></a>
+                       @endif
+                     @else 
+                         <a class="btn btn-danger btn-sm" title="Cliquez pour ajouter à mes favoris" onclick="addToFav({{$annonce->id}})"><i class="fa fa-heart"></i>
+                         <span>Favori</span></a>
+                     @endauth    
+                     <a class="btn btn-common btn-sm" title="Nombre de vues"> <i class="fa fa-eye"></i> <span>{{$annonce->numberViews}}</span> </a>
+               </div>
+              </div>
+              </div>
+                 
           @if ($annonce->hasPicture == '1')
             <div class="inner-box" id="details-left">
               <div id="details-img">
                     @foreach ($images as $key => $value) 
                   @if ($key == 0)
                   <a id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($value->imagename)}}">
-                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" />
+                    <img id="details-pricipale-img" src="{{Storage::disk('s3')->url($value->imagename)}}" />
+                  </a>
+                  @elseif($key < 4)
+                  <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
+                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
                   </a>
                   @else
-                  <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
+                  <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" style="display: none;">
                     <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
                   </a>
                 @endif
@@ -74,6 +82,9 @@
                     </div>
                   <div class="ads-details-info col-md-12 status-body-text">
                     <div class="panel panel-body panel-details details-description">
+                      @if ($annonce->etat <> "")
+                      <p class="item-intro"><strong> {{__('details.state_info')}} : </strong> <span class="poster"> {{$annonce->etat}}</span></p>
+                      @endif
                       <h4 id="details-title">Description</h4>
                       <p class="mb15">{{$annonce->description}}</p>
                       <ul class="list-circle">

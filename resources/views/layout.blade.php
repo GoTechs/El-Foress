@@ -224,6 +224,7 @@
     function showinput() {
         $('.wilaya, .btn-search').show();
     }
+    
 
 /* ******************************   AutoComplete Field Wilaya *************************************** */    
     
@@ -291,6 +292,15 @@ btn.click(function(e)
                           }, 1000);
   }  
 });	
+/* ******************************   Get the height and the width of the detail pic  *************************************** */ 
+ 
+        var h = document.querySelector('#principal-image>img').naturalHeight;
+        var w = document.querySelector('#principal-image>img').naturalWidth;
+        if(w < 600 ){
+            $("#details-pricipale-img").css('width', "300")
+        }else{
+            $("#details-pricipale-img").css('width', "100%")  
+        }
 
     /* ******************************   Gallery *************************************** */  
 
