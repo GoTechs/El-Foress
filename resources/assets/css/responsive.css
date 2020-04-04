@@ -162,7 +162,7 @@
   }
   #details-img {
     grid-template-rows: 1fr 100px;
-    grid-template-columns: repeat(3, 120px);
+    grid-template-columns: repeat(3, 100px);
   }
   #principal-image {
     grid-column: 1/4;
