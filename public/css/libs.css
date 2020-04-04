@@ -12525,7 +12525,8 @@ zoom: 1;
   }
   #details-img {
     grid-template-rows: 1fr 100px;
-    grid-template-columns: repeat(3, 120px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0;
   }
   #principal-image {
     grid-column: 1/4;
@@ -12539,6 +12540,7 @@ zoom: 1;
   #secondary-image {
     width: 100px;
     height: 100px;
+    margin: 5px;
   }
   .checkbox {
     position: absolute;
