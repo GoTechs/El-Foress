@@ -41,21 +41,27 @@
           @if ($annonce->hasPicture == '1')
             <div class="inner-box" id="details-left">
               <div id="details-img">
+                @if ($images->count() == '1')
+                  <a class="single" id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($images[0]->imagename)}}">
+                    <img id="details-pricipale-img" src="{{Storage::disk('s3')->url($images[0]->imagename)}}" />
+                  </a>
+                @else 
                     @foreach ($images as $key => $value) 
-                  @if ($key == 0)
-                  <a id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($value->imagename)}}">
-                    <img id="details-pricipale-img" src="{{Storage::disk('s3')->url($value->imagename)}}" />
-                  </a>
-                  @elseif($key < 4)
-                  <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
-                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
-                  </a>
-                  @else
-                  <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" style="display: none;">
-                    <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
-                  </a>
-                @endif
-                    @endforeach
+                      @if ($key == 0)
+                      <a id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($value->imagename)}}">
+                        <img id="details-pricipale-img" src="{{Storage::disk('s3')->url($value->imagename)}}" />
+                      </a>
+                      @elseif($key < 4)
+                      <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
+                        <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
+                      </a>
+                      @else
+                      <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" style="display: none;">
+                        <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;"/>
+                      </a>
+                    @endif
+                  @endforeach
+              @endif
               </div>   
             </div>
             @endif 
