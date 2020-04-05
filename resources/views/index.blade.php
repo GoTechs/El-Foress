@@ -221,10 +221,9 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <div ></div>
+            </div> 
+            <div class="col-md-3 col-sm-6 col-xs-12" id="pub-container">
+              <img src="{{asset('img/pub/helpiste.jpg')}}" alt=""> 
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-9 wow fadeInUpQuick" data-wow-delay="0.3s">
@@ -275,6 +274,9 @@
                   </ul>
                 </div>
               </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12" id="pub-container">
+              <img src="{{asset('img/pub/SaidIlaKheir.jpg')}}" alt="">  
             </div>
           </div>
         </div>

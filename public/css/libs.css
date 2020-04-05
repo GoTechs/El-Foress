@@ -5015,6 +5015,10 @@ footer .menu li a:hover {
   max-height: 450px;
   
 }
+#pub-container > img{
+  max-height: 310px;
+  width: 100%;
+}
 .page-sideabr{
   margin: 20px 0;
 }
