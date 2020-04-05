@@ -98,7 +98,7 @@ class searchController extends Controller
 
        $data = $data->where('stateAd', '=',  '1')
                     ->orderBy('created_at','desc') 
-                    ->paginate(6);        
+                    ->paginate(8);        
 
       $cat = 'Catégorie'; 
       if (request('categorie')) { $filterKey  = request('categorie'); }
@@ -120,7 +120,7 @@ class searchController extends Controller
                     ->get();                                                                                       
 
         $data = DB::table('annonces')->where([['id_Cat','=',$idCat],['stateAd','=','1'],])
-                                           ->paginate(6);  
+                                           ->paginate(8);  
 
         $orderSelected = '';    
                  
@@ -140,7 +140,7 @@ class searchController extends Controller
                     ->get(); 
 
         $data = DB::table('annonces')->where([['id_sous_Cat','=',$idSousCat],['stateAd','=','1'],])
-                                           ->paginate(6);
+                                           ->paginate(8);
 
         if ($idSousCat == '16'){
           $dataSelected = marquephone::all();

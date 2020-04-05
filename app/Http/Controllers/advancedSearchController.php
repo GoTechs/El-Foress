@@ -103,7 +103,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
         	
 		  } 
 
@@ -149,7 +149,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
         	
 		  } 
 
@@ -193,7 +193,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
         	
 		  } 
 
@@ -251,7 +251,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
         	
 		  } 
 
@@ -300,7 +300,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
         	
 		  } 
 
@@ -344,7 +344,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
 			
 		  } 
 
@@ -381,7 +381,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
 		  } 
 
 /****************************************** FILTER Demande d'Emploi ************************************************/	  
@@ -421,7 +421,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
 		  } 	
 
 /****************************************** Autre ************************************************/	  
@@ -449,7 +449,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
 		  } 
 		  
 		  if(request('filterPerCat')){
@@ -485,7 +485,7 @@ class advancedSearchController extends Controller
 					}
 			}
 
-			$data = $data->paginate(6);
+			$data = $data->paginate(8);
 
 			$cat = 'Catégorie'; 
 
