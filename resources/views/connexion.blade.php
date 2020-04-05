@@ -38,10 +38,10 @@
                 {{__('authentication.connect_description')}}
               </h3>
 
-              <a class="btn btn-block btn-facebook" href="redirect/facebook">
+              <!-- <a class="btn btn-block btn-facebook" href="redirect/facebook">
                 <span class="fa fa-facebook fa-fw"></span>
                  Connectez-vous avec <strong>Facebook</strong>
-              </a>
+              </a> -->
 
               <a class="btn btn-block btn-google" href="redirect/google">
                 <span class="fa fa-google fa-fw"></span>
