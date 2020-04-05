@@ -83,7 +83,6 @@
                 <div class="col-md-5 col-sm-12 search-col">
                     <input class="form-control keyword keyword-laptop" id="search-input" name="keyword" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keyword']) ? $_POST['keyword'] : ''}}">
                     <input class="form-control keyword keyword-phone" id="search-input" name="keywordPhone" placeholder="Rechercher n'importe quoi..." type="text" value="{{isset($_POST['keywordPhone']) ? $_POST['keywordPhone'] : ''}}" style="display:none;" onclick="showinput()">
-                   
                 </div>
                 <div class="col-md-3 col-sm-12 search-col">
                     <input class="form-control keyword wilaya" name="wilaya" id="wilaya" placeholder="Wilaya" type="text" value="{{isset($_POST['wilaya']) ? $_POST['wilaya'] : ''}}">
@@ -309,7 +308,7 @@ btn.click(function(e)
                             // Close existing modals
                         // Set this to false if you do not need to stack multiple instances
                         thumbs : {
-                                 autoStart : true
+                                 autoStart : false
                                   },
                         closeExisting: false,
 
