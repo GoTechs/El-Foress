@@ -1644,6 +1644,9 @@ footer .menu li a:hover {
   max-height: 450px;
   
 }
+.page-sideabr{
+  margin: 20px 0;
+}
 #details-img img:hover{
 object-fit: cover;
 }

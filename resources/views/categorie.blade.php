@@ -706,8 +706,15 @@
                 <!-- </div> 
                 </div> -->
                 </div>  
-            </aside>   
-          </div> 
+           
+              
+              
+              
+              </aside>   
+              {{-- <div class="page-sideabr">
+                <img src="{{asset('img/pub/helpiste.jpg')}}" alt=""> 
+              </div> --}}
+            </div> 
 
           <div class="col-sm-9 page-content">
          @if ($data->count() <> '0')
