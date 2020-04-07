@@ -126,7 +126,7 @@
         map: map,
         draggable: false
       }));      
-    }    
+      }    
     function initialize() {
       var mapOptions = {
         backgroundColor: "#ffffff",

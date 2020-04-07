@@ -528,6 +528,9 @@
       <div class="col-sm-3 page-sideabr">
         <img src="{{asset('img/pub/helpiste.jpg')}}" alt=""> 
       </div>
+      <div class="col-sm-3 page-sideabr">
+        <img src="{{asset('img/pub/SaidIlaKheir.jpg')}}" alt="">  
+      </div>
       </div>
     </div>
   </section><!-- Content section End -->
