@@ -1953,12 +1953,21 @@ footer .menu li a:hover {
     border-color: #3498db;
     color: #fff;
 }
-
 .post-promo {
     background: #e5e5e5;
     border: 1px solid #ddd;
     padding: 30px;
     margin-bottom: 30px;
+}
+#pub-container > img{
+  max-height: 310px;
+  width: 100%;
+}
+.page-sideabr{
+  margin: 20px 0;
+}
+#details-img img:hover{
+object-fit: cover;
 }
 
 #details-img img,
