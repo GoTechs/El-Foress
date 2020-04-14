@@ -38,10 +38,10 @@
                 {{__('authentication.connect_description')}}
               </h3>
 
-              <!-- <a class="btn btn-block btn-facebook" href="redirect/facebook">
+              <a class="btn btn-block btn-facebook" href="redirect/facebook">
                 <span class="fa fa-facebook fa-fw"></span>
                  Connectez-vous avec <strong>Facebook</strong>
-              </a> -->
+              </a>
 
               <a class="btn btn-block btn-google" href="redirect/google">
                 <span class="fa fa-google fa-fw"></span>
@@ -73,6 +73,9 @@
                   <input type="checkbox" id="remember" name="rememberme" value="1" style="float: left;">
                   <label for="remember">{{__('authentication.remember_input')}}</label>
                 </div>
+                <!-- @if(Session::has('error'))
+                  <div class="invalid-feedback">{{Session::get('error')}}</div>
+                @endif -->
                 <button class="btn btn-common log-btn" name="connect" type="submit">{{__('authentication.connect_submit_button')}}</button>
               </form>
               <ul class="form-links">

@@ -20,30 +20,30 @@
                   <div id="collapseOne" class="panel-collapse collapse {{$id == 'conditions-d-utilisation' ? 'in' : ''}}">             
                   <div class="panel-body">
                     <p>Bienvenue à&nbsp;
-                      <a href="http://www.foress-dz.com">www.foress-dz.com</a> et Merci de votre visite.&nbsp;
+                      <a href="http://www.elforess.com">www.elforess.com</a> et Merci de votre visite.&nbsp;
                     </p>
                     <p>Le site Internet&nbsp;&nbsp;
-                      <a href="http://www.foress-dz.com">www.foress-dz.com</a>, ci-après dénommé «&nbsp;foress-dz.com&nbsp;» propose un service de dépôt et de consultation de petites annonces sur Internet plus spécifiquement destiné aux particuliers.
+                      <a href="http://www.elforess.com">www.elforess.com</a>, ci-après dénommé «&nbsp;elforess.com&nbsp;» propose un service de dépôt et de consultation de petites annonces sur Internet plus spécifiquement destiné aux particuliers.
                     </p>
-                    <p>L'accès au site, sa consultation et son utilisation sont subordonnés à l'acceptation sans réserve des présentes conditions d'utilisation de&nbsp;foress-dz.com.</p>
+                    <p>L'accès au site, sa consultation et son utilisation sont subordonnés à l'acceptation sans réserve des présentes conditions d'utilisation de&nbsp;elforess.com.</p>
                     <p>&nbsp;</p>
                     <p><strong>Article 1 - Conditions d’inscription&nbsp;</strong></p>
                     <p>Nos services sont entièrement gratuits et réservés aux personnes juridiquement capables de souscrire des contrats en droit algérien. Nos services ne sont pas disponibles pour les mineurs de moins de 18 ans. Si vous ne remplissez pas ces conditions, vous ne devez pas utiliser nos services.</p>
                     <p><strong>Article 2 – Quelques définitions&nbsp;</strong></p>
                     <p>Chacun des termes mentionnés ci-dessous aura dans les présentes conditions d'utilisation du service Foress la signification suivante :&nbsp;</p>
-                    <p><strong>Annonce :</strong> désigne l'ensemble des éléments et données (visuelles, textuelles, sonores, photographies, dessins), déposé par l’annonceur sous sa responsabilité éditoriale, en vue d'acheter, de vendre, d’échanger un bien ou un service et diffusé sur le Site Internet&nbsp;foress-dz.com.</p>
-                    <p><strong>Annonceur :</strong> désigne toute personne physique majeure ou personne morale établie en Algérie et ayant déposé et mis en ligne une annonce via le Service&nbsp;foress-dz.com. Le terme "annonceur" regroupe dans les&nbsp;conditions d’utilisation&nbsp;les deux types d'annonceur déposant des annonces via le service&nbsp;foress-dz.com.</p>
+                    <p><strong>Annonce :</strong> désigne l'ensemble des éléments et données (visuelles, textuelles, sonores, photographies, dessins), déposé par l’annonceur sous sa responsabilité éditoriale, en vue d'acheter, de vendre, d’échanger un bien ou un service et diffusé sur le Site Internet&nbsp;elforess.com.</p>
+                    <p><strong>Annonceur :</strong> désigne toute personne physique majeure ou personne morale établie en Algérie et ayant déposé et mis en ligne une annonce via le Service&nbsp;elforess.com. Le terme "annonceur" regroupe dans les&nbsp;conditions d’utilisation&nbsp;les deux types d'annonceur déposant des annonces via le service&nbsp;elforess.com.</p>
                     <p><strong>Moyen de paiement&nbsp;:</strong> le site internet ou le service Foress ne propose aucun moyen de paiement en ligne entre le vendeur et l’acheteur. C’est la responsabilité de l’acheteur de prendre contact direct avec l’annonceur ou le vendeur.</p>
                     <p><strong>Moyen de livraison :</strong> le site internet ou le service Foress ne propose aucun moyen de livraison entre le vendeur et l’acheteur. C’est la responsabilité de l’acheteur de prendre contact direct avec l’annonceur ou le vendeur pour toute question concernant la livraison.</p>
                     <p><strong>Vendeur</strong> : désigne tout annonceur particulier ou professionnels qui propose un ou plusieurs biens à la vente et choisit d’utiliser les services Foress pour vendre des produits.&nbsp;</p>
-                    <p><strong>L'annonceur "Particulier" :</strong> qui s'entend de toute personne physique majeure, agissant exclusivement à des fins privées et ayant déposé et mis en ligne une annonce à partir du Site Internet&nbsp;foress-dz.com.</p>
-                    <p><strong>L'annonceur "Pro" :</strong> qui s'entend de toute personne morale, agissant exclusivement à des fins professionnelles et déposant des annonces pour donner suite à l'ouverture d'un compte pro, établie en Algérie et ayant déposé et mis en ligne une annonce à partir du Site Internet&nbsp;foress-dz.com.</p>
+                    <p><strong>L'annonceur "Particulier" :</strong> qui s'entend de toute personne physique majeure, agissant exclusivement à des fins privées et ayant déposé et mis en ligne une annonce à partir du Site Internet&nbsp;elforess.com.</p>
+                    <p><strong>L'annonceur "Pro" :</strong> qui s'entend de toute personne morale, agissant exclusivement à des fins professionnelles et déposant des annonces pour donner suite à l'ouverture d'un compte pro, établie en Algérie et ayant déposé et mis en ligne une annonce à partir du Site Internet&nbsp;elforess.com.</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p><strong>Site Internet :</strong> désigne le site internet exploité par Foress accessible principalement depuis l'URL&nbsp;
-                      <a href="http://www.foress-dz.com">www.foress-dz.com</a> et permettant aux utilisateurs et aux annonceurs d'accéder via internet au service Foress.
+                      <a href="http://www.elforess.com">www.elforess.com</a> et permettant aux utilisateurs et aux annonceurs d'accéder via internet au service Foress.
                     </p>
                     <p><strong>Article 3 – Utilisation du service Foress</strong></p>
                     <p><strong>3.1 Description du Service Foress</strong></p>
@@ -58,7 +58,7 @@
                       <li>La possibilité de partager l’annonce sur les réseaux sociaux</li>
                       <li>La mise en contact avec les annonceurs</li>
                       <li>Signaler un abus en contactant l’administrateur de Foress via&nbsp;
-                        <a href="http://www.foress-dz.com">www.foress-dz.com</a>
+                        <a href="http://www.elforess.com">www.elforess.com</a>
                       </li>
                     </ul>
                     <p>&nbsp;</p>
@@ -67,7 +67,7 @@
                     <p>Foress&nbsp;se réserve le droit de refuser une annonce incomplète ou qui ne correspondrait pas à sa ligne éditoriale, aux chartes rédactionnelles consultable ici ou photographies consultables ici, à son éthique, à sa déontologie ainsi que toutes celles susceptibles de porter atteinte à l'ordre public, aux bonnes mœurs ou qui contreviendrait aux dispositions légales et réglementaires en vigueur. Les annonces refusées ne seront pas publiées.</p>
                     <p><strong>3.2.1 Règles générales</strong></p>
                     <p>Tout utilisateur peut devenir annonceur et déposer des annonces qui seront diffusées sur le Site Internet. L'annonceur particulier pourra déposer gratuitement son annonce depuis le site Internet à partir du formulaire de dépôt d'annonce, l'annonceur est informé que pour des raisons d'ordre technique et de modération, son annonce ne sera pas diffusée instantanément après son dépôt sur le site Internet. Toute Annonce déposée et validée sera diffusée sur le Site Internet&nbsp;
-                      <a href="http://www.foress-dz.com">www.foress-dz.com</a>.
+                      <a href="http://www.elforess.com">www.elforess.com</a>.
                     </p>
                     <p><strong>3.2.2 Engagement de l'Annonceur</strong></p>
                     <p>&nbsp;</p>
@@ -75,7 +75,7 @@
                       <li>L'annonceur garantit détenir tous les droits (notamment des droits de propriété intellectuelle) ou avoir obtenu toutes les autorisations nécessaires à la publication de son annonce. Il s'engage à être effectivement le propriétaire du bien annoncé ou, à titre exceptionnel son ayant-droit. Dans cette hypothèse, il déclare disposer de tous les droits et autorisations nécessaires au dépôt et à la publication de l'annonce.</li>
                     </ul>
                     <p>L’annonceur garantit la conformité du Bien proposé à la vente d'une part, à la législation et à la réglementation en vigueur et, d'autre part, au contenu de l'annonce publiée sur le Site internet&nbsp;
-                      <a href="http://www.foress-dz.com">www.foress-dz.com</a>.
+                      <a href="http://www.elforess.com">www.elforess.com</a>.
                     </p>
                     <p>&nbsp;</p>
                     <ul>
@@ -203,7 +203,7 @@
                         <li>Autres renseignements</li>
                       </ol>
                       <p><strong>1. Généralités</strong></p>
-                      <p>La présente Politique de confidentialité décrit le règlement de Foress concernant la collecte, l'utilisation, le stockage, la diffusion et la protection de vos renseignements personnels. La présente Politique de confidentialité s'applique au site&nbsp;www.foress-dz.com&nbsp;et aux sites, applications, services et outils connexes qui intègrent par renvoi la présente (les « services »), peu importe la méthode d'accès à ces services, y compris l'accès au moyen d'appareils mobiles. Le responsable du traitement des données est Foress.</p>
+                      <p>La présente Politique de confidentialité décrit le règlement de Foress concernant la collecte, l'utilisation, le stockage, la diffusion et la protection de vos renseignements personnels. La présente Politique de confidentialité s'applique au site&nbsp;www.elforess.com&nbsp;et aux sites, applications, services et outils connexes qui intègrent par renvoi la présente (les « services »), peu importe la méthode d'accès à ces services, y compris l'accès au moyen d'appareils mobiles. Le responsable du traitement des données est Foress.</p>
                       <p><strong>Portée et consentement:</strong> En utilisant Foress et les services connexes, vous consentez expressément à la collecte, à l'utilisation, à la divulgation et à la conservation de vos renseignements personnels par Foress, conformément à la présente Politique de confidentialité et à nos conditions d'utilisation.</p>
                       <p>Foress peut modifier la présente Politique de confidentialité de temps en temps. Nous vous conseillons de le consulter régulièrement. Les changements majeurs apportés à notre politique de confidentialité seront annoncés sur notre site Web. La politique de confidentialité modifiée entrera en vigueur immédiatement après sa première publication sur notre site Web. La présente Politique de confidentialité est en vigueur en date du 1 janvier, 2017.</p>
                       <p>Foress est une société de&nbsp;Gotechs.&nbsp;Elle est donc soumise aux normes mondiales en matière de confidentialité. (règles internes contraignantes). Vous pouvez obtenir de plus amples renseignements sur le traitement de vos renseignements personnels et le respect de la vie privée dans les règles internes contraignantes.&nbsp;</p>
@@ -211,7 +211,7 @@
                       <p>Vous pouvez consulter notre site Web sans ouvrir de compte. Si vous décidez de nous fournir vos renseignements personnels, vous acceptez que cette information soit transmise et conservée sur nos serveurs. Nous recueillons les renseignements personnels suivants:</p>
                       <p><strong>Informations que nous recueillons automatiquement</strong>: Lorsque vous consultez notre site Web, utilisez nos services ou interagissez avec nos publicités ou notre contenu, nous recueillons automatiquement les données qui nous sont transmises par votre ordinateur, votre appareil mobile ou vos autres appareils d'accès.&nbsp;Ces informations incluent, sans toutefois s'y limiter:</p>
                       <ul type="disc">
-                        <li>L’information de votre interaction avec notre site Web et nos services, y compris, sans toutefois s'y limiter, l'identifiant de l'appareil, le type d'appareil, les données d'emplacement, les informations sur l'ordinateur et la connexion, les statistiques de consultation des pages, le trafic vers&nbsp;www.foress-dz.com&nbsp;ou depuis celui-ci, l'URL de référence, les données de publicité, l'adresse IP et les informations de consignation Web standards;&nbsp;</li>
+                        <li>L’information de votre interaction avec notre site Web et nos services, y compris, sans toutefois s'y limiter, l'identifiant de l'appareil, le type d'appareil, les données d'emplacement, les informations sur l'ordinateur et la connexion, les statistiques de consultation des pages, le trafic vers&nbsp;www.elforess.com&nbsp;ou depuis celui-ci, l'URL de référence, les données de publicité, l'adresse IP et les informations de consignation Web standards;&nbsp;</li>
                         <li>Les informations recueillies par nos témoins, nos repères Web et autres outils similaires.</li>
                       </ul>
                       <p><strong>Informations que vous nous fournissez:</strong> Nous recueillons et stockons toutes les informations que vous saisissez sur notre site Web ou que vous nous fournissez lorsque vous utilisez nos services.&nbsp;Ces informations incluent, sans toutefois s'y limiter:</p>
@@ -245,7 +245,7 @@
                         <li>Un <u>titulaire de propriété intellectuelle</u> si le titulaire d'un droit de propriété intellectuelle ou un intermédiaire estime, de bonne foi, qu'une publicité viole les droits du titulaire. Avant que les renseignements personnels soient fournis, le titulaire de propriété intellectuelle conclura une entente qui stipule notamment que l'information est fournie à la stricte condition qu'elle soit uniquement utilisée en vue d'une action judiciaire, d'un avis juridique ou de répondre aux questions de l'annonceur visé.</li>
                       </ul>
                       <p>Sans limiter ce qui précède, nous ne devons également pas – dans le but de respecter votre vie privée et de protéger le site Web contre les personnes ou les parties malveillantes – divulguer vos renseignements personnels à des tiers sans injonction ou demande formelle du gouvernement conformément aux lois applicables, sauf si nous estimons de bonne foi qu'une telle divulgation est nécessaire afin de prévenir un préjudice imminent ou des dommages financiers ou de signaler une activité illégale présumée.</p>
-                      <p><strong>Informations que vous partagez sur www.foress-dz.com:</strong>&nbsp;</p>
+                      <p><strong>Informations que vous partagez sur www.elforess.com:</strong>&nbsp;</p>
                       <p>Notre site Web permet aux utilisateurs de partager des publicités et d'autres informations avec les autres utilisateurs, rendant ainsi ces informations partagées accessibles aux autres utilisateurs. Puisque notre site Web vous permet également de communiquer directement avec un vendeur ou un acheteur, nous vous recommandons de porter attention aux renseignements personnels que vous transmettez aux autres. Vous êtes le seul responsable des renseignements personnels que vous diffusez sur notre site Web. Par conséquent, nous ne pouvons garantir la confidentialité ni la sécurité de l'information que vous transmettez à d'autres utilisateurs.</p>
                       <p>Si vous consultez notre site Web à partir d'un ordinateur partagé ou d'un café Internet, nous vous suggérons fortement de fermer votre session après chaque consultation. Si vous ne souhaitez pas que l'ordinateur partagé mémorise votre utilisation ou vos renseignements, vous devez supprimer les témoins ou l'historique de vos consultations de notre site Web.</p>
                       <p>Votre responsable du traitement peut transférer des données à d’autres membres de notre famille d’entreprises tel qu’il est décrit dans le présent Règlement relatif au traitement des renseignements personnels, et il est possible que ceux-ci puissent traiter vos renseignements personnels, ou même les conserver, sur des serveurs situés dans l'Union Européenne, aux États-Unis et dans nos centres de données ailleurs dans le monde.</p>
@@ -280,7 +280,7 @@
                   <div id="collapseThree" class="panel-collapse collapse {{$id == 'regles-d-affichage' ? 'in' : ''}}">
                   <div class="panel-body">
                     <p><strong>&nbsp;</strong></p>
-                    <p>Les activités suivantes sont interdites sur&nbsp;www.Foress-dz.com&nbsp;:</p>
+                    <p>Les activités suivantes sont interdites sur&nbsp;www.elforess.com&nbsp;:</p>
                     <ul>
                       <li>Afficher des annonces irréelles, mauvaise description, l’état du produit ne reflète pas l’état actuel du produit affiché.&nbsp;</li>
                       <li>Afficher des&nbsp;

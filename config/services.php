@@ -47,12 +47,12 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => 'https://foress-dz.com/callback/facebook',
+        'redirect' => 'https://elforess.com/callback/facebook',
     ],
 
     'google' => [
         'client_id'     => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect'      => 'https://foress-dz.com/callback/google',
+        'redirect'      => 'https://elforess.com.com/callback/google',
     ],
 ];
