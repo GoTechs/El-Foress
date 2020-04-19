@@ -13123,6 +13123,10 @@ zoom: 1;
   #search-input{
     margin: 0;
   }
+  .inner-box {
+    border: none;
+    padding: 0;
+}
   #text-search {
     display: inline-block;
     color: #fff;
@@ -13151,7 +13155,7 @@ zoom: 1;
     height: 100px;
     margin: 5px;
   }
-  .checkbox {
+  #selectbox {
     position: absolute;
     margin: 0;
     padding: 0;

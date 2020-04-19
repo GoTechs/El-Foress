@@ -186,16 +186,16 @@
             <div class="row">
                 <div class="col-md-12">
                         <div class="bottom-social-icons social-icon ">
-                            <a class="facebook" target="_blank" href="https://www.facebook.com/Foress-111899207061171/?__tn__=%2Cd%2CP-R&eid=ARASPotcXhYJOJ-wvJjPnuBDvDZC9CphhqUNtRhQComsB1AHbq0T-NPd6fFC6FeEArdE9mewa5dmrfc_"><i class="fa fa-facebook"></i></a>
+                            <a class="facebook" target="_blank" href="https://www.facebook.com/Elforess/"><i class="fa fa-facebook"></i></a>
                             <a class="instagram" target="_blank" href="https://www.instagram.com/foress_dz/?hl=fr-ca"><i class="fa fa-instagram"></i></a>
                             <a class="youtube" target="_blank" href="https://www.youtube.com/channel/UCuvPoCDLC9ido1GDafDexiQ?fbclid=IwAR3_lUl-W8JX107T3RQF-U4lw5_n1QDRxQd_W6ZX1ng5XxsJVBhHgsRmrQg"><i class="fa fa-youtube"></i></a>    
-                            <a class="linkedin" target="_blank" href="https://www.linkedin.com/company/foress-dz"><i class="fa fa-linkedin"></i></a>
+                            <!-- <a class="linkedin" target="_blank" href="https://www.linkedin.com/company/foress-dz"><i class="fa fa-linkedin"></i></a> -->
                         </div>
                     </div>
             </div>
             <div class="row">
                 <div class="col-md-12 copyright">
-                  <p> ©2014-2019 GoTechs</p><br/>
+                  <p> ©2020 GoTechs</p><br/>
                   <p>Tous droits réservés. Google, Google Play, You Tube et autres marques sont des marques déposées de Google Inc.</p>
                 </div>
             </div>
@@ -262,7 +262,7 @@
 
         var text = $('.status-body-text'),
      btn = $('.btn-overflow'),
-       h = text[0].scrollHeight; 
+       h = text[0] && text[0].scrollHeight; 
 if(h > 150) {
 	btn.addClass('less');
 	btn.css('display', 'block');
@@ -293,9 +293,9 @@ btn.click(function(e)
 });	
 /* ******************************   Get the height and the width of the detail pic  *************************************** */ 
  
-        var imgHeight = document.querySelector('#principal-image>img').naturalHeight;
-        var imgWidth = document.querySelector('#principal-image>img').naturalWidth;
-        if(imgWidth < 600 ){
+        var imgHeight = document.querySelector('#principal-image>img') &&  document.querySelector('#principal-image>img').naturalHeight;
+        var imgWidth = document.querySelector('#principal-image>img') && document.querySelector('#principal-image>img').naturalWidth;
+        if(imgWidth && imgWidth < 600 ){
             $("#details-pricipale-img").css('width', "300")
         }else{
             $("#details-pricipale-img").css('width', "100%")  

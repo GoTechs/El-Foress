@@ -36,7 +36,7 @@
                 <div class="adds-wrapper">              
                   @foreach ($results as $result)
                   <div class="item-list filter" id="{{$result->id_annonce}}">
-                      <div class="checkbox col-sm-2">
+                      <div class="checkbox col-sm-2" id="selectbox">
                         <label>
                           <input type="checkbox" name="ids[]" class="selectbox" value="{{$result->id_annonce}}">
                         </label>
