@@ -87,9 +87,6 @@ class insertAdController extends Controller
                 $name = $image->getClientOriginalName();
                 $currentDate = date('YmdHis');
                 $name = $currentDate.$name;
-                //$image->move(public_path().'/images/', $name);
-
-                //Upload File to s3
                 Storage::disk('s3')->put($name, file_get_contents($image), 'public');
 
                 $fileModel = new imagead();
