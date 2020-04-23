@@ -57,11 +57,11 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => 'AKIA22BBQECAVDX5SH4M',
-            'secret' => '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',
+            'key' => 'AKIAWJZP5DJSA6N77T66',
+            'secret' => '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',
             'region' => 'ca-central-1',
-            'bucket' => 'foress',
-            'url' => 'https://foress.s3-ca-central-1.amazonaws.com',
+            'bucket' => 'foress-dz',
+            'url' => 'https://foress-dz.s3-ca-central-1.amazonaws.com',
         ],
 
     ],
