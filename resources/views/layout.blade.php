@@ -26,7 +26,7 @@
 
 <body>
 <div id="loading" style="display:none;">
-    <img src="{{asset('img/loading.gif')}}" loading="lazy" />
+    <img data-src="{{asset('img/loading.gif')}}" loading="lazy" class="lazyload" />
 </div> 
 <!-- Header Section Start -->
 <div class="header">
@@ -164,11 +164,11 @@
                                 @if ($recent->hasPicture == '1')
                                     @foreach ($imageAd as $img)
                                         @if ($recent->id == $img->id_annonce)
-                                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy" /></a>
+                                            <img data-src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy" class="lazyload" /></a>
                                         @endif
                                     @endforeach
                                   @else 
-                                    <img src="{{asset('img/nopicture.png')}}" alt="" loading="lazy" /></a>
+                                    <img data-src="{{asset('img/nopicture.png')}}" alt="" loading="lazy" class="lazyload" /></a>
                                   @endif                                   
                                     <div class="hover">
                                     @foreach ($search as $cat)
@@ -213,10 +213,11 @@
 
 <!-- Main JS  -->
 <script src="{{asset('js/libs.js')}}"></script>
-
+<script src="lazysizes.min.js" async></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+
 
 <script type="text/javascript">
 

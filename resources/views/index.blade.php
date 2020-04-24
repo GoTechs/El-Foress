@@ -223,7 +223,7 @@
               </div>
             </div> 
             <div class="col-md-3 col-sm-6 col-xs-12" id="pub-container">
-              <img src="{{asset('img/pub/helpiste.jpg')}}" alt="" loading="lazy" /> 
+              <img data-src="{{asset('img/pub/helpiste.jpg')}}" alt="" loading="lazy" class="lazyload" /> 
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="category-box border-9 wow fadeInUpQuick">
@@ -276,7 +276,7 @@
               </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12" id="pub-container">
-              <img src="{{asset('img/pub/SaidIlaKheir.jpg')}}" alt="" loading="lazy" >  
+              <img data-src="{{asset('img/pub/SaidIlaKheir.jpg')}}" alt="" loading="lazy" class="lazyload" />  
             </div>
           </div>
         </div>
@@ -296,11 +296,11 @@
                       @if ($result->hasPicture == '1')
                         @foreach ($imageAd as $img)
                           @if ($result->id == $img->id_annonce)                                                
-                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy" /></a>
+                            <img data-src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy" class="lazyload" /></a>
                           @endif
                         @endforeach
                       @else 
-                        <img src="{{asset('img/nopicture.png')}}" alt="" loading="lazy" ></a>
+                        <img data-src="{{asset('img/nopicture.png')}}" alt="" loading="lazy" class="lazyload" /></a>
                       @endif
                       <div class="overlay">
                       @foreach ($search as $cat)

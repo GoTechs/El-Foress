@@ -51,11 +51,11 @@
                           @if ($result->hasPicture == '1')
                             @foreach ($imageAd as $img) 
                               @if ($result->id_annonce == $img->id_annonce)
-                                <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                                <img data-src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" class="lazyload" /></a>
                               @endif
                             @endforeach
                           @else 
-                            <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                            <img data-src="{{asset('img/nopicture.png')}}" alt="" class="lazyload" /></a>
                           @endif
                         <span class="photo-count"><i class="fa fa-camera"></i></span>
                       </div>

@@ -43,21 +43,21 @@
               <div id="details-img">
                 @if ($images->count() == '1')
                   <a class="single" id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($images[0]->imagename)}}">
-                    <img id="details-pricipale-img" src="{{Storage::disk('s3')->url($images[0]->imagename)}}" loading="lazy />
+                    <img id="details-pricipale-img" data-src="{{Storage::disk('s3')->url($images[0]->imagename)}}" loading="lazy" class="lazyload"/>
                   </a>
                 @else 
                     @foreach ($images as $key => $value) 
                       @if ($key == 0)
                       <a id="principal-image" data-fancybox="images-preview" href="{{Storage::disk('s3')->url($value->imagename)}}">
-                        <img id="details-pricipale-img" src="{{Storage::disk('s3')->url($value->imagename)}}" loading="lazy />
+                        <img id="details-pricipale-img" data-src="{{Storage::disk('s3')->url($value->imagename)}}" loading="lazy" class="lazyload" />
                       </a>
                       @elseif($key < 4)
                       <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview">
-                        <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;" loading="lazy />
+                        <img data-src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;" loading="lazy" class="lazyload" />
                       </a>
                       @else
                       <a id="secondary-image" href="{{Storage::disk('s3')->url($value->imagename)}}" data-fancybox="images-preview" style="display: none;">
-                        <img src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;" loading="lazy />
+                        <img data-src="{{Storage::disk('s3')->url($value->imagename)}}" style="max-width: 200px; max-height: 200px;" loading="lazy" class="lazyload" />
                       </a>
                     @endif
                   @endforeach
@@ -180,11 +180,11 @@
                         @if ($relatedAd->hasPicture == '1')
                         @foreach ($imageAd as $img) 
                           @if ($relatedAd->id == $img->id_annonce)
-                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy"/></a>
+                            <img data-src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy" class="lazyload"/></a>
                           @endif
                         @endforeach
                       @else 
-                        <img src="{{asset('img/nopicture.png')}}" alt="" loading="lazy" /></a>
+                        <img data-src="{{asset('img/nopicture.png')}}" alt="" loading="lazy" class="lazyload" /></a>
                       @endif
                   
                         <span class="photo-count"><i class="fa fa-camera"></i></span>
@@ -249,10 +249,10 @@
           </div>
           </div>
           <div class="col-sm-3 page-sideabr">
-                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="" loading="lazy" />  
+                <img data-src="{{asset('img/pub/helpiste.jpg')}}" alt="" loading="lazy" class="lazyload" />  
         </div>
         <div class="col-sm-3 page-sideabr">
-          <img src="{{asset('img/pub/SaidIlaKheir.jpg')}}" alt="" loading="lazy" />  
+          <img data-src="{{asset('img/pub/SaidIlaKheir.jpg')}}" alt="" loading="lazy" class="lazyload"/>  
         </div>
             </div> 
       </div>         
