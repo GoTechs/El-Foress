@@ -572,7 +572,7 @@
                         </div>
                         <div class="preview-images-zone">
                             <div class="preview-image preview-show-1" onClick="$('.pro-image').click()">
-                                <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw=="></div>
+                                <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw==" loading="lazy" /></div>
                             </div>
                         </div>
 
@@ -626,7 +626,7 @@
                             @if ($recent->hasPicture == '1')
                                 @foreach ($imageAd as $img)
                                     @if ($recent->id == $img->id_annonce)
-                                        <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                                        <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy" /></a>
                                     @endif
                                 @endforeach
                                 @else 

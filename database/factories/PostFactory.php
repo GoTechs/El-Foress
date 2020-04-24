@@ -50,7 +50,7 @@ $factory->define(annonce::class, function (Faker $faker) {
         'titre' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'description' => $faker->text($maxNbChars = 500),
         'prix' => $faker->numberBetween(10, 10000),
-        'email' => $faker->unique()->safeEmail,
+        'email' => $faker->unique()->freeEmail,
         'phoneNumber' => $faker->tollFreePhoneNumber,        
         'phoneHide' => 0,
         'id_Cat' => $idCat, 

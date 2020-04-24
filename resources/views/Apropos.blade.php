@@ -22,7 +22,7 @@
       <div class="container">
         <div class="row">          
           <div class="col-sm-8">
-            <img src="{{asset('img/opportunit%C3%A9.jpg')}}" alt="">
+            <img src="{{asset('img/opportunit%C3%A9.jpg')}}" alt="" loading="lazy">
             <div class="ad-detail-content">
               <p>{{__('layout.app_presentation')}}
                 </p>
@@ -33,7 +33,7 @@
           <div class="col-sm-4 page-sidebar">
             <aside>
               <div class="inner-box">
-                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="">
+                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="" loading="lazy>
               </div>
             </aside>
           </div>

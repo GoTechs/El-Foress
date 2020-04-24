@@ -26,7 +26,7 @@
 
 <body>
 <div id="loading" style="display:none;">
-    <img src="{{asset('img/loading.gif')}}">
+    <img src="{{asset('img/loading.gif')}}" loading="lazy" />
 </div> 
 <!-- Header Section Start -->
 <div class="header">
@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
-                <a class="navbar-brand logo" href="/"><img src="{{asset('img/logo.png')}}" alt=""></a>
+                <a class="navbar-brand logo" href="/"><img src="{{asset('img/logo.png')}}" alt="" loading="lazy" /></a>
             </div>
             <!-- brand and toggle menu for mobile End -->
 
@@ -164,11 +164,11 @@
                                 @if ($recent->hasPicture == '1')
                                     @foreach ($imageAd as $img)
                                         @if ($recent->id == $img->id_annonce)
-                                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt=""></a>
+                                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy" /></a>
                                         @endif
                                     @endforeach
                                   @else 
-                                    <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                                    <img src="{{asset('img/nopicture.png')}}" alt="" loading="lazy" /></a>
                                   @endif                                   
                                     <div class="hover">
                                     @foreach ($search as $cat)

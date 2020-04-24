@@ -712,7 +712,7 @@
               
               </aside>   
               {{-- <div class="page-sideabr">
-                <img src="{{asset('img/pub/helpiste.jpg')}}" alt=""> 
+                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="" loading="lazy> 
               </div> --}}
             </div> 
 
@@ -971,11 +971,11 @@
                       @if ($result->hasPicture == '1')
                         @foreach ($imageAd as $img) 
                           @if ($result->id == $img->id_annonce)
-                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="">
+                            <img src="{{Storage::disk('s3')->url($img->imagename)}}" alt="" loading="lazy">
                           @endif
                         @endforeach
                       @else 
-                        <img src="{{asset('img/nopicture.png')}}" alt=""></a>
+                        <img src="{{asset('img/nopicture.png')}}" alt="" loading="lazy"></a>
                       @endif
                     <span class="photo-count"><i class="fa fa-camera"></i></span>
                   </div>

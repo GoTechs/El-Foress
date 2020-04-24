@@ -7,7 +7,7 @@
       <div class="col-sm-9 page-content">
         <div class="inner-box">
           <div class="usearadmin">
-            <h3><a href="#"><img class="userimg" src="{{asset('img/picto-user.png')}}" alt=""> {{Auth::user()->nom}}</a></h3>
+            <h3><a href="#"><img class="userimg" src="{{asset('img/picto-user.png')}}" alt="" loading="lazy" /> {{Auth::user()->nom}}</a></h3>
           </div>
         </div>
         <div class="inner-box">

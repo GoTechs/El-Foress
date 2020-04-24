@@ -92,7 +92,7 @@
             </div>
             <div class="col-sm-4">
               <div class="inner-box">                
-                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="">
+                <img src="{{asset('img/pub/helpiste.jpg')}}" alt="" loading="lazy>
               </div>        
             </div>
           </div>

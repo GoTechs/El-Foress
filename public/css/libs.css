@@ -13011,9 +13011,6 @@ zoom: 1;
     .page-sidebar .inner-box {
         padding: 5px;
     }
-    .inner-box {
-        padding: 0;
-    }
     .widget-title h4 {
         font-size: 14px;
     }
@@ -13123,9 +13120,9 @@ zoom: 1;
   #search-input{
     margin: 0;
   }
-  .inner-box {
+  aside > .inner-box {
     border: none;
-    padding: 0;
+
 }
   #text-search {
     display: inline-block;
