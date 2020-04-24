@@ -1,8 +1,8 @@
-
           @extends('profil.layout')
 
           @section('content')
-
+          
+          @include('profil.menu')
 
           <!-- Start Content -->
             

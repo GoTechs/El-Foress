@@ -1,6 +1,7 @@
 
     @extends('profil.layout')
     @section('content')
+    @include('profil.menu')
     <!-- Start Content -->    
           <div class="col-sm-9 page-content">
             <div class="inner-box">              
