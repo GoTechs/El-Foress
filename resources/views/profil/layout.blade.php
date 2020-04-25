@@ -15,7 +15,7 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
-    <link href="{{asset('css/styles.css')}}" rel="stylesheet">   
+    <link href="{{asset('css/bundle.css')}}" rel="stylesheet">   
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
     <link  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet">    
     <!-- Line Icons CSS -->
@@ -218,7 +218,7 @@
 </a>
 
 <!-- Main JS  -->
-<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/bundle.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" async></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>

@@ -32,7 +32,7 @@ mix.combine([
     'resources/assets/css/bootstrap-social.css',
 
 
-], 'public/css/styles.css');
+], 'public/css/bundle.css');
 
 mix.combine([
 	'resources/assets/js/jquery-min.js',
@@ -52,4 +52,6 @@ mix.combine([
     'resources/assets/js/jquery.validate.min.js',      
     'resources/assets/js/fotorama.js',
 
-], 'public/js/main.js');
+], 'public/js/bundle.js');
+
+
