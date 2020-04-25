@@ -11,10 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+// mix.js('resources/js/app.js', 'public/js')
+//     .sass('resources/sass/app.scss', 'public/css');
 
-mix.styles([
+mix.combine([
 	'resources/assets/css/blogpage.css',
     'resources/assets/css/bootstrap.min.css',
     'resources/assets/css/jasny-bootstrap.min.css',
@@ -32,9 +32,9 @@ mix.styles([
     'resources/assets/css/bootstrap-social.css',
 
 
-], 'public/css/libs.css');
+], 'public/css/styles.css');
 
-mix.scripts([
+mix.combine([
 	'resources/assets/js/jquery-min.js',
 	'resources/assets/js/jquery-ui.js',
 	'resources/assets/js/owl.carousel.min.js',
@@ -52,4 +52,4 @@ mix.scripts([
     'resources/assets/js/jquery.validate.min.js',      
     'resources/assets/js/fotorama.js',
 
-], 'public/js/libs.js');
+], 'public/js/main.js');
