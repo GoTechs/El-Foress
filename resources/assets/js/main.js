@@ -886,68 +886,61 @@ $('.btn-overflow').click(function (e) {
 // }
 
 
-// function showHidePass(){
-//     var passwordInput = document.getElementById('password-field');
-//     var passStatus = document.getElementById('pass-status');
+$('#pass-status').click(function () {
+    var passwordInput = document.getElementById('password-field');
+    var passStatus = document.getElementById('pass-status');
 
-//     if (passwordInput.type == 'password'){
-//         passwordInput.type='text';
-//         passStatus.className='fa fa-eye-slash field-icon toggle-password';
-//     } else {
-//         passwordInput.type='password';
-//         passStatus.className='fa fa-eye field-icon toggle-password';
-//     }
-// }
+    if (passwordInput.type == 'password') {
+        passwordInput.type = 'text';
+        passStatus.className = 'fa fa-eye-slash field-icon toggle-password';
+    } else {
+        passwordInput.type = 'password';
+        passStatus.className = 'fa fa-eye field-icon toggle-password';
+    }
+});
 
-$(document).ready(function () {
+$('.pro-image').change(function () {
+    var element = $(".preview-images-zone");
+    if (window.File && window.FileList && window.FileReader) {
+        var files = event.target.files; //FileList object
+        var output = $(".preview-images-zone");
 
-    // var num = 2;
+        for (let i = 0; i < files.length; i++) {
 
-    // function readImage() {
-    //     var element = $(".preview-images-zone");
-    //     if (window.File && window.FileList && window.FileReader) {
-    //         var files = event.target.files; //FileList object
-    //         var output = $(".preview-images-zone");
+            if (i < 14) {
+                var file = files[i];
+                if (!file.type.match('image')) continue;
 
-    //         for (let i = 0; i < files.length; i++) {
+                var picReader = new FileReader();
 
-    //             if (i < 14) {
-    //                 var file = files[i];
-    //                 if (!file.type.match('image')) continue;
+                picReader.addEventListener('load', function (event) {
+                    var picFile = event.target;
+                    var html = '<div class="preview-image preview-show-' + num + '">' +
+                        '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                        '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                        '</div>';
 
-    //                 var picReader = new FileReader();
+                    output.prepend(html);
+                    num = num + 1;
+                });
 
-    //                 picReader.addEventListener('load', function (event) {
-    //                     var picFile = event.target;
-    //                     var html = '<div class="preview-image preview-show-' + num + '">' +
-    //                         '<div class="image-cancel" data-no="' + num + '">x</div>' +
-    //                         '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
-    //                         '</div>';
+                picReader.readAsDataURL(file);
+            }
 
-    //                     output.prepend(html);
-    //                     num = num + 1;
-    //                 });
+        }
+        $("#pro-image").val('');
+    }
+    $(".preview-images-zone").sortable();
+});
 
-    //                 picReader.readAsDataURL(file);
-    //             }
+$('.image-cancel').click(function () {
 
-    //         }
-    //         $("#pro-image").val('');
-    //     }
-    // }
-
-    // document.querySelector('.pro-image').addEventListener('change', readImage, false);
-
-    // $(".preview-images-zone").sortable();
-
-    // $(document).on('click', '.image-cancel', function () {
-
-    //     let no = $(this).data('no');
-    //     $(".preview-image.preview-show-" + no).remove();
-    // });
+    let no = $(this).data('no');
+    $(".preview-image.preview-show-" + no).remove();
 });
 
 $(document).ready(function () {
+    var num = 2; // the number of insert pics
 
     /* ******************************   Get the height and the width of the detail pic  *************************************** */
     var imgHeight = document.querySelector('#principal-image>img') && document.querySelector('#principal-image>img').naturalHeight;

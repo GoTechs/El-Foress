@@ -63,7 +63,7 @@
                   <div class="input-icon">
                     <i class="icon fa fa-unlock-alt"></i>
                     <input id="password-field" type="password" class="form-control" name="password" placeholder="{{__('authentication.password_input')}}" value="{{old('password')}}">
-                    <a onclick="showHidePass()"><span id="pass-status" class="fa fa-eye field-icon toggle-password"></span></a>
+                    <a ><span id="pass-status" class="fa fa-eye field-icon toggle-password"></span></a>
                   </div>
                     @error('password')
                     <div class="invalid-feedback">{{ $message }}</div>
