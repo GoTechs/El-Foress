@@ -35,22 +35,23 @@ mix.combine([
 ], 'public/css/bundle.css');
 
 mix.combine([
-	'resources/assets/js/jquery-min.js',
-	'resources/assets/js/jquery-ui.js',
-	'resources/assets/js/owl.carousel.min.js',
-	'resources/assets/js/bootstrap.min.js',
-	'resources/assets/js/material.min.js',
-    'resources/assets/js/material-kit.js',
-    'resources/assets/js/jquery.parallax.js',
-    'resources/assets/js/wow.js',
+	'resources/assets/js/lib/jquery-min.js',
+	'resources/assets/js/lib/jquery-ui.js',
+	'resources/assets/js/lib/owl.carousel.min.js',
+	'resources/assets/js/lib/bootstrap.min.js',
+	'resources/assets/js/lib/material.min.js',
+    'resources/assets/js/lib/material-kit.js',
+    'resources/assets/js/lib/jquery.parallax.js',
+    'resources/assets/js/lib/wow.js',
     'resources/assets/js/main.js',
-    'resources/assets/js/jquery.counterup.min.js',
-    'resources/assets/js/waypoints.min.js',
-    'resources/assets/js/jasny-bootstrap.min.js',    
-    'resources/assets/js/bootstrap-select.min.js',      
-    'resources/assets/js/jquery.maskedinput.min.js',    
-    'resources/assets/js/jquery.validate.min.js',      
-    'resources/assets/js/fotorama.js',
+    'resources/assets/js/actions.js',
+    'resources/assets/js/lib/jquery.counterup.min.js',
+    'resources/assets/js/lib/waypoints.min.js',
+    'resources/assets/js/lib/jasny-bootstrap.min.js',    
+    'resources/assets/js/lib/bootstrap-select.min.js',      
+    'resources/assets/js/lib/jquery.maskedinput.min.js',    
+    'resources/assets/js/lib/jquery.validate.min.js',      
+    'resources/assets/js/lib/fotorama.js',
 
 ], 'public/js/bundle.js');
 

@@ -7,7 +7,6 @@ jQuery(document).ready(function ($) {
     });
 });
 
-
 //CounterUp
 jQuery(document).ready(function ($) {
     $('.counter').counterUp({
@@ -863,28 +862,13 @@ $('.btn-overflow').click(function (e) {
 
 /* ******************************   Add post to favorits *************************************** */
 
-//  function addToFav(idAnnonce){
-//     var csrf_token = $('meta[name="csrf-token"]').attr('content');
-//     $.ajax({
-//         url : "/addtofav/"+idAnnonce,
-//         type : "POST",
-//         data : {'_method' : 'PATCH','_token':csrf_token},
-//         success : function(data){
-//           if (data == 'Unauthenticated'){
-//             document.location.href = "/connexion";
 
-//               } else if (data == '1') {
-//                 swal("L'annonce a déjà été ajoutée aux favoris", "", "warning");
 
-//                 } else if (data == 'owner') {
-//                     swal("Vous êtes le propriétaire de cette annonce!", "", "warning");
-//                 }  else {
-//                     swal("L'annonce a été ajoutée aux favoris", "", "success");
-//                 }             
-//         }
-//     })       
-// }
+$('#MyID').click(function () {
 
+    var StateName = $(this).text();
+    showState(StateName);       
+});
 
 $('#pass-status').click(function () {
     var passwordInput = document.getElementById('password-field');
@@ -906,13 +890,11 @@ $('.pro-image').change(function () {
         var output = $(".preview-images-zone");
 
         for (let i = 0; i < files.length; i++) {
-
             if (i < 14) {
                 var file = files[i];
                 if (!file.type.match('image')) continue;
 
                 var picReader = new FileReader();
-
                 picReader.addEventListener('load', function (event) {
                     var picFile = event.target;
                     var html = '<div class="preview-image preview-show-' + num + '">' +
@@ -950,4 +932,4 @@ $(document).ready(function () {
     } else {
         $("#details-pricipale-img").css('width', "100%")
     }
-})
+});
