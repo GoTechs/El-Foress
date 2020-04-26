@@ -867,7 +867,7 @@ $('.btn-overflow').click(function (e) {
 $('#MyID').click(function () {
 
     var StateName = $(this).text();
-    showState(StateName);       
+    showState(StateName);
 });
 
 $('#pass-status').click(function () {
@@ -883,47 +883,7 @@ $('#pass-status').click(function () {
     }
 });
 
-$('.pro-image').change(function () {
-    var element = $(".preview-images-zone");
-    if (window.File && window.FileList && window.FileReader) {
-        var files = event.target.files; //FileList object
-        var output = $(".preview-images-zone");
-
-        for (let i = 0; i < files.length; i++) {
-            if (i < 14) {
-                var file = files[i];
-                if (!file.type.match('image')) continue;
-
-                var picReader = new FileReader();
-                picReader.addEventListener('load', function (event) {
-                    var picFile = event.target;
-                    var html = '<div class="preview-image preview-show-' + num + '">' +
-                        '<div class="image-cancel" data-no="' + num + '">x</div>' +
-                        '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
-                        '</div>';
-
-                    output.prepend(html);
-                    num = num + 1;
-                });
-
-                picReader.readAsDataURL(file);
-            }
-
-        }
-        $("#pro-image").val('');
-    }
-    $(".preview-images-zone").sortable();
-});
-
-$('.image-cancel').click(function () {
-
-    let no = $(this).data('no');
-    $(".preview-image.preview-show-" + no).remove();
-});
-
 $(document).ready(function () {
-    var num = 2; // the number of insert pics
-
     /* ******************************   Get the height and the width of the detail pic  *************************************** */
     var imgHeight = document.querySelector('#principal-image>img') && document.querySelector('#principal-image>img').naturalHeight;
     var imgWidth = document.querySelector('#principal-image>img') && document.querySelector('#principal-image>img').naturalWidth;
@@ -933,3 +893,39 @@ $(document).ready(function () {
         $("#details-pricipale-img").css('width', "100%")
     }
 });
+
+$(document).ready(function () {
+    var num = 2;
+    $('.pro-image').change(function () {
+        if (window.File && window.FileList && window.FileReader) {
+            var files = event.target.files; //FileList object
+            var output = $(".preview-images-zone");
+            for (let i = 0; i < files.length; i++) {
+                if (i < 14) {
+                    var file = files[i];
+                    if (!file.type.match('image')) continue;
+                    var picReader = new FileReader();
+                    picReader.addEventListener('load', function (event) {
+                        var picFile = event.target;
+                        var html = '<div class="preview-image preview-show-' + num + '">' +
+                            '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                            '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                            '</div>';
+                        output.prepend(html);
+                        num = num + 1;
+                    });
+                    picReader.readAsDataURL(file);
+                }
+
+            }
+        }
+    });
+
+    $(".preview-images-zone").sortable();
+
+    $(document).on('click', '.image-cancel', function() {
+        let no = $(this).data('no');
+        $(".preview-image.preview-show-"+no).remove();
+    });
+});
+
