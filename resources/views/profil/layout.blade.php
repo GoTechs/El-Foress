@@ -27,7 +27,7 @@
 
 <body>
   <div id="loading" style="display:none;">
-    <img src="{{asset('img/loading.gif')}}">
+    <img data-src="{{asset('img/loading.gif')}}" class="lazyload">
   </div>
   <!-- Header Section Start -->
   <div class="header">
