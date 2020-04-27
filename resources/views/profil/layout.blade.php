@@ -18,10 +18,12 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
   <link href="{{asset('css/bundle.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet">
-  <!-- Line Icons CSS -->
   <link rel="stylesheet" href="{{asset('fonts/line-icons/line-icons.css')}}" type="text/css">
+  <link rel="preload" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css"></noscript>
+  
 
 </head>
 
@@ -239,11 +241,11 @@
 
   <!-- Main JS  -->
   <script src="{{asset('js/bundle.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" async></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" defer></script>
+  <script  src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+  <script  src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" defer></script>
+  <script  src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js" defer></script>
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js" defer></script>
 </body>
 
 </html>
