@@ -6,10 +6,9 @@
             <div class="col-sm-12 col-md-10 col-md-offset-1">
                 <div class="page-ads box">
                     <h2 class="title-2">Modification</h2><!-- Start Search box -->
-                    <form class="search-form" method="post" action="javascript:void(0)" id="contact_us"
+                    <form class="search-form" method="post" action="javascript:void(0)" id="addAd"
                         enctype="multipart/form-data">
                         @csrf
-                        {{ method_field('PATCH') }}
                         <input name="idAnnonce" id="idAnnonce" value="{{$annonce->id}}" style="display:none;">
                         <div class="form-group">
                             <select class="form-control" id="categorie" name="categorie" disabled>
@@ -468,8 +467,8 @@
                         <div class="form-group {{ $errors->has('fileToUpload') ? ' has-error' : '' }} has-feedback">
                             <label class="control-label" for="textarea">Ajoutez des photos pour attirer l'attention sur
                                 votre annonce</label>
-                            <input class="pro-image" name="fileToUpload[]" type="file" multiple
-                                accept="image/png,image/gif,image/jpeg, image/jpg, image/dvg" /> <br>
+                            <input class="pro-image"  type="file" multiple
+                                accept="image/png,image/jpeg, image/jpg" /> <br>
                         </div>
                         <div class="preview-images-zone">
                             <div class="preview-image preview-show-1" onClick="$('.pro-image').click()">

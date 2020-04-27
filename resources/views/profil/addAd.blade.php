@@ -8,7 +8,7 @@
         <div class="col-sm-9">
           <div class="page-ads box">             
             <h2 class="title-2">Poster une annonce</h2><!-- Start Search box -->               
-                <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)" id="contact_us">
+                <form class="search-form" enctype="multipart/form-data" method="post" action="javascript:void(0)" id="addAd">
                     @csrf
                     <div class="form-group has-feedback Caterror">
                     <label class="control-label" for="textarea">Catégories <span class="required">*</span></label> 
@@ -389,7 +389,7 @@
           <h2 class="title-2">Média</h2>
           <div class="form-group has-feedback">            
           <label class="control-label" >Ajoutez des photos pour attirer l'attention sur votre annonce</label>
-            <input class="pro-image" name="fileToUpload[]" type="file" multiple accept="image/png,image/gif,image/jpeg, image/jpg, image/dvg"/> <br>          
+            <input class="pro-image"  type="file" multiple accept="image/png,image/jpeg, image/jpg"/> <br>          
           </div>
           <div class="preview-images-zone">
             <div class="preview-image preview-show-1" onClick="$('.pro-image').click()">

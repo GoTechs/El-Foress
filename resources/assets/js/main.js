@@ -177,70 +177,160 @@ $('#deleteAll').click(function (e) {
 
 
 // **************************   SUBMIT FORM AJAX *******************************
-
-$('#submit').click(function (e) {
-    e.preventDefault();
-    var myForm = document.getElementById('contact_us');
-    formData = new FormData(myForm);
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+$(document).ready(function () {
+    var fileList = [];
+    var num = 2;
+    $('.pro-image').change(function () {
+        if (window.FileReader) {
+            var files = event.target.files; //FileList object
+            var output = $(".preview-images-zone");
+            for (let i = 0; i < files.length; i++) {
+                var file = files[i];
+                fileList.push(file)
+                if (!file.type.match('image')) continue;
+                var picReader = new FileReader();
+                picReader.readAsDataURL(file);
+                picReader.addEventListener('load', function (event) {
+                    var picFile = event.target;
+                    var html = '<div class="preview-image preview-show-' + num + '">' +
+                        '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                        '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                        '</div>';
+                    output.prepend(html);
+                    num = num + 1;
+                });
+            }
         }
     });
-    $.ajax({
-        url: "{{ url('/insertAd') }}",
-        method: 'post',
-        contentType: false,
-        processData: false,
-        data: formData,
-        beforeSend: function () {
-            // Show image container
-            $("#loading").show();
-        },
-        success: function (data) {
-            if ($.isEmptyObject(data.success)) {
-                $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();
-                $.each(data.errors, function (key, value) {
-                    if (key == 'categorie') {
-                        $(".Caterror").addClass("has-error");
-                        $('.Cat-error').append(value);
-                    }
-                    if (key == 'sousCat') {
-                        $(".sousCaterror").addClass("has-error");
-                        $('.sousCat-error').append(value);
-                    }
-                    if (key == 'Adtitle') {
-                        $(".titlerror").addClass("has-error");
-                        $('.titl-error').append(value);
-                    }
-                    if (key == 'descrp') {
-                        $(".descerror").addClass("has-error");
-                        $('.desc-error').append(value);
-                    }
-                    if (key == 'wilaya') {
-                        $(".wilayaerror").addClass("has-error");
-                        $('.wilaya-error').append(value);
-                    }
-                    if (key == 'condition') {
-                        $(".conditionerror").addClass("has-error");
-                        $('.condition-error').append(value);
-                    }
-                    $("html, body").animate({
-                        scrollTop: 0
-                    }, "slow");
-                });
-            } else {
-                document.location.href = "/my-ads";
+
+    $('#submit').click(function (e) {
+        e.preventDefault();
+        var myForm = document.getElementById('addAd');
+        formData = new FormData(myForm);
+        fileList.forEach(file => formData.append('fileToUpload[]', file));
+        formData.append('_method', 'patch');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/insertAd",
+            method: 'post',
+            contentType: false,
+            processData: false,
+            data: formData,
+            beforeSend: function () {
+                // Show image container
+                $("#loading").show();
+            },
+            success: function (data) {
+                if ($.isEmptyObject(data.success)) {
+                    $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();
+                    $.each(data.errors, function (key, value) {
+                        if (key == 'categorie') {
+                            $(".Caterror").addClass("has-error");
+                            $('.Cat-error').append(value);
+                        }
+                        if (key == 'sousCat') {
+                            $(".sousCaterror").addClass("has-error");
+                            $('.sousCat-error').append(value);
+                        }
+                        if (key == 'Adtitle') {
+                            $(".titlerror").addClass("has-error");
+                            $('.titl-error').append(value);
+                        }
+                        if (key == 'descrp') {
+                            $(".descerror").addClass("has-error");
+                            $('.desc-error').append(value);
+                        }
+                        if (key == 'wilaya') {
+                            $(".wilayaerror").addClass("has-error");
+                            $('.wilaya-error').append(value);
+                        }
+                        if (key == 'condition') {
+                            $(".conditionerror").addClass("has-error");
+                            $('.condition-error').append(value);
+                        }
+                        $("html, body").animate({
+                            scrollTop: 0
+                        }, "slow");
+                    });
+                } else {
+                    document.location.href = "/my-ads";
+                }
+
+            },
+            complete: function (data) {
+                // Hide image container
+                $("#loading").hide();
             }
 
-        },
-        complete: function (data) {
-            // Hide image container
-            $("#loading").hide();
-        }
+        });
+    });
 
+    $('#submitUpdate').click(function (e) {
+        e.preventDefault();
+        var id = document.getElementById('idAnnonce');
+        var myForm = document.getElementById('addAd');
+        formData = new FormData(myForm);
+        fileList.forEach(file => formData.append('fileToUpload[]', file));
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/update-AD/" + id,
+            method: 'post',
+            contentType: false,
+            processData: false,
+            data: formData,
+            beforeSend: function () {
+                $("#loading").show();
+            },
+            success: function (data) {
+                if ($.isEmptyObject(data.success)) {
+                    $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();
+                    $.each(data.errors, function (key, value) {
+                        if (key == 'Adtitle') {
+                            $(".titlerror").addClass("has-error");
+                            $('.titl-error').append(value);
+                        }
+                        if (key == 'descrp') {
+                            $(".descerror").addClass("has-error");
+                            $('.desc-error').append(value);
+                        }
+                        if (key == 'wilaya') {
+                            $(".wilayaerror").addClass("has-error");
+                            $('.wilaya-error').append(value);
+                        }
+                        $("html, body").animate({
+                            scrollTop: 0
+                        }, "slow");
+                    });
+                } else {
+                    document.location.href = "/my-ads";
+                }
+
+            },
+            complete: function (data) {
+                // Hide image container
+                $("#loading").hide();
+            }
+
+        });
+    });
+
+    $(".preview-images-zone").sortable();
+
+    $(document).on('click', '.image-cancel', function () {
+        let no = $(this).data('no');
+        $(".preview-image.preview-show-" + no).remove();
     });
 });
+
 
 $('.selectbox').click(function () {
 
@@ -773,59 +863,7 @@ $(document).ready(function () {
 });
 
 
-$('#submitUpdate').click(function (e) {
-    e.preventDefault();
-    var id = document.getElementById('idAnnonce');
-    var myForm = document.getElementById('contact_us');
-    formData = new FormData(myForm);
-    formData.append('_method', 'patch');
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-        }
-    });
-    $.ajax({
-        url: "/update-AD/" + id,
-        method: 'post',
-        contentType: false,
-        processData: false,
-        data: formData,
-        beforeSend: function () {
-            // Show image container
-            $("#loading").show();
-        },
-        success: function (data) {
-            if ($.isEmptyObject(data.success)) {
-                $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();
-                $.each(data.errors, function (key, value) {
-                    if (key == 'Adtitle') {
-                        $(".titlerror").addClass("has-error");
-                        $('.titl-error').append(value);
-                    }
-                    if (key == 'descrp') {
-                        $(".descerror").addClass("has-error");
-                        $('.desc-error').append(value);
-                    }
-                    if (key == 'wilaya') {
-                        $(".wilayaerror").addClass("has-error");
-                        $('.wilaya-error').append(value);
-                    }
-                    $("html, body").animate({
-                        scrollTop: 0
-                    }, "slow");
-                });
-            } else {
-                document.location.href = "/my-ads";
-            }
 
-        },
-        complete: function (data) {
-            // Hide image container
-            $("#loading").hide();
-        }
-
-    });
-});
 
 $('#form, #contactForm').submit(function () {
     $('#loading').show();
@@ -893,39 +931,3 @@ $(document).ready(function () {
         $("#details-pricipale-img").css('width', "100%")
     }
 });
-
-$(document).ready(function () {
-    var num = 2;
-    $('.pro-image').change(function () {
-        if (window.File && window.FileList && window.FileReader) {
-            var files = event.target.files; //FileList object
-            var output = $(".preview-images-zone");
-            for (let i = 0; i < files.length; i++) {
-                if (i < 14) {
-                    var file = files[i];
-                    if (!file.type.match('image')) continue;
-                    var picReader = new FileReader();
-                    picReader.addEventListener('load', function (event) {
-                        var picFile = event.target;
-                        var html = '<div class="preview-image preview-show-' + num + '">' +
-                            '<div class="image-cancel" data-no="' + num + '">x</div>' +
-                            '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
-                            '</div>';
-                        output.prepend(html);
-                        num = num + 1;
-                    });
-                    picReader.readAsDataURL(file);
-                }
-
-            }
-        }
-    });
-
-    $(".preview-images-zone").sortable();
-
-    $(document).on('click', '.image-cancel', function() {
-        let no = $(this).data('no');
-        $(".preview-image.preview-show-"+no).remove();
-    });
-});
-
