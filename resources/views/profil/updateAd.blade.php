@@ -9,6 +9,7 @@
                     <form class="search-form" method="post" action="javascript:void(0)" id="addAd"
                         enctype="multipart/form-data">
                         @csrf
+                        {{ method_field('PATCH') }}
                         <input name="idAnnonce" id="idAnnonce" value="{{$annonce->id}}" style="display:none;">
                         <div class="form-group">
                             <select class="form-control" id="categorie" name="categorie" disabled>

@@ -42,6 +42,7 @@ class insertAdController extends Controller
             "wilaya" => "required",
             "email" => "regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|nullable",
             "phone" => "regex:/^[0-9\s+-]*$/|nullable",
+            "condition" => "required"
         ]);
 
         if ($validator->fails())
@@ -202,7 +203,7 @@ class insertAdController extends Controller
     public function edit($id){
 
         $annonce = DB::table('annonces')->where('id', '=', $id)->first();
-        //$image = DB::table('imageads')->where('id_annonce', '=', $id)->get();
+        $image = DB::table('imageads')->where('id_annonce', '=', $id)->get();
 
         $idCat = $annonce->id_Cat;
         $idSousCat = $annonce->id_sous_Cat;
@@ -258,7 +259,8 @@ class insertAdController extends Controller
             'marqueComputer' => $marqueComputer,
             'domaineEmploi' => $domaineEmploi,
             'typeBien' => $typeBien,
-            'marqueVeh' => $marqueVeh
+            'marqueVeh' => $marqueVeh,
+            'images' => $image
         ]);
 
     }

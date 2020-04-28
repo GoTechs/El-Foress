@@ -208,7 +208,6 @@ $(document).ready(function () {
         var myForm = document.getElementById('addAd');
         formData = new FormData(myForm);
         fileList.forEach(file => formData.append('fileToUpload[]', file));
-        formData.append('_method', 'patch');
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -221,12 +220,11 @@ $(document).ready(function () {
             processData: false,
             data: formData,
             beforeSend: function () {
-                // Show image container
                 $("#loading").show();
             },
             success: function (data) {
                 if ($.isEmptyObject(data.success)) {
-                    $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error').empty();
+                    $('.sousCat-error,.Cat-error,.titl-error,.desc-error,.wilaya-error,.condition-error').empty();
                     $.each(data.errors, function (key, value) {
                         if (key == 'categorie') {
                             $(".Caterror").addClass("has-error");
@@ -249,7 +247,6 @@ $(document).ready(function () {
                             $('.wilaya-error').append(value);
                         }
                         if (key == 'condition') {
-                            $(".conditionerror").addClass("has-error");
                             $('.condition-error').append(value);
                         }
                         $("html, body").animate({

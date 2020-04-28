@@ -401,10 +401,13 @@
           <div class="form-group">
             <div class="page-ads box">
               <div class="checkbox has-feedback">
-                <label>
-                En affichant cette annonce, vous acceptez nos <a href="/centre-aide/conditions-d-utilisation" target="_blank">Conditions d’utilisation </a>, notre <a href="/centre-aide/conditions-d-utilisation" target="_blank">Politique de confidentialité </a> 
-                et nos <a href="/centre-aide/conditions-d-utilisation" target="_blank">Règles d’affichage</a>.                  
-                </label>
+                <label>  
+                  <input type="checkbox" name="condition">En affichant cette annonce, vous acceptez nos <a href="/centre-aide/conditions-d-utilisation" target="_blank">Conditions d’utilisation</a>               
+                  , notre <a href="/centre-aide/politique-de-confidentialite" target="_blank">Politique de confidentialité </a> 
+                  et nos 
+                  <a href="/centre-aide/regles-d-affichage" target="_blank">Règles d’affichage</a>.   
+              </label>
+              <div class="invalid-feedback condition-error"></div>
               </div><br>
               <button class="btn btn-common" type="submit" id="submit">Poster</button>
             </div>
