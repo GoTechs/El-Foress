@@ -69,6 +69,7 @@ class insertAdController extends Controller
             'id_sous_Cat' => request('sousCat'),
             'id_user' => $idUser ,
             'phoneHide' => request('phoneHide'),
+            'address' => request('adresse'),
             'wilaya' => request('wilaya'),
             'stateAd' => '1',
             'hasPicture' => $hasPicture 
@@ -327,6 +328,7 @@ class insertAdController extends Controller
         $annonce->phoneNumber = request('phone');
         $annonce->etat = request('etat');
         $annonce->phoneHide = request('phoneHide');
+        $annonce->address = request('adresse');
         $annonce->wilaya = request('wilaya');
 
         $annonce->save();

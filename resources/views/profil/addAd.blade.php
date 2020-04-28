@@ -360,6 +360,10 @@
           <div class="mb30"></div>
           <div class="box">
           <h2 class="title-2">Emplacement</h2>
+          <div class="form-group">
+            <label class="control-label" for="textarea">Adresse</label>
+              <input class="form-control" name="adresse" placeholder="Adresse" value="{{old('adresse')}}">
+          </div>
           <div class="form-group has-feedback wilayaerror">
             <label class="control-label" for="textarea">Wilaya <span class="required">*</span></label>
               <input class="form-control dropdown-product selectpicker" name="wilaya" id="wilaya2" placeholder="Wilaya" value="{{old('wilaya')}}">

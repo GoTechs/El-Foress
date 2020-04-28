@@ -83,7 +83,7 @@
         <div class="inner-box" id="details">
           <div class="row" id="right-details">
             <div class="user-details col-md-12">
-              @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "" or $annonce->email <> "")
+              @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "" or $annonce->email <> "" or $annonce->address <> "")
                   <div class="panel panel-body panel-details">
                     <ul>
                       @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "")
@@ -97,7 +97,13 @@
                             <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} :
                               </strong> <a href="mailto:{{$annonce->email}}"> {{$annonce->email}} </a>
                           <li>
-                            @endif
+                        @endif
+                        @if ($annonce->address <> "")
+                          <li>
+                            <p class="no-margin"><i class="fa fa-map-marker"></i> <strong> Adresse :
+                              </strong> {{$annonce->address}}
+                          <li>
+                        @endif
                     </ul>
                   </div>
                   @endif
