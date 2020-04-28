@@ -3416,6 +3416,13 @@ ul.ui-autocomplete {
     margin-right: 5px;
 }
 
+#btn-phone, #btn-email {
+    width: auto;
+    padding: 10px;
+    background-color: #1c990b;
+    margin-bottom: 20px;
+}
+
 .preview-images-zone>.preview-image {
     height: 90px;
     width: 90px;

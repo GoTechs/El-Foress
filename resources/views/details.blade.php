@@ -83,30 +83,30 @@
         <div class="inner-box" id="details">
           <div class="row" id="right-details">
             <div class="user-details col-md-12">
-              @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "" or $annonce->email <> "" or $annonce->address <> "")
-                  <div class="panel panel-body panel-details">
-                    <ul>
+              @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "" or $annonce->email <> "" or
+                  $annonce->address <> "")
+                    <div class="panel panel-body panel-details">
+
                       @if ($annonce->phoneHide == "0" and $annonce->phoneNumber <> "")
-                        <li>
-                          <p class="no-margin"><i class=" fa fa-phone"></i> <strong> {{__('details.phone_info')}} :
-                            </strong> <a href="tel:{{$annonce->phoneNumber}}"> {{$annonce->phoneNumber}}</a>
-                        </li>
+
+                        <a class="btn btn-success" id="btn-phone" href="tel:{{$annonce->phoneNumber}}">
+                          <i class=" fa fa-phone"></i> {{$annonce->phoneNumber}}</a>
+
                         @endif
                         @if ($annonce->email <> "")
-                          <li>
-                            <p class="no-margin"><i class="fa fa-envelope"></i> <strong> {{__('details.email_info')}} :
-                              </strong> <a href="mailto:{{$annonce->email}}"> {{$annonce->email}} </a>
-                          <li>
-                        @endif
-                        @if ($annonce->address <> "")
-                          <li>
-                            <p class="no-margin"><i class="fa fa-map-marker"></i> <strong> Adresse :
-                              </strong> {{$annonce->address}}
-                          <li>
-                        @endif
-                    </ul>
-                  </div>
-                  @endif
+
+                          <a class="btn btn-success" id="btn-email" href="mailto:{{$annonce->email}}"><i
+                              class="fa fa-envelope"></i> {{$annonce->email}}
+                          </a>
+
+                          @endif
+                          @if ($annonce->address <> "")
+                            <p class="item-intro"><i class="fa fa-map-marker"></i><strong> Adresse : </strong> <span
+                                class="poster">
+                                {{$annonce->address}}</span></p>
+                            @endif
+                    </div>
+                    @endif
             </div>
             <div class="ads-details-info col-md-12 status-body-text">
               <div class="panel panel-body panel-details details-description">
