@@ -305,7 +305,7 @@
   <section class="featured-lis">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
+        <div class="col-md-12 wow fadeIn">
           <h3 class="section-title">{{__('index.most_visited_ad')}}</h3>
           <div id="new-products" class="owl-carousel">
             @foreach ($annonces as $result)
