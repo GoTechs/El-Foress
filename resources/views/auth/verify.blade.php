@@ -1,5 +1,5 @@
 
-    @extends('../layout')
+    @extends('../profil/layout')
 
     @section('content')
 
