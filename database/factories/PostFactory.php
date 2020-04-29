@@ -2,15 +2,15 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\annonce;
+use App\Models\annonce;
 use Illuminate\Support\Facades\DB;
 use Faker\Generator as Faker;
 
 $factory->define(annonce::class, function (Faker $faker) {
 
-    $idCat = App\categories::all()->random()->idCat;           
+    $idCat = App\Models\categories::all()->random()->idCat;           
 
-    $idSubCat = App\souscategories::where('id_Cat', $idCat)->first()->idSousCat;   
+    $idSubCat = App\Models\souscategories::where('id_Cat', $idCat)->first()->idSousCat;   
 
     if ($idSubCat == '2'){
         $nameTable = 'ad_events';
@@ -55,7 +55,7 @@ $factory->define(annonce::class, function (Faker $faker) {
         'phoneHide' => 0,
         'id_Cat' => $idCat, 
         'id_sous_Cat' => $idSubCat,
-        'id_user' => factory(\App\Users::class)->create(),
+        'id_user' => factory(\App\Models\Users::class)->create(),
         'wilaya' => "Oran",
         'stateAd' => 1,
         'nameTable' => $nameTable,
@@ -64,56 +64,56 @@ $factory->define(annonce::class, function (Faker $faker) {
     ];
 });
 
-$factory->afterCreating(\App\annonce::class, function ($post, $faker) {
+$factory->afterCreating(\App\Models\annonce::class, function ($post, $faker) {
 
     $idCat = $post->id_Cat;           
 
     $idSubCat = $post->id_sous_Cat;   
 
     if ($idSubCat == '2'){
-        factory(\App\adEvent::class)->create([
+        factory(\App\Models\adEvent::class)->create([
             'id_annonce' => $post->id
         ]);
     }
 
     elseif ($idSubCat == '53') {
-        factory(\App\adJoboffer::class)->create([
+        factory(\App\Models\adJoboffer::class)->create([
             'id_annonce' => $post->id
         ]);
     }
 
     elseif ($idSubCat == '54') {
-        factory(\App\adJobapplication::class)->create([
+        factory(\App\Models\adJobapplication::class)->create([
             'id_annonce' => $post->id
         ]);
     }
 
     elseif ($idCat == '3') {
-        factory(\App\adimmobilier::class)->create([
+        factory(\App\Models\adimmobilier::class)->create([
             'id_annonce' => $post->id
         ]);
     }
 
     elseif ($idSubCat <> '14' and $idCat == '4') {
-        factory(\App\adCar::class)->create([
+        factory(\App\Models\adCar::class)->create([
             'id_annonce' => $post->id
         ]);
     }
 
     elseif ($idSubCat == '16') {
-        factory(\App\adPhone::class)->create([
+        factory(\App\Models\adPhone::class)->create([
             'id_annonce' => $post->id
         ]);
     }
 
     elseif ($idSubCat == '36') {
-        factory(\App\adStorage::class)->create([
+        factory(\App\Models\adStorage::class)->create([
             'id_annonce' => $post->id
         ]);
     }
 
     elseif ($idSubCat == '37') {
-        factory(\App\adComputer::class)->create([
+        factory(\App\Models\adComputer::class)->create([
             'id_annonce' => $post->id
         ]);
     }

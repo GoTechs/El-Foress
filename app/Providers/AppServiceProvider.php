@@ -26,15 +26,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function($view){
-            $view->with('recentlyAdd', \App\annonce::recentlyAdd());
+            $view->with('recentlyAdd', \App\Models\annonce::recentlyAdd());
         });
 
         view()->composer('*', function($view){
-            $view->with('search', \App\categories::allCategory());
+            $view->with('search', \App\Models\categories::allCategory());
         });
 
         view()->composer('*', function($view){
-            $view->with('imageAd', \App\imagead::images());
+            $view->with('imageAd', \App\Models\imagead::images());
         });
 
         if (env('APP_ENV') !== 'local'){

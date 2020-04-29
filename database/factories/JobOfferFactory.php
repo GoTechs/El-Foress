@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\adJoboffer;
+use App\Models\adJoboffer;
 use Faker\Generator as Faker;
 
 $factory->define(adJoboffer::class, function (Faker $faker) {

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
-use App\categories;
-use App\souscategories;
-use App\domainemploi;
+use App\Models\categories;
+use App\Models\souscategories;
+use App\Models\domainemploi;
 
 class categorieController extends Controller
 {

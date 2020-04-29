@@ -1130,11 +1130,11 @@
               <h2 class="item-price" data-test="{{$result->prix}}"> {{$result->prix <> '' ? $result->prix.'DA' : '' }}
               </h2>
               @auth
-              @if (App\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $result->id)->count() <> 0)
+              @if (App\Models\favoris::where('idUser', Auth::user()->id)->where('id_annonce', $result->id)->count() <> 0)
                 <a disabled="disabled" class="btn btn-danger btn-sm" title="L'annonce a déjà été ajoutée aux favoris"><i
                     class="fa fa-heart"></i>
                   <span>Favori</span></a>
-                @elseif (App\annonce::where('id_user', Auth::user()->id)->where('id', $result->id)->count() <> 0)
+                @elseif (App\Models\annonce::where('id_user', Auth::user()->id)->where('id', $result->id)->count() <> 0)
                   <a disabled="disabled" class="btn btn-danger btn-sm"
                     title="Vous êtes le propriétaire de cette annonce!"><i class="fa fa-heart"></i>
                     <span>Favori</span></a>

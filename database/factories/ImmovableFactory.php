@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\adimmobilier;
+use App\Models\adimmobilier;
 use Faker\Generator as Faker;
 
 $factory->define(adimmobilier::class, function (Faker $faker) {

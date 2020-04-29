@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\adEvent;
+use App\Models\adEvent;
 use Faker\Generator as Faker;
 
 $factory->define(adEvent::class, function (Faker $faker) {

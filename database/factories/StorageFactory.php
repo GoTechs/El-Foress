@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\adStorage;
+use App\Models\adStorage;
 use Faker\Generator as Faker;
 
 $factory->define(adStorage::class, function (Faker $faker) {
