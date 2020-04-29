@@ -131,6 +131,7 @@ class searchController extends Controller
       public function searchPerSousCat($idCat,$idSousCat){
 
         $dataSelected = '';
+        $state = '';
 
         $imageAd = DB::table('imageads')->groupBy('id_annonce')->get();
 
@@ -159,9 +160,15 @@ class searchController extends Controller
                 $dataSelected = domainemploi::all();
               }
 
+        if ($idCat == '3' || $idCat == '2' || $idSousCat == '16' || $idSousCat == '36' || $idSousCat == '37' || $idSousCat == '2' ||
+            $idSousCat == '6' || $idSousCat == '7' || $idSousCat == '8' || $idSousCat == '9' || $idSousCat == '10' ||
+            $idSousCat == '11' || $idSousCat == '12' || $idSousCat == '13'){             
+            $state = 'show';
+        }
+
         $orderSelected = '';
 
-        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idCat'=>$idCat,'idSousCat'=>$idSousCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'orderSelected'=>$orderSelected]);
+        return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idCat'=>$idCat,'idSousCat'=>$idSousCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'orderSelected'=>$orderSelected, 'state'=>$state]);
    }
 
 

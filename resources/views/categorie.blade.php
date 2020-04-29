@@ -16,11 +16,13 @@
                       </a>
                     </h4>
                   </div> -->
-            <button type='button' class='btn btn-success btn-block btn-filter' data-toggle='collapse'
-              data-target='#filter' aria-expanded='false' style="display:none;">
+            <button type='button'
+              class='btn btn-success btn-block btn-filter @if (isset($state)) {{$state == 'show' ? 'collapsed' : ''}} @endif'
+              data-toggle='collapse' data-target='#filter'
+              aria-expanded='@if (isset($state)) {{$state == 'show' ? 'true' : 'false'}} @endif' style="display:none;">
               Préciser la recherche
             </button>
-            <div class="categories" id="filter">
+            <div class="categories @if (isset($state)) {{$state == 'show' ? 'collapse in' : ''}} @endif" id="filter">
               <div class="widget-title title">
                 Annonces correspondantes
               </div>
