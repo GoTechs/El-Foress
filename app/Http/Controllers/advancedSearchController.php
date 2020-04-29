@@ -30,6 +30,7 @@ class advancedSearchController extends Controller
 		$dataSelected = '';
 		$cat = ''; 
 		$orderSelected = '';
+		$state = '';
 
 		if(request('order')){
 			$orderSelected = request('order');
@@ -49,7 +50,8 @@ class advancedSearchController extends Controller
 
     	if ($idSousCat == '6' or $idSousCat == '7' or $idSousCat == '8' or $idSousCat == '9' or $idSousCat == '10' or $idSousCat == '11' or $idSousCat == '12' or $idSousCat == '13'){
 
-    		$dataSelected = marqueveh::all();
+			$state = 'show';
+			$dataSelected = marqueveh::all();
     		
 	    	$data = DB::table('ad_cars');
 
@@ -111,6 +113,7 @@ class advancedSearchController extends Controller
 
 		else if ($idSousCat == '16'){
 
+			$state = 'show';
 			$dataSelected = marquephone::all();
     		
 	    	$data = DB::table('ad_phones');
@@ -157,7 +160,8 @@ class advancedSearchController extends Controller
 
 		else if ($idSousCat == '36'){
     		
-	    	$data = DB::table('ad_storages');
+			$state = 'show';
+			$data = DB::table('ad_storages');
 
 		    if (request('type-Stockage')) {
 		        $data = $data->where('type', '=',  request('type-Stockage'));
@@ -201,6 +205,7 @@ class advancedSearchController extends Controller
 
 		else if ($idSousCat == '55' or $idSousCat == '56' or $idSousCat == '57' or $idSousCat == '58'){
 
+			$state = 'show';
 			$dataSelected = typebien::all();
     		
 	    	$data = DB::table('adimmobiliers');
@@ -259,6 +264,7 @@ class advancedSearchController extends Controller
 
 		else if ($idSousCat == '37'){
 
+			$state = 'show';
 			$dataSelected = marquecomputer::all();
     		
 	    	$data = DB::table('ad_computers');
@@ -308,7 +314,8 @@ class advancedSearchController extends Controller
 
 		else if ($idSousCat == '2'){
     		
-	    	$data = DB::table('ad_events');
+			$state = 'show';
+			$data = DB::table('ad_events');
 
 		    if (request('datetimeEvent')) {
 		        $data = $data->where('dateHeureEvent', '=',  request('datetimeEvent'));
@@ -352,6 +359,7 @@ class advancedSearchController extends Controller
 
 		else if ($idSousCat == '53'){
 
+			$state = 'show';
 			$dataSelected = domainemploi::all();
     		
 	    	$data = DB::table('ad_joboffers');
@@ -388,6 +396,7 @@ class advancedSearchController extends Controller
 
 		else if ($idSousCat == '54'){
 
+			$state = 'show';
 			$dataSelected = domainemploi::all();
     		
 	    	$data = DB::table('ad_jobapplications');
@@ -492,9 +501,9 @@ class advancedSearchController extends Controller
 		  }
 
 		  if($cat == ''){
-			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'orderSelected'=>$orderSelected]);
+			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'catégorie'=>'sousCatégorie','idSousCat'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'orderSelected'=>$orderSelected,'state'=>$state]);
 		  } else {
-			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'filter'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'catégorie'=>$cat,'orderSelected'=>$orderSelected]);
+			return view('categorie',['data'=>$data,'imageAd'=>$imageAd,'filter'=>$filterKey,'idCat'=>$idCat,'search'=>$search,'sousCat'=>$sousCat,'dataSelected'=>$dataSelected,'catégorie'=>$cat,'orderSelected'=>$orderSelected,'state'=>$state]);
 		  }
 
         

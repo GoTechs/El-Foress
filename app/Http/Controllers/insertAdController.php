@@ -287,8 +287,6 @@ class insertAdController extends Controller
 
         if($request->hasfile('fileToUpload'))
         {
-            //Delete Those there exist
-
             $result = DB::table('imageads')->where('id_annonce', '=', $id)->get();
 
             $nbrePicture = $result->count();
@@ -307,7 +305,6 @@ class insertAdController extends Controller
                 $currentDate = date('YmdHis');
                 $name = $currentDate.$name;
 
-                //Upload File to s3
                 Storage::disk('s3')->put($name, file_get_contents($image), 'public');
 
                 $fileModel = new imagead();
