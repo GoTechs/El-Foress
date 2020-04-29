@@ -55,7 +55,7 @@ $factory->define(annonce::class, function (Faker $faker) {
         'phoneHide' => 0,
         'id_Cat' => $idCat, 
         'id_sous_Cat' => $idSubCat,
-        'id_user' => factory(\App\Models\Users::class)->create(),
+        'id_user' => factory(\App\Users::class)->create(),
         'wilaya' => "Oran",
         'stateAd' => 1,
         'nameTable' => $nameTable,

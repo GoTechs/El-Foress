@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\annonce;
-use App\Models\Users;
+use App\Users;
 use App\Models\categories;
 use App\Models\adEvent;
 use App\Models\adJoboffer;

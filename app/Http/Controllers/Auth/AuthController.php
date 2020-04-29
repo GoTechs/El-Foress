@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\Users;
+use App\Users;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
 

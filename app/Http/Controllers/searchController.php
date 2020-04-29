@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Analytics;
 use Spatie\Analytics\Period;
 use App\Models\annonce;
-use App\Models\Users;
+use App\Users;
 use App\Models\categories;
 use App\Models\adEvent;
 use App\Models\adJoboffer;
