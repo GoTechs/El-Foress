@@ -591,6 +591,33 @@
     .btn-filter {
         display: block !important;
         margin-bottom: 25px;
+
+    }
+
+    .btn-filter::after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e081";
+        position: absolute;
+        right: 15px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 300;
+        top: 50%;
+        line-height: 10px;
+        margin-top: -5px;
+    }
+
+    .inner-box button[aria-expanded="true"]::after, .inner-box button[aria-expanded="  true"]::after {
+        content: "\e082";
+        font-family: 'Glyphicons Halflings';
+        position: absolute;
+        right: 15px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 300;
+        top: 50%;
+        line-height: 10px;
+        margin-top: -5px;
     }
 
     .title {
