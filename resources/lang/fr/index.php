@@ -23,6 +23,6 @@ return [
     'most_visited_ad' => 'Populaire dans Acheter et Vendre',
     'number_visitors' => 'Nombre de visiteurs',
     'number_ads' => 'Nombre d\'annonces',
-    'ads_premium' => 'Annonces Premium',
+    'ads_vip' => 'Annonces VIP',
 
 ];

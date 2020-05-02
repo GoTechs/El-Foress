@@ -391,7 +391,7 @@
           </div>
           <div class="desc">
             <h3 class="counter">150</h3>
-            <p>{{__('index.ads_premium')}}</p>
+            <p>{{__('index.ads_vip')}}</p>
           </div>
         </div>
       </div>
