@@ -118,15 +118,14 @@
                   <p class="mb15">{{$annonce->description}}</p>
                   <ul class="list-circle">
                     @if ($categorie == '3')
-
-                    <li id="details-description">{{__('details.type_property_info')}} :
-                      {{$result->typeBien ? $result->typeBien : '-' }}</li>
-                    <li id="details-description"> {{__('details.surface_info')}} :
-                      {{$result->superficie ? $result->superficie  : '-' }}</li>
-                    <li id="details-description"> {{__('details.number_piece_info')}} :
-                      {{$result->nbrePiece ? $result->nbrePiece  : '-' }}</li>
-                    <li id="details-description">{{__('details.etage_info')}} :
-                      {{$result->etage ? $result->etage : '-' }}</li>
+                    <li id="details-description">
+                      {{$result->typeBien ? __('details.type_property_info').' : '.$result->typeBien : '' }}</li>
+                    <li id="details-description">
+                      {{$result->superficie ? __('details.surface_info'). ' : ' .$result->superficie  : '' }}</li>
+                    <li id="details-description">
+                      {{$result->nbrePiece ? __('details.number_piece_info').' : '.$result->nbrePiece  : '' }}</li>
+                    <li id="details-description">
+                      {{$result->etage ? __('details.etage_info').' : '.$result->etage : '' }}</li>
 
                     @elseif ($sousCategorie == '2')
 
