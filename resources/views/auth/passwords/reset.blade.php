@@ -18,12 +18,6 @@
                 @endif
               <form role="form" class="login-form" method="POST" action="{{ route('password.reset') }}" id="form">
                 @csrf
-                <!--<div class="form-group">
-                  <div class="input-icon">
-                    <i class="icon fa fa-user"></i>
-                    <input type="text" id="sender-email" class="form-control" name="email" placeholder="E-mail">
-                  </div>
-                </div> -->
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
