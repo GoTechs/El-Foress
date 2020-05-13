@@ -8,12 +8,11 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta property="og:url" content="https://elforess.com" />
-  <meta property="og:title" content="Notre mission vous simplifier la vie" />
-  <meta property="og:description" content="Nous sommes ravis de vous annoncer le lancement d’un nouveau site de petites annonces FORESS.
-                                            يسرنا أن نقدم عرض موقعنا الجديد للإعلانات عبر الإنترنت." />
+  <meta property="og:title" content="Nouveau site des Petites Annonces en ligne en Algerie 🇩🇿" />
+  <meta property="og:description" content="Elforess est un site d'annonces gratuites où vous pouvez vendre et acheter presque tout ce que vous voulez près de chez vous. 🎉" />
   <meta property="og:image"
     content="https://foress.s3.ca-central-1.amazonaws.com/86802845_111902887060803_4137310999457824768_o.jpg" />
-  <title>{{__('layout.name_app')}} - {{__('layout.description_page')}} </title>
+  <title>Nouveau site des Petites Annonces en ligne en Algerie 🇩🇿 </title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">

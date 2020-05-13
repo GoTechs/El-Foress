@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "Elforess",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Site des petites annnonces",
     "keywords": [
         "framework",
         "laravel"
