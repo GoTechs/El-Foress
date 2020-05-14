@@ -927,7 +927,6 @@ select>opation:focus {
    ========================================================================== */
 
 .category-box {
-    background-color: #fff;
     margin: 30px 0;
     height: 280px;
     box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -996,15 +995,56 @@ select>opation:focus {
     margin-top: 10px;
     width: 100%;
 }
+.category-content {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover !important;
+    height: 69%;
+}
+#car-category-content {
+    background: url('https://images.pexels.com/photos/804130/pexels-photo-804130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')  no-repeat  center ; 
+}
+#immobilier-category-content {
+    background: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80') no-repeat center ; 
+}
+#boutique-category-content {
+    background: url('https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center ; 
+}
+#emplois-category-content {
+    background: url('https://images.unsplash.com/photo-1476231790875-016a80c274f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') no-repeat center ; 
+}
+#informatique-category-content {
+    background: url('https://images.pexels.com/photos/4316/technology-computer-chips-gigabyte.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center ; 
+}
+#electromenager-category-content {
+    background: url('https://images.pexels.com/photos/3637728/pexels-photo-3637728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center ; 
+}
+#communaute-category-content {
+    background: url('https://images.unsplash.com/photo-1522543558187-768b6df7c25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') no-repeat center ; 
+}
+#services-category-content {
+    background: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') no-repeat center ; 
+}
+#voyages-category-content {
+    background: url('https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center ; 
+}
+#animaux-category-content {
+    background: url('https://images.pexels.com/photos/1056467/pexels-photo-1056467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center ; 
+}
 
 .category-box .category-content li a {
     float: left;
-    color: #888;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 2px 10px;
+    background-color: rgba(55,51,115,.75);
     margin-left: 15px;
 }
 
 .category-box .category-content li a:hover {
-    color: #3498db;
+    background-color: rgba(222, 221, 235, 0.75);
+    color: #5E16EB;
 }
 
 .category-box .category-counter {

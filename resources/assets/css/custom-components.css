@@ -300,14 +300,6 @@ select > opation:focus {
   margin-top: 10px;
   width: 100%;
 }
-.category-box .category-content li a {
-  float: left;
-  color: #888;
-  margin-left: 15px;
-}
-.category-box .category-content li a:hover {
-  color: #3498db;
-}
 .category-box .category-counter {
   margin-right: 15px;
 }

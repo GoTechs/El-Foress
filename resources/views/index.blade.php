@@ -26,12 +26,12 @@
                 <h4>{{__('index.category_car')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="car-category-content">
               <ul>
                 @foreach ($categorie as $cat)
 
                 @break($cat->sousCat == 'Motos - Scooters')
-                @if ($cat->categories == 'Véhicules' and $cat->sousCat <> 'Autres')
+                @if ($cat->categories == 'Véhicules' and $cat->sousCat <> 'Autres' and $cat->sousCat <> 'Engin') 
                   <li>
                     <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
                     <sapn class="category-counter"></sapn>
@@ -56,7 +56,7 @@
                 <h4>{{__('index.category_real_estat')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="immobilier-category-content">
               <ul>
                 @foreach ($categorie as $cat)
                 @if ($cat->categories == 'Immobiliers')
@@ -81,7 +81,7 @@
                 <h4>{{__('index.category_shop')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="boutique-category-content">
               <ul>
                 @foreach ($categorie as $cat)
                 @if ($cat->categories == 'Boutiques' and $cat->sousCat <> 'Autres')
@@ -109,7 +109,7 @@
                 <h4>{{__('index.category_job')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="emplois-category-content">
               <ul>
                 @foreach ($categorie as $cat)
                 @if ($cat->categories == 'Emplois')
@@ -134,7 +134,7 @@
                 <h4>{{__('index.category_computer_science')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="informatique-category-content">
               <ul>
                 @foreach ($categorie as $cat)
                 @if ($cat->categories == 'Matériel informatique' and $cat->sousCat <> 'Autres')
@@ -162,7 +162,7 @@
                 <h4>{{__('index.category_house_hold')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="electromenager-category-content">
               <ul>
                 @foreach ($categorie as $cat)
                 @if ($cat->categories == 'Électroménager' and $cat->sousCat <> 'Autres')
@@ -191,7 +191,7 @@
                 <h4>{{__('index.category_community')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="communaute-category-content">
               <ul>
                 @foreach ($categorie as $cat)
                 @if ($cat->categories == 'Communauté' and $cat->sousCat <> 'Autres')
@@ -220,10 +220,10 @@
                 <h4>{{__('index.category_service')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="services-category-content">
               <ul>
                 @foreach ($categorie as $cat)
-                @if ($cat->categories == 'Services' and $cat->sousCat <> 'Autres')
+                @if ($cat->categories == 'Services' and $cat->sousCat <> 'Autres' and $cat->sousCat <> 'Transport')
                   <li>
                     <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
                     <sapn class="category-counter"></sapn>
@@ -250,7 +250,7 @@
                 <h4>{{__('index.category_travel')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="voyages-category-content">
               <ul>
                 @foreach ($categorie as $cat)
                 @if ($cat->categories == 'Voyages' and $cat->sousCat <> 'Autres')
@@ -277,10 +277,10 @@
                 <h4>{{__('index.category_animals')}}</h4>
               </a>
             </div>
-            <div class="category-content">
+            <div class="category-content" id="animaux-category-content">
               <ul>
                 @foreach ($categorie as $cat)
-                @if ($cat->categories == 'Animaux' and $cat->sousCat <> 'Autres')
+                @if ($cat->categories == 'Animaux' and $cat->sousCat <> 'Autres' and $cat->sousCat <> 'Accessoires' and $cat->sousCat <> 'Animaux de ferme')
                   <li>
                     <a href="/search/{{$cat->idCat}}/{{$cat->idSousCat}}">{{$cat->sousCat}}</a>
                     <sapn class="category-counter"></sapn>
