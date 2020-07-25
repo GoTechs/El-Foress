@@ -12,12 +12,12 @@
             {{__('authentication.register_description')}}
           </h3>
 
-          <a class="btn btn-block btn-facebook" href="redirect/facebook">
+          <a class="btn btn-block btn-facebook" href="/redirect/facebook">
             <span class="fa fa-facebook fa-fw"></span>
             S'inscrire avec <strong>Facebook</strong>
           </a>
 
-          <a class="btn btn-block btn-google" href="redirect/google">
+          <a class="btn btn-block btn-google" href="/redirect/google">
             <span class="fa fa-google fa-fw"></span>
             S'inscrire avec <strong>Google</strong>
           </a>
