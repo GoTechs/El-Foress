@@ -8,11 +8,11 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta property="og:url" content="https://elforess.com" />
-  <meta property="og:title" content="Nouveau site des Petites Annonces en ligne en Algerie 🇩🇿" />
-  <meta property="og:description" content="Elforess est un site d'annonces gratuites où vous pouvez vendre et acheter presque tout ce que vous voulez près de chez vous. 🎉" />
+  <meta property="og:title" content="Acheter et vendre sur le site de petites annonces no 1 en algerie" />
+  <meta property="og:description" content="Visiter ELFORESS pour Achetez une auto, trouvez un emploi, une maison ou un appartement, des meubles, appareils électroménagers et plus! GRATUITEMNET et Partout en ALGERIE" />
   <meta property="og:image"
     content="https://foress.s3.ca-central-1.amazonaws.com/86802845_111902887060803_4137310999457824768_o.jpg" />
-  <title>Nouveau site des Petites Annonces en ligne en Algerie 🇩🇿 </title>
+  <title>Acheter et vendre sur le site de petites annonces no 1 en algerie </title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{asset('img/favicon-32x32.png')}}">
@@ -23,6 +23,8 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css"></noscript>
   <script data-ad-client="ca-pub-1306736710058227" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/db0a0cd8da08aa292892e30f8/c286cd76d9edade85795206c6.js");</script>
 
 </head>
 
