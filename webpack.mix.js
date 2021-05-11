@@ -14,6 +14,8 @@ const mix = require('laravel-mix');
 // mix.js('resources/js/app.js', 'public/js')
 //     .sass('resources/sass/app.scss', 'public/css');
 
+// TODO fix the imported files
+
 mix.combine([
 	'resources/assets/css/blogpage.css',
     'resources/assets/css/bootstrap.min.css',
@@ -43,8 +45,8 @@ mix.combine([
     'resources/assets/js/lib/material-kit.js',
     'resources/assets/js/lib/jquery.parallax.js',
     'resources/assets/js/lib/wow.js',
-    'resources/assets/js/main.js',
-    'resources/assets/js/actions.js',
+    'resources/js/main.js',
+    'resources/actions.js',
     'resources/assets/js/lib/jquery.counterup.min.js',
     'resources/assets/js/lib/waypoints.min.js',
     'resources/assets/js/lib/jasny-bootstrap.min.js',    
